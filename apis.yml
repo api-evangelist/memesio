@@ -1,0 +1,25 @@
+aid: memesio
+url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml
+name: Memesio
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+description: 'Meme creation and sharing service with public template discovery and image generation API.'
+created: '2026-05-16'
+modified: '2026-05-16'
+specificationVersion: '0.19'
+tags:
+  - Memes
+  - Media
+  - Image Generation
+  - Content
+  - Developer Tools
+
+common:
+  - url: https://memesio.com/
+    type: Website
+  - url: https://memesio.com/developers/api
+    type: Documentation
+  - url: https://memesio.com/api/openapi
+    type: APIsJSON
+url-source: https://memesio.com/
+apis: []
