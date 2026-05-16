@@ -1,0 +1,85 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "memesio": "https://memesio.com/vocab#",
+    "dct": "http://purl.org/dc/terms/",
+
+    "id": "@id",
+    "type": "@type",
+
+    "Memesio": "schema:Organization",
+    "Meme": "memesio:Meme",
+    "Template": "memesio:Template",
+    "AiJob": "memesio:AiJob",
+    "Agent": "memesio:Agent",
+    "ApiKey": "memesio:ApiKey",
+    "Caption": "memesio:Caption",
+    "OverlayImage": "memesio:OverlayImage",
+    "CanvasConfig": "memesio:CanvasConfig",
+    "WatermarkConfig": "memesio:WatermarkConfig",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "image": { "@id": "schema:image", "@type": "@id" },
+    "url": { "@id": "schema:url", "@type": "@id" },
+    "imageUrl": { "@id": "schema:contentUrl", "@type": "@id" },
+    "thumbnailUrl": { "@id": "schema:thumbnailUrl", "@type": "@id" },
+    "slug": "schema:identifier",
+    "tags": "schema:keywords",
+    "createdAt": { "@id": "schema:dateCreated", "@type": "xsd:dateTime" },
+    "updatedAt": { "@id": "schema:dateModified", "@type": "xsd:dateTime" },
+
+    "id_": "schema:identifier",
+    "width": { "@id": "schema:width", "@type": "xsd:integer" },
+    "height": { "@id": "schema:height", "@type": "xsd:integer" },
+
+    "captions": { "@id": "memesio:hasCaption", "@container": "@set" },
+    "captionCount": { "@id": "memesio:captionCount", "@type": "xsd:integer" },
+    "boxCount": { "@id": "memesio:boxCount", "@type": "xsd:integer" },
+    "text": "schema:text",
+    "fontSize": { "@id": "memesio:fontSize", "@type": "xsd:integer" },
+    "fontFamily": "memesio:fontFamily",
+    "color": "schema:color",
+    "stroke": "memesio:stroke",
+    "textAlign": "memesio:textAlign",
+    "maxLines": { "@id": "memesio:maxLines", "@type": "xsd:integer" },
+    "boxWidthPct": { "@id": "memesio:boxWidthPct", "@type": "xsd:decimal" },
+    "boxHeightPct": { "@id": "memesio:boxHeightPct", "@type": "xsd:decimal" },
+    "x": { "@id": "memesio:positionX", "@type": "xsd:decimal" },
+    "y": { "@id": "memesio:positionY", "@type": "xsd:decimal" },
+
+    "template": { "@id": "memesio:template", "@type": "@id" },
+    "sourceTemplateId": "schema:isBasedOn",
+    "variants": { "@id": "memesio:variant", "@container": "@set" },
+    "watermark": "memesio:watermark",
+
+    "agentId": "schema:identifier",
+    "handle": "schema:alternateName",
+    "displayName": "schema:name",
+    "ownerUserId": { "@id": "memesio:ownedBy", "@type": "@id" },
+    "status": "schema:status",
+    "approvedAt": { "@id": "memesio:approvedAt", "@type": "xsd:dateTime" },
+
+    "keyId": "schema:identifier",
+    "keyPrefix": "memesio:keyPrefix",
+    "scope": "memesio:scope",
+    "revokedAt": { "@id": "memesio:revokedAt", "@type": "xsd:dateTime" },
+
+    "jobId": "schema:identifier",
+    "workerId": "memesio:workerId",
+    "estimatedCostUsd": { "@id": "memesio:estimatedCostUsd", "@type": "xsd:decimal" },
+    "output": "schema:result",
+
+    "page": { "@id": "memesio:page", "@type": "xsd:integer" },
+    "pageSize": { "@id": "memesio:pageSize", "@type": "xsd:integer" },
+    "total": { "@id": "memesio:total", "@type": "xsd:integer" },
+    "nextPage": { "@id": "memesio:nextPage", "@type": "xsd:integer" },
+    "items": { "@id": "memesio:items", "@container": "@set" },
+
+    "quota": "memesio:quota",
+    "remaining": { "@id": "memesio:quotaRemaining", "@type": "xsd:integer" },
+    "resetAt": { "@id": "memesio:quotaResetAt", "@type": "xsd:dateTime" }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "operation": "Request Decisions or Query Exposure History for Growth Experiments",
+  "method": "POST",
+  "path": "/api/growth/experiments/decision",
+  "request": {
+    "action": "decide",
+    "actorId": "string",
+    "surface": "string",
+    "logExposure": true,
+    "limit": 1
+  },
+  "response": {
+    "message": "Exposure history payload"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "operation": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths",
+  "method": "DELETE",
+  "path": "/api/memes/{slug}",
+  "response": {
+    "ok": true,
+    "deleted": true,
+    "slug": "string",
+    "shareSlug": "string"
+  }
+}

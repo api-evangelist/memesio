@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-deletememeresponse-structure.json",
+  "name": "DeleteMemeResponse",
+  "description": "JSON Schema for Memesio DeleteMemeResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "ok",
+    "deleted",
+    "slug",
+    "shareSlug"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "shareSlug": {
+      "type": "string"
+    }
+  }
+}

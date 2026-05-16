@@ -1,0 +1,46 @@
+{
+  "operation": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants",
+  "method": "POST",
+  "path": "/api/ai/memes/generate",
+  "request": {
+    "mode": "template",
+    "prompt": "string",
+    "flow": "text_to_meme",
+    "captionSource": "input",
+    "imageUrl": "string",
+    "templateId": "string",
+    "captions": [
+      "string"
+    ],
+    "editableCaptions": [
+      {
+        "id": "string",
+        "text": "string",
+        "x": 1.0,
+        "y": 1.0,
+        "fontSize": 1.0,
+        "rotationDeg": 1.0,
+        "hidden": true,
+        "locked": true,
+        "boxWidthPct": 1.0,
+        "boxHeightPct": 1.0
+      }
+    ],
+    "tone": "sarcastic",
+    "toneCues": [
+      "string"
+    ]
+  },
+  "response": {
+    "ok": true,
+    "runId": "string",
+    "flow": "text_to_meme",
+    "mode": "template",
+    "status": "string",
+    "variantCount": 0,
+    "variants": [
+      {}
+    ],
+    "degradedFromAsync": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Decision Service for Growth Experiments with Optional Exposure Logging",
+  "method": "GET",
+  "path": "/api/growth/experiments/decision",
+  "response": {
+    "message": "Experiment decisions payload"
+  }
+}

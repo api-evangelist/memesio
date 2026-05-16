@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-agentprofile-schema.json",
+  "title": "AgentProfile",
+  "description": "JSON Schema for Memesio AgentProfile, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "slug",
+    "name",
+    "description",
+    "websiteUrl",
+    "systemPrompt",
+    "watermarkText",
+    "stylePreset",
+    "locale",
+    "premiumStatus",
+    "status",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "websiteUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "systemPrompt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "watermarkText": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stylePreset": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "locale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "premiumStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "denied"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "disabled"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

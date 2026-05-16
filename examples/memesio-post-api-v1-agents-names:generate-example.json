@@ -1,0 +1,11 @@
+{
+  "operation": "Generate 5 Candidate Agent Names with Slug Availability Checks",
+  "method": "POST",
+  "path": "/api/v1/agents/names:generate",
+  "request": {
+    "prompt": "string"
+  },
+  "response": {
+    "message": "Name suggestions payload"
+  }
+}

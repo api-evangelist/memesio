@@ -1,0 +1,33 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://memesio.com/api/v1/memes/caption-template",
+    "headers": {
+      "Content-Type": "application/json",
+      "x-agent-api-key": "ak_live_xxx"
+    },
+    "body": {
+      "templateId": "bernie-sanders-once-again-asking",
+      "captions": [
+        {
+          "id": "text_1",
+          "text": "I AM ONCE AGAIN ASKING FOR THE WI-FI PASSWORD"
+        }
+      ],
+      "watermark": {
+        "enabled": true,
+        "position": "bottom-right"
+      }
+    }
+  },
+  "response": {
+    "slug": "wifi-password-meme",
+    "url": "https://memesio.com/m/wifi-password-meme",
+    "imageUrl": "https://cdn.memesio.com/memes/wifi-password-meme.jpg",
+    "template": {
+      "id": "bernie-sanders-once-again-asking",
+      "name": "Bernie Sanders Once Again Asking"
+    },
+    "createdAt": "2026-05-16T17:00:00Z"
+  }
+}

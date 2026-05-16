@@ -1,0 +1,8 @@
+{
+  "operation": "Run or Retrieve Face-Swap Provider Benchmark and Recommendation",
+  "method": "GET",
+  "path": "/api/ai/providers/face-swap-benchmark",
+  "response": {
+    "message": "Face-swap provider benchmark report"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "operation": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+  "method": "POST",
+  "path": "/api/alerts/delivery",
+  "request": {
+    "deliverAllAlerts": true,
+    "channels": [
+      "in_app_inbox"
+    ]
+  },
+  "response": {
+    "message": "Trend alert delivery execution payload"
+  }
+}

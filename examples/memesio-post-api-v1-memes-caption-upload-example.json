@@ -1,0 +1,22 @@
+{
+  "operation": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+  "method": "POST",
+  "path": "/api/v1/memes/caption-upload",
+  "response": {
+    "ok": true,
+    "data": {
+      "slug": "string",
+      "shareSlug": "string",
+      "templateSlug": "string",
+      "title": "string",
+      "visibility": "private",
+      "sourceImageUrl": "string",
+      "imageUrl": "string",
+      "canonicalImageUrl": "string",
+      "altText": "string",
+      "tags": [
+        "string"
+      ]
+    }
+  }
+}

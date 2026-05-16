@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-freetemplatesearchresponse-schema.json",
+  "title": "FreeTemplateSearchResponse",
+  "description": "JSON Schema for Memesio FreeTemplateSearchResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "items",
+    "total",
+    "nextPage",
+    "page",
+    "pageSize"
+  ],
+  "properties": {
+    "searchMode": {
+      "type": "string",
+      "enum": [
+        "lexical",
+        "hybrid"
+      ]
+    },
+    "fallbackApplied": {
+      "type": "boolean"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "sourceTemplateId",
+          "slug",
+          "name",
+          "description",
+          "imageUrl",
+          "width",
+          "height",
+          "captionCount",
+          "boxCount",
+          "captions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sourceTemplateId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "slug": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "width": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "height": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "captionCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "boxCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "captions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "text",
+                "x",
+                "y",
+                "fontSize"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "fontSize": {
+                  "type": "number"
+                },
+                "rotationDeg": {
+                  "type": "number"
+                },
+                "hidden": {
+                  "type": "boolean"
+                },
+                "locked": {
+                  "type": "boolean"
+                },
+                "boxWidthPct": {
+                  "type": "number"
+                },
+                "boxHeightPct": {
+                  "type": "number"
+                },
+                "paddingPct": {
+                  "type": "number"
+                },
+                "maxLines": {
+                  "type": "integer"
+                },
+                "lineHeight": {
+                  "type": "number"
+                },
+                "backgroundEnabled": {
+                  "type": "boolean"
+                },
+                "backgroundColor": {
+                  "type": "string"
+                },
+                "backgroundOpacity": {
+                  "type": "number"
+                },
+                "letterSpacingEm": {
+                  "type": "number"
+                },
+                "shadowStrength": {
+                  "type": "number"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "stroke": {
+                  "type": "string"
+                },
+                "fontFamily": {
+                  "type": "string",
+                  "enum": [
+                    "impact",
+                    "arial"
+                  ]
+                },
+                "textAlign": {
+                  "type": "string",
+                  "enum": [
+                    "left",
+                    "center",
+                    "right"
+                  ]
+                },
+                "semanticRole": {
+                  "type": "string",
+                  "enum": [
+                    "setup",
+                    "contrast",
+                    "punchline",
+                    "reaction",
+                    "label"
+                  ]
+                },
+                "preferredCase": {
+                  "type": "string",
+                  "enum": [
+                    "uppercase",
+                    "sentence",
+                    "title",
+                    "preserve"
+                  ]
+                },
+                "exampleText": {
+                  "type": "string"
+                },
+                "recommendedWordsMin": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "recommendedWordsMax": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "recommendedCharsMin": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "recommendedCharsMax": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nextPage": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pageSize": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "operation": "Create Email/Password Account and Send Verification Email",
+  "method": "POST",
+  "path": "/api/auth/signup",
+  "request": {
+    "email": "user@example.com",
+    "password": "string",
+    "displayName": "string"
+  },
+  "response": {
+    "message": "Account created and verification sent"
+  }
+}

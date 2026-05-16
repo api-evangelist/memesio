@@ -1,0 +1,8 @@
+{
+  "operation": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+  "method": "GET",
+  "path": "/api/analytics/dashboards/backend-reliability",
+  "response": {
+    "message": "Backend reliability dashboard + metrics snapshot payload"
+  }
+}

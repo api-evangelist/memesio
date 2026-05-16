@@ -1,0 +1,12 @@
+{
+  "operation": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+  "method": "POST",
+  "path": "/api/ai/face-targets",
+  "request": {
+    "sourceImageUrl": "string",
+    "maxFaces": 1.0
+  },
+  "response": {
+    "message": "Face target detection payload"
+  }
+}

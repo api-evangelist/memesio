@@ -1,0 +1,8 @@
+{
+  "operation": "Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)",
+  "method": "GET",
+  "path": "/api/analytics/dashboards/feature-adoption",
+  "response": {
+    "message": "Dashboard spec payload"
+  }
+}

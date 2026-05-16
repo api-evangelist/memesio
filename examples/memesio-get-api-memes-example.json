@@ -1,0 +1,14 @@
+{
+  "operation": "List Hosted Memes with Canonical Share Metadata",
+  "method": "GET",
+  "path": "/api/memes",
+  "response": {
+    "items": [
+      {}
+    ],
+    "total": 0,
+    "nextPage": 1,
+    "page": 1,
+    "pageSize": 1
+  }
+}

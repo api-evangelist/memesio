@@ -1,0 +1,8 @@
+{
+  "operation": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring",
+  "method": "GET",
+  "path": "/api/alerts/ingestion",
+  "response": {
+    "message": "Trend ingestion output payload"
+  }
+}

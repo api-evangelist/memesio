@@ -1,0 +1,8 @@
+{
+  "operation": "Resend Email Verification Link",
+  "method": "POST",
+  "path": "/api/auth/resend-verification",
+  "response": {
+    "message": "Verification email sent"
+  }
+}

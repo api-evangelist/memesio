@@ -1,0 +1,20 @@
+{
+  "operation": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+  "method": "POST",
+  "path": "/api/ai/face-swap",
+  "request": {
+    "sourceAssetUrl": "string",
+    "targetAssetUrl": "string",
+    "mediaType": "image",
+    "width": 1.0,
+    "height": 1.0,
+    "detectedFaceCount": 1.0,
+    "sourceFaceIndex": 1.0,
+    "targetFaceIndex": 1.0,
+    "frameTimeMs": 1.0,
+    "consentAttested": true
+  },
+  "response": {
+    "message": "Real-time face swap completed"
+  }
+}

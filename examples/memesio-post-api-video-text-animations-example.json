@@ -1,0 +1,17 @@
+{
+  "operation": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+  "method": "POST",
+  "path": "/api/video/text-animations",
+  "request": {
+    "action": "preview",
+    "presetId": "string",
+    "startMs": 1.0,
+    "durationMs": 1.0,
+    "intensity": 1.0,
+    "projectId": "string",
+    "trackId": "string"
+  },
+  "response": {
+    "message": "Preview keyframes payload"
+  }
+}

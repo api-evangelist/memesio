@@ -1,0 +1,25 @@
+{
+  "operation": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+  "method": "POST",
+  "path": "/api/growth/lifecycle-messaging",
+  "request": {
+    "action": "preview",
+    "now": "2026-05-16T12:00:00Z",
+    "limit": 1,
+    "profiles": [
+      {
+        "actorId": "string",
+        "planTier": "free",
+        "createdAt": "2026-05-16T12:00:00Z",
+        "lastActiveAt": "2026-05-16T12:00:00Z",
+        "publishes7d": 0,
+        "aiJobs7d": 0,
+        "monthlyCreditsUsed": 1.0,
+        "monthlyCreditsLimit": 1.0
+      }
+    ]
+  },
+  "response": {
+    "message": "Preview/history payload"
+  }
+}

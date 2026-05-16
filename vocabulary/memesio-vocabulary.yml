@@ -1,0 +1,169 @@
+vocabulary: Memesio
+version: 0.1.0
+description: >
+  Operational vocabulary mapping the concepts, services, tools, and standards
+  used by Memesio (https://memesio.com). Captures the surface exposed by the
+  Memesio API Contracts v0.1.0 (https://memesio.com/api/openapi) and the
+  Memesio Meme Generator MCP server card
+  (https://memesio.com/.well-known/mcp/server-card.json).
+created: '2026-05-16'
+modified: '2026-05-16'
+
+concepts:
+  - id: meme
+    label: Meme
+    description: A hosted, captioned image (or video) produced from a template, an upload, or AI generation.
+    related: [template, caption, watermark]
+
+  - id: template
+    label: Template
+    description: A reusable meme template image with caption box geometry, recommended caption lengths, and font defaults.
+    related: [meme, caption-box]
+
+  - id: caption
+    label: Caption
+    description: Text rendered onto a template's caption box, with positioning, font, color, and alignment.
+
+  - id: caption-box
+    label: Caption Box
+    description: A rectangular region on a template where caption text is rendered, with bounded width/height percentages.
+
+  - id: ai-job
+    label: AI Job
+    description: An asynchronous AI work item (caption generation, face swap, background remove, meme generation) tracked through submit/cancel/complete lifecycle.
+    related: [ai-quota, ai-provider]
+
+  - id: ai-quota
+    label: AI Quota
+    description: Per-actor daily allowance for AI meme/caption generation. Baseline is 3/day for developer and agent keys; approval-gated boosts available.
+
+  - id: ai-provider
+    label: AI Provider
+    description: A backend model/vendor used by Memesio for AI capabilities, benchmarked for face-swap and background-remove.
+
+  - id: agent
+    label: Agent
+    description: An autonomous identity owning Memesio API keys, scoped permissions, and bound channels (Telegram, WhatsApp).
+    related: [api-key, channel]
+
+  - id: api-key
+    label: API Key
+    description: A scoped, revocable credential. "Developer keys" are human-owned with rotation; "agent keys" are bound to autonomous identities.
+
+  - id: channel
+    label: Channel
+    description: An outbound or inbound channel an agent can be bound to (Telegram, WhatsApp webhooks).
+
+  - id: trend-alert
+    label: Trend Alert
+    description: A signal that a meme trend is rising, surfaced via the alerts pipeline with ranking, feedback, delivery, and quality reporting.
+
+  - id: trend-campaign
+    label: Trend Campaign
+    description: A growth campaign capitalizing on a detected trend, with viral triggers and lifecycle messaging.
+
+  - id: watermark
+    label: Watermark
+    description: Branding overlay applied to memes. Anonymous/free outputs carry a default watermark; premium accounts can customize.
+
+  - id: content-policy
+    label: Content Policy
+    description: The compliance contract for face-swap consent, celebrity detection, and NSFW handling. Versioned and queryable.
+
+  - id: video-meme
+    label: Video Meme
+    description: A meme rendered as video, supporting timelines, subtitles, text animations, and an audio library.
+
+  - id: face-swap
+    label: Face Swap
+    description: Replacing faces in an image. Gated by consent attestation and celebrity confidence policy.
+
+  - id: background-remove
+    label: Background Remove
+    description: Removing or replacing the background of an uploaded image as part of a meme composition.
+
+  - id: tone-preset
+    label: Tone Preset
+    description: A reusable caption tone (e.g. dry, hype, brand-safe) applied during caption generation and rewriting.
+
+services:
+  - id: memesio-api
+    label: Memesio API
+    base_url: https://memesio.com/api
+    openapi: https://memesio.com/api/openapi
+    description: Public REST API.
+
+  - id: memesio-mcp
+    label: Memesio MCP Server
+    base_url: https://memesio.com/api/mcp
+    description: Hosted MCP server (streamable-http transport) exposing meme creation tools to AI assistants.
+
+  - id: memesio-editor
+    label: Memesio Editor
+    base_url: https://memesio.com/
+    description: First-party hosted meme editor (session auth).
+
+tools:
+  - id: editor-ui
+    label: Hosted Editor UI
+    description: Browser-based meme editor.
+  - id: mcp-tools
+    label: MCP Tools (7)
+    description: create_agent_account, search_templates, get_template_ideas, caption_template, caption_upload, generate_meme, get_ai_quota.
+  - id: api-clients
+    label: HTTP API
+    description: Direct HTTP integration using the documented OpenAPI contract.
+
+standards:
+  - id: openapi-3-1
+    label: OpenAPI 3.1.0
+    description: API contract format used by Memesio.
+  - id: api-catalog-rfc9727
+    label: RFC 9727 API Catalog
+    url: https://www.rfc-editor.org/info/rfc9727
+    description: Linkset advertising Memesio's API and MCP surfaces at /.well-known/api-catalog.
+  - id: mcp
+    label: Model Context Protocol
+    description: Protocol exposed at /api/mcp via streamable-http.
+  - id: json-schema-2020-12
+    label: JSON Schema 2020-12
+    description: Used in the OpenAPI contract's component schemas.
+
+tags:
+  - Memes
+  - Media
+  - Image Generation
+  - Content
+  - Developer Tools
+  - AI
+  - AI Captions
+  - Templates
+  - Video
+  - Motion
+  - Face Swap
+  - Background Remove
+  - Agents
+  - MCP
+  - Billing
+  - FinOps
+  - Analytics
+  - Trends
+  - Trend Alerts
+  - Moderation
+  - Compliance
+  - Growth
+  - Lifecycle
+  - Channels
+  - Distribution
+  - Public Free
+  - Developer API
+  - Observability
+  - Performance
+  - Personalization
+  - Experimentation
+  - Marketing Ops
+  - Data Eng
+  - Data Ops
+  - Data Science
+  - Agent Infra
+  - Platform

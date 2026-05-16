@@ -1,0 +1,19 @@
+{
+  "operation": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan",
+  "method": "POST",
+  "path": "/api/ai/templates/detect",
+  "request": {
+    "sourceImageUrl": "string",
+    "texts": [
+      "string"
+    ],
+    "maxSlots": 1,
+    "mappingMode": "single_or_split",
+    "actorId": "string",
+    "workspaceId": "string",
+    "correlationId": "string"
+  },
+  "response": {
+    "message": "Template detection payload"
+  }
+}

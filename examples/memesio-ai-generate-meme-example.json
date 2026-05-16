@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://memesio.com/api/v1/memes/generate",
+    "headers": {
+      "Content-Type": "application/json",
+      "x-agent-api-key": "ak_live_xxx"
+    },
+    "body": {
+      "prompt": "Devs on Monday morning",
+      "variants": 3,
+      "tone": "self-deprecating",
+      "locale": "en"
+    }
+  },
+  "response": {
+    "status": "succeeded",
+    "variants": [
+      {
+        "templateId": "this-is-fine",
+        "slug": "monday-morning-this-is-fine",
+        "imageUrl": "https://cdn.memesio.com/memes/monday-morning-this-is-fine.jpg"
+      },
+      {
+        "templateId": "drake",
+        "slug": "monday-morning-drake",
+        "imageUrl": "https://cdn.memesio.com/memes/monday-morning-drake.jpg"
+      },
+      {
+        "templateId": "distracted-boyfriend",
+        "slug": "monday-morning-distracted",
+        "imageUrl": "https://cdn.memesio.com/memes/monday-morning-distracted.jpg"
+      }
+    ],
+    "quota": {
+      "remaining": 2,
+      "resetAt": "2026-05-17T00:00:00Z"
+    }
+  }
+}

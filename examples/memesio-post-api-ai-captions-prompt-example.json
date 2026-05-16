@@ -1,0 +1,8 @@
+{
+  "operation": "Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)",
+  "method": "POST",
+  "path": "/api/ai/captions/prompt",
+  "response": {
+    "message": "Caption prompt payload"
+  }
+}

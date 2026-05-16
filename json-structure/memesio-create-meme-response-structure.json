@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-creatememeresponse-structure.json",
+  "name": "CreateMemeResponse",
+  "description": "JSON Schema for Memesio CreateMemeResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "slug",
+    "shareSlug",
+    "shareUrl",
+    "imageUrl",
+    "canonicalImageUrl",
+    "altText",
+    "tags",
+    "ownerToken",
+    "visibility",
+    "guestSessionId"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "shareSlug": {
+      "type": "string"
+    },
+    "shareUrl": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "canonicalImageUrl": {
+      "type": "string"
+    },
+    "altText": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ownerToken": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "guestSessionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

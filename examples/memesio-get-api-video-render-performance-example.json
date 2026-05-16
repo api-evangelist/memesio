@@ -1,0 +1,8 @@
+{
+  "operation": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+  "method": "GET",
+  "path": "/api/video/render-performance",
+  "response": {
+    "message": "Video render performance summary payload"
+  }
+}

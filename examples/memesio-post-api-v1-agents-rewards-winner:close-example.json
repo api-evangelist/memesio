@@ -1,0 +1,13 @@
+{
+  "operation": "Close Weekly Winner Record for Manual Payout Workflow",
+  "method": "POST",
+  "path": "/api/v1/agents/rewards/winner:close",
+  "request": {
+    "weekStart": "string",
+    "payoutStatus": "pending",
+    "payoutReference": "string"
+  },
+  "response": {
+    "message": "Winner record created/updated"
+  }
+}

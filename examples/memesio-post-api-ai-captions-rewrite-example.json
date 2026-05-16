@@ -1,0 +1,8 @@
+{
+  "operation": "Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview",
+  "method": "POST",
+  "path": "/api/ai/captions/rewrite",
+  "response": {
+    "message": "Caption rewrite payload"
+  }
+}

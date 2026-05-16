@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-freememewatermark-structure.json",
+  "name": "FreeMemeWatermark",
+  "description": "Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.",
+  "type": "object",
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string",
+      "maxLength": 64
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right"
+      ]
+    },
+    "scale": {
+      "type": "double",
+      "minimum": 0.6,
+      "maximum": 3
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Get Content and Face-Swap Usage Policy with Enforcement Points",
+  "method": "GET",
+  "path": "/api/compliance/content-policy",
+  "response": {
+    "message": "Content usage policy payload"
+  }
+}

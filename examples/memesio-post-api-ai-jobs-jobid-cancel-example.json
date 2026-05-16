@@ -1,0 +1,11 @@
+{
+  "operation": "Cancel AI Job",
+  "method": "POST",
+  "path": "/api/ai/jobs/{jobId}/cancel",
+  "request": {
+    "reason": "string"
+  },
+  "response": {
+    "message": "Canceled"
+  }
+}

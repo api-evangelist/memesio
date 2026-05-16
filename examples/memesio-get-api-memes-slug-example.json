@@ -1,0 +1,8 @@
+{
+  "operation": "Read One Meme by Opaque Slug, Public Slug, or Source Slug",
+  "method": "GET",
+  "path": "/api/memes/{slug}",
+  "response": {
+    "message": "Meme details"
+  }
+}

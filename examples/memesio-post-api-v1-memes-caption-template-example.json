@@ -1,0 +1,34 @@
+{
+  "operation": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input",
+  "method": "POST",
+  "path": "/api/v1/memes/caption-template",
+  "request": {
+    "templateSlug": "string",
+    "captions": [],
+    "title": "string",
+    "visibility": "private",
+    "watermark": {
+      "enabled": true,
+      "text": "string",
+      "position": "top_left",
+      "scale": 1.0
+    }
+  },
+  "response": {
+    "success": true,
+    "data": {
+      "slug": "string",
+      "shareSlug": "string",
+      "templateSlug": "string",
+      "title": "string",
+      "visibility": "private",
+      "imageUrl": "string",
+      "canonicalImageUrl": "string",
+      "altText": "string",
+      "tags": [
+        "string"
+      ],
+      "apiUrl": "string"
+    }
+  }
+}

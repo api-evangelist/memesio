@@ -1,0 +1,14 @@
+{
+  "operation": "Create or Redeem Referral Invite Code with Fraud Checks",
+  "method": "POST",
+  "path": "/api/growth/referrals",
+  "request": {
+    "action": "create",
+    "actorId": "string",
+    "shareSlug": "string",
+    "code": "string"
+  },
+  "response": {
+    "message": "Redeemed referral code"
+  }
+}

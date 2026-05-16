@@ -1,0 +1,114 @@
+apiCommonsRateLimits: 0.1
+provider:
+  id: memesio
+  name: Memesio
+  url: https://memesio.com/
+  documentation: https://memesio.com/developers/api
+
+reconciled: false
+reconciliationNotes: >
+  Memesio uses a quota-based model rather than traditional per-second rate
+  limits. The values below are captured from the public API documentation
+  (https://memesio.com/developers/api) and the MCP server card
+  (https://memesio.com/.well-known/mcp/server-card.json) as of 2026-05-16.
+  Anonymous free routes are described as having "rate limits" but the
+  numeric values are not publicly disclosed. Where a numeric value is not
+  documented, reconciled is set to false with a note.
+
+created: '2026-05-16'
+modified: '2026-05-16'
+
+policies:
+  - id: anonymous-free-routes
+    description: Anonymous routes under /api/free/* (template search and free caption render).
+    scope:
+      paths:
+        - /api/free/templates
+        - /api/free/memes/caption
+      authentication: anonymous
+    limits:
+      - kind: rate
+        metric: requests
+        amount: null
+        interval: null
+        notes: 'Anonymous free rate limits apply per the docs; numeric values not disclosed.'
+        reconciled: false
+      - kind: pagination
+        metric: pageSize
+        amount: 50
+        interval: page
+        notes: Template search caps pageSize at 50.
+
+  - id: ai-meme-generation
+    description: AI meme variant generation under /api/v1/memes/generate and /api/ai/memes/generate.
+    scope:
+      paths:
+        - /api/v1/memes/generate
+        - /api/ai/memes/generate
+      authentication: api-key
+      keyTypes: [developer, agent]
+    limits:
+      - kind: quota
+        metric: ai-meme-generations
+        amount: 3
+        interval: day
+        notes: Baseline daily AI quota for developer and agent keys. Approval-gated boosts available.
+      - kind: fan-out
+        metric: variants-per-request
+        amount: 5
+        interval: request
+        notes: Maximum 5 variants per generate request.
+      - kind: fan-out
+        metric: variants-per-request-default
+        amount: 1
+        interval: request
+        notes: Agent keys default to 1 variant per request.
+
+  - id: ai-caption-generation
+    description: AI caption reroll and generation under /api/ai/captions/generate.
+    scope:
+      paths:
+        - /api/ai/captions/generate
+      authentication: api-key
+    limits:
+      - kind: quota
+        metric: caption-rerolls
+        amount: null
+        interval: day
+        notes: Per-actor daily caption reroll quota tracked by the API; numeric not publicly disclosed.
+        reconciled: false
+
+  - id: template-search
+    description: Public template search.
+    scope:
+      paths:
+        - /api/free/templates
+    limits:
+      - kind: pagination
+        metric: pageSize
+        amount: 50
+        interval: page
+
+  - id: ai-jobs-pagination
+    description: AI jobs listing pagination.
+    scope:
+      paths:
+        - /api/ai/jobs
+    limits:
+      - kind: pagination
+        metric: pageSize
+        amount: 50
+        interval: page
+        notes: maximum:50 in the OpenAPI parameter schema.
+
+quotaInspection:
+  - description: Read remaining AI meme quota
+    method: GET
+    url: https://memesio.com/api/ai/memes/generate
+  - description: Read remaining caption reroll quota
+    method: GET
+    url: https://memesio.com/api/ai/captions/generate
+  - description: MCP tool to inspect AI quota before spending
+    tool: get_ai_quota
+    transport: mcp
+    server: https://memesio.com/api/mcp

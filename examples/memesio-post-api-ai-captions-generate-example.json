@@ -1,0 +1,40 @@
+{
+  "operation": "Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives",
+  "method": "POST",
+  "path": "/api/ai/captions/generate",
+  "request": {
+    "tone": "string",
+    "memeId": "string",
+    "memeSlug": "string",
+    "ownerToken": "string",
+    "sceneSummary": "string",
+    "entities": [
+      "string"
+    ],
+    "toneCues": [
+      "string"
+    ],
+    "trendReferences": [
+      "string"
+    ],
+    "trendKeywords": [
+      "string"
+    ],
+    "rewriteNote": "string"
+  },
+  "response": {
+    "ok": true,
+    "generationStrategy": "openai",
+    "providerId": "string",
+    "fallbackUsed": true,
+    "captionSets": [
+      {
+        "id": "string",
+        "score": 1.0,
+        "captions": [
+          {}
+        ]
+      }
+    ]
+  }
+}

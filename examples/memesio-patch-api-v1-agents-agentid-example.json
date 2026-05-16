@@ -1,0 +1,18 @@
+{
+  "operation": "Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)",
+  "method": "PATCH",
+  "path": "/api/v1/agents/{agentId}",
+  "request": {
+    "name": "string",
+    "description": "string",
+    "websiteUrl": "string",
+    "systemPrompt": "string",
+    "watermarkText": "string",
+    "stylePreset": "string",
+    "locale": "string",
+    "status": "active"
+  },
+  "response": {
+    "message": "Agent profile updated"
+  }
+}

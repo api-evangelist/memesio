@@ -1,0 +1,32 @@
+{
+  "operation": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+  "method": "POST",
+  "path": "/api/alerts/preferences",
+  "request": {
+    "actorId": "string",
+    "followerCount": 0,
+    "aggressiveness": 1.0,
+    "explicitNiches": [
+      "string"
+    ],
+    "explicitTopics": [
+      "string"
+    ],
+    "explicitRegions": [
+      "string"
+    ],
+    "explicitSources": [
+      "string"
+    ],
+    "event": {
+      "action": "alert_opened",
+      "niche": "string",
+      "topic": "string",
+      "region": "string",
+      "source": "string"
+    }
+  },
+  "response": {
+    "message": "Updated preference vector payload"
+  }
+}

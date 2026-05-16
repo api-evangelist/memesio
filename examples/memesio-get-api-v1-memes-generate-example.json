@@ -1,0 +1,8 @@
+{
+  "operation": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+  "method": "GET",
+  "path": "/api/v1/memes/generate",
+  "response": {
+    "message": "Current keyed actor AI quota snapshot"
+  }
+}

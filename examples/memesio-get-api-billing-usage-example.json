@@ -1,0 +1,8 @@
+{
+  "operation": "Get Billing Usage Snapshot",
+  "method": "GET",
+  "path": "/api/billing/usage",
+  "response": {
+    "message": "Usage snapshot"
+  }
+}

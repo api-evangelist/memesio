@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-aimemegenerationfailedresponse-structure.json",
+  "name": "AiMemeGenerationFailedResponse",
+  "description": "JSON Schema for Memesio AiMemeGenerationFailedResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "ok",
+    "flow",
+    "mode",
+    "status"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "flow": {
+      "type": "string",
+      "enum": [
+        "text_to_meme"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "template"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "failed",
+        "canceled"
+      ]
+    },
+    "errorCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "errorMessage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Revoke an Active API Key for an Owned Agent",
+  "method": "DELETE",
+  "path": "/api/v1/agents/{agentId}/keys/{keyId}",
+  "response": {
+    "message": "Key revoked"
+  }
+}

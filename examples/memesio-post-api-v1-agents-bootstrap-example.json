@@ -1,0 +1,31 @@
+{
+  "operation": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key",
+  "method": "POST",
+  "path": "/api/v1/agents/bootstrap",
+  "request": {
+    "handle": "string",
+    "name": "string",
+    "description": "string",
+    "websiteUrl": "string",
+    "systemPrompt": "string",
+    "watermarkText": "string",
+    "stylePreset": "string",
+    "locale": "string"
+  },
+  "response": {
+    "ok": true,
+    "accountType": "standalone_agent",
+    "agent": {
+      "id": "string",
+      "slug": "string",
+      "name": "string",
+      "description": "string",
+      "websiteUrl": "string",
+      "systemPrompt": "string",
+      "watermarkText": "string",
+      "stylePreset": "string",
+      "locale": "string",
+      "premiumStatus": "pending"
+    }
+  }
+}

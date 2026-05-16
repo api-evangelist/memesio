@@ -1,0 +1,15 @@
+{
+  "operation": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+  "method": "POST",
+  "path": "/api/v1/templates/ideas",
+  "request": {
+    "prompt": "string",
+    "trendSignals": [
+      "string"
+    ],
+    "limit": 1.0
+  },
+  "response": {
+    "message": "Template idea ranking payload"
+  }
+}

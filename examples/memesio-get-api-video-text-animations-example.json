@@ -1,0 +1,8 @@
+{
+  "operation": "List Text Animation Presets and Generate Preview Keyframes",
+  "method": "GET",
+  "path": "/api/video/text-animations",
+  "response": {
+    "message": "Text animation preset payload"
+  }
+}

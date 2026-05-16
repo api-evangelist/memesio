@@ -1,0 +1,13 @@
+{
+  "operation": "Create Collaboration Comment",
+  "method": "POST",
+  "path": "/api/collab/comments",
+  "request": {
+    "projectId": "string",
+    "message": "string",
+    "authorId": "string"
+  },
+  "response": {
+    "message": "Comment created"
+  }
+}

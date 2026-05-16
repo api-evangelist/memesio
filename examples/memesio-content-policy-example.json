@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://memesio.com/api/compliance/content-policy"
+  },
+  "response": {
+    "ok": true,
+    "policy": {
+      "version": "2026-02-25",
+      "faceSwap": {
+        "requireConsentAttestation": true,
+        "blockCelebrityConfidenceGte": 0.85,
+        "escalateNsfwScoreGte": 0.7
+      },
+      "contentSafety": {
+        "blockedReasonCodes": [
+          "missing_consent",
+          "celebrity_detected"
+        ],
+        "escalationReasonCodes": [
+          "nsfw_risk"
+        ]
+      }
+    }
+  }
+}

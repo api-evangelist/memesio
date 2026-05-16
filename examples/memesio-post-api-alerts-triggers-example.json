@@ -1,0 +1,8 @@
+{
+  "operation": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+  "method": "POST",
+  "path": "/api/alerts/triggers",
+  "response": {
+    "message": "Trigger execution payload"
+  }
+}

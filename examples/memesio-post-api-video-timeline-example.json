@@ -1,0 +1,20 @@
+{
+  "operation": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+  "method": "POST",
+  "path": "/api/video/timeline",
+  "request": {
+    "action": "create",
+    "projectId": "string",
+    "durationMs": 1.0,
+    "frameRate": 1.0,
+    "type": "video",
+    "name": "string",
+    "sourceUrl": "string",
+    "trackId": "string",
+    "assetId": "string",
+    "startMs": 1.0
+  },
+  "response": {
+    "message": "Timeline updated"
+  }
+}

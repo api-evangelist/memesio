@@ -1,0 +1,20 @@
+{
+  "operation": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+  "method": "POST",
+  "path": "/api/video/render-queue",
+  "request": {
+    "action": "enqueue",
+    "projectId": "string",
+    "outputPresetId": "string",
+    "planTier": "free",
+    "durationSeconds": 1.0,
+    "workerId": "string",
+    "jobId": "string",
+    "progressPercent": 1.0,
+    "stage": "string",
+    "outputUrl": "string"
+  },
+  "response": {
+    "message": "Queue mutation payload"
+  }
+}

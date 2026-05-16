@@ -1,0 +1,16 @@
+{
+  "operation": "Generate Signed Upload/Download Media URLS",
+  "method": "POST",
+  "path": "/api/media/signed-url",
+  "request": {
+    "action": "upload",
+    "path": "string",
+    "prefix": "templates",
+    "ownerToken": "string",
+    "contentType": "string",
+    "expiresInSeconds": 30
+  },
+  "response": {
+    "message": "Signed URL generated"
+  }
+}

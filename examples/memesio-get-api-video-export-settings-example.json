@@ -1,0 +1,8 @@
+{
+  "operation": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+  "method": "GET",
+  "path": "/api/video/export-settings",
+  "response": {
+    "message": "Export policy payload"
+  }
+}

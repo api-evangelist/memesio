@@ -1,0 +1,8 @@
+{
+  "operation": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs",
+  "method": "POST",
+  "path": "/api/ai/captions/moderate",
+  "response": {
+    "message": "Caption moderation payload"
+  }
+}

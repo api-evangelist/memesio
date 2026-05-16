@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-memedetailresponse-schema.json",
+  "title": "MemeDetailResponse",
+  "description": "JSON Schema for Memesio MemeDetailResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "allOf": [
+    {
+      "type": "object",
+      "required": [
+        "slug",
+        "shareSlug",
+        "shareUrl",
+        "title",
+        "altText",
+        "tags",
+        "templateSlug",
+        "visibility",
+        "createdAt",
+        "imageUrl",
+        "canonicalImageUrl",
+        "nsfwStatus",
+        "shareViews"
+      ],
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "shareSlug": {
+          "type": "string"
+        },
+        "shareUrl": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "altText": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "templateSlug": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": [
+            "public",
+            "private"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "canonicalImageUrl": {
+          "type": "string"
+        },
+        "nsfwStatus": {
+          "type": "string",
+          "enum": [
+            "clear",
+            "flagged"
+          ]
+        },
+        "shareViews": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "sourceImageUrl",
+        "captions",
+        "overlays",
+        "canvas",
+        "watermark"
+      ],
+      "properties": {
+        "sourceImageUrl": {
+          "type": "string"
+        },
+        "captions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "text",
+              "x",
+              "y",
+              "fontSize"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "fontSize": {
+                "type": "number"
+              },
+              "rotationDeg": {
+                "type": "number"
+              },
+              "hidden": {
+                "type": "boolean"
+              },
+              "locked": {
+                "type": "boolean"
+              },
+              "boxWidthPct": {
+                "type": "number"
+              },
+              "boxHeightPct": {
+                "type": "number"
+              },
+              "paddingPct": {
+                "type": "number"
+              },
+              "maxLines": {
+                "type": "integer"
+              },
+              "lineHeight": {
+                "type": "number"
+              },
+              "backgroundEnabled": {
+                "type": "boolean"
+              },
+              "backgroundColor": {
+                "type": "string"
+              },
+              "backgroundOpacity": {
+                "type": "number"
+              },
+              "letterSpacingEm": {
+                "type": "number"
+              },
+              "shadowStrength": {
+                "type": "number"
+              },
+              "color": {
+                "type": "string"
+              },
+              "stroke": {
+                "type": "string"
+              },
+              "fontFamily": {
+                "type": "string",
+                "enum": [
+                  "impact",
+                  "arial"
+                ]
+              },
+              "textAlign": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "center",
+                  "right"
+                ]
+              },
+              "semanticRole": {
+                "type": "string",
+                "enum": [
+                  "setup",
+                  "contrast",
+                  "punchline",
+                  "reaction",
+                  "label"
+                ]
+              },
+              "preferredCase": {
+                "type": "string",
+                "enum": [
+                  "uppercase",
+                  "sentence",
+                  "title",
+                  "preserve"
+                ]
+              },
+              "exampleText": {
+                "type": "string"
+              },
+              "recommendedWordsMin": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "recommendedWordsMax": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "recommendedCharsMin": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "recommendedCharsMax": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        "overlays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "label",
+              "imageUrl",
+              "x",
+              "y",
+              "widthPercent",
+              "rotationDeg",
+              "opacity"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "imageUrl": {
+                "type": "string"
+              },
+              "sourceImageUrl": {
+                "type": "string"
+              },
+              "x": {
+                "type": "number"
+              },
+              "y": {
+                "type": "number"
+              },
+              "widthPercent": {
+                "type": "number"
+              },
+              "rotationDeg": {
+                "type": "number"
+              },
+              "opacity": {
+                "type": "number"
+              },
+              "hidden": {
+                "type": "boolean"
+              },
+              "locked": {
+                "type": "boolean"
+              },
+              "flippedX": {
+                "type": "boolean"
+              },
+              "backgroundRemoved": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "canvas": {
+          "type": "object",
+          "required": [
+            "aspectRatio",
+            "focusX",
+            "focusY",
+            "zoomPercent",
+            "crop",
+            "spacing",
+            "guides",
+            "sourceAdjustments",
+            "layerOrder",
+            "transform"
+          ],
+          "properties": {
+            "aspectRatio": {
+              "type": "string",
+              "enum": [
+                "original",
+                "1:1",
+                "4:5",
+                "16:9"
+              ]
+            },
+            "focusX": {
+              "type": "number"
+            },
+            "focusY": {
+              "type": "number"
+            },
+            "zoomPercent": {
+              "type": "number"
+            },
+            "crop": {
+              "type": "object",
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height"
+              ],
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "width": {
+                  "type": "number"
+                },
+                "height": {
+                  "type": "number"
+                }
+              }
+            },
+            "spacing": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "guides": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "sourceAdjustments": {
+              "type": "object",
+              "additionalProperties": true
+            },
+            "layerOrder": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "transform": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "watermark": {
+          "type": "object",
+          "required": [
+            "enabled",
+            "text",
+            "position",
+            "scale"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "text": {
+              "type": "string"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "top_left",
+                "top_right",
+                "bottom_left",
+                "bottom_right"
+              ]
+            },
+            "scale": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

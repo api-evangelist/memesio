@@ -1,0 +1,16 @@
+{
+  "operation": "Get AI Job Status",
+  "method": "GET",
+  "path": "/api/ai/jobs/{jobId}",
+  "response": {
+    "id": "string",
+    "traceId": "string",
+    "capability": "string",
+    "status": "string",
+    "attempts": 1,
+    "maxAttempts": 1,
+    "timeoutMs": 1,
+    "createdAt": "2026-05-16T12:00:00Z",
+    "updatedAt": "2026-05-16T12:00:00Z"
+  }
+}

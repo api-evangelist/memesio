@@ -1,0 +1,8 @@
+{
+  "operation": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+  "method": "GET",
+  "path": "/api/video/audio-library",
+  "response": {
+    "message": "Audio library + beat sync suggestions payload"
+  }
+}

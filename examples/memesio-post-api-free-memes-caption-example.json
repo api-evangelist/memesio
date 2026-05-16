@@ -1,0 +1,34 @@
+{
+  "operation": "Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark",
+  "method": "POST",
+  "path": "/api/free/memes/caption",
+  "request": {
+    "templateSlug": "string",
+    "captions": [],
+    "title": "string",
+    "visibility": "private",
+    "watermark": {
+      "enabled": true,
+      "text": "string",
+      "position": "top_left",
+      "scale": 1.0
+    }
+  },
+  "response": {
+    "success": true,
+    "data": {
+      "slug": "string",
+      "shareSlug": "string",
+      "templateSlug": "string",
+      "title": "string",
+      "visibility": "private",
+      "imageUrl": "string",
+      "canonicalImageUrl": "string",
+      "altText": "string",
+      "tags": [
+        "string"
+      ],
+      "apiUrl": "string"
+    }
+  }
+}

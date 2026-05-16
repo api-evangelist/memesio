@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-standaloneagentbootstrapresponse-structure.json",
+  "name": "StandaloneAgentBootstrapResponse",
+  "description": "JSON Schema for Memesio StandaloneAgentBootstrapResponse, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "ok",
+    "accountType",
+    "agent",
+    "key"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean",
+      "const": true
+    },
+    "accountType": {
+      "type": "string",
+      "enum": [
+        "standalone_agent",
+        "standalone_agent_compat"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "description",
+        "websiteUrl",
+        "systemPrompt",
+        "watermarkText",
+        "stylePreset",
+        "locale",
+        "premiumStatus",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "websiteUrl": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "systemPrompt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "watermarkText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "stylePreset": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "premiumStatus": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved",
+            "denied"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "disabled"
+          ]
+        },
+        "createdAt": {
+          "type": "datetime"
+        },
+        "updatedAt": {
+          "type": "datetime"
+        }
+      }
+    },
+    "key": {
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "id",
+            "keyPrefix",
+            "scopes",
+            "status",
+            "createdAt",
+            "revokedAt"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "keyPrefix": {
+              "type": "string"
+            },
+            "scopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "generate",
+                  "publish",
+                  "analytics",
+                  "admin"
+                ]
+              }
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "active",
+                "revoked"
+              ]
+            },
+            "createdAt": {
+              "type": "datetime"
+            },
+            "revokedAt": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "plaintextKey",
+            "authMode"
+          ],
+          "properties": {
+            "plaintextKey": {
+              "type": "string"
+            },
+            "authMode": {
+              "type": "string",
+              "enum": [
+                "agent",
+                "developer"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

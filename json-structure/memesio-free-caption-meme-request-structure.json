@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-freecaptionmemerequest-structure.json",
+  "name": "FreeCaptionMemeRequest",
+  "description": "JSON Schema for Memesio FreeCaptionMemeRequest, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "templateSlug",
+    "captions"
+  ],
+  "properties": {
+    "templateSlug": {
+      "type": "string"
+    },
+    "captions": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string",
+            "maxLength": 300
+          },
+          {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 64
+              },
+              "text": {
+                "type": "string",
+                "maxLength": 300
+              },
+              "x": {
+                "type": "double"
+              },
+              "y": {
+                "type": "double"
+              },
+              "fontSize": {
+                "type": "double"
+              },
+              "boxWidthPct": {
+                "type": "double"
+              },
+              "boxHeightPct": {
+                "type": "double"
+              },
+              "maxLines": {
+                "type": "int32",
+                "minimum": 1
+              },
+              "textAlign": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "center",
+                  "right"
+                ]
+              },
+              "fontFamily": {
+                "type": "string",
+                "enum": [
+                  "impact",
+                  "arial"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 140
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "private",
+        "public"
+      ]
+    },
+    "watermark": {
+      "type": "object",
+      "description": "Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "position": {
+          "type": "string",
+          "enum": [
+            "top_left",
+            "top_right",
+            "bottom_left",
+            "bottom_right"
+          ]
+        },
+        "scale": {
+          "type": "double",
+          "minimum": 0.6,
+          "maximum": 3
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Run or Retrieve Background-Remove Provider Benchmark and Recommendation",
+  "method": "GET",
+  "path": "/api/ai/providers/background-remove-benchmark",
+  "response": {
+    "message": "Background-remove provider benchmark report"
+  }
+}

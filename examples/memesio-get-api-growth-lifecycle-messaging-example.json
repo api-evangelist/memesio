@@ -1,0 +1,8 @@
+{
+  "operation": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+  "method": "GET",
+  "path": "/api/growth/lifecycle-messaging",
+  "response": {
+    "message": "Lifecycle messaging config payload"
+  }
+}

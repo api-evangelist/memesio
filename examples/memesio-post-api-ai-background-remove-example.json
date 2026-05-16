@@ -1,0 +1,25 @@
+{
+  "operation": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+  "method": "POST",
+  "path": "/api/ai/background-remove",
+  "request": {
+    "sourceAssetUrl": "string",
+    "mediaType": "image",
+    "frameTimeMs": 1.0,
+    "width": 1.0,
+    "height": 1.0,
+    "edgeRefinement": 1.0,
+    "brushEdits": [
+      {
+        "mode": "add",
+        "x": 1.0,
+        "y": 1.0,
+        "radius": 1.0,
+        "intensity": 1.0
+      }
+    ]
+  },
+  "response": {
+    "message": "Background removal result and mask stats"
+  }
+}

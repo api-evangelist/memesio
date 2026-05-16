@@ -1,0 +1,8 @@
+{
+  "operation": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+  "method": "GET",
+  "path": "/api/analytics/anomalies/ai",
+  "response": {
+    "message": "AI anomaly detection summary"
+  }
+}

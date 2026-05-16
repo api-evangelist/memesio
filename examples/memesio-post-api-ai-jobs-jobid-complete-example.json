@@ -1,0 +1,14 @@
+{
+  "operation": "Complete AI Job and Log Metered AI Cost",
+  "method": "POST",
+  "path": "/api/ai/jobs/{jobId}/complete",
+  "request": {
+    "workerId": "string",
+    "output": {},
+    "estimatedCostUsd": 1.0,
+    "providerId": "string"
+  },
+  "response": {
+    "message": "Completed job"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "operation": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+  "method": "POST",
+  "path": "/api/ai/templates/suggest",
+  "request": {
+    "prompt": "string",
+    "trendSignals": [
+      "string"
+    ],
+    "limit": 1.0
+  },
+  "response": {
+    "message": "Template suggestion ranking payload"
+  }
+}

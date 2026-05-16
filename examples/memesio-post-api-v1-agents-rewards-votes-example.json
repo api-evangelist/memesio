@@ -1,0 +1,12 @@
+{
+  "operation": "Cast Weekly Meme Vote (Deduped by Voter Hash)",
+  "method": "POST",
+  "path": "/api/v1/agents/rewards/votes",
+  "request": {
+    "memeSlug": "string",
+    "weekStart": "string"
+  },
+  "response": {
+    "message": "Duplicate vote ignored"
+  }
+}

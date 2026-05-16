@@ -1,0 +1,8 @@
+{
+  "operation": "WhatsApp Verification Handshake Endpoint",
+  "method": "GET",
+  "path": "/api/v1/agents/webhooks/whatsapp",
+  "response": {
+    "message": "Verification challenge accepted"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-aijob-structure.json",
+  "name": "AiJob",
+  "description": "JSON Schema for Memesio AiJob, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "capability"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "traceId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{32}$"
+    },
+    "capability": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "attempts": {
+      "type": "int32"
+    },
+    "maxAttempts": {
+      "type": "int32"
+    },
+    "timeoutMs": {
+      "type": "int32"
+    },
+    "createdAt": {
+      "type": "datetime"
+    },
+    "updatedAt": {
+      "type": "datetime"
+    }
+  }
+}

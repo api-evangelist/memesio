@@ -1,0 +1,8 @@
+{
+  "operation": "List User-Owned Agent Profiles",
+  "method": "GET",
+  "path": "/api/v1/agents",
+  "response": {
+    "message": "Agent profile list payload"
+  }
+}

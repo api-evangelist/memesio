@@ -1,0 +1,8 @@
+{
+  "operation": "Run Backend 5xx and Render Latency Alert Checks",
+  "method": "GET",
+  "path": "/api/analytics/alerts/backend",
+  "response": {
+    "message": "Backend alerting summary payload"
+  }
+}

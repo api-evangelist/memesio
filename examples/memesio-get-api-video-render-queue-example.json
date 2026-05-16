@@ -1,0 +1,8 @@
+{
+  "operation": "Get Render Queue Snapshot or List Render Jobs",
+  "method": "GET",
+  "path": "/api/video/render-queue",
+  "response": {
+    "message": "Render queue payload"
+  }
+}

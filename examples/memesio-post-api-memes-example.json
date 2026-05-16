@@ -1,0 +1,80 @@
+{
+  "operation": "Store a Rendered Meme and Return Canonical Share/Image URLS",
+  "method": "POST",
+  "path": "/api/memes",
+  "request": {
+    "templateSlug": "string",
+    "sourceImageUrl": "string",
+    "captions": [
+      {
+        "id": "string",
+        "text": "string",
+        "x": 1.0,
+        "y": 1.0,
+        "fontSize": 1.0,
+        "rotationDeg": 1.0,
+        "hidden": true,
+        "locked": true,
+        "boxWidthPct": 1.0,
+        "boxHeightPct": 1.0
+      }
+    ],
+    "overlays": [
+      {
+        "id": "string",
+        "label": "string",
+        "imageUrl": "string",
+        "sourceImageUrl": "string",
+        "x": 1.0,
+        "y": 1.0,
+        "widthPercent": 1.0,
+        "rotationDeg": 1.0,
+        "opacity": 1.0,
+        "hidden": true
+      }
+    ],
+    "imageDataUrl": "string",
+    "visibility": "public",
+    "title": "string",
+    "canvas": {
+      "aspectRatio": "original",
+      "focusX": 1.0,
+      "focusY": 1.0,
+      "zoomPercent": 1.0,
+      "crop": {
+        "x": 1.0,
+        "y": 1.0,
+        "width": 1.0,
+        "height": 1.0
+      },
+      "spacing": {},
+      "guides": {},
+      "sourceAdjustments": {},
+      "layerOrder": [
+        "string"
+      ],
+      "transform": {}
+    },
+    "watermark": {
+      "enabled": true,
+      "text": "string",
+      "position": "top_left",
+      "scale": 1.0
+    },
+    "generationRunId": "string"
+  },
+  "response": {
+    "slug": "string",
+    "shareSlug": "string",
+    "shareUrl": "string",
+    "imageUrl": "string",
+    "canonicalImageUrl": "string",
+    "altText": "string",
+    "tags": [
+      "string"
+    ],
+    "ownerToken": "string",
+    "visibility": "public",
+    "guestSessionId": "string"
+  }
+}

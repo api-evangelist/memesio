@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-memegenerationvariant-schema.json",
+  "title": "MemeGenerationVariant",
+  "description": "JSON Schema for Memesio MemeGenerationVariant, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "mode",
+    "providerId",
+    "variantKind",
+    "memeUrl",
+    "pageUrl",
+    "templateName",
+    "fallbackUsed",
+    "attempts",
+    "estimatedCostUsd"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "template"
+      ]
+    },
+    "providerId": {
+      "type": "string"
+    },
+    "variantKind": {
+      "type": "string",
+      "enum": [
+        "template_captioned",
+        "rendered_image"
+      ]
+    },
+    "memeUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pageUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "templateName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "templateSlug": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sourceImageUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "templateSelectionStrategy": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "provided_template",
+        "provided_image",
+        "library_search",
+        "recommendation",
+        null
+      ]
+    },
+    "captionGenerationStrategy": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "openai",
+        "heuristic",
+        "provided",
+        null
+      ]
+    },
+    "captions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "text",
+          "x",
+          "y",
+          "fontSize"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "fontSize": {
+            "type": "number"
+          },
+          "rotationDeg": {
+            "type": "number"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "boxWidthPct": {
+            "type": "number"
+          },
+          "boxHeightPct": {
+            "type": "number"
+          },
+          "paddingPct": {
+            "type": "number"
+          },
+          "maxLines": {
+            "type": "integer"
+          },
+          "lineHeight": {
+            "type": "number"
+          },
+          "backgroundEnabled": {
+            "type": "boolean"
+          },
+          "backgroundColor": {
+            "type": "string"
+          },
+          "backgroundOpacity": {
+            "type": "number"
+          },
+          "letterSpacingEm": {
+            "type": "number"
+          },
+          "shadowStrength": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "stroke": {
+            "type": "string"
+          },
+          "fontFamily": {
+            "type": "string",
+            "enum": [
+              "impact",
+              "arial"
+            ]
+          },
+          "textAlign": {
+            "type": "string",
+            "enum": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          "semanticRole": {
+            "type": "string",
+            "enum": [
+              "setup",
+              "contrast",
+              "punchline",
+              "reaction",
+              "label"
+            ]
+          },
+          "preferredCase": {
+            "type": "string",
+            "enum": [
+              "uppercase",
+              "sentence",
+              "title",
+              "preserve"
+            ]
+          },
+          "exampleText": {
+            "type": "string"
+          },
+          "recommendedWordsMin": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "recommendedWordsMax": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "recommendedCharsMin": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "recommendedCharsMax": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      }
+    },
+    "editable": {
+      "type": "boolean"
+    },
+    "fallbackUsed": {
+      "type": "boolean"
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "estimatedCostUsd": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

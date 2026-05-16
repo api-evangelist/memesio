@@ -1,0 +1,8 @@
+{
+  "operation": "Get Trend Preference Vector for Actor",
+  "method": "GET",
+  "path": "/api/alerts/preferences",
+  "response": {
+    "message": "Preference vector payload"
+  }
+}

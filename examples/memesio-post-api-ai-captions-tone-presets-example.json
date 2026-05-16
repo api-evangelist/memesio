@@ -1,0 +1,18 @@
+{
+  "operation": "Create or Update Custom Brand Tone Preset",
+  "method": "POST",
+  "path": "/api/ai/captions/tone-presets",
+  "request": {
+    "name": "string",
+    "locale": "string",
+    "voiceRules": [
+      "string"
+    ],
+    "blockedTerms": [
+      "string"
+    ]
+  },
+  "response": {
+    "message": "Tone preset saved"
+  }
+}

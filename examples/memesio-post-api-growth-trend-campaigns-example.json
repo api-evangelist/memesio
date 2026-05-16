@@ -1,0 +1,13 @@
+{
+  "operation": "Publish Weekly Trend-Driven Template Campaigns for Marketing Ops",
+  "method": "POST",
+  "path": "/api/growth/trend-campaigns",
+  "request": {
+    "action": "publish",
+    "weekStart": "string",
+    "limit": 1
+  },
+  "response": {
+    "message": "Published weekly campaign pack"
+  }
+}

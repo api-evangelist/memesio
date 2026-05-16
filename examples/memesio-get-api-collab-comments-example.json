@@ -1,0 +1,8 @@
+{
+  "operation": "List Collaboration Comments",
+  "method": "GET",
+  "path": "/api/collab/comments",
+  "response": {
+    "message": "Comment list"
+  }
+}

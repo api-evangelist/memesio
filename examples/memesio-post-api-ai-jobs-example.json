@@ -1,0 +1,18 @@
+{
+  "operation": "Submit AI Job",
+  "method": "POST",
+  "path": "/api/ai/jobs",
+  "request": {
+    "capability": "face_swap",
+    "input": {},
+    "maxAttempts": 1,
+    "timeoutMs": 1000,
+    "runAfterMs": 0,
+    "traceId": "string",
+    "actorId": "string",
+    "workspaceId": "string"
+  },
+  "response": {
+    "message": "AI job created"
+  }
+}

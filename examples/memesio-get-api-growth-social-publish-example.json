@@ -1,0 +1,8 @@
+{
+  "operation": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+  "method": "GET",
+  "path": "/api/growth/social-publish",
+  "response": {
+    "message": "Social publish state payload"
+  }
+}

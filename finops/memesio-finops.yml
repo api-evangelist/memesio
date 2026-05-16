@@ -1,0 +1,99 @@
+finopsFramework: 2024
+focusVersion: '1.0'
+provider:
+  id: memesio
+  name: Memesio
+  url: https://memesio.com/
+  documentation: https://memesio.com/developers/api
+
+reconciled: false
+reconciliationNotes: >
+  Memesio exposes a programmatic billing/usage surface at
+  https://memesio.com/api/billing/usage that returns metered usage events
+  (billing.ai_usage_metered, billing.asset_upload_metered) with estimated
+  USD cost per event and a 30-day window. AI costs are further broken down
+  by provider and capability via the same endpoint. The OpenAPI contract
+  also exposes /api/ai/jobs/{jobId}/complete which writes a metered AI
+  cost record (workerId, output, estimatedCostUsd) — i.e. cost is captured
+  at job completion time. No public price sheet is published, so the
+  unit prices that drive estimatedCostUsd are not externally documented;
+  the structure of the data is real but the rate card is not.
+
+created: '2026-05-16'
+modified: '2026-05-16'
+
+usageSurface:
+  - id: billing-usage
+    type: HTTP
+    method: GET
+    url: https://memesio.com/api/billing/usage
+    description: 30-day metered usage and estimated cost in USD, including per-event counts and per-AI-provider/capability breakdown.
+    accessControl:
+      authentication: api-key
+      header: x-agent-api-key
+    sampleResponse:
+      windowDays: 30
+      totalEvents: 26
+      totalEstimatedCostUsd: 0.0028
+      byEvent:
+        - event: billing.ai_usage_metered
+          count: 10
+          estimatedCostUsd: 0.002
+        - event: billing.asset_upload_metered
+          count: 16
+          estimatedCostUsd: 0.0008
+      aiCosts:
+        windowDays: 30
+        jobCount: 0
+        byProvider: []
+        byCapability: []
+  - id: ai-job-complete
+    type: HTTP
+    method: POST
+    url: https://memesio.com/api/ai/jobs/{jobId}/complete
+    description: Logs the metered AI cost at job completion (workerId, output, estimatedCostUsd).
+    accessControl:
+      authentication: api-key
+
+meterEvents:
+  - id: billing.ai_usage_metered
+    description: AI consumption event (e.g. caption generation, meme generation, face swap, background remove).
+    chargeCategory: Usage
+    chargeSubcategory: AI
+  - id: billing.asset_upload_metered
+    description: Asset upload (image/video to media pipeline) event.
+    chargeCategory: Usage
+    chargeSubcategory: Storage
+
+focusMapping:
+  ChargeCategory:
+    - Usage  # AI generation, asset upload
+  ChargeSubcategory:
+    - AI
+    - Storage
+  ServiceCategory:
+    - 'AI and Machine Learning'
+    - 'Storage'
+  BillingCurrency: USD
+  BillingPeriod: rolling-30-day
+  ResourceType:
+    - ai-job
+    - asset
+  ProviderName: Memesio
+  PublisherName: Memesio
+  InvoiceIssuerName: Memesio
+  notes: 'No invoiced billing surface is documented publicly. The /api/billing/usage endpoint returns estimated costs in USD, not invoiced amounts.'
+
+capabilities:
+  budgetManagement: false
+  showback: true   # /api/billing/usage shows per-actor usage and estimated cost
+  chargeback: unknown
+  anomalyDetection: true  # /api/analytics/anomalies/ai exists
+  forecasting: unknown
+  reservedCapacity: false
+
+related:
+  - description: Plans surface
+    url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - description: Rate limits surface
+    url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml

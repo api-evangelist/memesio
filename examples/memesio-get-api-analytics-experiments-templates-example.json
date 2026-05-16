@@ -1,0 +1,8 @@
+{
+  "operation": "Get Pricing/Paywall Experiment Analysis Templates",
+  "method": "GET",
+  "path": "/api/analytics/experiments/templates",
+  "response": {
+    "message": "Pricing experiment templates payload"
+  }
+}

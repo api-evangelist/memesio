@@ -1,0 +1,34 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://memesio.com/api/billing/usage",
+    "headers": {
+      "x-agent-api-key": "ak_live_xxx"
+    }
+  },
+  "response": {
+    "windowDays": 30,
+    "workspaceId": null,
+    "totalEvents": 26,
+    "totalEstimatedCostUsd": 0.0028,
+    "byEvent": [
+      {
+        "event": "billing.ai_usage_metered",
+        "count": 10,
+        "estimatedCostUsd": 0.002
+      },
+      {
+        "event": "billing.asset_upload_metered",
+        "count": 16,
+        "estimatedCostUsd": 0.0008
+      }
+    ],
+    "aiCosts": {
+      "windowDays": 30,
+      "jobCount": 0,
+      "totalCostUsd": 0,
+      "byProvider": [],
+      "byCapability": []
+    }
+  }
+}

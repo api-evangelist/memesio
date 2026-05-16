@@ -1,0 +1,8 @@
+{
+  "operation": "Get Activation and Retention Dashboard Spec (Looker)",
+  "method": "GET",
+  "path": "/api/analytics/dashboards/activation-retention",
+  "response": {
+    "message": "Dashboard spec payload"
+  }
+}

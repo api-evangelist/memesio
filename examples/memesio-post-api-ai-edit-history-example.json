@@ -1,0 +1,19 @@
+{
+  "operation": "Record or Rollback Versioned AI Edit State for a Layer",
+  "method": "POST",
+  "path": "/api/ai/edit-history",
+  "request": {
+    "action": "record",
+    "projectId": "string",
+    "layerId": "string",
+    "layerType": "face_swap",
+    "beforeState": {},
+    "afterState": {},
+    "versionId": "string",
+    "actorId": "string",
+    "metadata": {}
+  },
+  "response": {
+    "message": "Rollback payload"
+  }
+}

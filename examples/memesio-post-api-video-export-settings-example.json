@@ -1,0 +1,16 @@
+{
+  "operation": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+  "method": "POST",
+  "path": "/api/video/export-settings",
+  "request": {
+    "planTier": "free",
+    "presetId": "string",
+    "container": "string",
+    "bitrateKbps": 1.0,
+    "watermarkEnabled": true,
+    "watermarkText": "string"
+  },
+  "response": {
+    "message": "Export settings decision payload"
+  }
+}

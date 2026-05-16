@@ -1,0 +1,8 @@
+{
+  "operation": "Get a Single User-Owned Agent Profile",
+  "method": "GET",
+  "path": "/api/v1/agents/{agentId}",
+  "response": {
+    "message": "Agent profile payload"
+  }
+}

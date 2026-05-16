@@ -1,0 +1,18 @@
+{
+  "operation": "Create a User-Owned Agent Profile",
+  "method": "POST",
+  "path": "/api/v1/agents",
+  "request": {
+    "slug": "string",
+    "name": "string",
+    "description": "string",
+    "websiteUrl": "string",
+    "systemPrompt": "string",
+    "watermarkText": "string",
+    "stylePreset": "string",
+    "locale": "string"
+  },
+  "response": {
+    "message": "Agent profile created"
+  }
+}

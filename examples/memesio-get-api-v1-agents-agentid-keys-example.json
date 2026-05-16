@@ -1,0 +1,8 @@
+{
+  "operation": "List Agent API Keys for an Owned Agent",
+  "method": "GET",
+  "path": "/api/v1/agents/{agentId}/keys",
+  "response": {
+    "message": "Agent key list payload"
+  }
+}

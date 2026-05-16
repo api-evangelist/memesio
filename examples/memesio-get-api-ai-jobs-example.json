@@ -1,0 +1,8 @@
+{
+  "operation": "List AI Jobs",
+  "method": "GET",
+  "path": "/api/ai/jobs",
+  "response": {
+    "message": "AI job list"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Rank Caption Variants and Return Top Safe Selections",
+  "method": "POST",
+  "path": "/api/ai/captions/rank",
+  "response": {
+    "message": "Caption ranking payload"
+  }
+}

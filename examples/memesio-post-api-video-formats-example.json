@@ -1,0 +1,15 @@
+{
+  "operation": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+  "method": "POST",
+  "path": "/api/video/formats",
+  "request": {
+    "planTier": "free",
+    "inputFormat": "string",
+    "mimeType": "string",
+    "outputPresetId": "string",
+    "durationSeconds": 1.0
+  },
+  "response": {
+    "message": "Video job estimate payload"
+  }
+}

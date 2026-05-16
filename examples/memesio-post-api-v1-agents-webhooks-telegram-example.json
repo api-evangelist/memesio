@@ -1,0 +1,8 @@
+{
+  "operation": "Telegram Inbound Webhook Receiver with Dedupe and Agent Routing",
+  "method": "POST",
+  "path": "/api/v1/agents/webhooks/telegram",
+  "response": {
+    "message": "Webhook processed"
+  }
+}

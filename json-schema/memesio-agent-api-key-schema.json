@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-agentapikey-schema.json",
+  "title": "AgentApiKey",
+  "description": "JSON Schema for Memesio AgentApiKey, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "keyPrefix",
+    "scopes",
+    "status",
+    "createdAt",
+    "revokedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "keyPrefix": {
+      "type": "string"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "generate",
+          "publish",
+          "analytics",
+          "admin"
+        ]
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "revoked"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "revokedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}

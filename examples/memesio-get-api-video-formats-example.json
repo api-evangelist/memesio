@@ -1,0 +1,8 @@
+{
+  "operation": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+  "method": "GET",
+  "path": "/api/video/formats",
+  "response": {
+    "message": "Video format policy payload"
+  }
+}

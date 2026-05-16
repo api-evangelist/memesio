@@ -1,0 +1,15 @@
+{
+  "operation": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+  "method": "POST",
+  "path": "/api/video/drafts",
+  "request": {
+    "action": "save",
+    "project": {},
+    "projectId": "string",
+    "updatedAt": "2026-05-16T12:00:00Z",
+    "sourceDeviceId": "string"
+  },
+  "response": {
+    "message": "Draft resume payload"
+  }
+}

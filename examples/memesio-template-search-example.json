@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://memesio.com/api/free/templates?q=robot&page=1&pageSize=2"
+  },
+  "response": {
+    "total": 932,
+    "nextPage": 2,
+    "page": 1,
+    "pageSize": 2,
+    "items": [
+      {
+        "id": "robot-monk",
+        "slug": "robot-monk",
+        "name": "Robot Monk",
+        "description": "Robot Monk reaction meme template.",
+        "imageUrl": "https://cdn.memesio.com/templates/official/robot-monk.jpg",
+        "captionCount": 2,
+        "boxCount": 2,
+        "captions": [
+          {
+            "id": "top-caption",
+            "text": "WHEN THE ROBOT MONK PRAYS",
+            "x": 50,
+            "y": 12,
+            "fontSize": 48,
+            "color": "#ffffff",
+            "stroke": "#111111",
+            "fontFamily": "impact",
+            "textAlign": "center"
+          }
+        ],
+        "tags": [
+          "weekly-trend",
+          "robot",
+          "monk"
+        ]
+      }
+    ]
+  }
+}

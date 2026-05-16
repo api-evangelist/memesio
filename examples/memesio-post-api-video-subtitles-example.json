@@ -1,0 +1,22 @@
+{
+  "operation": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+  "method": "POST",
+  "path": "/api/video/subtitles",
+  "request": {
+    "action": "preview",
+    "transcript": "string",
+    "audioAssetId": "string",
+    "tone": "string",
+    "locale": "string",
+    "stylePresetId": "string",
+    "trendKeywords": [
+      "string"
+    ],
+    "syncToBeatGrid": true,
+    "bpm": 60,
+    "beatOffsetMs": -60000
+  },
+  "response": {
+    "message": "Subtitle preview payload"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-memesummary-schema.json",
+  "title": "MemeSummary",
+  "description": "JSON Schema for Memesio MemeSummary, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "slug",
+    "shareSlug",
+    "shareUrl",
+    "title",
+    "altText",
+    "tags",
+    "templateSlug",
+    "visibility",
+    "createdAt",
+    "imageUrl",
+    "canonicalImageUrl",
+    "nsfwStatus",
+    "shareViews"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "shareSlug": {
+      "type": "string"
+    },
+    "shareUrl": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "altText": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "templateSlug": {
+      "type": "string"
+    },
+    "visibility": {
+      "type": "string",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "canonicalImageUrl": {
+      "type": "string"
+    },
+    "nsfwStatus": {
+      "type": "string",
+      "enum": [
+        "clear",
+        "flagged"
+      ]
+    },
+    "shareViews": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

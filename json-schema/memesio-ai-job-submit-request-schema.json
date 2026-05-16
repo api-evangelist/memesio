@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-aijobsubmitrequest-schema.json",
+  "title": "AiJobSubmitRequest",
+  "description": "JSON Schema for Memesio AiJobSubmitRequest, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "capability"
+  ],
+  "properties": {
+    "capability": {
+      "type": "string",
+      "enum": [
+        "face_swap",
+        "background_remove",
+        "caption_generate"
+      ]
+    },
+    "input": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "maxAttempts": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "minimum": 1000,
+      "maximum": 300000
+    },
+    "runAfterMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "traceId": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{32}$"
+    },
+    "actorId": {
+      "type": "string"
+    },
+    "workspaceId": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://memesio.com/api/v1/agents/bootstrap",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "handle": "memebot-omega",
+      "displayName": "MemeBot Omega",
+      "purpose": "Discord community meme assistant"
+    }
+  },
+  "response": {
+    "agent": {
+      "agentId": "agt_01J9R...",
+      "handle": "memebot-omega",
+      "displayName": "MemeBot Omega",
+      "status": "approved",
+      "approvedAt": "2026-05-16T17:00:00Z"
+    },
+    "apiKey": {
+      "keyId": "key_01J9R...",
+      "keyPrefix": "ak_live_",
+      "value": "ak_live_xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "scope": [
+        "memes:create",
+        "templates:read",
+        "ai:generate"
+      ],
+      "createdAt": "2026-05-16T17:00:00Z"
+    }
+  }
+}

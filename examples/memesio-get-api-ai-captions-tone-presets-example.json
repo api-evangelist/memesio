@@ -1,0 +1,8 @@
+{
+  "operation": "List Default + Custom Brand Tone Presets",
+  "method": "GET",
+  "path": "/api/ai/captions/tone-presets",
+  "response": {
+    "message": "Tone preset list payload"
+  }
+}

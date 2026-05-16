@@ -1,0 +1,8 @@
+{
+  "operation": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+  "method": "GET",
+  "path": "/api/video/timeline",
+  "response": {
+    "message": "Timeline project payload"
+  }
+}

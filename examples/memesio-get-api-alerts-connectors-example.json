@@ -1,0 +1,8 @@
+{
+  "operation": "Get Trend Source Connectors and Data Contracts",
+  "method": "GET",
+  "path": "/api/alerts/connectors",
+  "response": {
+    "message": "Trend source connector contract payload"
+  }
+}

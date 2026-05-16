@@ -1,0 +1,8 @@
+{
+  "operation": "List or Compare Versioned AI Edit History for a Layer",
+  "method": "GET",
+  "path": "/api/ai/edit-history",
+  "response": {
+    "message": "Layer history payload"
+  }
+}

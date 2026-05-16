@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-memecanvasconfig-schema.json",
+  "title": "MemeCanvasConfig",
+  "description": "JSON Schema for Memesio MemeCanvasConfig, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "aspectRatio",
+    "focusX",
+    "focusY",
+    "zoomPercent",
+    "crop",
+    "spacing",
+    "guides",
+    "sourceAdjustments",
+    "layerOrder",
+    "transform"
+  ],
+  "properties": {
+    "aspectRatio": {
+      "type": "string",
+      "enum": [
+        "original",
+        "1:1",
+        "4:5",
+        "16:9"
+      ]
+    },
+    "focusX": {
+      "type": "number"
+    },
+    "focusY": {
+      "type": "number"
+    },
+    "zoomPercent": {
+      "type": "number"
+    },
+    "crop": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "guides": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "sourceAdjustments": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "layerOrder": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "transform": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

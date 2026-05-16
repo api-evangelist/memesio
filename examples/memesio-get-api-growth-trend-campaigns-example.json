@@ -1,0 +1,8 @@
+{
+  "operation": "Generate or Retrieve Weekly Trend-Driven Template Campaigns",
+  "method": "GET",
+  "path": "/api/growth/trend-campaigns",
+  "response": {
+    "message": "Weekly campaign pack payload"
+  }
+}

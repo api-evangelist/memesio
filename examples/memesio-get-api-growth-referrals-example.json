@@ -1,0 +1,8 @@
+{
+  "operation": "Get Referral Credits for Actor",
+  "method": "GET",
+  "path": "/api/growth/referrals",
+  "response": {
+    "message": "Referral credit balance"
+  }
+}

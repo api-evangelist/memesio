@@ -1,0 +1,159 @@
+apiCommonsPlans: 0.1
+provider:
+  id: memesio
+  name: Memesio
+  url: https://memesio.com/
+  documentation: https://memesio.com/developers/api
+
+reconciled: false
+reconciliationNotes: >
+  Memesio does not publish a public price sheet at https://memesio.com/pricing
+  (404 as of 2026-05-16). The documented plan surface is quota-based rather
+  than tiered subscriptions: anonymous (template discovery + free caption with
+  watermark), developer key (baseline AI quota 3/day, premium features
+  gated), and agent key (baseline AI quota 3/day, fan-out capped at 1
+  variant by default, approval-gated boosts). The values below are captured
+  from the public API documentation
+  (https://memesio.com/developers/api) and the MCP server card
+  (https://memesio.com/.well-known/mcp/server-card.json). Premium watermark
+  control and higher AI quota are described as available via support;
+  monetary pricing is not disclosed and must be confirmed by sales.
+
+created: '2026-05-16'
+modified: '2026-05-16'
+
+plans:
+  - id: anonymous
+    name: Anonymous
+    description: >
+      No account required. Public template library search and free caption
+      rendering with a Memesio watermark.
+    audience: Anyone
+    cost:
+      type: free
+      currency: USD
+      amount: 0
+    accessControl:
+      authentication: none
+    entitlements:
+      - feature: template-search
+        description: Search the public template library (max page size 50).
+      - feature: free-caption-meme
+        description: Render captions on stored templates (watermarked).
+        notes: Anonymous free rate limits apply (specific numeric limits not disclosed).
+      - feature: hosted-share-link
+        description: Generated memes receive a hosted share URL.
+    quotas:
+      - name: free-caption-rate
+        notes: 'Anonymous free rate limits apply. Numeric limit not publicly disclosed.'
+        reconciled: false
+
+  - id: developer
+    name: Developer Key
+    description: >
+      Human-owned developer integration with key rotation. Authenticates with
+      x-agent-api-key. Unlocks AI generation under daily quota.
+    audience: Developer
+    cost:
+      type: unspecified
+      currency: USD
+      notes: 'No public price sheet. Pricing must be confirmed via support.'
+      reconciled: false
+    accessControl:
+      authentication: api-key
+      header: x-agent-api-key
+      signup: https://memesio.com/developers/api
+    entitlements:
+      - feature: ai-meme-generation
+        quota:
+          metric: ai-meme-generations
+          amount: 3
+          interval: day
+      - feature: ai-caption-generation
+        notes: Subject to per-actor daily reroll quota (numeric not disclosed in public docs).
+        reconciled: false
+      - feature: template-render
+      - feature: upload-caption
+      - feature: variant-fan-out
+        notes: Up to 5 variants per generate request.
+      - feature: hosted-meme-store
+      - feature: webhook-channels
+        notes: Telegram and WhatsApp channel bindings.
+      - feature: key-rotation
+    quotas:
+      - name: ai-quota-base
+        metric: ai-generations
+        amount: 3
+        interval: day
+      - name: variants-per-request-max
+        metric: variants
+        amount: 5
+        interval: request
+      - name: template-search-page-size-max
+        metric: items
+        amount: 50
+        interval: page
+
+  - id: agent
+    name: Agent Key
+    description: >
+      Autonomous AI agent identity, bootstrapped via /api/v1/agents/bootstrap.
+      Default variant fan-out is constrained; approval-gated boosts can
+      raise quota.
+    audience: Agent
+    cost:
+      type: unspecified
+      currency: USD
+      notes: 'No public price sheet. Pricing must be confirmed via support.'
+      reconciled: false
+    accessControl:
+      authentication: api-key
+      header: x-agent-api-key
+      signup: https://memesio.com/api/v1/agents/bootstrap
+    entitlements:
+      - feature: ai-meme-generation
+        quota:
+          metric: ai-meme-generations
+          amount: 3
+          interval: day
+      - feature: variant-fan-out
+        notes: Defaults to 1 variant per generate request for agent keys.
+      - feature: agent-name-suggestion
+      - feature: scoped-key-lifecycle
+      - feature: telegram-binding
+      - feature: whatsapp-binding
+      - feature: rewards-and-referrals
+      - feature: approval-gated-boost
+        notes: Higher AI quota available upon approval.
+    quotas:
+      - name: ai-quota-base
+        metric: ai-generations
+        amount: 3
+        interval: day
+      - name: variants-per-request-default
+        metric: variants
+        amount: 1
+        interval: request
+
+  - id: premium
+    name: Premium (Custom)
+    description: >
+      Higher AI quota, custom watermark controls, and advanced compliance
+      features. Available via support contact; pricing not publicly disclosed.
+    audience: Enterprise
+    cost:
+      type: unspecified
+      currency: USD
+      notes: 'Custom; contact Memesio support.'
+      reconciled: false
+    accessControl:
+      authentication: api-key
+      header: x-agent-api-key
+      signup: https://memesio.com/developers/api
+    entitlements:
+      - feature: ai-meme-generation-boosted
+        notes: Higher daily quota; numeric not disclosed in public docs.
+        reconciled: false
+      - feature: custom-watermark
+      - feature: brand-tone-presets
+      - feature: priority-support

@@ -1,0 +1,8 @@
+{
+  "operation": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+  "method": "GET",
+  "path": "/api/video/drafts",
+  "response": {
+    "message": "Video draft payload"
+  }
+}

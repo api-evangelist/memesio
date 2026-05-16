@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-memeoverlayimage-structure.json",
+  "name": "MemeOverlayImage",
+  "description": "JSON Schema for Memesio MemeOverlayImage, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "label",
+    "imageUrl",
+    "x",
+    "y",
+    "widthPercent",
+    "rotationDeg",
+    "opacity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "sourceImageUrl": {
+      "type": "string"
+    },
+    "x": {
+      "type": "double"
+    },
+    "y": {
+      "type": "double"
+    },
+    "widthPercent": {
+      "type": "double"
+    },
+    "rotationDeg": {
+      "type": "double"
+    },
+    "opacity": {
+      "type": "double"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "locked": {
+      "type": "boolean"
+    },
+    "flippedX": {
+      "type": "boolean"
+    },
+    "backgroundRemoved": {
+      "type": "boolean"
+    }
+  }
+}

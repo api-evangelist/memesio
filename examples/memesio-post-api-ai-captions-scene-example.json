@@ -1,0 +1,21 @@
+{
+  "operation": "Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata",
+  "method": "POST",
+  "path": "/api/ai/captions/scene",
+  "request": {
+    "canvasText": [
+      "string"
+    ],
+    "templateName": "string",
+    "templateDescription": "string",
+    "templateTags": [
+      "string"
+    ],
+    "trendSignals": [
+      "string"
+    ]
+  },
+  "response": {
+    "message": "Scene understanding payload"
+  }
+}

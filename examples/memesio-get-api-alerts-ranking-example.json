@@ -1,0 +1,8 @@
+{
+  "operation": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics",
+  "method": "GET",
+  "path": "/api/alerts/ranking",
+  "response": {
+    "message": "Ranked trend alerts payload"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "operation": "Create a New Scoped API Key for an Owned Agent",
+  "method": "POST",
+  "path": "/api/v1/agents/{agentId}/keys",
+  "request": {
+    "scopes": [
+      "generate"
+    ]
+  },
+  "response": {
+    "message": "Agent key created (plaintext returned once)"
+  }
+}

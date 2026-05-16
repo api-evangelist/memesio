@@ -1,0 +1,8 @@
+{
+  "operation": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window",
+  "method": "GET",
+  "path": "/api/ai/captions/generate",
+  "response": {
+    "message": "Current actor caption reroll quota snapshot"
+  }
+}

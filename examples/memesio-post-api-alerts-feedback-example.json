@@ -1,0 +1,17 @@
+{
+  "operation": "Record Trend Feedback Action and Update Preference Vector",
+  "method": "POST",
+  "path": "/api/alerts/feedback",
+  "request": {
+    "actorId": "string",
+    "alertId": "string",
+    "action": "topic_muted",
+    "topic": "string",
+    "niche": "string",
+    "region": "string",
+    "source": "string"
+  },
+  "response": {
+    "message": "Feedback stored and vector updated"
+  }
+}

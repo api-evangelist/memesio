@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-schema/memesio-memewatermarkconfig-schema.json",
+  "title": "MemeWatermarkConfig",
+  "description": "JSON Schema for Memesio MemeWatermarkConfig, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "enabled",
+    "text",
+    "position",
+    "scale"
+  ],
+  "properties": {
+    "enabled": {
+      "type": "boolean"
+    },
+    "text": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string",
+      "enum": [
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right"
+      ]
+    },
+    "scale": {
+      "type": "number"
+    }
+  }
+}

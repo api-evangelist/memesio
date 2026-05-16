@@ -1,0 +1,8 @@
+{
+  "operation": "List Stored Trend Feedback Actions",
+  "method": "GET",
+  "path": "/api/alerts/feedback",
+  "response": {
+    "message": "Trend feedback events payload"
+  }
+}

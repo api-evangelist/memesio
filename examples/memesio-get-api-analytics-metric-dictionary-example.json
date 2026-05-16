@@ -1,0 +1,8 @@
+{
+  "operation": "Get Metric Dictionary and Ownership Mapping",
+  "method": "GET",
+  "path": "/api/analytics/metric-dictionary",
+  "response": {
+    "message": "Metric dictionary payload"
+  }
+}

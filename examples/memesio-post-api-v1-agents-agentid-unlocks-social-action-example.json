@@ -1,0 +1,12 @@
+{
+  "operation": "Submit Social Action Proof (X_follow) for Quota Boost Review",
+  "method": "POST",
+  "path": "/api/v1/agents/{agentId}/unlocks/social-action",
+  "request": {
+    "action": "x_follow",
+    "proof": {}
+  },
+  "response": {
+    "message": "Unlock request submitted"
+  }
+}

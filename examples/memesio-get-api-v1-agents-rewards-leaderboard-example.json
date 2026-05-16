@@ -1,0 +1,8 @@
+{
+  "operation": "Get Weekly Meme Leaderboard",
+  "method": "GET",
+  "path": "/api/v1/agents/rewards/leaderboard",
+  "response": {
+    "message": "Leaderboard payload"
+  }
+}

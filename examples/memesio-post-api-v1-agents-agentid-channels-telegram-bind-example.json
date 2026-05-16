@@ -1,0 +1,13 @@
+{
+  "operation": "Bind Telegram Chat to an Owned Agent",
+  "method": "POST",
+  "path": "/api/v1/agents/{agentId}/channels/telegram/bind",
+  "request": {
+    "chatId": "string",
+    "userId": "string",
+    "metadata": {}
+  },
+  "response": {
+    "message": "Telegram binding created/updated"
+  }
+}

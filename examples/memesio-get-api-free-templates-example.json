@@ -1,0 +1,27 @@
+{
+  "operation": "Search Public Meme Templates for Agent-Friendly Discovery",
+  "method": "GET",
+  "path": "/api/free/templates",
+  "response": {
+    "searchMode": "lexical",
+    "fallbackApplied": true,
+    "items": [
+      {
+        "id": "string",
+        "sourceTemplateId": "string",
+        "slug": "string",
+        "name": "string",
+        "description": "string",
+        "imageUrl": "string",
+        "width": 1.0,
+        "height": 1.0,
+        "captionCount": 0,
+        "boxCount": 0
+      }
+    ],
+    "total": 0,
+    "nextPage": 1,
+    "page": 1,
+    "pageSize": 1
+  }
+}

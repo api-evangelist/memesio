@@ -1,0 +1,8 @@
+{
+  "operation": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+  "method": "GET",
+  "path": "/api/video/subtitles",
+  "response": {
+    "message": "Subtitle style preset + preview payload"
+  }
+}

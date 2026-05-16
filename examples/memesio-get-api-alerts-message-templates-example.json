@@ -1,0 +1,8 @@
+{
+  "operation": "Get Trend Alert Message Templates and Rendered Preview",
+  "method": "GET",
+  "path": "/api/alerts/message-templates",
+  "response": {
+    "message": "Trend alert message templates payload"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+  "method": "GET",
+  "path": "/api/alerts/triggers",
+  "response": {
+    "message": "Trigger decision payload"
+  }
+}

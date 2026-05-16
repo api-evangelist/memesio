@@ -1,0 +1,8 @@
+{
+  "operation": "List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count",
+  "method": "GET",
+  "path": "/api/alerts",
+  "response": {
+    "message": "Trend alerts list"
+  }
+}

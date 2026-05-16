@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/memesio/main/json-structure/memesio-memecaption-structure.json",
+  "name": "MemeCaption",
+  "description": "JSON Schema for Memesio MemeCaption, extracted from https://memesio.com/api/openapi (Memesio API Contracts v0.1.0).",
+  "type": "object",
+  "required": [
+    "id",
+    "text",
+    "x",
+    "y",
+    "fontSize"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "x": {
+      "type": "double"
+    },
+    "y": {
+      "type": "double"
+    },
+    "fontSize": {
+      "type": "double"
+    },
+    "rotationDeg": {
+      "type": "double"
+    },
+    "hidden": {
+      "type": "boolean"
+    },
+    "locked": {
+      "type": "boolean"
+    },
+    "boxWidthPct": {
+      "type": "double"
+    },
+    "boxHeightPct": {
+      "type": "double"
+    },
+    "paddingPct": {
+      "type": "double"
+    },
+    "maxLines": {
+      "type": "int32"
+    },
+    "lineHeight": {
+      "type": "double"
+    },
+    "backgroundEnabled": {
+      "type": "boolean"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "backgroundOpacity": {
+      "type": "double"
+    },
+    "letterSpacingEm": {
+      "type": "double"
+    },
+    "shadowStrength": {
+      "type": "double"
+    },
+    "color": {
+      "type": "string"
+    },
+    "stroke": {
+      "type": "string"
+    },
+    "fontFamily": {
+      "type": "string",
+      "enum": [
+        "impact",
+        "arial"
+      ]
+    },
+    "textAlign": {
+      "type": "string",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    },
+    "semanticRole": {
+      "type": "string",
+      "enum": [
+        "setup",
+        "contrast",
+        "punchline",
+        "reaction",
+        "label"
+      ]
+    },
+    "preferredCase": {
+      "type": "string",
+      "enum": [
+        "uppercase",
+        "sentence",
+        "title",
+        "preserve"
+      ]
+    },
+    "exampleText": {
+      "type": "string"
+    },
+    "recommendedWordsMin": {
+      "type": "int32",
+      "minimum": 1
+    },
+    "recommendedWordsMax": {
+      "type": "int32",
+      "minimum": 1
+    },
+    "recommendedCharsMin": {
+      "type": "int32",
+      "minimum": 1
+    },
+    "recommendedCharsMax": {
+      "type": "int32",
+      "minimum": 1
+    }
+  }
+}

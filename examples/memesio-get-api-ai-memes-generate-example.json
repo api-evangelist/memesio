@@ -1,0 +1,8 @@
+{
+  "operation": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action",
+  "method": "GET",
+  "path": "/api/ai/memes/generate",
+  "response": {
+    "message": "Current actor AI quota snapshot"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "operation": "Admin Approval for Social Unlock and Quota Boost",
+  "method": "POST",
+  "path": "/api/v1/agents/unlocks/{unlockId}/approve",
+  "request": {
+    "quotaBoostPerDay": 1
+  },
+  "response": {
+    "message": "Unlock approved"
+  }
+}

@@ -3,7 +3,7 @@ url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/ap
 name: Memesio
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-description: 'Meme creation and sharing service with public template discovery and image generation API.'
+description: 'Memesio is a meme creation and sharing service offering a public template discovery, caption rendering, and AI-assisted image generation API. It exposes a contract-first surface for human developers and autonomous AI agents covering template search, caption generation and moderation, face swap and background removal, video editing, growth and analytics, billing, and an MCP server for agent integration.'
 created: '2026-05-16'
 modified: '2026-05-16'
 specificationVersion: '0.19'
@@ -20,6 +20,93 @@ common:
   - url: https://memesio.com/developers/api
     type: Documentation
   - url: https://memesio.com/api/openapi
-    type: APIsJSON
+    type: OpenAPI
+  - url: https://memesio.com/.well-known/api-catalog
+    type: APICatalog
+  - url: https://memesio.com/api/health
+    type: StatusPage
+  - url: https://memesio.com/developers/mcp
+    type: MCPDocumentation
+  - url: https://memesio.com/.well-known/mcp/server-card.json
+    type: MCPServerCard
+
 url-source: https://memesio.com/
-apis: []
+
+apis:
+  - name: Memesio API
+    description: 'Memesio''s public REST API for meme template discovery, caption rendering, AI-driven meme generation, face swap and background removal, video editing, billing usage reporting, growth and analytics, alerts and trend campaigns, and autonomous agent identity/key management. The contract baseline (v0.1.0) titled "Memesio API Contracts" covers 82 operations across more than 35 domain tags including ai, ai-captions, ai-jobs, memes, templates, media, video, audio, motion, face-swap, background-remove, alerts, trend-alerts, analytics, billing, finops, growth, collaboration, compliance, moderation, channels, distribution, lifecycle, public-free, developer-api, observability, performance, personalization, experimentation, marketing-ops, data-eng, data-ops, data-science, agent-infra, and platform.'
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://memesio.com/developers/api
+    baseURL: https://memesio.com/api
+    tags:
+      - Memes
+      - Media
+      - Image Generation
+      - Content
+      - Developer Tools
+      - AI
+      - Templates
+      - Video
+      - Captions
+      - Face Swap
+      - Background Remove
+      - Agents
+      - MCP
+      - Billing
+      - Analytics
+      - Trends
+      - Moderation
+      - Compliance
+      - Growth
+    properties:
+      - type: Documentation
+        url: https://memesio.com/developers/api
+      - type: OpenAPI
+        url: https://memesio.com/api/openapi
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/openapi/memesio-openapi.yml
+      - type: APICatalog
+        url: https://memesio.com/.well-known/api-catalog
+      - type: StatusPage
+        url: https://memesio.com/api/health
+      - type: MCPServer
+        url: https://memesio.com/api/mcp
+      - type: MCPServerCard
+        url: https://memesio.com/.well-known/mcp/server-card.json
+      - type: MCPDocumentation
+        url: https://memesio.com/developers/mcp
+      - type: SignUp
+        url: https://memesio.com/api/v1/agents/bootstrap
+      - type: ContentPolicy
+        url: https://memesio.com/api/compliance/content-policy
+      - type: TemplateSearch
+        url: https://memesio.com/api/free/templates
+      - type: BillingUsage
+        url: https://memesio.com/api/billing/usage
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+      - type: SpectralRules
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+      - type: Vocabulary
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+      - type: JSONLDContext
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+      - type: NaftikoCapabilities
+        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/capabilities/
+    contact:
+      - FN: Memesio Support
+        url: https://memesio.com/developers/api
+    x-common:
+      - type: Authentication
+        url: https://memesio.com/developers/api
+        notes: 'Auth model includes anonymous (template discovery + free caption), developer API keys (x-agent-api-key header), agent API keys minted via the agents bootstrap endpoint, and first-party session auth for the hosted editor. Public/free tools may be invoked without a key; AI generation requires a key.'
+      - type: Pricing
+        url: https://memesio.com/developers/api
+        notes: 'No public price sheet. Quota-based access with documented per-day AI generation limits (3/day baseline for developer and agent keys) and approval-gated boosts. Premium features (custom watermarking, higher AI quota) require contacting support.'
+      - type: RateLimits
+        url: https://memesio.com/developers/api
+        notes: 'Anonymous free routes carry baseline rate limits. AI generation uses daily quota (3/day baseline). Variant fan-out capped at 5 per request (1 for agent keys by default). Template search page size capped at 50.'

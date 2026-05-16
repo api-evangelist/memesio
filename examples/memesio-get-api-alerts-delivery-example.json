@@ -1,0 +1,8 @@
+{
+  "operation": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+  "method": "GET",
+  "path": "/api/alerts/delivery",
+  "response": {
+    "message": "Trend alert delivery report payload"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "operation": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+  "method": "GET",
+  "path": "/api/growth/viral-triggers",
+  "response": {
+    "message": "Viral loop trigger payload"
+  }
+}

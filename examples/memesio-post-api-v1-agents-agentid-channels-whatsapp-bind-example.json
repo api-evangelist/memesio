@@ -1,0 +1,13 @@
+{
+  "operation": "Bind WhatsApp Chat/Phone to an Owned Agent",
+  "method": "POST",
+  "path": "/api/v1/agents/{agentId}/channels/whatsapp/bind",
+  "request": {
+    "phoneOrChatId": "string",
+    "userId": "string",
+    "metadata": {}
+  },
+  "response": {
+    "message": "WhatsApp binding created/updated"
+  }
+}

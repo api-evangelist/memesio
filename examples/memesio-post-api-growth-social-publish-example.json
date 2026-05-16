@@ -1,0 +1,18 @@
+{
+  "operation": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+  "method": "POST",
+  "path": "/api/growth/social-publish",
+  "request": {
+    "action": "connect",
+    "actorId": "string",
+    "platform": "tiktok",
+    "handle": "string",
+    "externalAccountId": "string",
+    "accountId": "string",
+    "memeSlug": "string",
+    "caption": "string"
+  },
+  "response": {
+    "message": "Disconnect response"
+  }
+}
