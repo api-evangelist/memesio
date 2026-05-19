@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — data-science
+  description: 'Memesio API Contracts — data-science. 1 operations. Lead operation: Rank Trend Alerts with Personalization
+    by Niche, Geography, Follower Count, and Creator-Selected Topics. Self-contained Naftiko capability covering one Memesio
+    business surface.'
+  tags:
+  - Memesio
+  - data-science
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-data-science
+    baseUri: ''
+    description: Memesio API Contracts — data-science business capability. Self-contained, no shared references.
+    resources:
+    - name: api-alerts-ranking
+      path: /api/alerts/ranking
+      operations:
+      - name: get
+        method: GET
+        description: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: actorId
+          in: query
+          type: string
+        - name: preferredNiche
+          in: query
+          type: string
+        - name: preferredRegion
+          in: query
+          type: string
+        - name: topics
+          in: query
+          type: string
+        - name: followerCount
+          in: query
+          type: integer
+        - name: aggressiveness
+          in: query
+          type: number
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-data-science-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — data-science. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/alerts/ranking
+      name: api-alerts-ranking
+      description: REST surface for api-alerts-ranking.
+      operations:
+      - method: GET
+        name: get
+        description: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics
+        call: memesio-data-science.get
+        with:
+          actorId: rest.actorId
+          preferredNiche: rest.preferredNiche
+          preferredRegion: rest.preferredRegion
+          topics: rest.topics
+          followerCount: rest.followerCount
+          aggressiveness: rest.aggressiveness
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-data-science-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — data-science. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: rank-trend-alerts-personalization-niche
+      description: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-data-science.get
+      with:
+        actorId: tools.actorId
+        preferredNiche: tools.preferredNiche
+        preferredRegion: tools.preferredRegion
+        topics: tools.topics
+        followerCount: tools.followerCount
+        aggressiveness: tools.aggressiveness
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

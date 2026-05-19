@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — performance
+  description: 'Memesio API Contracts — performance. 1 operations. Lead operation: Get Latest Video Render Load-Test Summary
+    or Refresh Simulation. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - performance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-performance
+    baseUri: ''
+    description: Memesio API Contracts — performance business capability. Self-contained, no shared references.
+    resources:
+    - name: api-video-render-performance
+      path: /api/video/render-performance
+      operations:
+      - name: get
+        method: GET
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: refresh
+          in: query
+          type: boolean
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-performance-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — performance. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/video/render-performance
+      name: api-video-render-performance
+      description: REST surface for api-video-render-performance.
+      operations:
+      - method: GET
+        name: get
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        call: memesio-performance.get
+        with:
+          refresh: rest.refresh
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-performance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — performance. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-latest-video-render-load
+      description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-performance.get
+      with:
+        refresh: tools.refresh
+      outputParameters:
+      - type: object
+        mapping: $.

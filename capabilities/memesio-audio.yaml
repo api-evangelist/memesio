@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — audio
+  description: 'Memesio API Contracts — audio. 1 operations. Lead operation: List Licensed Meme/Punchline Audio Clips with
+    Beat-Sync Suggestions for Target BPM. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - audio
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-audio
+    baseUri: ''
+    description: Memesio API Contracts — audio business capability. Self-contained, no shared references.
+    resources:
+    - name: api-video-audio-library
+      path: /api/video/audio-library
+      operations:
+      - name: get
+        method: GET
+        description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+        - name: kind
+          in: query
+          type: string
+        - name: tag
+          in: query
+          type: string
+        - name: targetBpm
+          in: query
+          type: integer
+        - name: toleranceBpm
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-audio-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — audio. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/video/audio-library
+      name: api-video-audio-library
+      description: REST surface for api-video-audio-library.
+      operations:
+      - method: GET
+        name: get
+        description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+        call: memesio-audio.get
+        with:
+          query: rest.query
+          kind: rest.kind
+          tag: rest.tag
+          targetBpm: rest.targetBpm
+          toleranceBpm: rest.toleranceBpm
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-audio-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — audio. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-licensed-meme-punchline-audio
+      description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-audio.get
+      with:
+        query: tools.query
+        kind: tools.kind
+        tag: tools.tag
+        targetBpm: tools.targetBpm
+        toleranceBpm: tools.toleranceBpm
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,312 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — analytics
+  description: 'Memesio API Contracts — analytics. 8 operations. Lead operation: Run Backend 5xx and Render Latency Alert
+    Checks. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - analytics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-analytics
+    baseUri: ''
+    description: Memesio API Contracts — analytics business capability. Self-contained, no shared references.
+    resources:
+    - name: api-analytics-alerts-backend
+      path: /api/analytics/alerts/backend
+      operations:
+      - name: get
+        method: GET
+        description: Run Backend 5xx and Render Latency Alert Checks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-analytics-anomalies-ai
+      path: /api/analytics/anomalies/ai
+      operations:
+      - name: get
+        method: GET
+        description: Run AI Cost/Failure Anomaly Detection and Return Alert State
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-analytics-dashboards-activation-retention
+      path: /api/analytics/dashboards/activation-retention
+      operations:
+      - name: get
+        method: GET
+        description: Get Activation and Retention Dashboard Spec (Looker)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-analytics-dashboards-backend-reliability
+      path: /api/analytics/dashboards/backend-reliability
+      operations:
+      - name: get
+        method: GET
+        description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: windowHours
+          in: query
+          type: integer
+    - name: api-analytics-dashboards-feature-adoption
+      path: /api/analytics/dashboards/feature-adoption
+      operations:
+      - name: get
+        method: GET
+        description: Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-analytics-experiments-templates
+      path: /api/analytics/experiments/templates
+      operations:
+      - name: get
+        method: GET
+        description: Get Pricing/Paywall Experiment Analysis Templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: templateId
+          in: query
+          type: string
+    - name: api-analytics-metric-dictionary
+      path: /api/analytics/metric-dictionary
+      operations:
+      - name: get
+        method: GET
+        description: Get Metric Dictionary and Ownership Mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-growth-viral-triggers
+      path: /api/growth/viral-triggers
+      operations:
+      - name: get
+        method: GET
+        description: Get Viral Loop Trigger Definitions and Instrumentation Mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-analytics-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — analytics. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/analytics/alerts/backend
+      name: api-analytics-alerts-backend
+      description: REST surface for api-analytics-alerts-backend.
+      operations:
+      - method: GET
+        name: get
+        description: Run Backend 5xx and Render Latency Alert Checks
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/anomalies/ai
+      name: api-analytics-anomalies-ai
+      description: REST surface for api-analytics-anomalies-ai.
+      operations:
+      - method: GET
+        name: get
+        description: Run AI Cost/Failure Anomaly Detection and Return Alert State
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/dashboards/activation-retention
+      name: api-analytics-dashboards-activation-retention
+      description: REST surface for api-analytics-dashboards-activation-retention.
+      operations:
+      - method: GET
+        name: get
+        description: Get Activation and Retention Dashboard Spec (Looker)
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/dashboards/backend-reliability
+      name: api-analytics-dashboards-backend-reliability
+      description: REST surface for api-analytics-dashboards-backend-reliability.
+      operations:
+      - method: GET
+        name: get
+        description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+        call: memesio-analytics.get
+        with:
+          windowHours: rest.windowHours
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/dashboards/feature-adoption
+      name: api-analytics-dashboards-feature-adoption
+      description: REST surface for api-analytics-dashboards-feature-adoption.
+      operations:
+      - method: GET
+        name: get
+        description: Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/experiments/templates
+      name: api-analytics-experiments-templates
+      description: REST surface for api-analytics-experiments-templates.
+      operations:
+      - method: GET
+        name: get
+        description: Get Pricing/Paywall Experiment Analysis Templates
+        call: memesio-analytics.get
+        with:
+          templateId: rest.templateId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/metric-dictionary
+      name: api-analytics-metric-dictionary
+      description: REST surface for api-analytics-metric-dictionary.
+      operations:
+      - method: GET
+        name: get
+        description: Get Metric Dictionary and Ownership Mapping
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/growth/viral-triggers
+      name: api-growth-viral-triggers
+      description: REST surface for api-growth-viral-triggers.
+      operations:
+      - method: GET
+        name: get
+        description: Get Viral Loop Trigger Definitions and Instrumentation Mapping
+        call: memesio-analytics.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-analytics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — analytics. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: run-backend-5xx-and-render
+      description: Run Backend 5xx and Render Latency Alert Checks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: run-ai-cost-failure-anomaly
+      description: Run AI Cost/Failure Anomaly Detection and Return Alert State
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-activation-and-retention-dashboard
+      description: Get Activation and Retention Dashboard Spec (Looker)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-backend-reliability-dashboard-spec
+      description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      with:
+        windowHours: tools.windowHours
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-feature-adoption-dashboard-spec
+      description: Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-pricing-paywall-experiment-analysis
+      description: Get Pricing/Paywall Experiment Analysis Templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      with:
+        templateId: tools.templateId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-metric-dictionary-and-ownership
+      description: Get Metric Dictionary and Ownership Mapping
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-viral-loop-trigger-definitions
+      description: Get Viral Loop Trigger Definitions and Instrumentation Mapping
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-analytics.get
+      outputParameters:
+      - type: object
+        mapping: $.

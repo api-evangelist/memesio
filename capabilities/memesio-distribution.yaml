@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — distribution
+  description: 'Memesio API Contracts — distribution. 2 operations. Lead operation: Get Social Publish Gate State, Connected
+    Accounts, and Recent Publishes. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - distribution
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-distribution
+    baseUri: ''
+    description: Memesio API Contracts — distribution business capability. Self-contained, no shared references.
+    resources:
+    - name: api-growth-social-publish
+      path: /api/growth/social-publish
+      operations:
+      - name: get
+        method: GET
+        description: Get Social Publish Gate State, Connected Accounts, and Recent Publishes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: actorId
+          in: query
+          type: string
+          required: true
+        - name: publishLimit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-distribution-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — distribution. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/growth/social-publish
+      name: api-growth-social-publish
+      description: REST surface for api-growth-social-publish.
+      operations:
+      - method: GET
+        name: get
+        description: Get Social Publish Gate State, Connected Accounts, and Recent Publishes
+        call: memesio-distribution.get
+        with:
+          actorId: rest.actorId
+          publishLimit: rest.publishLimit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)
+        call: memesio-distribution.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-distribution-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — distribution. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-social-publish-gate-state
+      description: Get Social Publish Gate State, Connected Accounts, and Recent Publishes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-distribution.get
+      with:
+        actorId: tools.actorId
+        publishLimit: tools.publishLimit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: connect-disconnect-social-accounts-and
+      description: Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-distribution.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

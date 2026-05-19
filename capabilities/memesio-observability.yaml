@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — observability
+  description: 'Memesio API Contracts — observability. 2 operations. Lead operation: Run Backend 5xx and Render Latency Alert
+    Checks. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - observability
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-observability
+    baseUri: ''
+    description: Memesio API Contracts — observability business capability. Self-contained, no shared references.
+    resources:
+    - name: api-analytics-alerts-backend
+      path: /api/analytics/alerts/backend
+      operations:
+      - name: get
+        method: GET
+        description: Run Backend 5xx and Render Latency Alert Checks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-analytics-dashboards-backend-reliability
+      path: /api/analytics/dashboards/backend-reliability
+      operations:
+      - name: get
+        method: GET
+        description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: windowHours
+          in: query
+          type: integer
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-observability-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — observability. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/analytics/alerts/backend
+      name: api-analytics-alerts-backend
+      description: REST surface for api-analytics-alerts-backend.
+      operations:
+      - method: GET
+        name: get
+        description: Run Backend 5xx and Render Latency Alert Checks
+        call: memesio-observability.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/analytics/dashboards/backend-reliability
+      name: api-analytics-dashboards-backend-reliability
+      description: REST surface for api-analytics-dashboards-backend-reliability.
+      operations:
+      - method: GET
+        name: get
+        description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+        call: memesio-observability.get
+        with:
+          windowHours: rest.windowHours
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-observability-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — observability. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: run-backend-5xx-and-render
+      description: Run Backend 5xx and Render Latency Alert Checks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-observability.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-backend-reliability-dashboard-spec
+      description: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-observability.get
+      with:
+        windowHours: tools.windowHours
+      outputParameters:
+      - type: object
+        mapping: $.

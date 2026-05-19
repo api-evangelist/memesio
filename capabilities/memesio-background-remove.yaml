@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — background-remove
+  description: 'Memesio API Contracts — background-remove. 1 operations. Lead operation: Run One-Click Background Removal
+    for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits. Self-contained Naftiko capability
+    covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - background-remove
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-background-remove
+    baseUri: ''
+    description: Memesio API Contracts — background-remove business capability. Self-contained, no shared references.
+    resources:
+    - name: api-ai-background-remove
+      path: /api/ai/background-remove
+      operations:
+      - name: post
+        method: POST
+        description: Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask
+          Brush Edits
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-background-remove-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — background-remove. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/ai/background-remove
+      name: api-ai-background-remove
+      description: REST surface for api-ai-background-remove.
+      operations:
+      - method: POST
+        name: post
+        description: Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask
+          Brush Edits
+        call: memesio-background-remove.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-background-remove-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — background-remove. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: run-one-click-background-removal
+      description: Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask
+        Brush Edits
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-background-remove.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

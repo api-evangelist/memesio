@@ -1,0 +1,431 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — platform
+  description: 'Memesio API Contracts — platform. 9 operations. Lead operation: Load Cloud Video Drafts Used by 15-Second
+    Autosave and Cross-Device Resume. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - platform
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-platform
+    baseUri: ''
+    description: Memesio API Contracts — platform business capability. Self-contained, no shared references.
+    resources:
+    - name: api-video-drafts
+      path: /api/video/drafts
+      operations:
+      - name: get
+        method: GET
+        description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-formats
+      path: /api/video/formats
+      operations:
+      - name: get
+        method: GET
+        description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: planTier
+          in: query
+          type: string
+        - name: inputFormat
+          in: query
+          type: string
+        - name: mimeType
+          in: query
+          type: string
+        - name: outputPresetId
+          in: query
+          type: string
+        - name: durationSeconds
+          in: query
+          type: number
+      - name: post
+        method: POST
+        description: Estimate Cost and Validate Planned Video Export Job Against Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-render-performance
+      path: /api/video/render-performance
+      operations:
+      - name: get
+        method: GET
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: refresh
+          in: query
+          type: boolean
+    - name: api-video-render-queue
+      path: /api/video/render-queue
+      operations:
+      - name: get
+        method: GET
+        description: Get Render Queue Snapshot or List Render Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mode
+          in: query
+          type: string
+        - name: status
+          in: query
+          type: string
+        - name: planTier
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-timeline
+      path: /api/video/timeline
+      operations:
+      - name: get
+        method: GET
+        description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+          Tracks)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with
+          Keyframe-Level Adjustments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-platform-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — platform. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/video/drafts
+      name: api-video-drafts
+      description: REST surface for api-video-drafts.
+      operations:
+      - method: GET
+        name: get
+        description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+        call: memesio-platform.get
+        with:
+          projectId: rest.projectId
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+        call: memesio-platform.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/formats
+      name: api-video-formats
+      description: REST surface for api-video-formats.
+      operations:
+      - method: GET
+        name: get
+        description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+        call: memesio-platform.get
+        with:
+          planTier: rest.planTier
+          inputFormat: rest.inputFormat
+          mimeType: rest.mimeType
+          outputPresetId: rest.outputPresetId
+          durationSeconds: rest.durationSeconds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Estimate Cost and Validate Planned Video Export Job Against Policy
+        call: memesio-platform.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/render-performance
+      name: api-video-render-performance
+      description: REST surface for api-video-render-performance.
+      operations:
+      - method: GET
+        name: get
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        call: memesio-platform.get
+        with:
+          refresh: rest.refresh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/render-queue
+      name: api-video-render-queue
+      description: REST surface for api-video-render-queue.
+      operations:
+      - method: GET
+        name: get
+        description: Get Render Queue Snapshot or List Render Jobs
+        call: memesio-platform.get
+        with:
+          mode: rest.mode
+          status: rest.status
+          planTier: rest.planTier
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+        call: memesio-platform.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/timeline
+      name: api-video-timeline
+      description: REST surface for api-video-timeline.
+      operations:
+      - method: GET
+        name: get
+        description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+          Tracks)
+        call: memesio-platform.get
+        with:
+          projectId: rest.projectId
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with
+          Keyframe-Level Adjustments
+        call: memesio-platform.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-platform-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — platform. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: load-cloud-video-drafts-used
+      description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-platform.get
+      with:
+        projectId: tools.projectId
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: save-resume-crash-safe-cloud
+      description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-platform.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-supported-video-input-output
+      description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-platform.get
+      with:
+        planTier: tools.planTier
+        inputFormat: tools.inputFormat
+        mimeType: tools.mimeType
+        outputPresetId: tools.outputPresetId
+        durationSeconds: tools.durationSeconds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: estimate-cost-and-validate-planned
+      description: Estimate Cost and Validate Planned Video Export Job Against Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: memesio-platform.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-latest-video-render-load
+      description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-platform.get
+      with:
+        refresh: tools.refresh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-render-queue-snapshot-list
+      description: Get Render Queue Snapshot or List Render Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-platform.get
+      with:
+        mode: tools.mode
+        status: tools.status
+        planTier: tools.planTier
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mutate-render-queue-enqueue-claim
+      description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-platform.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-timeline-projects-load-one
+      description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+        Tracks)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-platform.get
+      with:
+        projectId: tools.projectId
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mutate-timeline-project-action-based
+      description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level
+        Adjustments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-platform.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

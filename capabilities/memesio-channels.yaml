@@ -1,0 +1,225 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — channels
+  description: 'Memesio API Contracts — channels. 5 operations. Lead operation: Telegram Inbound Webhook Receiver with Dedupe
+    and Agent Routing. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - channels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-channels
+    baseUri: ''
+    description: Memesio API Contracts — channels business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-agents-webhooks-telegram
+      path: /api/v1/agents/webhooks/telegram
+      operations:
+      - name: post
+        method: POST
+        description: Telegram Inbound Webhook Receiver with Dedupe and Agent Routing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-agents-webhooks-whatsapp
+      path: /api/v1/agents/webhooks/whatsapp
+      operations:
+      - name: get
+        method: GET
+        description: WhatsApp Verification Handshake Endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post
+        method: POST
+        description: WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-v1-agents-agentId-channels-telegram-bind
+      path: /api/v1/agents/{agentId}/channels/telegram/bind
+      operations:
+      - name: post
+        method: POST
+        description: Bind Telegram Chat to an Owned Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agentId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-agents-agentId-channels-whatsapp-bind
+      path: /api/v1/agents/{agentId}/channels/whatsapp/bind
+      operations:
+      - name: post
+        method: POST
+        description: Bind WhatsApp Chat/Phone to an Owned Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agentId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-channels-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — channels. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/agents/webhooks/telegram
+      name: api-v1-agents-webhooks-telegram
+      description: REST surface for api-v1-agents-webhooks-telegram.
+      operations:
+      - method: POST
+        name: post
+        description: Telegram Inbound Webhook Receiver with Dedupe and Agent Routing
+        call: memesio-channels.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/webhooks/whatsapp
+      name: api-v1-agents-webhooks-whatsapp
+      description: REST surface for api-v1-agents-webhooks-whatsapp.
+      operations:
+      - method: GET
+        name: get
+        description: WhatsApp Verification Handshake Endpoint
+        call: memesio-channels.get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing
+        call: memesio-channels.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/{agentid}/channels/telegram/bind
+      name: api-v1-agents-agentid-channels-telegram-bind
+      description: REST surface for api-v1-agents-agentId-channels-telegram-bind.
+      operations:
+      - method: POST
+        name: post
+        description: Bind Telegram Chat to an Owned Agent
+        call: memesio-channels.post
+        with:
+          agentId: rest.agentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/{agentid}/channels/whatsapp/bind
+      name: api-v1-agents-agentid-channels-whatsapp-bind
+      description: REST surface for api-v1-agents-agentId-channels-whatsapp-bind.
+      operations:
+      - method: POST
+        name: post
+        description: Bind WhatsApp Chat/Phone to an Owned Agent
+        call: memesio-channels.post
+        with:
+          agentId: rest.agentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-channels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — channels. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: telegram-inbound-webhook-receiver-dedupe
+      description: Telegram Inbound Webhook Receiver with Dedupe and Agent Routing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-channels.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: whatsapp-verification-handshake-endpoint
+      description: WhatsApp Verification Handshake Endpoint
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-channels.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: whatsapp-inbound-webhook-receiver-dedupe
+      description: WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-channels.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bind-telegram-chat-owned-agent
+      description: Bind Telegram Chat to an Owned Agent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-channels.post
+      with:
+        agentId: tools.agentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bind-whatsapp-chat-phone-owned
+      description: Bind WhatsApp Chat/Phone to an Owned Agent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-channels.post
+      with:
+        agentId: tools.agentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

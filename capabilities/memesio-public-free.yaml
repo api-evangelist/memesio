@@ -1,0 +1,152 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — public-free
+  description: 'Memesio API Contracts — public-free. 2 operations. Lead operation: Caption a Stored Template Without AI and
+    Return Hosted Meme URLS with a Memesio Watermark. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - public-free
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-public-free
+    baseUri: ''
+    description: Memesio API Contracts — public-free business capability. Self-contained, no shared references.
+    resources:
+    - name: api-free-memes-caption
+      path: /api/free/memes/caption
+      operations:
+      - name: post
+        method: POST
+        description: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-free-templates
+      path: /api/free/templates
+      operations:
+      - name: get
+        method: GET
+        description: Search Public Meme Templates for Agent-Friendly Discovery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+        - name: q
+          in: query
+          type: string
+        - name: tag
+          in: query
+          type: string
+        - name: page
+          in: query
+          type: integer
+        - name: pageSize
+          in: query
+          type: integer
+        - name: sort
+          in: query
+          type: string
+        - name: mode
+          in: query
+          type: string
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-public-free-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — public-free. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/free/memes/caption
+      name: api-free-memes-caption
+      description: REST surface for api-free-memes-caption.
+      operations:
+      - method: POST
+        name: post
+        description: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark
+        call: memesio-public-free.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/free/templates
+      name: api-free-templates
+      description: REST surface for api-free-templates.
+      operations:
+      - method: GET
+        name: get
+        description: Search Public Meme Templates for Agent-Friendly Discovery
+        call: memesio-public-free.get
+        with:
+          query: rest.query
+          q: rest.q
+          tag: rest.tag
+          page: rest.page
+          pageSize: rest.pageSize
+          sort: rest.sort
+          mode: rest.mode
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-public-free-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — public-free. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: caption-stored-template-without-ai
+      description: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-public-free.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-public-meme-templates-agent
+      description: Search Public Meme Templates for Agent-Friendly Discovery
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-public-free.get
+      with:
+        query: tools.query
+        q: tools.q
+        tag: tools.tag
+        page: tools.page
+        pageSize: tools.pageSize
+        sort: tools.sort
+        mode: tools.mode
+      outputParameters:
+      - type: object
+        mapping: $.

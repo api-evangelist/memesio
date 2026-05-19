@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — collaboration
+  description: 'Memesio API Contracts — collaboration. 2 operations. Lead operation: List Collaboration Comments. Self-contained
+    Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - collaboration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-collaboration
+    baseUri: ''
+    description: Memesio API Contracts — collaboration business capability. Self-contained, no shared references.
+    resources:
+    - name: api-collab-comments
+      path: /api/collab/comments
+      operations:
+      - name: get
+        method: GET
+        description: List Collaboration Comments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+          required: true
+        - name: page
+          in: query
+          type: integer
+        - name: pageSize
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Create Collaboration Comment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-collaboration-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — collaboration. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/collab/comments
+      name: api-collab-comments
+      description: REST surface for api-collab-comments.
+      operations:
+      - method: GET
+        name: get
+        description: List Collaboration Comments
+        call: memesio-collaboration.get
+        with:
+          projectId: rest.projectId
+          page: rest.page
+          pageSize: rest.pageSize
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Create Collaboration Comment
+        call: memesio-collaboration.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-collaboration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — collaboration. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-collaboration-comments
+      description: List Collaboration Comments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-collaboration.get
+      with:
+        projectId: tools.projectId
+        page: tools.page
+        pageSize: tools.pageSize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-collaboration-comment
+      description: Create Collaboration Comment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-collaboration.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

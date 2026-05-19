@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — lifecycle
+  description: 'Memesio API Contracts — lifecycle. 2 operations. Lead operation: Get Lifecycle Messaging Flow Config and Recent
+    Dispatch History. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - lifecycle
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-lifecycle
+    baseUri: ''
+    description: Memesio API Contracts — lifecycle business capability. Self-contained, no shared references.
+    resources:
+    - name: api-growth-lifecycle-messaging
+      path: /api/growth/lifecycle-messaging
+      operations:
+      - name: get
+        method: GET
+        description: Get Lifecycle Messaging Flow Config and Recent Dispatch History
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post
+        method: POST
+        description: Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-lifecycle-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — lifecycle. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/growth/lifecycle-messaging
+      name: api-growth-lifecycle-messaging
+      description: REST surface for api-growth-lifecycle-messaging.
+      operations:
+      - method: GET
+        name: get
+        description: Get Lifecycle Messaging Flow Config and Recent Dispatch History
+        call: memesio-lifecycle.get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)
+        call: memesio-lifecycle.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-lifecycle-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — lifecycle. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-lifecycle-messaging-flow-config
+      description: Get Lifecycle Messaging Flow Config and Recent Dispatch History
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-lifecycle.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: preview-run-lifecycle-messaging-flows
+      description: Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-lifecycle.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

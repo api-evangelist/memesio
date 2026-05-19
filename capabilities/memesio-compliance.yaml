@@ -1,0 +1,72 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — compliance
+  description: 'Memesio API Contracts — compliance. 1 operations. Lead operation: Get Content and Face-Swap Usage Policy with
+    Enforcement Points. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - compliance
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-compliance
+    baseUri: ''
+    description: Memesio API Contracts — compliance business capability. Self-contained, no shared references.
+    resources:
+    - name: api-compliance-content-policy
+      path: /api/compliance/content-policy
+      operations:
+      - name: get
+        method: GET
+        description: Get Content and Face-Swap Usage Policy with Enforcement Points
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-compliance-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — compliance. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/compliance/content-policy
+      name: api-compliance-content-policy
+      description: REST surface for api-compliance-content-policy.
+      operations:
+      - method: GET
+        name: get
+        description: Get Content and Face-Swap Usage Policy with Enforcement Points
+        call: memesio-compliance.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-compliance-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — compliance. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-content-and-face-swap
+      description: Get Content and Face-Swap Usage Policy with Enforcement Points
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-compliance.get
+      outputParameters:
+      - type: object
+        mapping: $.

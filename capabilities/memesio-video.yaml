@@ -1,0 +1,799 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — video
+  description: 'Memesio API Contracts — video. 16 operations. Lead operation: List Licensed Meme/Punchline Audio Clips with
+    Beat-Sync Suggestions for Target BPM. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - video
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-video
+    baseUri: ''
+    description: Memesio API Contracts — video business capability. Self-contained, no shared references.
+    resources:
+    - name: api-video-audio-library
+      path: /api/video/audio-library
+      operations:
+      - name: get
+        method: GET
+        description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+        - name: kind
+          in: query
+          type: string
+        - name: tag
+          in: query
+          type: string
+        - name: targetBpm
+          in: query
+          type: integer
+        - name: toleranceBpm
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+    - name: api-video-drafts
+      path: /api/video/drafts
+      operations:
+      - name: get
+        method: GET
+        description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-export-settings
+      path: /api/video/export-settings
+      operations:
+      - name: get
+        method: GET
+        description: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: planTier
+          in: query
+          type: string
+        - name: presetId
+          in: query
+          type: string
+        - name: container
+          in: query
+          type: string
+        - name: bitrateKbps
+          in: query
+          type: number
+        - name: watermarkEnabled
+          in: query
+          type: boolean
+        - name: watermarkText
+          in: query
+          type: string
+      - name: post
+        method: POST
+        description: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-formats
+      path: /api/video/formats
+      operations:
+      - name: get
+        method: GET
+        description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: planTier
+          in: query
+          type: string
+        - name: inputFormat
+          in: query
+          type: string
+        - name: mimeType
+          in: query
+          type: string
+        - name: outputPresetId
+          in: query
+          type: string
+        - name: durationSeconds
+          in: query
+          type: number
+      - name: post
+        method: POST
+        description: Estimate Cost and Validate Planned Video Export Job Against Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-render-performance
+      path: /api/video/render-performance
+      operations:
+      - name: get
+        method: GET
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: refresh
+          in: query
+          type: boolean
+    - name: api-video-render-queue
+      path: /api/video/render-queue
+      operations:
+      - name: get
+        method: GET
+        description: Get Render Queue Snapshot or List Render Jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: mode
+          in: query
+          type: string
+        - name: status
+          in: query
+          type: string
+        - name: planTier
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-subtitles
+      path: /api/video/subtitles
+      operations:
+      - name: get
+        method: GET
+        description: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: transcript
+          in: query
+          type: string
+        - name: tone
+          in: query
+          type: string
+        - name: locale
+          in: query
+          type: string
+        - name: stylePresetId
+          in: query
+          type: string
+        - name: trendKeywords
+          in: query
+          type: string
+        - name: syncToBeatGrid
+          in: query
+          type: boolean
+        - name: bpm
+          in: query
+          type: integer
+        - name: beatOffsetMs
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced
+          Kinetic Text
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-text-animations
+      path: /api/video/text-animations
+      operations:
+      - name: get
+        method: GET
+        description: List Text Animation Presets and Generate Preview Keyframes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: presetId
+          in: query
+          type: string
+        - name: startMs
+          in: query
+          type: number
+        - name: durationMs
+          in: query
+          type: number
+        - name: intensity
+          in: query
+          type: number
+      - name: post
+        method: POST
+        description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-video-timeline
+      path: /api/video/timeline
+      operations:
+      - name: get
+        method: GET
+        description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+          Tracks)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+      - name: post
+        method: POST
+        description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with
+          Keyframe-Level Adjustments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-video-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — video. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/video/audio-library
+      name: api-video-audio-library
+      description: REST surface for api-video-audio-library.
+      operations:
+      - method: GET
+        name: get
+        description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+        call: memesio-video.get
+        with:
+          query: rest.query
+          kind: rest.kind
+          tag: rest.tag
+          targetBpm: rest.targetBpm
+          toleranceBpm: rest.toleranceBpm
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/drafts
+      name: api-video-drafts
+      description: REST surface for api-video-drafts.
+      operations:
+      - method: GET
+        name: get
+        description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+        call: memesio-video.get
+        with:
+          projectId: rest.projectId
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/export-settings
+      name: api-video-export-settings
+      description: REST surface for api-video-export-settings.
+      operations:
+      - method: GET
+        name: get
+        description: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+        call: memesio-video.get
+        with:
+          planTier: rest.planTier
+          presetId: rest.presetId
+          container: rest.container
+          bitrateKbps: rest.bitrateKbps
+          watermarkEnabled: rest.watermarkEnabled
+          watermarkText: rest.watermarkText
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/formats
+      name: api-video-formats
+      description: REST surface for api-video-formats.
+      operations:
+      - method: GET
+        name: get
+        description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+        call: memesio-video.get
+        with:
+          planTier: rest.planTier
+          inputFormat: rest.inputFormat
+          mimeType: rest.mimeType
+          outputPresetId: rest.outputPresetId
+          durationSeconds: rest.durationSeconds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Estimate Cost and Validate Planned Video Export Job Against Policy
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/render-performance
+      name: api-video-render-performance
+      description: REST surface for api-video-render-performance.
+      operations:
+      - method: GET
+        name: get
+        description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+        call: memesio-video.get
+        with:
+          refresh: rest.refresh
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/render-queue
+      name: api-video-render-queue
+      description: REST surface for api-video-render-queue.
+      operations:
+      - method: GET
+        name: get
+        description: Get Render Queue Snapshot or List Render Jobs
+        call: memesio-video.get
+        with:
+          mode: rest.mode
+          status: rest.status
+          planTier: rest.planTier
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/subtitles
+      name: api-video-subtitles
+      description: REST surface for api-video-subtitles.
+      operations:
+      - method: GET
+        name: get
+        description: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+        call: memesio-video.get
+        with:
+          transcript: rest.transcript
+          tone: rest.tone
+          locale: rest.locale
+          stylePresetId: rest.stylePresetId
+          trendKeywords: rest.trendKeywords
+          syncToBeatGrid: rest.syncToBeatGrid
+          bpm: rest.bpm
+          beatOffsetMs: rest.beatOffsetMs
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced
+          Kinetic Text
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/text-animations
+      name: api-video-text-animations
+      description: REST surface for api-video-text-animations.
+      operations:
+      - method: GET
+        name: get
+        description: List Text Animation Presets and Generate Preview Keyframes
+        call: memesio-video.get
+        with:
+          presetId: rest.presetId
+          startMs: rest.startMs
+          durationMs: rest.durationMs
+          intensity: rest.intensity
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/video/timeline
+      name: api-video-timeline
+      description: REST surface for api-video-timeline.
+      operations:
+      - method: GET
+        name: get
+        description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+          Tracks)
+        call: memesio-video.get
+        with:
+          projectId: rest.projectId
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with
+          Keyframe-Level Adjustments
+        call: memesio-video.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-video-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — video. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-licensed-meme-punchline-audio
+      description: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        query: tools.query
+        kind: tools.kind
+        tag: tools.tag
+        targetBpm: tools.targetBpm
+        toleranceBpm: tools.toleranceBpm
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: load-cloud-video-drafts-used
+      description: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        projectId: tools.projectId
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: save-resume-crash-safe-cloud
+      description: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-export-preset-catalog-tiktok
+      description: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        planTier: tools.planTier
+        presetId: tools.presetId
+        container: tools.container
+        bitrateKbps: tools.bitrateKbps
+        watermarkEnabled: tools.watermarkEnabled
+        watermarkText: tools.watermarkText
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: evaluate-export-settings-plan-tier
+      description: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-supported-video-input-output
+      description: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        planTier: tools.planTier
+        inputFormat: tools.inputFormat
+        mimeType: tools.mimeType
+        outputPresetId: tools.outputPresetId
+        durationSeconds: tools.durationSeconds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: estimate-cost-and-validate-planned
+      description: Estimate Cost and Validate Planned Video Export Job Against Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-latest-video-render-load
+      description: Get Latest Video Render Load-Test Summary or Refresh Simulation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        refresh: tools.refresh
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-render-queue-snapshot-list
+      description: Get Render Queue Snapshot or List Render Jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        mode: tools.mode
+        status: tools.status
+        planTier: tools.planTier
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mutate-render-queue-enqueue-claim
+      description: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: load-subtitle-style-presets-and
+      description: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        transcript: tools.transcript
+        tone: tools.tone
+        locale: tools.locale
+        stylePresetId: tools.stylePresetId
+        trendKeywords: tools.trendKeywords
+        syncToBeatGrid: tools.syncToBeatGrid
+        bpm: tools.bpm
+        beatOffsetMs: tools.beatOffsetMs
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: preview-apply-generated-subtitles-script
+      description: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced
+        Kinetic Text
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-text-animation-presets-and
+      description: List Text Animation Presets and Generate Preview Keyframes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        presetId: tools.presetId
+        startMs: tools.startMs
+        durationMs: tools.durationMs
+        intensity: tools.intensity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: preview-apply-text-animation-preset
+      description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-timeline-projects-load-one
+      description: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+        Tracks)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-video.get
+      with:
+        projectId: tools.projectId
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: mutate-timeline-project-action-based
+      description: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level
+        Adjustments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-video.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,142 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — history
+  description: 'Memesio API Contracts — history. 2 operations. Lead operation: List or Compare Versioned AI Edit History for
+    a Layer. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - history
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-history
+    baseUri: ''
+    description: Memesio API Contracts — history business capability. Self-contained, no shared references.
+    resources:
+    - name: api-ai-edit-history
+      path: /api/ai/edit-history
+      operations:
+      - name: get
+        method: GET
+        description: List or Compare Versioned AI Edit History for a Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: query
+          type: string
+          required: true
+        - name: layerId
+          in: query
+          type: string
+          required: true
+        - name: mode
+          in: query
+          type: string
+        - name: limit
+          in: query
+          type: integer
+        - name: fromVersionId
+          in: query
+          type: string
+        - name: toVersionId
+          in: query
+          type: string
+      - name: post
+        method: POST
+        description: Record or Rollback Versioned AI Edit State for a Layer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-history-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — history. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/ai/edit-history
+      name: api-ai-edit-history
+      description: REST surface for api-ai-edit-history.
+      operations:
+      - method: GET
+        name: get
+        description: List or Compare Versioned AI Edit History for a Layer
+        call: memesio-history.get
+        with:
+          projectId: rest.projectId
+          layerId: rest.layerId
+          mode: rest.mode
+          limit: rest.limit
+          fromVersionId: rest.fromVersionId
+          toVersionId: rest.toVersionId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Record or Rollback Versioned AI Edit State for a Layer
+        call: memesio-history.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-history-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — history. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-compare-versioned-ai-edit
+      description: List or Compare Versioned AI Edit History for a Layer
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-history.get
+      with:
+        projectId: tools.projectId
+        layerId: tools.layerId
+        mode: tools.mode
+        limit: tools.limit
+        fromVersionId: tools.fromVersionId
+        toVersionId: tools.toVersionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: record-rollback-versioned-ai-edit
+      description: Record or Rollback Versioned AI Edit State for a Layer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-history.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

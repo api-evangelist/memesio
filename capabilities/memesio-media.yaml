@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — media
+  description: 'Memesio API Contracts — media. 1 operations. Lead operation: Generate Signed Upload/Download Media URLS. Self-contained
+    Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - media
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-media
+    baseUri: ''
+    description: Memesio API Contracts — media business capability. Self-contained, no shared references.
+    resources:
+    - name: api-media-signed-url
+      path: /api/media/signed-url
+      operations:
+      - name: post
+        method: POST
+        description: Generate Signed Upload/Download Media URLS
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-media-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — media. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/media/signed-url
+      name: api-media-signed-url
+      description: REST surface for api-media-signed-url.
+      operations:
+      - method: POST
+        name: post
+        description: Generate Signed Upload/Download Media URLS
+        call: memesio-media.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-media-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — media. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: generate-signed-upload-download-media
+      description: Generate Signed Upload/Download Media URLS
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-media.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

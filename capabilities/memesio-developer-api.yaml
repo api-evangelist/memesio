@@ -1,0 +1,233 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — developer-api
+  description: 'Memesio API Contracts — developer-api. 5 operations. Lead operation: Render a Hosted Meme from a Stored Template
+    Using Anonymous or Keyed Caption Input. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - developer-api
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-developer-api
+    baseUri: ''
+    description: Memesio API Contracts — developer-api business capability. Self-contained, no shared references.
+    resources:
+    - name: api-v1-memes-caption-template
+      path: /api/v1/memes/caption-template
+      operations:
+      - name: post
+        method: POST
+        description: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-memes-caption-upload
+      path: /api/v1/memes/caption-upload
+      operations:
+      - name: post
+        method: POST
+        description: Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-memes-generate
+      path: /api/v1/memes/generate
+      operations:
+      - name: get
+        method: GET
+        description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: post
+        method: POST
+        description: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-templates-ideas
+      path: /api/v1/templates/ideas
+      operations:
+      - name: post
+        method: POST
+        description: Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-developer-api-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — developer-api. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/v1/memes/caption-template
+      name: api-v1-memes-caption-template
+      description: REST surface for api-v1-memes-caption-template.
+      operations:
+      - method: POST
+        name: post
+        description: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input
+        call: memesio-developer-api.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/memes/caption-upload
+      name: api-v1-memes-caption-upload
+      description: REST surface for api-v1-memes-caption-upload.
+      operations:
+      - method: POST
+        name: post
+        description: Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme
+        call: memesio-developer-api.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/memes/generate
+      name: api-v1-memes-generate
+      description: REST surface for api-v1-memes-generate.
+      operations:
+      - method: GET
+        name: get
+        description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+        call: memesio-developer-api.get
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
+        call: memesio-developer-api.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/templates/ideas
+      name: api-v1-templates-ideas
+      description: REST surface for api-v1-templates-ideas.
+      operations:
+      - method: POST
+        name: post
+        description: Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key
+        call: memesio-developer-api.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-developer-api-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — developer-api. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: render-hosted-meme-stored-template
+      description: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-developer-api.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: upload-image-place-top-bottom
+      description: Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-developer-api.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: read-keyed-actor-s-daily-ai
+      description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-developer-api.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-ai-meme-variants-synchronously
+      description: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-developer-api.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: return-ranked-meme-template-ideas
+      description: Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-developer-api.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

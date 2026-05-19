@@ -1,0 +1,464 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — auth
+  description: 'Memesio API Contracts — auth. 11 operations. Lead operation: Read the Current Actor''s Daily Caption Reroll
+    Quota and Reset Window. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - auth
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-auth
+    baseUri: ''
+    description: Memesio API Contracts — auth business capability. Self-contained, no shared references.
+    resources:
+    - name: api-ai-captions-generate
+      path: /api/ai/captions/generate
+      operations:
+      - name: get
+        method: GET
+        description: Read the Current Actor's Daily Caption Reroll Quota and Reset Window
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-ai-memes-generate
+      path: /api/ai/memes/generate
+      operations:
+      - name: get
+        method: GET
+        description: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-auth-resend-verification
+      path: /api/auth/resend-verification
+      operations:
+      - name: post
+        method: POST
+        description: Resend Email Verification Link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: api-auth-signup
+      path: /api/auth/signup
+      operations:
+      - name: post
+        method: POST
+        description: Create Email/Password Account and Send Verification Email
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-memes-slug
+      path: /api/memes/{slug}
+      operations:
+      - name: delete
+        method: DELETE
+        description: Delete One Signed-in Account-Owned Meme and Purge Public Access Paths
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: slug
+          in: path
+          type: string
+          required: true
+    - name: api-v1-agents-bootstrap
+      path: /api/v1/agents/bootstrap
+      operations:
+      - name: post
+        method: POST
+        description: Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-agents-create-agent
+      path: /api/v1/agents/create-agent
+      operations:
+      - name: post
+        method: POST
+        description: Create a Standalone Agent Account with an Immediately Usable Approved Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-v1-agents-agentId-keys
+      path: /api/v1/agents/{agentId}/keys
+      operations:
+      - name: get
+        method: GET
+        description: List Agent API Keys for an Owned Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agentId
+          in: path
+          type: string
+          required: true
+      - name: post
+        method: POST
+        description: Create a New Scoped API Key for an Owned Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agentId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-v1-agents-agentId-keys-keyId
+      path: /api/v1/agents/{agentId}/keys/{keyId}
+      operations:
+      - name: delete
+        method: DELETE
+        description: Revoke an Active API Key for an Owned Agent
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: agentId
+          in: path
+          type: string
+          required: true
+        - name: keyId
+          in: path
+          type: string
+          required: true
+    - name: api-v1-memes-generate
+      path: /api/v1/memes/generate
+      operations:
+      - name: get
+        method: GET
+        description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-auth-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — auth. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/ai/captions/generate
+      name: api-ai-captions-generate
+      description: REST surface for api-ai-captions-generate.
+      operations:
+      - method: GET
+        name: get
+        description: Read the Current Actor's Daily Caption Reroll Quota and Reset Window
+        call: memesio-auth.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ai/memes/generate
+      name: api-ai-memes-generate
+      description: REST surface for api-ai-memes-generate.
+      operations:
+      - method: GET
+        name: get
+        description: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action
+        call: memesio-auth.get
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/auth/resend-verification
+      name: api-auth-resend-verification
+      description: REST surface for api-auth-resend-verification.
+      operations:
+      - method: POST
+        name: post
+        description: Resend Email Verification Link
+        call: memesio-auth.post
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/auth/signup
+      name: api-auth-signup
+      description: REST surface for api-auth-signup.
+      operations:
+      - method: POST
+        name: post
+        description: Create Email/Password Account and Send Verification Email
+        call: memesio-auth.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/memes/{slug}
+      name: api-memes-slug
+      description: REST surface for api-memes-slug.
+      operations:
+      - method: DELETE
+        name: delete
+        description: Delete One Signed-in Account-Owned Meme and Purge Public Access Paths
+        call: memesio-auth.delete
+        with:
+          slug: rest.slug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/bootstrap
+      name: api-v1-agents-bootstrap
+      description: REST surface for api-v1-agents-bootstrap.
+      operations:
+      - method: POST
+        name: post
+        description: Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key
+        call: memesio-auth.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/create-agent
+      name: api-v1-agents-create-agent
+      description: REST surface for api-v1-agents-create-agent.
+      operations:
+      - method: POST
+        name: post
+        description: Create a Standalone Agent Account with an Immediately Usable Approved Key
+        call: memesio-auth.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/{agentid}/keys
+      name: api-v1-agents-agentid-keys
+      description: REST surface for api-v1-agents-agentId-keys.
+      operations:
+      - method: GET
+        name: get
+        description: List Agent API Keys for an Owned Agent
+        call: memesio-auth.get
+        with:
+          agentId: rest.agentId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Create a New Scoped API Key for an Owned Agent
+        call: memesio-auth.post
+        with:
+          agentId: rest.agentId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/agents/{agentid}/keys/{keyid}
+      name: api-v1-agents-agentid-keys-keyid
+      description: REST surface for api-v1-agents-agentId-keys-keyId.
+      operations:
+      - method: DELETE
+        name: delete
+        description: Revoke an Active API Key for an Owned Agent
+        call: memesio-auth.delete
+        with:
+          agentId: rest.agentId
+          keyId: rest.keyId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/v1/memes/generate
+      name: api-v1-memes-generate
+      description: REST surface for api-v1-memes-generate.
+      operations:
+      - method: GET
+        name: get
+        description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+        call: memesio-auth.get
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-auth-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — auth. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: read-current-actor-s-daily-caption
+      description: Read the Current Actor's Daily Caption Reroll Quota and Reset Window
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-auth.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: read-current-actor-s-daily-ai
+      description: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-auth.get
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: resend-email-verification-link
+      description: Resend Email Verification Link
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-auth.post
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-email-password-account-and
+      description: Create Email/Password Account and Send Verification Email
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-auth.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-one-signed-account-owned
+      description: Delete One Signed-in Account-Owned Meme and Purge Public Access Paths
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: memesio-auth.delete
+      with:
+        slug: tools.slug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bootstrap-standalone-agent-account-immediately
+      description: Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-auth.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-standalone-agent-account-immediately
+      description: Create a Standalone Agent Account with an Immediately Usable Approved Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-auth.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-agent-api-keys-owned
+      description: List Agent API Keys for an Owned Agent
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-auth.get
+      with:
+        agentId: tools.agentId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-scoped-api-key
+      description: Create a New Scoped API Key for an Owned Agent
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-auth.post
+      with:
+        agentId: tools.agentId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-active-api-key-owned
+      description: Revoke an Active API Key for an Owned Agent
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: memesio-auth.delete
+      with:
+        agentId: tools.agentId
+        keyId: tools.keyId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: read-keyed-actor-s-daily-ai
+      description: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-auth.get
+      outputParameters:
+      - type: object
+        mapping: $.

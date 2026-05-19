@@ -1,0 +1,130 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Memesio API Contracts — motion
+  description: 'Memesio API Contracts — motion. 2 operations. Lead operation: List Text Animation Presets and Generate Preview
+    Keyframes. Self-contained Naftiko capability covering one Memesio business surface.'
+  tags:
+  - Memesio
+  - motion
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MEMESIO_API_KEY: MEMESIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: memesio-motion
+    baseUri: ''
+    description: Memesio API Contracts — motion business capability. Self-contained, no shared references.
+    resources:
+    - name: api-video-text-animations
+      path: /api/video/text-animations
+      operations:
+      - name: get
+        method: GET
+        description: List Text Animation Presets and Generate Preview Keyframes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: presetId
+          in: query
+          type: string
+        - name: startMs
+          in: query
+          type: number
+        - name: durationMs
+          in: query
+          type: number
+        - name: intensity
+          in: query
+          type: number
+      - name: post
+        method: POST
+        description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-developer-api-key
+      value: '{{env.MEMESIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: memesio-motion-rest
+    port: 8080
+    description: REST adapter for Memesio API Contracts — motion. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/video/text-animations
+      name: api-video-text-animations
+      description: REST surface for api-video-text-animations.
+      operations:
+      - method: GET
+        name: get
+        description: List Text Animation Presets and Generate Preview Keyframes
+        call: memesio-motion.get
+        with:
+          presetId: rest.presetId
+          startMs: rest.startMs
+          durationMs: rest.durationMs
+          intensity: rest.intensity
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: post
+        description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+        call: memesio-motion.post
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: memesio-motion-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Memesio API Contracts — motion. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-text-animation-presets-and
+      description: List Text Animation Presets and Generate Preview Keyframes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: memesio-motion.get
+      with:
+        presetId: tools.presetId
+        startMs: tools.startMs
+        durationMs: tools.durationMs
+        intensity: tools.intensity
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: preview-apply-text-animation-preset
+      description: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: memesio-motion.post
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
