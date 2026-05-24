@@ -31,6 +31,8 @@ common:
   type: MCPDocumentation
 - url: https://memesio.com/.well-known/mcp/server-card.json
   type: MCPServerCard
+- type: LLMsTxt
+  url: https://memesio.com/llms.txt
 url-source: https://memesio.com/
 apis:
 - name: Memesio API
