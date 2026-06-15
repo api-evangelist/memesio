@@ -1,0 +1,2388 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ai-jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List AI Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/jobs",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List AI Jobs"
+        },
+        {
+          "info": {
+            "name": "Submit AI Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit AI Job"
+        },
+        {
+          "info": {
+            "name": "Get AI Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get AI Job Status"
+        },
+        {
+          "info": {
+            "name": "Cancel AI Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs/:jobId/cancel",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel AI Job"
+        },
+        {
+          "info": {
+            "name": "Complete AI Job and Log Metered AI Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs/:jobId/complete",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Complete AI Job and Log Metered AI Cost"
+        },
+        {
+          "info": {
+            "name": "List or Compare Versioned AI Edit History for a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/edit-history",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromVersionId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toVersionId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List or Compare Versioned AI Edit History for a Layer"
+        },
+        {
+          "info": {
+            "name": "Record or Rollback Versioned AI Edit State for a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/edit-history",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record or Rollback Versioned AI Edit State for a Layer"
+        },
+        {
+          "info": {
+            "name": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds"
+        },
+        {
+          "info": {
+            "name": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-targets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI"
+        },
+        {
+          "info": {
+            "name": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/background-remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ai-captions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/scene",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata"
+        },
+        {
+          "info": {
+            "name": "List Default + Custom Brand Tone Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/captions/tone-presets",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Default + Custom Brand Tone Presets"
+        },
+        {
+          "info": {
+            "name": "Create or Update Custom Brand Tone Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/tone-presets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or Update Custom Brand Tone Preset"
+        },
+        {
+          "info": {
+            "name": "Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/prompt"
+          },
+          "docs": "Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)"
+        },
+        {
+          "info": {
+            "name": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/captions/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window"
+        },
+        {
+          "info": {
+            "name": "Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives"
+        },
+        {
+          "info": {
+            "name": "Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/rewrite",
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview"
+        },
+        {
+          "info": {
+            "name": "Rank Caption Variants and Return Top Safe Selections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/rank"
+          },
+          "docs": "Rank Caption Variants and Return Top Safe Selections"
+        },
+        {
+          "info": {
+            "name": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/moderate"
+          },
+          "docs": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ai-providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/memes/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action"
+        },
+        {
+          "info": {
+            "name": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/memes/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants"
+        },
+        {
+          "info": {
+            "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/templates/suggest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow"
+        },
+        {
+          "info": {
+            "name": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/templates/detect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan"
+        },
+        {
+          "info": {
+            "name": "Run or Retrieve Face-Swap Provider Benchmark and Recommendation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/providers/face-swap-benchmark",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Run or Retrieve Face-Swap Provider Benchmark and Recommendation"
+        },
+        {
+          "info": {
+            "name": "Run or Retrieve Background-Remove Provider Benchmark and Recommendation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/providers/background-remove-benchmark",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Run or Retrieve Background-Remove Provider Benchmark and Recommendation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Email/Password Account and Send Verification Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/auth/signup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Email/Password Account and Send Verification Email"
+        },
+        {
+          "info": {
+            "name": "Resend Email Verification Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/auth/resend-verification"
+          },
+          "docs": "Resend Email Verification Link"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "agent-infra",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List User-Owned Agent Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents"
+          },
+          "docs": "List User-Owned Agent Profiles"
+        },
+        {
+          "info": {
+            "name": "Create a User-Owned Agent Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a User-Owned Agent Profile"
+        },
+        {
+          "info": {
+            "name": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/bootstrap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "Create a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/create-agent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "Get a Single User-Owned Agent Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Single User-Owned Agent Profile"
+        },
+        {
+          "info": {
+            "name": "Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/api/v1/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)"
+        },
+        {
+          "info": {
+            "name": "List Agent API Keys for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Agent API Keys for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Create a New Scoped API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Scoped API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Revoke an Active API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/v1/agents/:agentId/keys/:keyId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revoke an Active API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Generate 5 Candidate Agent Names with Slug Availability Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/names:generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate 5 Candidate Agent Names with Slug Availability Checks"
+        },
+        {
+          "info": {
+            "name": "Bind Telegram Chat to an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/channels/telegram/bind",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind Telegram Chat to an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Bind WhatsApp Chat/Phone to an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/channels/whatsapp/bind",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind WhatsApp Chat/Phone to an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Telegram Inbound Webhook Receiver with Dedupe and Agent Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/webhooks/telegram"
+          },
+          "docs": "Telegram Inbound Webhook Receiver with Dedupe and Agent Routing"
+        },
+        {
+          "info": {
+            "name": "WhatsApp Verification Handshake Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/webhooks/whatsapp"
+          },
+          "docs": "WhatsApp Verification Handshake Endpoint"
+        },
+        {
+          "info": {
+            "name": "WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/webhooks/whatsapp"
+          },
+          "docs": "WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing"
+        },
+        {
+          "info": {
+            "name": "Submit Social Action Proof (X_follow) for Quota Boost Review",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/unlocks/social-action",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Social Action Proof (X_follow) for Quota Boost Review"
+        },
+        {
+          "info": {
+            "name": "Admin Approval for Social Unlock and Quota Boost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/unlocks/:unlockId/approve",
+            "params": [
+              {
+                "name": "unlockId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Admin Approval for Social Unlock and Quota Boost"
+        },
+        {
+          "info": {
+            "name": "Cast Weekly Meme Vote (Deduped by Voter Hash)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/rewards/votes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cast Weekly Meme Vote (Deduped by Voter Hash)"
+        },
+        {
+          "info": {
+            "name": "Get Weekly Meme Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/rewards/leaderboard",
+            "params": [
+              {
+                "name": "weekStart",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Weekly Meme Leaderboard"
+        },
+        {
+          "info": {
+            "name": "Close Weekly Winner Record for Manual Payout Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/rewards/winner:close",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Close Weekly Winner Record for Manual Payout Workflow"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "trend-alerts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "niche",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredNiche",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredRegion",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "followerCount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggressiveness",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count"
+        },
+        {
+          "info": {
+            "name": "Get Trend Source Connectors and Data Contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/connectors"
+          },
+          "docs": "Get Trend Source Connectors and Data Contracts"
+        },
+        {
+          "info": {
+            "name": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/ingestion",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring"
+        },
+        {
+          "info": {
+            "name": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/ranking",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredNiche",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredRegion",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "followerCount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggressiveness",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics"
+        },
+        {
+          "info": {
+            "name": "Get Trend Preference Vector for Actor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/preferences",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Trend Preference Vector for Actor"
+        },
+        {
+          "info": {
+            "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/preferences",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events"
+        },
+        {
+          "info": {
+            "name": "List Stored Trend Feedback Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/feedback",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Stored Trend Feedback Actions"
+        },
+        {
+          "info": {
+            "name": "Record Trend Feedback Action and Update Preference Vector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record Trend Feedback Action and Update Preference Vector"
+        },
+        {
+          "info": {
+            "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/triggers"
+          },
+          "docs": "Evaluate Alert Trigger Thresholds and Cooldown Decisions"
+        },
+        {
+          "info": {
+            "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/triggers"
+          },
+          "docs": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry"
+        },
+        {
+          "info": {
+            "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/delivery",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest"
+        },
+        {
+          "info": {
+            "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/delivery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target"
+        },
+        {
+          "info": {
+            "name": "Get Trend Alert Message Templates and Rendered Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/message-templates",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Trend Alert Message Templates and Rendered Preview"
+        },
+        {
+          "info": {
+            "name": "Generate or Retrieve Weekly Trend Alert Quality Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/quality-report",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate or Retrieve Weekly Trend Alert Quality Report"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "collaboration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Collaboration Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/collab/comments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Collaboration Comments"
+        },
+        {
+          "info": {
+            "name": "Create Collaboration Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/collab/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Collaboration Comment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Billing Usage Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/billing/usage",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "windowDays",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Billing Usage Snapshot"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Metric Dictionary and Ownership Mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/metric-dictionary"
+          },
+          "docs": "Get Metric Dictionary and Ownership Mapping"
+        },
+        {
+          "info": {
+            "name": "Get Activation and Retention Dashboard Spec (Looker)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/dashboards/activation-retention"
+          },
+          "docs": "Get Activation and Retention Dashboard Spec (Looker)"
+        },
+        {
+          "info": {
+            "name": "Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/dashboards/feature-adoption"
+          },
+          "docs": "Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)"
+        },
+        {
+          "info": {
+            "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/dashboards/backend-reliability",
+            "params": [
+              {
+                "name": "windowHours",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot"
+        },
+        {
+          "info": {
+            "name": "Get Pricing/Paywall Experiment Analysis Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/experiments/templates",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Pricing/Paywall Experiment Analysis Templates"
+        },
+        {
+          "info": {
+            "name": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/anomalies/ai"
+          },
+          "docs": "Run AI Cost/Failure Anomaly Detection and Return Alert State"
+        },
+        {
+          "info": {
+            "name": "Run Backend 5xx and Render Latency Alert Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/alerts/backend"
+          },
+          "docs": "Run Backend 5xx and Render Latency Alert Checks"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "compliance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Content and Face-Swap Usage Policy with Enforcement Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/compliance/content-policy"
+          },
+          "docs": "Get Content and Face-Swap Usage Policy with Enforcement Points"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "growth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/viral-triggers"
+          },
+          "docs": "Get Viral Loop Trigger Definitions and Instrumentation Mapping"
+        },
+        {
+          "info": {
+            "name": "Get Referral Credits for Actor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/referrals",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Referral Credits for Actor"
+        },
+        {
+          "info": {
+            "name": "Create or Redeem Referral Invite Code with Fraud Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/referrals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or Redeem Referral Invite Code with Fraud Checks"
+        },
+        {
+          "info": {
+            "name": "Generate or Retrieve Weekly Trend-Driven Template Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/trend-campaigns",
+            "params": [
+              {
+                "name": "weekStart",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishedOnly",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate or Retrieve Weekly Trend-Driven Template Campaigns"
+        },
+        {
+          "info": {
+            "name": "Publish Weekly Trend-Driven Template Campaigns for Marketing Ops",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/trend-campaigns",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Publish Weekly Trend-Driven Template Campaigns for Marketing Ops"
+        },
+        {
+          "info": {
+            "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/social-publish",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishLimit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes"
+        },
+        {
+          "info": {
+            "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/social-publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)"
+        },
+        {
+          "info": {
+            "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/lifecycle-messaging"
+          },
+          "docs": "Get Lifecycle Messaging Flow Config and Recent Dispatch History"
+        },
+        {
+          "info": {
+            "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/lifecycle-messaging",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)"
+        },
+        {
+          "info": {
+            "name": "Decision Service for Growth Experiments with Optional Exposure Logging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/experiments/decision",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "surface",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logExposure",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Decision Service for Growth Experiments with Optional Exposure Logging"
+        },
+        {
+          "info": {
+            "name": "Request Decisions or Query Exposure History for Growth Experiments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/experiments/decision",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request Decisions or Query Exposure History for Growth Experiments"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/formats",
+            "params": [
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outputPresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate"
+        },
+        {
+          "info": {
+            "name": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/formats",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Estimate Cost and Validate Planned Video Export Job Against Policy"
+        },
+        {
+          "info": {
+            "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/export-settings",
+            "params": [
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "presetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "container",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bitrateKbps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "watermarkEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "watermarkText",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview"
+        },
+        {
+          "info": {
+            "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/export-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets"
+        },
+        {
+          "info": {
+            "name": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/timeline",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)"
+        },
+        {
+          "info": {
+            "name": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/timeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments"
+        },
+        {
+          "info": {
+            "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/audio-library",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "targetBpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toleranceBpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM"
+        },
+        {
+          "info": {
+            "name": "List Text Animation Presets and Generate Preview Keyframes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/text-animations",
+            "params": [
+              {
+                "name": "presetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "intensity",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Text Animation Presets and Generate Preview Keyframes"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/text-animations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track"
+        },
+        {
+          "info": {
+            "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/subtitles",
+            "params": [
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stylePresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trendKeywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "syncToBeatGrid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beatOffsetMs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/subtitles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text"
+        },
+        {
+          "info": {
+            "name": "Get Render Queue Snapshot or List Render Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-queue",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Render Queue Snapshot or List Render Jobs"
+        },
+        {
+          "info": {
+            "name": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/render-queue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)"
+        },
+        {
+          "info": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-performance",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Latest Video Render Load-Test Summary or Refresh Simulation"
+        },
+        {
+          "info": {
+            "name": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/drafts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume"
+        },
+        {
+          "info": {
+            "name": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/drafts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Signed Upload/Download Media URLS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/media/signed-url",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Signed Upload/Download Media URLS"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "memes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Hosted Memes with Canonical Share Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/memes",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateSlug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visibility",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ownerToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "officialOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludeTemplateClones",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeNsfw",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Hosted Memes with Canonical Share Metadata"
+        },
+        {
+          "info": {
+            "name": "Store a Rendered Meme and Return Canonical Share/Image URLS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/memes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Store a Rendered Meme and Return Canonical Share/Image URLS"
+        },
+        {
+          "info": {
+            "name": "Read One Meme by Opaque Slug, Public Slug, or Source Slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/memes/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ownerToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read One Meme by Opaque Slug, Public Slug, or Source Slug"
+        },
+        {
+          "info": {
+            "name": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/memes/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "public-free",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Public Meme Templates for Agent-Friendly Discovery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/free/templates",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Search Public Meme Templates for Agent-Friendly Discovery"
+        },
+        {
+          "info": {
+            "name": "Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/free/memes/caption",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "developer-api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/templates/ideas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key"
+        },
+        {
+          "info": {
+            "name": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/caption-template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input"
+        },
+        {
+          "info": {
+            "name": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/caption-upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "captions",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "visibility",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "watermark",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme"
+        },
+        {
+          "info": {
+            "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/memes/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Keyed Actor's Daily AI Meme Quota Snapshot"
+        },
+        {
+          "info": {
+            "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

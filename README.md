@@ -1,77 +1,87 @@
 # Memesio (memesio)
 
-Memesio is a meme creation and sharing service offering a public template
-discovery, caption rendering, and AI-assisted image generation API. The
-service exposes a contract-first surface for human developers and autonomous
-AI agents covering template search, caption generation and moderation, face
-swap and background removal, video editing, growth and analytics, billing,
-and an MCP server for agent integration.
+Memesio is a meme creation and sharing service offering a public template discovery, caption rendering, and AI-assisted image generation API. It exposes a contract-first surface for human developers and autonomous AI agents covering template search, caption generation and moderation, face swap and background removal, video editing, growth and analytics, billing, and an MCP server for agent integration.
 
-- **Source:** https://memesio.com/
-- **Documentation:** https://memesio.com/developers/api
-- **OpenAPI:** https://memesio.com/api/openapi
-- **API Catalog (RFC 9727):** https://memesio.com/.well-known/api-catalog
-- **MCP Server Card:** https://memesio.com/.well-known/mcp/server-card.json
-- **MCP Documentation:** https://memesio.com/developers/mcp
-- **Status / Health:** https://memesio.com/api/health
-- **Agent Signup (Bootstrap):** `POST https://memesio.com/api/v1/agents/bootstrap`
-- **api-search issue:** [#28](https://github.com/api-search/network/issues/28)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml)
 
-## API Surface
+## Scope
 
-The real OpenAPI 3.1 contract ("Memesio API Contracts v0.1.0") describes
-**82 paths / 111 operations / 23 component schemas** across more than 35
-domain tags including: `ai`, `ai-captions`, `ai-jobs`, `ai-providers`,
-`memes`, `templates`, `media`, `video`, `motion`, `audio`, `face-swap`,
-`background-remove`, `alerts`, `trend-alerts`, `analytics`, `billing`,
-`finops`, `growth`, `collaboration`, `compliance`, `moderation`, `channels`,
-`distribution`, `lifecycle`, `public-free`, `developer-api`, `observability`,
-`performance`, `personalization`, `experimentation`, `marketing-ops`,
-`data-eng`, `data-ops`, `data-science`, `agent-infra`, and `platform`.
+- **Type:** Index
 
-The service also publishes a sibling MCP server
-(`https://memesio.com/api/mcp`, streamable-http) exposing seven tools:
-`create_agent_account`, `search_templates`, `get_template_ideas`,
-`caption_template`, `caption_upload`, `generate_meme`, `get_ai_quota`.
+## Tags
 
-## Authentication
+- Memes
+- Media
+- Image Generation
+- Content
+- Developer Tools
 
-| Caller | Auth | Header |
-|---|---|---|
-| Anonymous | none | (template discovery + free caption with watermark) |
-| Developer | API key | `x-agent-api-key` |
-| Agent | API key | `x-agent-api-key` (bootstrapped via `/api/v1/agents/bootstrap`) |
-| Editor | session | first-party only |
+## Timestamps
 
-## Plans, Rate Limits, FinOps
+- **Created:** 2026-05-16
+- **Modified:** 2026-05-19
 
-Memesio uses a **quota-based** plan model; there is no public price sheet
-at `https://memesio.com/pricing` (404). See:
+## APIs
 
-- [plans/memesio-plans-pricing.yml](plans/memesio-plans-pricing.yml) — Anonymous, Developer, Agent, Premium (custom).
-- [rate-limits/memesio-rate-limits.yml](rate-limits/memesio-rate-limits.yml) — AI quota 3/day baseline, variants/request 5 max, agent default 1 variant, template pageSize 50 max.
-- [finops/memesio-finops.yml](finops/memesio-finops.yml) — `/api/billing/usage` returns 30-day metered usage with estimated USD by event and AI provider/capability.
+### Memesio API
 
-All three carry `reconciled: false` because the underlying monetary rates
-and per-key rate-limit numerics are not publicly disclosed by Memesio.
+Memesio's public REST API for meme template discovery, caption rendering, AI-driven meme generation, face swap and background removal, video editing, billing usage reporting, growth and analytics, alerts and trend campaigns, and autonomous agent identity/key management. The contract baseline (v0.1.0) titled "Memesio API Contracts" covers 82 operations across more than 35 domain tags including ai, ai-captions, ai-jobs, memes, templates, media, video, audio, motion, face-swap, background-remove, alerts, trend-alerts, analytics, billing, finops, growth, collaboration, compliance, moderation, channels, distribution, lifecycle, public-free, developer-api, observability, performance, personalization, experimentation, marketing-ops, data-eng, data-ops, data-science, agent-infra, and platform.
 
-## Generated Artifacts
+- **Human URL:** [https://memesio.com/developers/api](https://memesio.com/developers/api)
+- **Base URL:** `https://memesio.com/api`
 
-| Folder | Contents |
-|---|---|
-| [openapi/](openapi/) | Memesio OpenAPI 3.1 contract (YAML) |
-| [rules/](rules/) | Spectral ruleset enforcing Memesio path, tag, and quota conventions |
-| [capabilities/](capabilities/) | Naftiko workflows: meme creation, AI captions, agent identity, video production, trends & growth + shared per-API definition |
-| [json-schema/](json-schema/) | 23 JSON Schema 2020-12 files (one per OpenAPI component) |
-| [json-structure/](json-structure/) | 23 JSON Structure equivalents |
-| [json-ld/](json-ld/) | JSON-LD context aligning Memesio vocabulary with schema.org |
-| [examples/](examples/) | 111 generated operation example pairs + curated real-data examples (template search, caption template, AI generate, agent bootstrap, billing usage, content policy) |
-| [vocabulary/](vocabulary/) | Memesio operational vocabulary (concepts, services, tools, standards, tags) |
-| [plans/](plans/) | API Commons Plans 0.1 |
-| [rate-limits/](rate-limits/) | API Commons Rate Limits 0.1 |
-| [finops/](finops/) | FinOps Framework / FOCUS 1.0 mapping |
+#### Tags
 
-## Notes
+- Memes
+- Media
+- Image Generation
+- Content
+- Developer Tools
+- AI
+- Templates
+- Video
+- Captions
+- Face Swap
+- Background Remove
+- Agents
+- MCP
+- Billing
+- Analytics
+- Trends
+- Moderation
+- Compliance
+- Growth
 
-- No public GitHub org or user repositories: `https://github.com/memesio` exists as a user with **0 public repos**; there is no `github.com/memesio` org.
-- Memesio's primary public discovery surface is `https://memesio.com/.well-known/api-catalog` (RFC 9727 linkset).
+#### Properties
+
+- [Documentation](https://memesio.com/developers/api)
+- [OpenAPI](https://memesio.com/api/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/openapi/memesio-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [A P I Catalog](https://memesio.com/.well-known/api-catalog)
+- [Status Page](https://memesio.com/api/health)
+- [M C P Server](https://memesio.com/api/mcp)
+- [M C P Server Card](https://memesio.com/.well-known/mcp/server-card.json)
+- [M C P Documentation](https://memesio.com/developers/mcp)
+- [Sign Up](https://memesio.com/api/v1/agents/bootstrap)
+- [Content Policy](https://memesio.com/api/compliance/content-policy)
+- [Template Search](https://memesio.com/api/free/templates)
+- [Billing Usage](https://memesio.com/api/billing/usage)
+- [Plans](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml)
+- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml)
+- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml)
+- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml)
+- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml)
+- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld)
+- [Postman Collection](collections/memesio.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/memesio.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [Website](https://memesio.com/)
+- [Documentation](https://memesio.com/developers/api)
+- [OpenAPI](https://memesio.com/api/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [A P I Catalog](https://memesio.com/.well-known/api-catalog)
+- [Status Page](https://memesio.com/api/health)
+- [M C P Documentation](https://memesio.com/developers/mcp)
+- [M C P Server Card](https://memesio.com/.well-known/mcp/server-card.json)
+- [L L Ms Txt](https://memesio.com/llms.txt)
