@@ -2,7 +2,7 @@ aid: memesio
 url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml
 name: Memesio
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 description: >-
   Memesio is a meme creation and sharing service offering a public template discovery, caption rendering, and
   AI-assisted image generation API. It exposes a contract-first surface for human developers and autonomous AI agents
@@ -46,7 +46,7 @@ apis:
       collaboration, compliance, moderation, channels, distribution, lifecycle, public-free, developer-api,
       observability, performance, personalization, experimentation, marketing-ops, data-eng, data-ops, data-science,
       agent-infra, and platform.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://memesio.com/developers/api
     baseURL: https://memesio.com/api
     tags:
