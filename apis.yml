@@ -32,7 +32,7 @@ common:
     type: MCPDocumentation
   - url: https://memesio.com/.well-known/mcp/server-card.json
     type: MCPServerCard
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://memesio.com/llms.txt
 url-source: https://memesio.com/
 apis:
@@ -86,7 +86,7 @@ apis:
         url: https://memesio.com/.well-known/mcp/server-card.json
       - type: MCPDocumentation
         url: https://memesio.com/developers/mcp
-      - type: SignUp
+      - type: Signup
         url: https://memesio.com/api/v1/agents/bootstrap
       - type: ContentPolicy
         url: https://memesio.com/api/compliance/content-policy
