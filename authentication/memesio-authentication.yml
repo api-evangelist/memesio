@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/memesio-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: DeveloperApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-developer-api-key
+  description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization:
+    Bearer <key>.'
+  sources:
+  - openapi/memesio-openapi.yml
+- name: AgentApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-agent-api-key
+  description: 'Agent auth for free endpoints and agent-admin routes. You can also send the
+    key as Authorization: Bearer <key>.'
+  sources:
+  - openapi/memesio-openapi.yml

@@ -18,6 +18,10 @@ tags:
   - Content
   - Developer Tools
 common:
+  - type: DomainSecurity
+    url: security/memesio-domain-security.yml
+  - type: Authentication
+    url: authentication/memesio-authentication.yml
   - url: https://memesio.com/
     type: Website
   - url: https://memesio.com/developers/api
