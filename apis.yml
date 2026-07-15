@@ -18,6 +18,8 @@ tags:
   - Content
   - Developer Tools
 common:
+  - type: AgenticAccess
+    url: agentic-access/memesio-agentic-access.yml
   - type: DomainSecurity
     url: security/memesio-domain-security.yml
   - type: Authentication
