@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra collaboration API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: collaboration
+paths:
+  /api/collab/comments:
+    get:
+      summary: List Collaboration Comments
+      tags:
+      - collaboration
+      parameters:
+      - name: projectId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Comment list
+    post:
+      summary: Create Collaboration Comment
+      tags:
+      - collaboration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - projectId
+              - message
+              properties:
+                projectId:
+                  type: string
+                message:
+                  type: string
+                  minLength: 1
+                  maxLength: 1500
+                authorId:
+                  type: string
+      responses:
+        '201':
+          description: Comment created
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,863 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra memes API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: memes
+paths:
+  /api/memes:
+    get:
+      summary: List Hosted Memes with Canonical Share Metadata
+      tags:
+      - memes
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: templateSlug
+        in: query
+        schema:
+          type: string
+      - name: visibility
+        in: query
+        schema:
+          type: string
+          enum:
+          - public
+          - private
+          - all
+      - name: ownerToken
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: officialOnly
+        in: query
+        schema:
+          type: boolean
+      - name: excludeTemplateClones
+        in: query
+        schema:
+          type: boolean
+      - name: includeNsfw
+        in: query
+        schema:
+          type: boolean
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+      responses:
+        '200':
+          description: Meme search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListMemesResponse'
+        '400':
+          description: Validation error
+        '429':
+          description: Rate limit exceeded
+    post:
+      summary: Store a Rendered Meme and Return Canonical Share/Image URLS
+      tags:
+      - memes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceImageUrl
+              - captions
+              - imageDataUrl
+              properties:
+                templateSlug:
+                  type: string
+                sourceImageUrl:
+                  type: string
+                captions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MemeCaption'
+                overlays:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MemeOverlayImage'
+                imageDataUrl:
+                  type: string
+                visibility:
+                  type: string
+                  enum:
+                  - public
+                  - private
+                title:
+                  type: string
+                  maxLength: 140
+                canvas:
+                  $ref: '#/components/schemas/MemeCanvasConfig'
+                watermark:
+                  $ref: '#/components/schemas/MemeWatermarkConfig'
+                generationRunId:
+                  type:
+                  - string
+                  - 'null'
+                generationVariantId:
+                  type:
+                  - string
+                  - 'null'
+      responses:
+        '201':
+          description: Meme stored
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateMemeResponse'
+        '400':
+          description: Validation error
+        '401':
+          description: Invalid guest session token
+        '403':
+          description: Origin validation failed
+        '409':
+          description: Idempotency conflict
+        '422':
+          description: Validation blocked by content policy or unchanged template clone
+        '429':
+          description: Rate limit exceeded
+  /api/memes/{slug}:
+    get:
+      summary: Read One Meme by Opaque Slug, Public Slug, or Source Slug
+      tags:
+      - memes
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ownerToken
+        in: query
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Meme details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MemeDetailResponse'
+        '400':
+          description: Validation error
+        '403':
+          description: Private meme requires owner token
+        '404':
+          description: Meme not found
+        '429':
+          description: Rate limit exceeded
+    delete:
+      summary: Delete One Signed-in Account-Owned Meme and Purge Public Access Paths
+      tags:
+      - memes
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Meme deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteMemeResponse'
+        '400':
+          description: Invalid slug
+        '401':
+          description: Authentication required
+        '403':
+          description: Origin validation failed
+        '404':
+          description: Meme not found for the signed-in user
+        '429':
+          description: Rate limit exceeded
+  /api/v1/memes/caption-template:
+    post:
+      summary: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input
+      tags:
+      - memes
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FreeCaptionMemeRequest'
+      responses:
+        '201':
+          description: Captioned meme created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FreeCaptionMemeSuccessResponse'
+        '400':
+          description: Validation error or unsupported template
+        '401':
+          description: Invalid API key when one is provided
+        '429':
+          description: Rate limit exceeded
+  /api/v1/memes/caption-upload:
+    post:
+      summary: Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme
+      tags:
+      - memes
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+              - file
+              - captions
+              properties:
+                file:
+                  type: string
+                  format: binary
+                captions:
+                  type: string
+                  description: JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.
+                title:
+                  type: string
+                  maxLength: 140
+                visibility:
+                  type: string
+                  enum:
+                  - private
+                  - public
+                watermark:
+                  type: string
+                  description: Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.
+      responses:
+        '201':
+          description: Uploaded meme created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadCaptionMemeSuccessResponse'
+        '400':
+          description: Validation error
+        '401':
+          description: Invalid API key when one is provided
+        '415':
+          description: Unsupported upload content
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    FreeCaptionMemeSuccessResponse:
+      type: object
+      required:
+      - success
+      - data
+      properties:
+        success:
+          type: boolean
+          const: true
+        data:
+          type: object
+          required:
+          - slug
+          - shareSlug
+          - templateSlug
+          - title
+          - visibility
+          - imageUrl
+          - canonicalImageUrl
+          - altText
+          - tags
+          - apiUrl
+          - pageUrl
+          - ownerToken
+          - captions
+          - watermark
+          properties:
+            slug:
+              type: string
+            shareSlug:
+              type: string
+            templateSlug:
+              type: string
+            title:
+              type: string
+            visibility:
+              type: string
+              enum:
+              - private
+              - public
+            imageUrl:
+              type: string
+            canonicalImageUrl:
+              type: string
+            altText:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+            apiUrl:
+              type: string
+            pageUrl:
+              type: string
+            ownerToken:
+              type: string
+            captions:
+              type: array
+              items:
+                type: string
+            watermark:
+              $ref: '#/components/schemas/FreeMemeWatermark'
+    MemeDetailResponse:
+      allOf:
+      - $ref: '#/components/schemas/MemeSummary'
+      - type: object
+        required:
+        - sourceImageUrl
+        - captions
+        - overlays
+        - canvas
+        - watermark
+        properties:
+          sourceImageUrl:
+            type: string
+          captions:
+            type: array
+            items:
+              $ref: '#/components/schemas/MemeCaption'
+          overlays:
+            type: array
+            items:
+              $ref: '#/components/schemas/MemeOverlayImage'
+          canvas:
+            $ref: '#/components/schemas/MemeCanvasConfig'
+          watermark:
+            $ref: '#/components/schemas/MemeWatermarkConfig'
+    MemeCanvasConfig:
+      type: object
+      required:
+      - aspectRatio
+      - focusX
+      - focusY
+      - zoomPercent
+      - crop
+      - spacing
+      - guides
+      - sourceAdjustments
+      - layerOrder
+      - transform
+      properties:
+        aspectRatio:
+          type: string
+          enum:
+          - original
+          - '1:1'
+          - '4:5'
+          - '16:9'
+        focusX:
+          type: number
+        focusY:
+          type: number
+        zoomPercent:
+          type: number
+        crop:
+          type: object
+          required:
+          - x
+          - y
+          - width
+          - height
+          properties:
+            x:
+              type: number
+            y:
+              type: number
+            width:
+              type: number
+            height:
+              type: number
+        spacing:
+          type: object
+          additionalProperties: true
+        guides:
+          type: object
+          additionalProperties: true
+        sourceAdjustments:
+          type: object
+          additionalProperties: true
+        layerOrder:
+          type: array
+          items:
+            type: string
+        transform:
+          type: object
+          additionalProperties: true
+    CaptionInput:
+      type: object
+      required:
+      - text
+      properties:
+        id:
+          type: string
+          maxLength: 64
+        text:
+          type: string
+          maxLength: 300
+        x:
+          type: number
+        y:
+          type: number
+        fontSize:
+          type: number
+        boxWidthPct:
+          type: number
+        boxHeightPct:
+          type: number
+        maxLines:
+          type: integer
+          minimum: 1
+        textAlign:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        fontFamily:
+          type: string
+          enum:
+          - impact
+          - arial
+    FreeMemeWatermark:
+      type: object
+      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+          maxLength: 64
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+          minimum: 0.6
+          maximum: 3
+    CreateMemeResponse:
+      type: object
+      required:
+      - slug
+      - shareSlug
+      - shareUrl
+      - imageUrl
+      - canonicalImageUrl
+      - altText
+      - tags
+      - ownerToken
+      - visibility
+      - guestSessionId
+      properties:
+        slug:
+          type: string
+        shareSlug:
+          type: string
+        shareUrl:
+          type: string
+        imageUrl:
+          type: string
+        canonicalImageUrl:
+          type: string
+        altText:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        ownerToken:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+        guestSessionId:
+          type:
+          - string
+          - 'null'
+    MemeCaption:
+      type: object
+      required:
+      - id
+      - text
+      - x
+      - y
+      - fontSize
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        fontSize:
+          type: number
+        rotationDeg:
+          type: number
+        hidden:
+          type: boolean
+        locked:
+          type: boolean
+        boxWidthPct:
+          type: number
+        boxHeightPct:
+          type: number
+        paddingPct:
+          type: number
+        maxLines:
+          type: integer
+        lineHeight:
+          type: number
+        backgroundEnabled:
+          type: boolean
+        backgroundColor:
+          type: string
+        backgroundOpacity:
+          type: number
+        letterSpacingEm:
+          type: number
+        shadowStrength:
+          type: number
+        color:
+          type: string
+        stroke:
+          type: string
+        fontFamily:
+          type: string
+          enum:
+          - impact
+          - arial
+        textAlign:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        semanticRole:
+          type: string
+          enum:
+          - setup
+          - contrast
+          - punchline
+          - reaction
+          - label
+        preferredCase:
+          type: string
+          enum:
+          - uppercase
+          - sentence
+          - title
+          - preserve
+        exampleText:
+          type: string
+        recommendedWordsMin:
+          type: integer
+          minimum: 1
+        recommendedWordsMax:
+          type: integer
+          minimum: 1
+        recommendedCharsMin:
+          type: integer
+          minimum: 1
+        recommendedCharsMax:
+          type: integer
+          minimum: 1
+    MemeWatermarkConfig:
+      type: object
+      required:
+      - enabled
+      - text
+      - position
+      - scale
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+    DeleteMemeResponse:
+      type: object
+      required:
+      - ok
+      - deleted
+      - slug
+      - shareSlug
+      properties:
+        ok:
+          type: boolean
+        deleted:
+          type: boolean
+        slug:
+          type: string
+        shareSlug:
+          type: string
+    MemeOverlayImage:
+      type: object
+      required:
+      - id
+      - label
+      - imageUrl
+      - x
+      - y
+      - widthPercent
+      - rotationDeg
+      - opacity
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        imageUrl:
+          type: string
+        sourceImageUrl:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        widthPercent:
+          type: number
+        rotationDeg:
+          type: number
+        opacity:
+          type: number
+        hidden:
+          type: boolean
+        locked:
+          type: boolean
+        flippedX:
+          type: boolean
+        backgroundRemoved:
+          type: boolean
+    UploadCaptionMemeSuccessResponse:
+      type: object
+      required:
+      - ok
+      - data
+      properties:
+        ok:
+          type: boolean
+          const: true
+        data:
+          type: object
+          required:
+          - slug
+          - shareSlug
+          - templateSlug
+          - title
+          - visibility
+          - sourceImageUrl
+          - imageUrl
+          - canonicalImageUrl
+          - altText
+          - tags
+          - apiUrl
+          - pageUrl
+          - ownerToken
+          - captions
+          - watermark
+          properties:
+            slug:
+              type: string
+            shareSlug:
+              type: string
+            templateSlug:
+              type: string
+            title:
+              type: string
+            visibility:
+              type: string
+              enum:
+              - private
+              - public
+            sourceImageUrl:
+              type: string
+            imageUrl:
+              type: string
+            canonicalImageUrl:
+              type: string
+            altText:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+            apiUrl:
+              type: string
+            pageUrl:
+              type: string
+            ownerToken:
+              type: string
+            captions:
+              type: array
+              items:
+                $ref: '#/components/schemas/CaptionInput'
+            watermark:
+              $ref: '#/components/schemas/FreeMemeWatermark'
+    MemeSummary:
+      type: object
+      required:
+      - slug
+      - shareSlug
+      - shareUrl
+      - title
+      - altText
+      - tags
+      - templateSlug
+      - visibility
+      - createdAt
+      - imageUrl
+      - canonicalImageUrl
+      - nsfwStatus
+      - shareViews
+      properties:
+        slug:
+          type: string
+        shareSlug:
+          type: string
+        shareUrl:
+          type: string
+        title:
+          type: string
+        altText:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        templateSlug:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+        createdAt:
+          type: string
+          format: date-time
+        imageUrl:
+          type: string
+        canonicalImageUrl:
+          type: string
+        nsfwStatus:
+          type: string
+          enum:
+          - clear
+          - flagged
+        shareViews:
+          type: integer
+          minimum: 0
+    FreeCaptionMemeRequest:
+      type: object
+      required:
+      - templateSlug
+      - captions
+      properties:
+        templateSlug:
+          type: string
+        captions:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              maxLength: 300
+            - $ref: '#/components/schemas/CaptionInput'
+        title:
+          type: string
+          maxLength: 140
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        watermark:
+          $ref: '#/components/schemas/FreeMemeWatermark'
+    ListMemesResponse:
+      type: object
+      required:
+      - items
+      - total
+      - nextPage
+      - page
+      - pageSize
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeSummary'
+        total:
+          type: integer
+          minimum: 0
+        nextPage:
+          type:
+          - integer
+          - 'null'
+        page:
+          type: integer
+          minimum: 1
+        pageSize:
+          type: integer
+          minimum: 1
+          maximum: 50
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

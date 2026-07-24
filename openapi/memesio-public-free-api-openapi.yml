@@ -1,0 +1,422 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra public-free API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: public-free
+paths:
+  /api/free/templates:
+    get:
+      summary: Search Public Meme Templates for Agent-Friendly Discovery
+      tags:
+      - public-free
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: q
+        in: query
+        schema:
+          type: string
+      - name: tag
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - curated
+          - trending
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - lexical
+          - hybrid
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      - {}
+      responses:
+        '200':
+          description: Template search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FreeTemplateSearchResponse'
+        '401':
+          description: Invalid developer or agent API key
+        '429':
+          description: Rate limit exceeded
+  /api/free/memes/caption:
+    post:
+      summary: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark
+      tags:
+      - public-free
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FreeCaptionMemeRequest'
+      responses:
+        '201':
+          description: Captioned meme created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FreeCaptionMemeSuccessResponse'
+        '400':
+          description: Validation error or unsupported template
+        '401':
+          description: Invalid developer or agent API key
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    FreeCaptionMemeSuccessResponse:
+      type: object
+      required:
+      - success
+      - data
+      properties:
+        success:
+          type: boolean
+          const: true
+        data:
+          type: object
+          required:
+          - slug
+          - shareSlug
+          - templateSlug
+          - title
+          - visibility
+          - imageUrl
+          - canonicalImageUrl
+          - altText
+          - tags
+          - apiUrl
+          - pageUrl
+          - ownerToken
+          - captions
+          - watermark
+          properties:
+            slug:
+              type: string
+            shareSlug:
+              type: string
+            templateSlug:
+              type: string
+            title:
+              type: string
+            visibility:
+              type: string
+              enum:
+              - private
+              - public
+            imageUrl:
+              type: string
+            canonicalImageUrl:
+              type: string
+            altText:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+            apiUrl:
+              type: string
+            pageUrl:
+              type: string
+            ownerToken:
+              type: string
+            captions:
+              type: array
+              items:
+                type: string
+            watermark:
+              $ref: '#/components/schemas/FreeMemeWatermark'
+    FreeMemeWatermark:
+      type: object
+      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+          maxLength: 64
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+          minimum: 0.6
+          maximum: 3
+    CaptionInput:
+      type: object
+      required:
+      - text
+      properties:
+        id:
+          type: string
+          maxLength: 64
+        text:
+          type: string
+          maxLength: 300
+        x:
+          type: number
+        y:
+          type: number
+        fontSize:
+          type: number
+        boxWidthPct:
+          type: number
+        boxHeightPct:
+          type: number
+        maxLines:
+          type: integer
+          minimum: 1
+        textAlign:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        fontFamily:
+          type: string
+          enum:
+          - impact
+          - arial
+    MemeCaption:
+      type: object
+      required:
+      - id
+      - text
+      - x
+      - y
+      - fontSize
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        fontSize:
+          type: number
+        rotationDeg:
+          type: number
+        hidden:
+          type: boolean
+        locked:
+          type: boolean
+        boxWidthPct:
+          type: number
+        boxHeightPct:
+          type: number
+        paddingPct:
+          type: number
+        maxLines:
+          type: integer
+        lineHeight:
+          type: number
+        backgroundEnabled:
+          type: boolean
+        backgroundColor:
+          type: string
+        backgroundOpacity:
+          type: number
+        letterSpacingEm:
+          type: number
+        shadowStrength:
+          type: number
+        color:
+          type: string
+        stroke:
+          type: string
+        fontFamily:
+          type: string
+          enum:
+          - impact
+          - arial
+        textAlign:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        semanticRole:
+          type: string
+          enum:
+          - setup
+          - contrast
+          - punchline
+          - reaction
+          - label
+        preferredCase:
+          type: string
+          enum:
+          - uppercase
+          - sentence
+          - title
+          - preserve
+        exampleText:
+          type: string
+        recommendedWordsMin:
+          type: integer
+          minimum: 1
+        recommendedWordsMax:
+          type: integer
+          minimum: 1
+        recommendedCharsMin:
+          type: integer
+          minimum: 1
+        recommendedCharsMax:
+          type: integer
+          minimum: 1
+    FreeCaptionMemeRequest:
+      type: object
+      required:
+      - templateSlug
+      - captions
+      properties:
+        templateSlug:
+          type: string
+        captions:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              maxLength: 300
+            - $ref: '#/components/schemas/CaptionInput'
+        title:
+          type: string
+          maxLength: 140
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        watermark:
+          $ref: '#/components/schemas/FreeMemeWatermark'
+    FreeTemplateSearchResponse:
+      type: object
+      required:
+      - items
+      - total
+      - nextPage
+      - page
+      - pageSize
+      properties:
+        searchMode:
+          type: string
+          enum:
+          - lexical
+          - hybrid
+        fallbackApplied:
+          type: boolean
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - sourceTemplateId
+            - slug
+            - name
+            - description
+            - imageUrl
+            - width
+            - height
+            - captionCount
+            - boxCount
+            - captions
+            properties:
+              id:
+                type: string
+              sourceTemplateId:
+                type:
+                - string
+                - 'null'
+              slug:
+                type: string
+              name:
+                type: string
+              description:
+                type: string
+              imageUrl:
+                type: string
+              width:
+                type:
+                - number
+                - 'null'
+              height:
+                type:
+                - number
+                - 'null'
+              captionCount:
+                type: integer
+                minimum: 0
+              boxCount:
+                type: integer
+                minimum: 0
+              captions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MemeCaption'
+              tags:
+                type: array
+                items:
+                  type: string
+        total:
+          type: integer
+          minimum: 0
+        nextPage:
+          type:
+          - integer
+          - 'null'
+          minimum: 1
+        page:
+          type: integer
+          minimum: 1
+        pageSize:
+          type: integer
+          minimum: 1
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

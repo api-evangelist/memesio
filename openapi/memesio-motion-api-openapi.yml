@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra motion API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: motion
+paths:
+  /api/video/text-animations:
+    get:
+      summary: List Text Animation Presets and Generate Preview Keyframes
+      tags:
+      - motion
+      parameters:
+      - name: presetId
+        in: query
+        schema:
+          type: string
+      - name: startMs
+        in: query
+        schema:
+          type: number
+          minimum: 0
+      - name: durationMs
+        in: query
+        schema:
+          type: number
+          minimum: 1
+      - name: intensity
+        in: query
+        schema:
+          type: number
+          minimum: 0.2
+          maximum: 2
+      responses:
+        '200':
+          description: Text animation preset payload
+    post:
+      summary: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+      tags:
+      - motion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - presetId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - apply
+                presetId:
+                  type: string
+                startMs:
+                  type: number
+                  minimum: 0
+                durationMs:
+                  type: number
+                  minimum: 1
+                intensity:
+                  type: number
+                  minimum: 0.2
+                  maximum: 2
+                projectId:
+                  type: string
+                trackId:
+                  type: string
+      responses:
+        '200':
+          description: Preview keyframes payload
+        '201':
+          description: Preset applied to timeline
+        '400':
+          description: Validation error
+        '404':
+          description: Preset or timeline project not found
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra analytics API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: analytics
+paths:
+  /api/analytics/metric-dictionary:
+    get:
+      summary: Get Metric Dictionary and Ownership Mapping
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: Metric dictionary payload
+  /api/analytics/dashboards/activation-retention:
+    get:
+      summary: Get Activation and Retention Dashboard Spec (Looker)
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: Dashboard spec payload
+  /api/analytics/dashboards/feature-adoption:
+    get:
+      summary: Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: Dashboard spec payload
+  /api/analytics/dashboards/backend-reliability:
+    get:
+      summary: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+      tags:
+      - analytics
+      parameters:
+      - name: windowHours
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 168
+      responses:
+        '200':
+          description: Backend reliability dashboard + metrics snapshot payload
+  /api/analytics/experiments/templates:
+    get:
+      summary: Get Pricing/Paywall Experiment Analysis Templates
+      tags:
+      - analytics
+      parameters:
+      - name: templateId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Pricing experiment templates payload
+  /api/analytics/anomalies/ai:
+    get:
+      summary: Run AI Cost/Failure Anomaly Detection and Return Alert State
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: AI anomaly detection summary
+  /api/analytics/alerts/backend:
+    get:
+      summary: Run Backend 5xx and Render Latency Alert Checks
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: Backend alerting summary payload
+  /api/growth/viral-triggers:
+    get:
+      summary: Get Viral Loop Trigger Definitions and Instrumentation Mapping
+      tags:
+      - analytics
+      responses:
+        '200':
+          description: Viral loop trigger payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

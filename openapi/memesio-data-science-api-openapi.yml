@@ -1,0 +1,64 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra data-science API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: data-science
+paths:
+  /api/alerts/ranking:
+    get:
+      summary: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics
+      tags:
+      - data-science
+      parameters:
+      - name: actorId
+        in: query
+        schema:
+          type: string
+      - name: preferredNiche
+        in: query
+        schema:
+          type: string
+      - name: preferredRegion
+        in: query
+        schema:
+          type: string
+      - name: topics
+        in: query
+        schema:
+          type: string
+      - name: followerCount
+        in: query
+        schema:
+          type: integer
+          minimum: 0
+      - name: aggressiveness
+        in: query
+        schema:
+          type: number
+          minimum: 0
+          maximum: 1
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+      responses:
+        '200':
+          description: Ranked trend alerts payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

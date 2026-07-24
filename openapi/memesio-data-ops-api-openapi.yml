@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra data-ops API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: data-ops
+paths:
+  /api/alerts/quality-report:
+    get:
+      summary: Generate or Retrieve Weekly Trend Alert Quality Report
+      tags:
+      - data-ops
+      parameters:
+      - name: refresh
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Trend alert quality report payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

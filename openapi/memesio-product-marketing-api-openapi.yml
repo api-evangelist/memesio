@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra product-marketing API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: product-marketing
+paths:
+  /api/alerts/message-templates:
+    get:
+      summary: Get Trend Alert Message Templates and Rendered Preview
+      tags:
+      - product-marketing
+      parameters:
+      - name: templateId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Trend alert message templates payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

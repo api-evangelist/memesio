@@ -1,0 +1,37 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra backend API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: backend
+paths:
+  /api/alerts/triggers:
+    get:
+      summary: Evaluate Alert Trigger Thresholds and Cooldown Decisions
+      tags:
+      - backend
+      responses:
+        '200':
+          description: Trigger decision payload
+    post:
+      summary: Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry
+      tags:
+      - backend
+      responses:
+        '201':
+          description: Trigger execution payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra lifecycle API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: lifecycle
+paths:
+  /api/growth/lifecycle-messaging:
+    get:
+      summary: Get Lifecycle Messaging Flow Config and Recent Dispatch History
+      tags:
+      - lifecycle
+      responses:
+        '200':
+          description: Lifecycle messaging config payload
+    post:
+      summary: Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)
+      tags:
+      - lifecycle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - run
+                  - history
+                now:
+                  type: string
+                  format: date-time
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 200
+                profiles:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - actorId
+                    - planTier
+                    - createdAt
+                    - lastActiveAt
+                    - publishes7d
+                    - aiJobs7d
+                    - monthlyCreditsUsed
+                    - monthlyCreditsLimit
+                    properties:
+                      actorId:
+                        type: string
+                      planTier:
+                        type: string
+                        enum:
+                        - free
+                        - pro
+                        - team
+                      createdAt:
+                        type: string
+                        format: date-time
+                      lastActiveAt:
+                        type: string
+                        format: date-time
+                      publishes7d:
+                        type: integer
+                        minimum: 0
+                      aiJobs7d:
+                        type: integer
+                        minimum: 0
+                      monthlyCreditsUsed:
+                        type: number
+                        minimum: 0
+                      monthlyCreditsLimit:
+                        type: number
+                        minimum: 0
+      responses:
+        '200':
+          description: Preview/history payload
+        '201':
+          description: Run payload
+        '400':
+          description: Validation error
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,77 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra marketing-ops API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: marketing-ops
+paths:
+  /api/growth/trend-campaigns:
+    get:
+      summary: Generate or Retrieve Weekly Trend-Driven Template Campaigns
+      tags:
+      - marketing-ops
+      parameters:
+      - name: weekStart
+        in: query
+        schema:
+          type: string
+          pattern: ^\\d{4}-\\d{2}-\\d{2}$
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 12
+      - name: publishedOnly
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Weekly campaign pack payload
+        '404':
+          description: No published campaign pack found
+    post:
+      summary: Publish Weekly Trend-Driven Template Campaigns for Marketing Ops
+      tags:
+      - marketing-ops
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - publish
+                weekStart:
+                  type: string
+                  pattern: ^\\d{4}-\\d{2}-\\d{2}$
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 12
+      responses:
+        '201':
+          description: Published weekly campaign pack
+        '400':
+          description: Invalid request
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

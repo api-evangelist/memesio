@@ -1,0 +1,643 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra video API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: video
+paths:
+  /api/video/formats:
+    get:
+      summary: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+      tags:
+      - video
+      parameters:
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: inputFormat
+        in: query
+        schema:
+          type: string
+      - name: mimeType
+        in: query
+        schema:
+          type: string
+      - name: outputPresetId
+        in: query
+        schema:
+          type: string
+      - name: durationSeconds
+        in: query
+        schema:
+          type: number
+          minimum: 0.1
+      responses:
+        '200':
+          description: Video format policy payload
+    post:
+      summary: Estimate Cost and Validate Planned Video Export Job Against Policy
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - planTier
+              - inputFormat
+              - mimeType
+              - outputPresetId
+              - durationSeconds
+              properties:
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                inputFormat:
+                  type: string
+                mimeType:
+                  type: string
+                outputPresetId:
+                  type: string
+                durationSeconds:
+                  type: number
+                  minimum: 0.1
+      responses:
+        '200':
+          description: Video job estimate payload
+        '400':
+          description: Validation error
+  /api/video/export-settings:
+    get:
+      summary: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+      tags:
+      - video
+      parameters:
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: presetId
+        in: query
+        schema:
+          type: string
+      - name: container
+        in: query
+        schema:
+          type: string
+      - name: bitrateKbps
+        in: query
+        schema:
+          type: number
+          minimum: 1
+      - name: watermarkEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: watermarkText
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Export policy payload
+    post:
+      summary: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - planTier
+              - presetId
+              properties:
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                presetId:
+                  type: string
+                container:
+                  type: string
+                bitrateKbps:
+                  type: number
+                  minimum: 1
+                watermarkEnabled:
+                  type: boolean
+                watermarkText:
+                  type: string
+      responses:
+        '200':
+          description: Export settings decision payload
+        '400':
+          description: Validation error
+  /api/video/timeline:
+    get:
+      summary: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)
+      tags:
+      - video
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      responses:
+        '200':
+          description: Timeline project payload
+        '404':
+          description: Project not found
+    post:
+      summary: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - create
+                  - add_track
+                  - add_asset
+                  - attach_asset
+                  - upsert_keyframe
+                projectId:
+                  type: string
+                durationMs:
+                  type: number
+                  minimum: 1
+                frameRate:
+                  type: number
+                  minimum: 12
+                  maximum: 60
+                type:
+                  type: string
+                  enum:
+                  - video
+                  - audio
+                  - sticker
+                  - text
+                  - overlay
+                name:
+                  type: string
+                sourceUrl:
+                  type: string
+                trackId:
+                  type: string
+                assetId:
+                  type: string
+                startMs:
+                  type: number
+                  minimum: 0
+                offsetMs:
+                  type: number
+                  minimum: 0
+                atMs:
+                  type: number
+                  minimum: 0
+                property:
+                  type: string
+                value:
+                  type: number
+                easing:
+                  type: string
+                  enum:
+                  - linear
+                  - ease_in
+                  - ease_out
+                  - ease_in_out
+      responses:
+        '200':
+          description: Timeline updated
+        '201':
+          description: Timeline created
+        '400':
+          description: Validation error
+  /api/video/audio-library:
+    get:
+      summary: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+      tags:
+      - video
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: kind
+        in: query
+        schema:
+          type: string
+          enum:
+          - meme_loop
+          - punchline
+      - name: tag
+        in: query
+        schema:
+          type: string
+      - name: targetBpm
+        in: query
+        schema:
+          type: integer
+          minimum: 60
+          maximum: 220
+      - name: toleranceBpm
+        in: query
+        schema:
+          type: integer
+          minimum: 2
+          maximum: 60
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Audio library + beat sync suggestions payload
+  /api/video/text-animations:
+    get:
+      summary: List Text Animation Presets and Generate Preview Keyframes
+      tags:
+      - video
+      parameters:
+      - name: presetId
+        in: query
+        schema:
+          type: string
+      - name: startMs
+        in: query
+        schema:
+          type: number
+          minimum: 0
+      - name: durationMs
+        in: query
+        schema:
+          type: number
+          minimum: 1
+      - name: intensity
+        in: query
+        schema:
+          type: number
+          minimum: 0.2
+          maximum: 2
+      responses:
+        '200':
+          description: Text animation preset payload
+    post:
+      summary: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - presetId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - apply
+                presetId:
+                  type: string
+                startMs:
+                  type: number
+                  minimum: 0
+                durationMs:
+                  type: number
+                  minimum: 1
+                intensity:
+                  type: number
+                  minimum: 0.2
+                  maximum: 2
+                projectId:
+                  type: string
+                trackId:
+                  type: string
+      responses:
+        '200':
+          description: Preview keyframes payload
+        '201':
+          description: Preset applied to timeline
+        '400':
+          description: Validation error
+        '404':
+          description: Preset or timeline project not found
+  /api/video/subtitles:
+    get:
+      summary: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+      tags:
+      - video
+      parameters:
+      - name: transcript
+        in: query
+        schema:
+          type: string
+      - name: tone
+        in: query
+        schema:
+          type: string
+      - name: locale
+        in: query
+        schema:
+          type: string
+      - name: stylePresetId
+        in: query
+        schema:
+          type: string
+      - name: trendKeywords
+        in: query
+        schema:
+          type: string
+      - name: syncToBeatGrid
+        in: query
+        schema:
+          type: boolean
+      - name: bpm
+        in: query
+        schema:
+          type: integer
+          minimum: 60
+          maximum: 220
+      - name: beatOffsetMs
+        in: query
+        schema:
+          type: integer
+          minimum: -60000
+          maximum: 60000
+      responses:
+        '200':
+          description: Subtitle style preset + preview payload
+    post:
+      summary: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - apply
+                transcript:
+                  type: string
+                audioAssetId:
+                  type: string
+                tone:
+                  type: string
+                locale:
+                  type: string
+                stylePresetId:
+                  type: string
+                trendKeywords:
+                  type: array
+                  items:
+                    type: string
+                syncToBeatGrid:
+                  type: boolean
+                bpm:
+                  type: integer
+                  minimum: 60
+                  maximum: 220
+                beatOffsetMs:
+                  type: integer
+                  minimum: -60000
+                  maximum: 60000
+                projectId:
+                  type: string
+                trackId:
+                  type: string
+      responses:
+        '200':
+          description: Subtitle preview payload
+        '201':
+          description: Subtitles applied to timeline
+        '400':
+          description: Validation error
+        '404':
+          description: Preset or timeline project not found
+  /api/video/render-queue:
+    get:
+      summary: Get Render Queue Snapshot or List Render Jobs
+      tags:
+      - video
+      parameters:
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - snapshot
+          - list
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - queued
+          - running
+          - completed
+          - failed
+          - cancelled
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+      responses:
+        '200':
+          description: Render queue payload
+    post:
+      summary: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - enqueue
+                  - claim_next
+                  - progress
+                  - complete
+                  - fail
+                projectId:
+                  type: string
+                outputPresetId:
+                  type: string
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                durationSeconds:
+                  type: number
+                  minimum: 0.1
+                workerId:
+                  type: string
+                jobId:
+                  type: string
+                progressPercent:
+                  type: number
+                  minimum: 0
+                  maximum: 100
+                stage:
+                  type: string
+                outputUrl:
+                  type: string
+                error:
+                  type: string
+                cancelled:
+                  type: boolean
+      responses:
+        '200':
+          description: Queue mutation payload
+        '201':
+          description: Render job enqueued
+        '204':
+          description: No queued job available
+        '400':
+          description: Validation error
+  /api/video/render-performance:
+    get:
+      summary: Get Latest Video Render Load-Test Summary or Refresh Simulation
+      tags:
+      - video
+      parameters:
+      - name: refresh
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Video render performance summary payload
+        '500':
+          description: Policy validation or simulation failure
+  /api/video/drafts:
+    get:
+      summary: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+      tags:
+      - video
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      responses:
+        '200':
+          description: Video draft payload
+        '404':
+          description: Draft not found
+    post:
+      summary: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+      tags:
+      - video
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - save
+                  - resume
+                project:
+                  type: object
+                  additionalProperties: true
+                projectId:
+                  type: string
+                updatedAt:
+                  type: string
+                  format: date-time
+                sourceDeviceId:
+                  type: string
+      responses:
+        '200':
+          description: Draft resume payload
+        '201':
+          description: Draft saved payload
+        '400':
+          description: Validation error
+        '404':
+          description: Draft not found
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

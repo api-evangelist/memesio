@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra notifications API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: notifications
+paths:
+  /api/alerts/delivery:
+    get:
+      summary: Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest
+      tags:
+      - notifications
+      parameters:
+      - name: refresh
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Trend alert delivery report payload
+    post:
+      summary: Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target
+      tags:
+      - notifications
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                deliverAllAlerts:
+                  type: boolean
+                channels:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - in_app_inbox
+                    - push_pwa
+                    - email_digest
+      responses:
+        '201':
+          description: Trend alert delivery execution payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

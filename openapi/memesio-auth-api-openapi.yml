@@ -1,0 +1,464 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra auth API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: auth
+paths:
+  /api/ai/captions/generate:
+    get:
+      summary: Read the Current Actor's Daily Caption Reroll Quota and Reset Window
+      tags:
+      - auth
+      security:
+      - AgentApiKeyAuth: []
+      - {}
+      responses:
+        '200':
+          description: Current actor caption reroll quota snapshot
+  /api/ai/memes/generate:
+    get:
+      summary: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action
+      tags:
+      - auth
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      - {}
+      responses:
+        '200':
+          description: Current actor AI quota snapshot
+  /api/auth/signup:
+    post:
+      summary: Create Email/Password Account and Send Verification Email
+      tags:
+      - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  minLength: 8
+                  maxLength: 128
+                displayName:
+                  type: string
+                  maxLength: 80
+      responses:
+        '201':
+          description: Account created and verification sent
+        '400':
+          description: Validation error
+        '409':
+          description: Email already registered
+  /api/auth/resend-verification:
+    post:
+      summary: Resend Email Verification Link
+      tags:
+      - auth
+      responses:
+        '200':
+          description: Verification email sent
+        '400':
+          description: Validation error
+        '404':
+          description: Account not found
+        '409':
+          description: Already verified
+  /api/v1/agents/bootstrap:
+    post:
+      summary: Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key
+      tags:
+      - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - handle
+              - name
+              properties:
+                handle:
+                  type: string
+                  minLength: 3
+                  maxLength: 80
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 120
+                description:
+                  type: string
+                  maxLength: 1000
+                websiteUrl:
+                  type: string
+                  maxLength: 2000
+                systemPrompt:
+                  type: string
+                  maxLength: 2000
+                watermarkText:
+                  type: string
+                  maxLength: 160
+                stylePreset:
+                  type: string
+                  maxLength: 80
+                locale:
+                  type: string
+                  maxLength: 40
+      responses:
+        '201':
+          description: Standalone agent account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandaloneAgentBootstrapResponse'
+        '400':
+          description: Validation error
+        '409':
+          description: Handle conflict
+        '429':
+          description: Rate limit exceeded
+        '503':
+          description: Agent infra schema unavailable
+  /api/v1/agents/create-agent:
+    post:
+      summary: Create a Standalone Agent Account with an Immediately Usable Approved Key
+      tags:
+      - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - handle
+              - name
+              properties:
+                handle:
+                  type: string
+                  minLength: 3
+                  maxLength: 80
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 120
+                description:
+                  type: string
+                  maxLength: 1000
+                websiteUrl:
+                  type: string
+                  maxLength: 2000
+                systemPrompt:
+                  type: string
+                  maxLength: 2000
+                watermarkText:
+                  type: string
+                  maxLength: 160
+                stylePreset:
+                  type: string
+                  maxLength: 80
+                locale:
+                  type: string
+                  maxLength: 40
+      responses:
+        '201':
+          description: Standalone agent account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandaloneAgentBootstrapResponse'
+        '400':
+          description: Validation error
+        '409':
+          description: Handle conflict
+        '429':
+          description: Rate limit exceeded
+        '503':
+          description: Agent infra schema unavailable
+  /api/v1/agents/{agentId}/keys:
+    get:
+      summary: List Agent API Keys for an Owned Agent
+      tags:
+      - auth
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Agent key list payload
+        '401':
+          description: Authentication required
+        '404':
+          description: Agent not found
+    post:
+      summary: Create a New Scoped API Key for an Owned Agent
+      tags:
+      - auth
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                scopes:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - generate
+                    - publish
+                    - analytics
+                    - admin
+      responses:
+        '201':
+          description: Agent key created (plaintext returned once)
+        '401':
+          description: Authentication required
+        '404':
+          description: Agent not found
+  /api/v1/agents/{agentId}/keys/{keyId}:
+    delete:
+      summary: Revoke an Active API Key for an Owned Agent
+      tags:
+      - auth
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: keyId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Key revoked
+        '401':
+          description: Authentication required
+        '404':
+          description: Key not found
+  /api/memes/{slug}:
+    delete:
+      summary: Delete One Signed-in Account-Owned Meme and Purge Public Access Paths
+      tags:
+      - auth
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Meme deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteMemeResponse'
+        '400':
+          description: Invalid slug
+        '401':
+          description: Authentication required
+        '403':
+          description: Origin validation failed
+        '404':
+          description: Meme not found for the signed-in user
+        '429':
+          description: Rate limit exceeded
+  /api/v1/memes/generate:
+    get:
+      summary: Read the Keyed Actor's Daily AI Meme Quota Snapshot
+      tags:
+      - auth
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      responses:
+        '200':
+          description: Current keyed actor AI quota snapshot
+        '401':
+          description: Developer or agent API key required
+components:
+  schemas:
+    StandaloneAgentBootstrapResponse:
+      type: object
+      required:
+      - ok
+      - accountType
+      - agent
+      - key
+      properties:
+        ok:
+          type: boolean
+          const: true
+        accountType:
+          type: string
+          enum:
+          - standalone_agent
+          - standalone_agent_compat
+        agent:
+          $ref: '#/components/schemas/AgentProfile'
+        key:
+          allOf:
+          - type: object
+            required:
+            - id
+            - keyPrefix
+            - scopes
+            - status
+            - createdAt
+            - revokedAt
+            properties:
+              id:
+                type: string
+              keyPrefix:
+                type: string
+              scopes:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - generate
+                  - publish
+                  - analytics
+                  - admin
+              status:
+                type: string
+                enum:
+                - active
+                - revoked
+              createdAt:
+                type: string
+                format: date-time
+              revokedAt:
+                type:
+                - string
+                - 'null'
+                format: date-time
+          - type: object
+            required:
+            - plaintextKey
+            - authMode
+            properties:
+              plaintextKey:
+                type: string
+              authMode:
+                type: string
+                enum:
+                - agent
+                - developer
+    AgentProfile:
+      type: object
+      required:
+      - id
+      - slug
+      - name
+      - description
+      - websiteUrl
+      - systemPrompt
+      - watermarkText
+      - stylePreset
+      - locale
+      - premiumStatus
+      - status
+      - createdAt
+      - updatedAt
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+        systemPrompt:
+          type:
+          - string
+          - 'null'
+        watermarkText:
+          type:
+          - string
+          - 'null'
+        stylePreset:
+          type:
+          - string
+          - 'null'
+        locale:
+          type:
+          - string
+          - 'null'
+        premiumStatus:
+          type: string
+          enum:
+          - pending
+          - approved
+          - denied
+        status:
+          type: string
+          enum:
+          - active
+          - disabled
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DeleteMemeResponse:
+      type: object
+      required:
+      - ok
+      - deleted
+      - slug
+      - shareSlug
+      properties:
+        ok:
+          type: boolean
+        deleted:
+          type: boolean
+        slug:
+          type: string
+        shareSlug:
+          type: string
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

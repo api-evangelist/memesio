@@ -1,0 +1,559 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra growth API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: growth
+paths:
+  /api/v1/agents/{agentId}/unlocks/social-action:
+    post:
+      summary: Submit Social Action Proof (X_follow) for Quota Boost Review
+      tags:
+      - growth
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - x_follow
+                proof:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Unlock request submitted
+        '401':
+          description: Agent API key required
+        '403':
+          description: Insufficient key scope
+  /api/v1/agents/unlocks/{unlockId}/approve:
+    post:
+      summary: Admin Approval for Social Unlock and Quota Boost
+      tags:
+      - growth
+      parameters:
+      - name: unlockId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quotaBoostPerDay:
+                  type: integer
+                  minimum: 1
+                  maximum: 20
+      responses:
+        '200':
+          description: Unlock approved
+        '403':
+          description: Admin authorization required
+        '404':
+          description: Unlock not found
+  /api/v1/agents/rewards/votes:
+    post:
+      summary: Cast Weekly Meme Vote (Deduped by Voter Hash)
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - memeSlug
+              properties:
+                memeSlug:
+                  type: string
+                weekStart:
+                  type: string
+                  pattern: ^\\d{4}-\\d{2}-\\d{2}$
+      responses:
+        '200':
+          description: Duplicate vote ignored
+        '201':
+          description: Vote accepted
+        '400':
+          description: Validation error
+  /api/v1/agents/rewards/leaderboard:
+    get:
+      summary: Get Weekly Meme Leaderboard
+      tags:
+      - growth
+      parameters:
+      - name: weekStart
+        in: query
+        schema:
+          type: string
+          pattern: ^\\d{4}-\\d{2}-\\d{2}$
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Leaderboard payload
+  /api/v1/agents/rewards/winner:close:
+    post:
+      summary: Close Weekly Winner Record for Manual Payout Workflow
+      tags:
+      - growth
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                weekStart:
+                  type: string
+                  pattern: ^\\d{4}-\\d{2}-\\d{2}$
+                payoutStatus:
+                  type: string
+                  enum:
+                  - pending
+                  - paid
+                payoutReference:
+                  type: string
+      responses:
+        '200':
+          description: Winner record created/updated
+        '403':
+          description: Admin authorization required
+        '404':
+          description: No votes for week
+  /api/growth/viral-triggers:
+    get:
+      summary: Get Viral Loop Trigger Definitions and Instrumentation Mapping
+      tags:
+      - growth
+      responses:
+        '200':
+          description: Viral loop trigger payload
+  /api/growth/referrals:
+    get:
+      summary: Get Referral Credits for Actor
+      tags:
+      - growth
+      parameters:
+      - name: actorId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Referral credit balance
+        '400':
+          description: Missing actor identity
+    post:
+      summary: Create or Redeem Referral Invite Code with Fraud Checks
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - create
+                  - redeem
+                actorId:
+                  type: string
+                shareSlug:
+                  type: string
+                code:
+                  type: string
+      responses:
+        '200':
+          description: Redeemed referral code
+        '201':
+          description: Created referral code
+        '400':
+          description: Invalid request
+        '404':
+          description: Referral code not found
+        '409':
+          description: Fraud/eligibility check failed
+  /api/growth/trend-campaigns:
+    get:
+      summary: Generate or Retrieve Weekly Trend-Driven Template Campaigns
+      tags:
+      - growth
+      parameters:
+      - name: weekStart
+        in: query
+        schema:
+          type: string
+          pattern: ^\\d{4}-\\d{2}-\\d{2}$
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 12
+      - name: publishedOnly
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Weekly campaign pack payload
+        '404':
+          description: No published campaign pack found
+    post:
+      summary: Publish Weekly Trend-Driven Template Campaigns for Marketing Ops
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - publish
+                weekStart:
+                  type: string
+                  pattern: ^\\d{4}-\\d{2}-\\d{2}$
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 12
+      responses:
+        '201':
+          description: Published weekly campaign pack
+        '400':
+          description: Invalid request
+  /api/growth/social-publish:
+    get:
+      summary: Get Social Publish Gate State, Connected Accounts, and Recent Publishes
+      tags:
+      - growth
+      parameters:
+      - name: actorId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: publishLimit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Social publish state payload
+        '400':
+          description: Missing actor id
+    post:
+      summary: Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - actorId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - connect
+                  - disconnect
+                  - publish
+                actorId:
+                  type: string
+                platform:
+                  type: string
+                  enum:
+                  - tiktok
+                  - instagram_reels
+                  - youtube_shorts
+                  - x
+                handle:
+                  type: string
+                externalAccountId:
+                  type: string
+                accountId:
+                  type: string
+                memeSlug:
+                  type: string
+                caption:
+                  type: string
+      responses:
+        '200':
+          description: Disconnect response
+        '201':
+          description: Connect/publish response
+        '400':
+          description: Validation error
+        '403':
+          description: Phase gate denied
+        '404':
+          description: Account not found for disconnect
+  /api/growth/lifecycle-messaging:
+    get:
+      summary: Get Lifecycle Messaging Flow Config and Recent Dispatch History
+      tags:
+      - growth
+      responses:
+        '200':
+          description: Lifecycle messaging config payload
+    post:
+      summary: Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - run
+                  - history
+                now:
+                  type: string
+                  format: date-time
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 200
+                profiles:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - actorId
+                    - planTier
+                    - createdAt
+                    - lastActiveAt
+                    - publishes7d
+                    - aiJobs7d
+                    - monthlyCreditsUsed
+                    - monthlyCreditsLimit
+                    properties:
+                      actorId:
+                        type: string
+                      planTier:
+                        type: string
+                        enum:
+                        - free
+                        - pro
+                        - team
+                      createdAt:
+                        type: string
+                        format: date-time
+                      lastActiveAt:
+                        type: string
+                        format: date-time
+                      publishes7d:
+                        type: integer
+                        minimum: 0
+                      aiJobs7d:
+                        type: integer
+                        minimum: 0
+                      monthlyCreditsUsed:
+                        type: number
+                        minimum: 0
+                      monthlyCreditsLimit:
+                        type: number
+                        minimum: 0
+      responses:
+        '200':
+          description: Preview/history payload
+        '201':
+          description: Run payload
+        '400':
+          description: Validation error
+  /api/growth/experiments/decision:
+    get:
+      summary: Decision Service for Growth Experiments with Optional Exposure Logging
+      tags:
+      - growth
+      parameters:
+      - name: actorId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: surface
+        in: query
+        schema:
+          type: string
+      - name: logExposure
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Experiment decisions payload
+        '400':
+          description: Missing actor id
+    post:
+      summary: Request Decisions or Query Exposure History for Growth Experiments
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - decide
+                  - history
+                actorId:
+                  type: string
+                surface:
+                  type: string
+                logExposure:
+                  type: boolean
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 2000
+      responses:
+        '200':
+          description: Exposure history payload
+        '201':
+          description: Decision payload
+        '400':
+          description: Validation error
+  /api/video/export-settings:
+    get:
+      summary: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+      tags:
+      - growth
+      parameters:
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: presetId
+        in: query
+        schema:
+          type: string
+      - name: container
+        in: query
+        schema:
+          type: string
+      - name: bitrateKbps
+        in: query
+        schema:
+          type: number
+          minimum: 1
+      - name: watermarkEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: watermarkText
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Export policy payload
+    post:
+      summary: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+      tags:
+      - growth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - planTier
+              - presetId
+              properties:
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                presetId:
+                  type: string
+                container:
+                  type: string
+                bitrateKbps:
+                  type: number
+                  minimum: 1
+                watermarkEnabled:
+                  type: boolean
+                watermarkText:
+                  type: string
+      responses:
+        '200':
+          description: Export settings decision payload
+        '400':
+          description: Validation error
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,43 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra data-eng API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: data-eng
+paths:
+  /api/alerts/connectors:
+    get:
+      summary: Get Trend Source Connectors and Data Contracts
+      tags:
+      - data-eng
+      responses:
+        '200':
+          description: Trend source connector contract payload
+  /api/alerts/ingestion:
+    get:
+      summary: Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring
+      tags:
+      - data-eng
+      parameters:
+      - name: refresh
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Trend ingestion output payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

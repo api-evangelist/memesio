@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra ai API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: ai
+paths:
+  /api/video/subtitles:
+    get:
+      summary: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+      tags:
+      - ai
+      parameters:
+      - name: transcript
+        in: query
+        schema:
+          type: string
+      - name: tone
+        in: query
+        schema:
+          type: string
+      - name: locale
+        in: query
+        schema:
+          type: string
+      - name: stylePresetId
+        in: query
+        schema:
+          type: string
+      - name: trendKeywords
+        in: query
+        schema:
+          type: string
+      - name: syncToBeatGrid
+        in: query
+        schema:
+          type: boolean
+      - name: bpm
+        in: query
+        schema:
+          type: integer
+          minimum: 60
+          maximum: 220
+      - name: beatOffsetMs
+        in: query
+        schema:
+          type: integer
+          minimum: -60000
+          maximum: 60000
+      responses:
+        '200':
+          description: Subtitle style preset + preview payload
+    post:
+      summary: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text
+      tags:
+      - ai
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - preview
+                  - apply
+                transcript:
+                  type: string
+                audioAssetId:
+                  type: string
+                tone:
+                  type: string
+                locale:
+                  type: string
+                stylePresetId:
+                  type: string
+                trendKeywords:
+                  type: array
+                  items:
+                    type: string
+                syncToBeatGrid:
+                  type: boolean
+                bpm:
+                  type: integer
+                  minimum: 60
+                  maximum: 220
+                beatOffsetMs:
+                  type: integer
+                  minimum: -60000
+                  maximum: 60000
+                projectId:
+                  type: string
+                trackId:
+                  type: string
+      responses:
+        '200':
+          description: Subtitle preview payload
+        '201':
+          description: Subtitles applied to timeline
+        '400':
+          description: Validation error
+        '404':
+          description: Preset or timeline project not found
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

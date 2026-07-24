@@ -1,0 +1,654 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra ai-captions API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: ai-captions
+paths:
+  /api/ai/captions/scene:
+    post:
+      summary: Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata
+      tags:
+      - ai-captions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - canvasText
+              properties:
+                canvasText:
+                  type: array
+                  items:
+                    type: string
+                templateName:
+                  type: string
+                templateDescription:
+                  type: string
+                templateTags:
+                  type: array
+                  items:
+                    type: string
+                trendSignals:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Scene understanding payload
+        '400':
+          description: Validation error
+  /api/ai/captions/tone-presets:
+    get:
+      summary: List Default + Custom Brand Tone Presets
+      tags:
+      - ai-captions
+      parameters:
+      - name: locale
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Tone preset list payload
+    post:
+      summary: Create or Update Custom Brand Tone Preset
+      tags:
+      - ai-captions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                locale:
+                  type: string
+                voiceRules:
+                  type: array
+                  items:
+                    type: string
+                blockedTerms:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: Tone preset saved
+        '400':
+          description: Validation error
+  /api/ai/captions/prompt:
+    post:
+      summary: Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)
+      tags:
+      - ai-captions
+      responses:
+        '200':
+          description: Caption prompt payload
+        '400':
+          description: Validation error
+  /api/ai/captions/generate:
+    get:
+      summary: Read the Current Actor's Daily Caption Reroll Quota and Reset Window
+      tags:
+      - ai-captions
+      security:
+      - AgentApiKeyAuth: []
+      - {}
+      responses:
+        '200':
+          description: Current actor caption reroll quota snapshot
+    post:
+      summary: Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives
+      tags:
+      - ai-captions
+      security:
+      - AgentApiKeyAuth: []
+      - {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - tone
+              properties:
+                tone:
+                  type: string
+                memeId:
+                  type: string
+                memeSlug:
+                  type: string
+                ownerToken:
+                  type: string
+                sceneSummary:
+                  type: string
+                entities:
+                  type: array
+                  items:
+                    type: string
+                toneCues:
+                  type: array
+                  items:
+                    type: string
+                trendReferences:
+                  type: array
+                  items:
+                    type: string
+                trendKeywords:
+                  type: array
+                  items:
+                    type: string
+                rewriteNote:
+                  type: string
+                referenceCaptions:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 7
+                captionCount:
+                  type: integer
+                  minimum: 1
+                  maximum: 7
+                optionCount:
+                  type: integer
+                  minimum: 1
+                  maximum: 5
+                variationOffset:
+                  type: integer
+                  minimum: 0
+                  maximum: 99
+      responses:
+        '200':
+          description: Caption generation + ranking payload with reroll quota snapshot
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                  generationStrategy:
+                    type: string
+                    enum:
+                    - openai
+                    - heuristic
+                  providerId:
+                    type: string
+                  fallbackUsed:
+                    type: boolean
+                  captionSets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        score:
+                          type: number
+                        captions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              text:
+                                type: string
+        '400':
+          description: Validation error
+        '429':
+          description: Daily caption reroll quota exceeded
+  /api/ai/captions/rewrite:
+    post:
+      summary: Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview
+      tags:
+      - ai-captions
+      security:
+      - AgentApiKeyAuth: []
+      - {}
+      responses:
+        '200':
+          description: Caption rewrite payload
+        '400':
+          description: Validation error
+  /api/ai/captions/rank:
+    post:
+      summary: Rank Caption Variants and Return Top Safe Selections
+      tags:
+      - ai-captions
+      responses:
+        '200':
+          description: Caption ranking payload
+        '400':
+          description: Validation error
+  /api/ai/captions/moderate:
+    post:
+      summary: Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs
+      tags:
+      - ai-captions
+      responses:
+        '200':
+          description: Caption moderation payload
+        '400':
+          description: Validation error
+  /api/ai/memes/generate:
+    post:
+      summary: Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants
+      tags:
+      - ai-captions
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      - {}
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - prompt
+              properties:
+                mode:
+                  type: string
+                  enum:
+                  - template
+                prompt:
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+                flow:
+                  type: string
+                  enum:
+                  - text_to_meme
+                captionSource:
+                  type: string
+                  enum:
+                  - input
+                  - prompt
+                imageUrl:
+                  type: string
+                templateId:
+                  type: string
+                captions:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 6
+                editableCaptions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MemeCaption'
+                  maxItems: 8
+                tone:
+                  type: string
+                  enum:
+                  - sarcastic
+                  - deadpan
+                  - wholesome
+                  - absurd
+                  - corporate
+                  - dark-lite
+                  - brand
+                toneCues:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 6
+                rewriteNote:
+                  type: string
+                  maxLength: 160
+                allowHeuristicFallback:
+                  type: boolean
+                variantCount:
+                  type: number
+                  minimum: 1
+                  maximum: 5
+                preferredProviderId:
+                  type: string
+                  enum:
+                  - hyperswitch_vision
+                  - onnx_local
+                  - openai_vision
+                workspaceId:
+                  type: string
+                correlationId:
+                  type: string
+      responses:
+        '200':
+          description: Meme variant generation payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiMemeGenerationSucceededResponse'
+        '400':
+          description: Validation error
+        '429':
+          description: Daily AI quota exceeded
+        '500':
+          description: Provider execution failure
+  /api/v1/memes/generate:
+    post:
+      summary: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
+      tags:
+      - ai-captions
+      security:
+      - DeveloperApiKeyAuth: []
+      - AgentApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - prompt
+              properties:
+                mode:
+                  type: string
+                  enum:
+                  - template
+                prompt:
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+                flow:
+                  type: string
+                  enum:
+                  - text_to_meme
+                captionSource:
+                  type: string
+                  enum:
+                  - input
+                  - prompt
+                imageUrl:
+                  type: string
+                templateId:
+                  type: string
+                captions:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 6
+                editableCaptions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/MemeCaption'
+                  maxItems: 8
+                tone:
+                  type: string
+                  enum:
+                  - sarcastic
+                  - deadpan
+                  - wholesome
+                  - absurd
+                  - corporate
+                  - dark-lite
+                  - brand
+                toneCues:
+                  type: array
+                  items:
+                    type: string
+                  maxItems: 6
+                rewriteNote:
+                  type: string
+                  maxLength: 160
+                allowHeuristicFallback:
+                  type: boolean
+                variantCount:
+                  type: number
+                  minimum: 1
+                  maximum: 5
+                preferredProviderId:
+                  type: string
+                  enum:
+                  - hyperswitch_vision
+                  - onnx_local
+                  - openai_vision
+                workspaceId:
+                  type: string
+                correlationId:
+                  type: string
+      responses:
+        '200':
+          description: Meme variant generation payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiMemeGenerationSucceededResponse'
+        '400':
+          description: Validation error
+        '401':
+          description: Developer or agent API key required
+        '429':
+          description: Daily AI quota exceeded
+        '500':
+          description: Provider execution failure
+components:
+  schemas:
+    AiMemeGenerationSucceededResponse:
+      type: object
+      required:
+      - ok
+      - flow
+      - mode
+      - status
+      - variantCount
+      - variants
+      properties:
+        ok:
+          type: boolean
+          const: true
+        runId:
+          type: string
+        flow:
+          type: string
+          enum:
+          - text_to_meme
+        mode:
+          type: string
+          enum:
+          - template
+        status:
+          type: string
+          const: succeeded
+        variantCount:
+          type: integer
+          minimum: 0
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeGenerationVariant'
+        degradedFromAsync:
+          type: boolean
+    MemeGenerationVariant:
+      type: object
+      required:
+      - id
+      - mode
+      - providerId
+      - variantKind
+      - memeUrl
+      - pageUrl
+      - templateName
+      - fallbackUsed
+      - attempts
+      - estimatedCostUsd
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+          enum:
+          - template
+        providerId:
+          type: string
+        variantKind:
+          type: string
+          enum:
+          - template_captioned
+          - rendered_image
+        memeUrl:
+          type:
+          - string
+          - 'null'
+        pageUrl:
+          type:
+          - string
+          - 'null'
+        templateName:
+          type:
+          - string
+          - 'null'
+        templateSlug:
+          type:
+          - string
+          - 'null'
+        sourceImageUrl:
+          type:
+          - string
+          - 'null'
+        templateSelectionStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - provided_template
+          - provided_image
+          - library_search
+          - recommendation
+          - null
+        captionGenerationStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - openai
+          - heuristic
+          - provided
+          - null
+        captions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeCaption'
+        editable:
+          type: boolean
+        fallbackUsed:
+          type: boolean
+        attempts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        estimatedCostUsd:
+          type: number
+          minimum: 0
+    MemeCaption:
+      type: object
+      required:
+      - id
+      - text
+      - x
+      - y
+      - fontSize
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        x:
+          type: number
+        y:
+          type: number
+        fontSize:
+          type: number
+        rotationDeg:
+          type: number
+        hidden:
+          type: boolean
+        locked:
+          type: boolean
+        boxWidthPct:
+          type: number
+        boxHeightPct:
+          type: number
+        paddingPct:
+          type: number
+        maxLines:
+          type: integer
+        lineHeight:
+          type: number
+        backgroundEnabled:
+          type: boolean
+        backgroundColor:
+          type: string
+        backgroundOpacity:
+          type: number
+        letterSpacingEm:
+          type: number
+        shadowStrength:
+          type: number
+        color:
+          type: string
+        stroke:
+          type: string
+        fontFamily:
+          type: string
+          enum:
+          - impact
+          - arial
+        textAlign:
+          type: string
+          enum:
+          - left
+          - center
+          - right
+        semanticRole:
+          type: string
+          enum:
+          - setup
+          - contrast
+          - punchline
+          - reaction
+          - label
+        preferredCase:
+          type: string
+          enum:
+          - uppercase
+          - sentence
+          - title
+          - preserve
+        exampleText:
+          type: string
+        recommendedWordsMin:
+          type: integer
+          minimum: 1
+        recommendedWordsMax:
+          type: integer
+          minimum: 1
+        recommendedCharsMin:
+          type: integer
+          minimum: 1
+        recommendedCharsMax:
+          type: integer
+          minimum: 1
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

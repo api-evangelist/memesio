@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra personalization API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: personalization
+paths:
+  /api/alerts/preferences:
+    get:
+      summary: Get Trend Preference Vector for Actor
+      tags:
+      - personalization
+      parameters:
+      - name: actorId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Preference vector payload
+        '400':
+          description: Missing actor id
+    post:
+      summary: Upsert Trend Preference Vector from Explicit Interests and Behavior Events
+      tags:
+      - personalization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - actorId
+              properties:
+                actorId:
+                  type: string
+                followerCount:
+                  type: integer
+                  minimum: 0
+                aggressiveness:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                explicitNiches:
+                  type: array
+                  items:
+                    type: string
+                explicitTopics:
+                  type: array
+                  items:
+                    type: string
+                explicitRegions:
+                  type: array
+                  items:
+                    type: string
+                explicitSources:
+                  type: array
+                  items:
+                    type: string
+                event:
+                  type: object
+                  properties:
+                    action:
+                      type: string
+                      enum:
+                      - alert_opened
+                      - alert_marked_relevant
+                      - alert_marked_irrelevant
+                      - alert_marked_relevant
+                      - topic_followed
+                      - topic_muted
+                      - create_from_alert
+                    niche:
+                      type: string
+                    topic:
+                      type: string
+                    region:
+                      type: string
+                    source:
+                      type: string
+      responses:
+        '201':
+          description: Updated preference vector payload
+        '400':
+          description: Validation error
+  /api/alerts/feedback:
+    get:
+      summary: List Stored Trend Feedback Actions
+      tags:
+      - personalization
+      parameters:
+      - name: actorId
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      responses:
+        '200':
+          description: Trend feedback events payload
+    post:
+      summary: Record Trend Feedback Action and Update Preference Vector
+      tags:
+      - personalization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - actorId
+              - alertId
+              - action
+              - topic
+              properties:
+                actorId:
+                  type: string
+                alertId:
+                  type: string
+                action:
+                  type: string
+                  enum:
+                  - topic_muted
+                  - alert_marked_relevant
+                  - alert_marked_irrelevant
+                  - topic_followed
+                topic:
+                  type: string
+                niche:
+                  type: string
+                region:
+                  type: string
+                source:
+                  type: string
+      responses:
+        '201':
+          description: Feedback stored and vector updated
+        '400':
+          description: Validation error
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

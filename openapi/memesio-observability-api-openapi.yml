@@ -1,0 +1,45 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra observability API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: observability
+paths:
+  /api/analytics/dashboards/backend-reliability:
+    get:
+      summary: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+      tags:
+      - observability
+      parameters:
+      - name: windowHours
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 168
+      responses:
+        '200':
+          description: Backend reliability dashboard + metrics snapshot payload
+  /api/analytics/alerts/backend:
+    get:
+      summary: Run Backend 5xx and Render Latency Alert Checks
+      tags:
+      - observability
+      responses:
+        '200':
+          description: Backend alerting summary payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

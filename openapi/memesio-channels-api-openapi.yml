@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra channels API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: channels
+paths:
+  /api/v1/agents/{agentId}/channels/telegram/bind:
+    post:
+      summary: Bind Telegram Chat to an Owned Agent
+      tags:
+      - channels
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - chatId
+              properties:
+                chatId:
+                  type: string
+                userId:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Telegram binding created/updated
+        '401':
+          description: Authentication required
+  /api/v1/agents/{agentId}/channels/whatsapp/bind:
+    post:
+      summary: Bind WhatsApp Chat/Phone to an Owned Agent
+      tags:
+      - channels
+      parameters:
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - phoneOrChatId
+              properties:
+                phoneOrChatId:
+                  type: string
+                userId:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: WhatsApp binding created/updated
+        '401':
+          description: Authentication required
+  /api/v1/agents/webhooks/telegram:
+    post:
+      summary: Telegram Inbound Webhook Receiver with Dedupe and Agent Routing
+      tags:
+      - channels
+      responses:
+        '200':
+          description: Webhook processed
+        '202':
+          description: Ignored non-message Telegram update
+        '403':
+          description: Invalid webhook secret when configured
+  /api/v1/agents/webhooks/whatsapp:
+    get:
+      summary: WhatsApp Verification Handshake Endpoint
+      tags:
+      - channels
+      responses:
+        '200':
+          description: Verification challenge accepted
+        '403':
+          description: Invalid verify token
+    post:
+      summary: WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing
+      tags:
+      - channels
+      responses:
+        '200':
+          description: Webhook processed
+        '202':
+          description: Ignored non-message event
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra face-swap API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: face-swap
+paths:
+  /api/ai/face-swap:
+    post:
+      summary: Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds
+      tags:
+      - face-swap
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceAssetUrl
+              - targetAssetUrl
+              - mediaType
+              - width
+              - height
+              - detectedFaceCount
+              properties:
+                sourceAssetUrl:
+                  type: string
+                targetAssetUrl:
+                  type: string
+                mediaType:
+                  type: string
+                  enum:
+                  - image
+                  - video_frame
+                width:
+                  type: number
+                  minimum: 1
+                height:
+                  type: number
+                  minimum: 1
+                detectedFaceCount:
+                  type: number
+                  minimum: 1
+                sourceFaceIndex:
+                  type: number
+                  minimum: 0
+                targetFaceIndex:
+                  type: number
+                  minimum: 0
+                frameTimeMs:
+                  type: number
+                  minimum: 0
+                consentAttested:
+                  type: boolean
+                celebrityConfidence:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                nsfwScore:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                actorId:
+                  type: string
+                workspaceId:
+                  type: string
+      responses:
+        '200':
+          description: Real-time face swap completed
+        '202':
+          description: Preview fallback served and async job queued
+        '403':
+          description: Blocked by content policy
+  /api/ai/face-targets:
+    post:
+      summary: Detect Multiple Face Targets and Return Selector Payload for Target Selection UI
+      tags:
+      - face-swap
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceImageUrl
+              properties:
+                sourceImageUrl:
+                  type: string
+                maxFaces:
+                  type: number
+                  minimum: 1
+                  maximum: 8
+      responses:
+        '200':
+          description: Face target detection payload
+        '400':
+          description: Validation error
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

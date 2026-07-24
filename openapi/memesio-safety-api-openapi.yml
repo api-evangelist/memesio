@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra safety API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: safety
+paths:
+  /api/compliance/content-policy:
+    get:
+      summary: Get Content and Face-Swap Usage Policy with Enforcement Points
+      tags:
+      - safety
+      responses:
+        '200':
+          description: Content usage policy payload
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

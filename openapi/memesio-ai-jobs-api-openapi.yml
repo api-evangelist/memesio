@@ -1,0 +1,454 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra ai-jobs API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: ai-jobs
+paths:
+  /api/ai/jobs:
+    get:
+      summary: List AI Jobs
+      tags:
+      - ai-jobs
+      parameters:
+      - name: status
+        in: query
+        schema:
+          type: string
+      - name: page
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 50
+      responses:
+        '200':
+          description: AI job list
+    post:
+      summary: Submit AI Job
+      tags:
+      - ai-jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AiJobSubmitRequest'
+      responses:
+        '201':
+          description: AI job created
+  /api/ai/jobs/{jobId}:
+    get:
+      summary: Get AI Job Status
+      tags:
+      - ai-jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: AI job details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AiJob'
+        '404':
+          description: Not found
+  /api/ai/jobs/{jobId}/cancel:
+    post:
+      summary: Cancel AI Job
+      tags:
+      - ai-jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reason:
+                  type: string
+                  maxLength: 300
+      responses:
+        '200':
+          description: Canceled
+        '404':
+          description: Not found
+  /api/ai/jobs/{jobId}/complete:
+    post:
+      summary: Complete AI Job and Log Metered AI Cost
+      tags:
+      - ai-jobs
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - workerId
+              properties:
+                workerId:
+                  type: string
+                output:
+                  type: object
+                  additionalProperties: true
+                estimatedCostUsd:
+                  type: number
+                  minimum: 0
+                providerId:
+                  type: string
+      responses:
+        '200':
+          description: Completed job
+        '404':
+          description: Not found or not running
+  /api/ai/edit-history:
+    get:
+      summary: List or Compare Versioned AI Edit History for a Layer
+      tags:
+      - ai-jobs
+      parameters:
+      - name: projectId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: layerId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - list
+          - compare
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+      - name: fromVersionId
+        in: query
+        schema:
+          type: string
+      - name: toVersionId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Layer history payload
+        '404':
+          description: Versions not found for comparison
+    post:
+      summary: Record or Rollback Versioned AI Edit State for a Layer
+      tags:
+      - ai-jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - projectId
+              - layerId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - record
+                  - rollback
+                projectId:
+                  type: string
+                layerId:
+                  type: string
+                layerType:
+                  type: string
+                  enum:
+                  - face_swap
+                  - background_remove
+                  - caption
+                beforeState:
+                  type: object
+                  additionalProperties: true
+                afterState:
+                  type: object
+                  additionalProperties: true
+                versionId:
+                  type: string
+                actorId:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Rollback payload
+        '201':
+          description: Version recorded
+        '400':
+          description: Validation error
+        '404':
+          description: Version not found
+  /api/ai/face-swap:
+    post:
+      summary: Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds
+      tags:
+      - ai-jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceAssetUrl
+              - targetAssetUrl
+              - mediaType
+              - width
+              - height
+              - detectedFaceCount
+              properties:
+                sourceAssetUrl:
+                  type: string
+                targetAssetUrl:
+                  type: string
+                mediaType:
+                  type: string
+                  enum:
+                  - image
+                  - video_frame
+                width:
+                  type: number
+                  minimum: 1
+                height:
+                  type: number
+                  minimum: 1
+                detectedFaceCount:
+                  type: number
+                  minimum: 1
+                sourceFaceIndex:
+                  type: number
+                  minimum: 0
+                targetFaceIndex:
+                  type: number
+                  minimum: 0
+                frameTimeMs:
+                  type: number
+                  minimum: 0
+                consentAttested:
+                  type: boolean
+                celebrityConfidence:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                nsfwScore:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                actorId:
+                  type: string
+                workspaceId:
+                  type: string
+      responses:
+        '200':
+          description: Real-time face swap completed
+        '202':
+          description: Preview fallback served and async job queued
+        '403':
+          description: Blocked by content policy
+  /api/ai/face-targets:
+    post:
+      summary: Detect Multiple Face Targets and Return Selector Payload for Target Selection UI
+      tags:
+      - ai-jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceImageUrl
+              properties:
+                sourceImageUrl:
+                  type: string
+                maxFaces:
+                  type: number
+                  minimum: 1
+                  maximum: 8
+      responses:
+        '200':
+          description: Face target detection payload
+        '400':
+          description: Validation error
+  /api/ai/background-remove:
+    post:
+      summary: Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits
+      tags:
+      - ai-jobs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - sourceAssetUrl
+              - width
+              - height
+              properties:
+                sourceAssetUrl:
+                  type: string
+                mediaType:
+                  type: string
+                  enum:
+                  - image
+                  - video_frame
+                frameTimeMs:
+                  type: number
+                  minimum: 0
+                width:
+                  type: number
+                  minimum: 1
+                height:
+                  type: number
+                  minimum: 1
+                edgeRefinement:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                brushEdits:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - mode
+                    - x
+                    - y
+                    - radius
+                    properties:
+                      mode:
+                        type: string
+                        enum:
+                        - add
+                        - erase
+                      x:
+                        type: number
+                      y:
+                        type: number
+                      radius:
+                        type: number
+                        minimum: 1
+                      intensity:
+                        type: number
+                        minimum: 0.1
+                        maximum: 1
+      responses:
+        '200':
+          description: Background removal result and mask stats
+        '400':
+          description: Validation error
+components:
+  schemas:
+    AiJob:
+      type: object
+      required:
+      - id
+      - status
+      - capability
+      properties:
+        id:
+          type: string
+        traceId:
+          type: string
+          pattern: ^[a-f0-9]{32}$
+        capability:
+          type: string
+        status:
+          type: string
+        attempts:
+          type: integer
+        maxAttempts:
+          type: integer
+        timeoutMs:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    AiJobSubmitRequest:
+      type: object
+      required:
+      - capability
+      properties:
+        capability:
+          type: string
+          enum:
+          - face_swap
+          - background_remove
+          - caption_generate
+        input:
+          type: object
+          additionalProperties: true
+        maxAttempts:
+          type: integer
+          minimum: 1
+          maximum: 10
+        timeoutMs:
+          type: integer
+          minimum: 1000
+          maximum: 300000
+        runAfterMs:
+          type: integer
+          minimum: 0
+        traceId:
+          type: string
+          pattern: ^[a-f0-9]{32}$
+        actorId:
+          type: string
+        workspaceId:
+          type: string
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

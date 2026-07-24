@@ -1,0 +1,357 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra platform API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: platform
+paths:
+  /api/video/formats:
+    get:
+      summary: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+      tags:
+      - platform
+      parameters:
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: inputFormat
+        in: query
+        schema:
+          type: string
+      - name: mimeType
+        in: query
+        schema:
+          type: string
+      - name: outputPresetId
+        in: query
+        schema:
+          type: string
+      - name: durationSeconds
+        in: query
+        schema:
+          type: number
+          minimum: 0.1
+      responses:
+        '200':
+          description: Video format policy payload
+    post:
+      summary: Estimate Cost and Validate Planned Video Export Job Against Policy
+      tags:
+      - platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - planTier
+              - inputFormat
+              - mimeType
+              - outputPresetId
+              - durationSeconds
+              properties:
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                inputFormat:
+                  type: string
+                mimeType:
+                  type: string
+                outputPresetId:
+                  type: string
+                durationSeconds:
+                  type: number
+                  minimum: 0.1
+      responses:
+        '200':
+          description: Video job estimate payload
+        '400':
+          description: Validation error
+  /api/video/timeline:
+    get:
+      summary: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)
+      tags:
+      - platform
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      responses:
+        '200':
+          description: Timeline project payload
+        '404':
+          description: Project not found
+    post:
+      summary: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments
+      tags:
+      - platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - create
+                  - add_track
+                  - add_asset
+                  - attach_asset
+                  - upsert_keyframe
+                projectId:
+                  type: string
+                durationMs:
+                  type: number
+                  minimum: 1
+                frameRate:
+                  type: number
+                  minimum: 12
+                  maximum: 60
+                type:
+                  type: string
+                  enum:
+                  - video
+                  - audio
+                  - sticker
+                  - text
+                  - overlay
+                name:
+                  type: string
+                sourceUrl:
+                  type: string
+                trackId:
+                  type: string
+                assetId:
+                  type: string
+                startMs:
+                  type: number
+                  minimum: 0
+                offsetMs:
+                  type: number
+                  minimum: 0
+                atMs:
+                  type: number
+                  minimum: 0
+                property:
+                  type: string
+                value:
+                  type: number
+                easing:
+                  type: string
+                  enum:
+                  - linear
+                  - ease_in
+                  - ease_out
+                  - ease_in_out
+      responses:
+        '200':
+          description: Timeline updated
+        '201':
+          description: Timeline created
+        '400':
+          description: Validation error
+  /api/video/render-queue:
+    get:
+      summary: Get Render Queue Snapshot or List Render Jobs
+      tags:
+      - platform
+      parameters:
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - snapshot
+          - list
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - queued
+          - running
+          - completed
+          - failed
+          - cancelled
+      - name: planTier
+        in: query
+        schema:
+          type: string
+          enum:
+          - free
+          - pro
+          - team
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+      responses:
+        '200':
+          description: Render queue payload
+    post:
+      summary: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
+      tags:
+      - platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - enqueue
+                  - claim_next
+                  - progress
+                  - complete
+                  - fail
+                projectId:
+                  type: string
+                outputPresetId:
+                  type: string
+                planTier:
+                  type: string
+                  enum:
+                  - free
+                  - pro
+                  - team
+                durationSeconds:
+                  type: number
+                  minimum: 0.1
+                workerId:
+                  type: string
+                jobId:
+                  type: string
+                progressPercent:
+                  type: number
+                  minimum: 0
+                  maximum: 100
+                stage:
+                  type: string
+                outputUrl:
+                  type: string
+                error:
+                  type: string
+                cancelled:
+                  type: boolean
+      responses:
+        '200':
+          description: Queue mutation payload
+        '201':
+          description: Render job enqueued
+        '204':
+          description: No queued job available
+        '400':
+          description: Validation error
+  /api/video/render-performance:
+    get:
+      summary: Get Latest Video Render Load-Test Summary or Refresh Simulation
+      tags:
+      - platform
+      parameters:
+      - name: refresh
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Video render performance summary payload
+        '500':
+          description: Policy validation or simulation failure
+  /api/video/drafts:
+    get:
+      summary: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
+      tags:
+      - platform
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 200
+      responses:
+        '200':
+          description: Video draft payload
+        '404':
+          description: Draft not found
+    post:
+      summary: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
+      tags:
+      - platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - save
+                  - resume
+                project:
+                  type: object
+                  additionalProperties: true
+                projectId:
+                  type: string
+                updatedAt:
+                  type: string
+                  format: date-time
+                sourceDeviceId:
+                  type: string
+      responses:
+        '200':
+          description: Draft resume payload
+        '201':
+          description: Draft saved payload
+        '400':
+          description: Validation error
+        '404':
+          description: Draft not found
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra history API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: history
+paths:
+  /api/ai/edit-history:
+    get:
+      summary: List or Compare Versioned AI Edit History for a Layer
+      tags:
+      - history
+      parameters:
+      - name: projectId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: layerId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: mode
+        in: query
+        schema:
+          type: string
+          enum:
+          - list
+          - compare
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 500
+      - name: fromVersionId
+        in: query
+        schema:
+          type: string
+      - name: toVersionId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Layer history payload
+        '404':
+          description: Versions not found for comparison
+    post:
+      summary: Record or Rollback Versioned AI Edit State for a Layer
+      tags:
+      - history
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - projectId
+              - layerId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - record
+                  - rollback
+                projectId:
+                  type: string
+                layerId:
+                  type: string
+                layerType:
+                  type: string
+                  enum:
+                  - face_swap
+                  - background_remove
+                  - caption
+                beforeState:
+                  type: object
+                  additionalProperties: true
+                afterState:
+                  type: object
+                  additionalProperties: true
+                versionId:
+                  type: string
+                actorId:
+                  type: string
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Rollback payload
+        '201':
+          description: Version recorded
+        '400':
+          description: Validation error
+        '404':
+          description: Version not found
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'

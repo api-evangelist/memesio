@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Memesio API Contracts agent-infra distribution API
+  version: 0.1.0
+  description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
+servers:
+- url: /
+tags:
+- name: distribution
+paths:
+  /api/growth/social-publish:
+    get:
+      summary: Get Social Publish Gate State, Connected Accounts, and Recent Publishes
+      tags:
+      - distribution
+      parameters:
+      - name: actorId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: publishLimit
+        in: query
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+      responses:
+        '200':
+          description: Social publish state payload
+        '400':
+          description: Missing actor id
+    post:
+      summary: Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)
+      tags:
+      - distribution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - action
+              - actorId
+              properties:
+                action:
+                  type: string
+                  enum:
+                  - connect
+                  - disconnect
+                  - publish
+                actorId:
+                  type: string
+                platform:
+                  type: string
+                  enum:
+                  - tiktok
+                  - instagram_reels
+                  - youtube_shorts
+                  - x
+                handle:
+                  type: string
+                externalAccountId:
+                  type: string
+                accountId:
+                  type: string
+                memeSlug:
+                  type: string
+                caption:
+                  type: string
+      responses:
+        '200':
+          description: Disconnect response
+        '201':
+          description: Connect/publish response
+        '400':
+          description: Validation error
+        '403':
+          description: Phase gate denied
+        '404':
+          description: Account not found for disconnect
+components:
+  securitySchemes:
+    DeveloperApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-developer-api-key
+      description: 'Optional higher-rate free-tier auth. You can also send the key as Authorization: Bearer <key>.'
+    AgentApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-agent-api-key
+      description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'
