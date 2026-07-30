@@ -2,7 +2,20 @@ aid: memesio
 url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml
 name: Memesio
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/memesio.png
 description: >-
   Memesio is a meme creation and sharing service offering a public template discovery, caption rendering, and
   AI-assisted image generation API. It exposes a contract-first surface for human developers and autonomous AI agents
@@ -42,94 +55,1935 @@ common:
     url: https://memesio.com/llms.txt
 url-source: https://memesio.com/
 apis:
-  - name: Memesio API
-    description: >-
-      Memesio's public REST API for meme template discovery, caption rendering, AI-driven meme generation, face swap and
-      background removal, video editing, billing usage reporting, growth and analytics, alerts and trend campaigns, and
-      autonomous agent identity/key management. The contract baseline (v0.1.0) titled "Memesio API Contracts" covers 82
-      operations across more than 35 domain tags including ai, ai-captions, ai-jobs, memes, templates, media, video,
-      audio, motion, face-swap, background-remove, alerts, trend-alerts, analytics, billing, finops, growth,
-      collaboration, compliance, moderation, channels, distribution, lifecycle, public-free, developer-api,
-      observability, performance, personalization, experimentation, marketing-ops, data-eng, data-ops, data-science,
-      agent-infra, and platform.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://memesio.com/developers/api
-    baseURL: https://memesio.com/api
-    tags:
-      - Memes
-      - Media
-      - Image Generation
-      - Content
-      - Developer Tools
-      - AI
-      - Templates
-      - Video
-      - Captions
-      - Face Swap
-      - Background Remove
-      - Agents
-      - MCP
-      - Billing
-      - Analytics
-      - Trends
-      - Moderation
-      - Compliance
-      - Growth
-    properties:
-      - type: Documentation
-        url: https://memesio.com/developers/api
-      - type: OpenAPI
-        url: https://memesio.com/api/openapi
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/openapi/memesio-openapi.yml
-      - type: APICatalog
-        url: https://memesio.com/.well-known/api-catalog
-      - type: StatusPage
-        url: https://memesio.com/api/health
-      - type: MCPServer
-        url: https://memesio.com/api/mcp
-      - type: MCPServerCard
-        url: https://memesio.com/.well-known/mcp/server-card.json
-      - type: MCPDocumentation
-        url: https://memesio.com/developers/mcp
-      - type: Signup
-        url: https://memesio.com/api/v1/agents/bootstrap
-      - type: ContentPolicy
-        url: https://memesio.com/api/compliance/content-policy
-      - type: TemplateSearch
-        url: https://memesio.com/api/free/templates
-      - type: BillingUsage
-        url: https://memesio.com/api/billing/usage
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
-      - type: SpectralRules
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
-      - type: JSONLDContext
-        url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
-    contact:
-      - FN: Memesio Support
-        url: https://memesio.com/developers/api
-    x-common:
-      - type: Authentication
-        url: https://memesio.com/developers/api
-        notes: >-
-          Auth model includes anonymous (template discovery + free caption), developer API keys (x-agent-api-key
-          header), agent API keys minted via the agents bootstrap endpoint, and first-party session auth for the hosted
-          editor. Public/free tools may be invoked without a key; AI generation requires a key.
-      - type: Pricing
-        url: https://memesio.com/developers/api
-        notes: >-
-          No public price sheet. Quota-based access with documented per-day AI generation limits (3/day baseline for
-          developer and agent keys) and approval-gated boosts. Premium features (custom watermarking, higher AI quota)
-          require contacting support.
-      - type: RateLimits
-        url: https://memesio.com/developers/api
-        notes: >-
-          Anonymous free routes carry baseline rate limits. AI generation uses daily quota (3/day baseline). Variant
-          fan-out capped at 5 per request (1 for agent keys by default). Template search page size capped at 50.
+- aid: memesio:memesio-agent-infra-api
+  name: Memesio agent-infra API
+  description: The agent-infra API from Memesio — 16 operation(s) for agent-infra.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - agent-infra
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-agent-infra-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-ai-api
+  name: Memesio ai API
+  description: The ai API from Memesio — 1 operation(s) for ai.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - ai
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-ai-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-ai-captions-api
+  name: Memesio ai-captions API
+  description: The ai-captions API from Memesio — 9 operation(s) for ai-captions.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - ai-captions
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-ai-captions-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-ai-jobs-api
+  name: Memesio ai-jobs API
+  description: The ai-jobs API from Memesio — 8 operation(s) for ai-jobs.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - ai-jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-ai-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-ai-providers-api
+  name: Memesio ai-providers API
+  description: The ai-providers API from Memesio — 7 operation(s) for ai-providers.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - ai-providers
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-ai-providers-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-analytics-api
+  name: Memesio analytics API
+  description: The analytics API from Memesio — 8 operation(s) for analytics.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-audio-api
+  name: Memesio audio API
+  description: The audio API from Memesio — 1 operation(s) for audio.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - audio
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-audio-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-auth-api
+  name: Memesio auth API
+  description: The auth API from Memesio — 10 operation(s) for auth.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-auth-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-backend-api
+  name: Memesio backend API
+  description: The backend API from Memesio — 1 operation(s) for backend.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - backend
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-backend-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-background-remove-api
+  name: Memesio background-remove API
+  description: The background-remove API from Memesio — 1 operation(s) for background-remove.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - background-remove
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-background-remove-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-billing-api
+  name: Memesio billing API
+  description: The billing API from Memesio — 2 operation(s) for billing.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - billing
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-billing-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-channels-api
+  name: Memesio channels API
+  description: The channels API from Memesio — 4 operation(s) for channels.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - channels
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-channels-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-collaboration-api
+  name: Memesio collaboration API
+  description: The collaboration API from Memesio — 1 operation(s) for collaboration.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - collaboration
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-collaboration-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-compliance-api
+  name: Memesio compliance API
+  description: The compliance API from Memesio — 1 operation(s) for compliance.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - compliance
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-compliance-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-data-eng-api
+  name: Memesio data-eng API
+  description: The data-eng API from Memesio — 2 operation(s) for data-eng.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - data-eng
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-data-eng-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-data-ops-api
+  name: Memesio data-ops API
+  description: The data-ops API from Memesio — 1 operation(s) for data-ops.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - data-ops
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-data-ops-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-data-science-api
+  name: Memesio data-science API
+  description: The data-science API from Memesio — 1 operation(s) for data-science.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - data-science
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-data-science-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-developer-api-api
+  name: Memesio developer-api API
+  description: The developer-api API from Memesio — 4 operation(s) for developer-api.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - developer-api
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-developer-api-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-distribution-api
+  name: Memesio distribution API
+  description: The distribution API from Memesio — 1 operation(s) for distribution.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - distribution
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-distribution-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-experimentation-api
+  name: Memesio experimentation API
+  description: The experimentation API from Memesio — 2 operation(s) for experimentation.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - experimentation
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-experimentation-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-face-swap-api
+  name: Memesio face-swap API
+  description: The face-swap API from Memesio — 2 operation(s) for face-swap.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - face-swap
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-face-swap-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-finops-api
+  name: Memesio finops API
+  description: The finops API from Memesio — 1 operation(s) for finops.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - finops
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-finops-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-growth-api
+  name: Memesio growth API
+  description: The growth API from Memesio — 12 operation(s) for growth.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - growth
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-growth-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-history-api
+  name: Memesio history API
+  description: The history API from Memesio — 1 operation(s) for history.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - history
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-history-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-lifecycle-api
+  name: Memesio lifecycle API
+  description: The lifecycle API from Memesio — 1 operation(s) for lifecycle.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - lifecycle
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-lifecycle-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-marketing-ops-api
+  name: Memesio marketing-ops API
+  description: The marketing-ops API from Memesio — 1 operation(s) for marketing-ops.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - marketing-ops
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-marketing-ops-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-media-api
+  name: Memesio media API
+  description: The media API from Memesio — 1 operation(s) for media.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - media
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-media-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-memes-api
+  name: Memesio memes API
+  description: The memes API from Memesio — 4 operation(s) for memes.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - memes
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-memes-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-moderation-api
+  name: Memesio moderation API
+  description: The moderation API from Memesio — 1 operation(s) for moderation.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - moderation
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-moderation-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-motion-api
+  name: Memesio motion API
+  description: The motion API from Memesio — 1 operation(s) for motion.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - motion
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-motion-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-notifications-api
+  name: Memesio notifications API
+  description: The notifications API from Memesio — 1 operation(s) for notifications.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-observability-api
+  name: Memesio observability API
+  description: The observability API from Memesio — 2 operation(s) for observability.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - observability
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-observability-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-performance-api
+  name: Memesio performance API
+  description: The performance API from Memesio — 1 operation(s) for performance.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - performance
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-performance-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-personalization-api
+  name: Memesio personalization API
+  description: The personalization API from Memesio — 2 operation(s) for personalization.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - personalization
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-personalization-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-platform-api
+  name: Memesio platform API
+  description: The platform API from Memesio — 5 operation(s) for platform.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - platform
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-platform-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-product-marketing-api
+  name: Memesio product-marketing API
+  description: The product-marketing API from Memesio — 1 operation(s) for product-marketing.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - product-marketing
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-product-marketing-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-public-free-api
+  name: Memesio public-free API
+  description: The public-free API from Memesio — 2 operation(s) for public-free.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - public-free
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-public-free-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-safety-api
+  name: Memesio safety API
+  description: The safety API from Memesio — 1 operation(s) for safety.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - safety
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-safety-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-templates-api
+  name: Memesio templates API
+  description: The templates API from Memesio — 3 operation(s) for templates.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - templates
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-templates-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-trend-alerts-api
+  name: Memesio trend-alerts API
+  description: The trend-alerts API from Memesio — 11 operation(s) for trend-alerts.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - trend-alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-trend-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-uploads-api
+  name: Memesio uploads API
+  description: The uploads API from Memesio — 1 operation(s) for uploads.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
+- aid: memesio:memesio-video-api
+  name: Memesio video API
+  description: The video API from Memesio — 9 operation(s) for video.
+  humanURL: https://memesio.com/developers/api
+  baseURL: https://memesio.com/api
+  tags:
+  - video
+  properties:
+  - type: OpenAPI
+    url: openapi/memesio-video-api-openapi.yml
+  - type: Documentation
+    url: https://memesio.com/developers/api
+  - type: APICatalog
+    url: https://memesio.com/.well-known/api-catalog
+  - type: StatusPage
+    url: https://memesio.com/api/health
+  - type: MCPServerCard
+    url: https://memesio.com/.well-known/mcp/server-card.json
+  - type: MCPDocumentation
+    url: https://memesio.com/developers/mcp
+  - type: Signup
+    url: https://memesio.com/api/v1/agents/bootstrap
+  - type: ContentPolicy
+    url: https://memesio.com/api/compliance/content-policy
+  - type: TemplateSearch
+    url: https://memesio.com/api/free/templates
+  - type: BillingUsage
+    url: https://memesio.com/api/billing/usage
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
