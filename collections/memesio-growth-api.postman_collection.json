@@ -1,0 +1,2628 @@
+{
+  "item": [
+    {
+      "id": "b0f9fbf8-0315-4838-8425-06c8efc4859d",
+      "name": "growth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c80c6800-39df-40f8-bf29-ea1a4dd291d2",
+          "name": "Submit Social Action Proof (X_follow) for Quota Boost Review",
+          "request": {
+            "name": "Submit Social Action Proof (X_follow) for Quota Boost Review",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "agents",
+                ":agentId",
+                "unlocks",
+                "social-action"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "agentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"proof\": {\n    \"key_0\": true\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6e762b1b-d575-47fc-b0a5-7e9b270ca3c6",
+              "name": "Unlock request submitted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    ":agentId",
+                    "unlocks",
+                    "social-action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"proof\": {\n    \"key_0\": 6426.171749030985,\n    \"key_1\": 4199.086010958673\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a5a46294-25bf-4eb5-8832-e1ab846dc3b9",
+              "name": "Agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    ":agentId",
+                    "unlocks",
+                    "social-action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"proof\": {\n    \"key_0\": 6426.171749030985,\n    \"key_1\": 4199.086010958673\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c04f0e2-e14a-4931-9c4c-7cf18a48d729",
+              "name": "Insufficient key scope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    ":agentId",
+                    "unlocks",
+                    "social-action"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "agentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"proof\": {\n    \"key_0\": 6426.171749030985,\n    \"key_1\": 4199.086010958673\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8071bcf2-bc5a-46e9-a493-f02e749e186c",
+          "name": "Admin Approval for Social Unlock and Quota Boost",
+          "request": {
+            "name": "Admin Approval for Social Unlock and Quota Boost",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "agents",
+                "unlocks",
+                ":unlockId",
+                "approve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "unlockId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quotaBoostPerDay\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85061c09-386c-4533-ad79-893b3fb38001",
+              "name": "Unlock approved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "unlocks",
+                    ":unlockId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unlockId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quotaBoostPerDay\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d02b4b10-41ea-4a09-b03a-9a79ae2a0ef5",
+              "name": "Admin authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "unlocks",
+                    ":unlockId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unlockId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quotaBoostPerDay\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f14eb5e2-1359-4173-9364-d8477210f45b",
+              "name": "Unlock not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "unlocks",
+                    ":unlockId",
+                    "approve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "unlockId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"quotaBoostPerDay\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "10f79fb9-1895-4174-a71f-c49c4b710a2a",
+          "name": "Cast Weekly Meme Vote (Deduped by Voter Hash)",
+          "request": {
+            "name": "Cast Weekly Meme Vote (Deduped by Voter Hash)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "agents",
+                "rewards",
+                "votes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"memeSlug\": \"<string>\",\n  \"weekStart\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a76867e-92f8-4afa-9779-197d46441f06",
+              "name": "Duplicate vote ignored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"memeSlug\": \"<string>\",\n  \"weekStart\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0d356375-352a-43a5-833f-f8e61b31736d",
+              "name": "Vote accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"memeSlug\": \"<string>\",\n  \"weekStart\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "530a1934-acd1-43ba-86e0-4a3f4d3ce1f1",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "votes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"memeSlug\": \"<string>\",\n  \"weekStart\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8f3acf5-968e-4ad8-8bf8-8ff12e592323",
+          "name": "Get Weekly Meme Leaderboard",
+          "request": {
+            "name": "Get Weekly Meme Leaderboard",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "agents",
+                "rewards",
+                "leaderboard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "weekStart",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d65c1ec3-4cbb-4035-a86a-bd2f46aa3e53",
+              "name": "Leaderboard payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "leaderboard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "weekStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5d14c97-8d01-4bd7-b6f2-372a7e702a2f",
+          "name": "Close Weekly Winner Record for Manual Payout Workflow",
+          "request": {
+            "name": "Close Weekly Winner Record for Manual Payout Workflow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "agents",
+                "rewards",
+                "winner:close"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"weekStart\": \"<string>\",\n  \"payoutStatus\": \"<string>\",\n  \"payoutReference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7fc0d815-45c6-4dcf-9379-4fafb2cbc7ec",
+              "name": "Winner record created/updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "winner:close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"weekStart\": \"<string>\",\n  \"payoutStatus\": \"<string>\",\n  \"payoutReference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb3e125d-62b6-45fe-913f-2134f2e78858",
+              "name": "Admin authorization required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "winner:close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"weekStart\": \"<string>\",\n  \"payoutStatus\": \"<string>\",\n  \"payoutReference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c0261640-d877-4ffc-94ac-af1c10deb506",
+              "name": "No votes for week",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "agents",
+                    "rewards",
+                    "winner:close"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"weekStart\": \"<string>\",\n  \"payoutStatus\": \"<string>\",\n  \"payoutReference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ff90cc4-87dc-4f4c-8823-f1cf9dca9a44",
+          "name": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+          "request": {
+            "name": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "viral-triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8775b5eb-1219-4d1d-8e8f-eeee3f82879c",
+              "name": "Viral loop trigger payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "viral-triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e593aa1-c430-4072-b387-382ca52c0271",
+          "name": "Get Referral Credits for Actor",
+          "request": {
+            "name": "Get Referral Credits for Actor",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "referrals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a956b390-b675-4398-8bb5-47245bc1e6ad",
+              "name": "Referral credit balance",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73182c16-f46e-4331-8f26-c852608f6f67",
+              "name": "Missing actor identity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e9bc962-9786-409b-9eae-621cfb88c819",
+          "name": "Create or Redeem Referral Invite Code with Fraud Checks",
+          "request": {
+            "name": "Create or Redeem Referral Invite Code with Fraud Checks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "referrals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29be8058-8dc2-456b-b6a0-4d8a9f35ddb8",
+              "name": "Redeemed referral code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "274935ca-5ec7-4534-b5d5-d2e7f8bad078",
+              "name": "Created referral code",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a79477c1-bd82-4530-8122-5e6a9db8d676",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41c90e99-d5c4-4563-8e8d-cb9ade0080b5",
+              "name": "Referral code not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "111cbbfb-e0d7-46aa-95c1-ecafe3eb63c8",
+              "name": "Fraud/eligibility check failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "referrals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"shareSlug\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "218ab299-00dd-4110-a80a-f53248bcfb24",
+          "name": "Generate or Retrieve Weekly Trend-Driven Template Campaigns",
+          "request": {
+            "name": "Generate or Retrieve Weekly Trend-Driven Template Campaigns",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "trend-campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "weekStart",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "publishedOnly",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e655ad17-fea4-4da1-9dfb-75a381a0a870",
+              "name": "Weekly campaign pack payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "trend-campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "weekStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedOnly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c187779-4981-4781-bd02-a632177a62a2",
+              "name": "No published campaign pack found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "trend-campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "weekStart",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "publishedOnly",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f09de413-63f4-4121-81d9-a4fccb5c0392",
+          "name": "Publish Weekly Trend-Driven Template Campaigns for Marketing Ops",
+          "request": {
+            "name": "Publish Weekly Trend-Driven Template Campaigns for Marketing Ops",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "trend-campaigns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"weekStart\": \"<string>\",\n  \"limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f528766-10d4-48f0-aec7-e58969160fa6",
+              "name": "Published weekly campaign pack",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "trend-campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"weekStart\": \"<string>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b69774f-4ef0-48f4-b438-9ab5e32550d6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "trend-campaigns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"weekStart\": \"<string>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b68c5036-bd2f-44ef-a5fd-9e88f6ccbdc9",
+          "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+          "request": {
+            "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "social-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "publishLimit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c83274b3-a05f-48c6-a469-96e74e8637b3",
+              "name": "Social publish state payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishLimit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "156698c5-feae-4f0e-a10d-496cbb66a475",
+              "name": "Missing actor id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishLimit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dbdd50a-d053-4996-8716-e1903eaede04",
+          "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+          "request": {
+            "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "social-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6aa0fc30-a008-4f2c-b548-b10afd467055",
+              "name": "Disconnect response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2bc9814d-ed2d-4bf3-abbb-e38bef94a192",
+              "name": "Connect/publish response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90ff0bdb-332c-4f1b-bcd1-72a2d54d47bc",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fcfb913a-9790-4878-bb3f-08d75adeecc0",
+              "name": "Phase gate denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f5a8967-7c03-4a91-ac20-1246cba2c497",
+              "name": "Account not found for disconnect",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d312aa0d-bc6d-4cf8-bf23-c6649983792f",
+          "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+          "request": {
+            "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "lifecycle-messaging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6203f937-749a-49e1-9f54-56f2232b80b1",
+              "name": "Lifecycle messaging config payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f38872d-f07a-4c72-92fb-6b9b730c5100",
+          "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+          "request": {
+            "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "lifecycle-messaging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3747d639-4859-4e0a-80ad-b94d0bcff495",
+              "name": "Preview/history payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d95f9391-9b9f-46f0-80a9-ade7df5ea7aa",
+              "name": "Run payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c82b0c3-6a2a-4052-aebf-26c7a6759958",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "faacb050-aa9b-4d7f-af68-aed29c6fd9fd",
+          "name": "Decision Service for Growth Experiments with Optional Exposure Logging",
+          "request": {
+            "name": "Decision Service for Growth Experiments with Optional Exposure Logging",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "experiments",
+                "decision"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "surface",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "logExposure",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4f7904b-d130-4fe6-b4ff-2dca81b00bae",
+              "name": "Experiment decisions payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "experiments",
+                    "decision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "surface",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logExposure",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac324132-7a16-4d3a-b17c-327034e4462c",
+              "name": "Missing actor id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "experiments",
+                    "decision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "surface",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "logExposure",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45618942-446a-43ca-9ac6-811179aa9e8a",
+          "name": "Request Decisions or Query Exposure History for Growth Experiments",
+          "request": {
+            "name": "Request Decisions or Query Exposure History for Growth Experiments",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "experiments",
+                "decision"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"surface\": \"<string>\",\n  \"logExposure\": \"<boolean>\",\n  \"limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "efc03263-7ea0-493f-be74-97c94b5edd00",
+              "name": "Exposure history payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "experiments",
+                    "decision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"surface\": \"<string>\",\n  \"logExposure\": \"<boolean>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e128ff6-7b03-4689-a405-5e62073e55f8",
+              "name": "Decision payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "experiments",
+                    "decision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"surface\": \"<string>\",\n  \"logExposure\": \"<boolean>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0961518-09b4-4897-b5f3-dca15de33dc0",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "experiments",
+                    "decision"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"surface\": \"<string>\",\n  \"logExposure\": \"<boolean>\",\n  \"limit\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21178ae8-006d-49f2-8da1-78e0b726811c",
+          "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+          "request": {
+            "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "export-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "planTier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "presetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "container",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bitrateKbps",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "watermarkEnabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "watermarkText",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "177f5d40-4652-4a52-8b1a-2de4dd70d8aa",
+              "name": "Export policy payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "planTier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "container",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bitrateKbps",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "watermarkEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "watermarkText",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93aeea18-1626-4d0f-bdb4-c6902ee3801c",
+          "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+          "request": {
+            "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "export-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d166ee7c-a18b-4053-98cb-ac66599de613",
+              "name": "Export settings decision payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cfedfb73-6e58-46bb-8a1a-4b5242e80093",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e371d259-1ba4-4db8-b785-cba336652532",
+    "name": "Memesio API Contracts agent-infra growth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

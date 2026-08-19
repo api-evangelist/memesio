@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "7b00e9af-7793-40c5-828a-2e10617fb825",
+      "name": "product-marketing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "232c323d-2d08-4e45-b94c-38e6c43d8e31",
+          "name": "Get Trend Alert Message Templates and Rendered Preview",
+          "request": {
+            "name": "Get Trend Alert Message Templates and Rendered Preview",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "templateId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4398806-051c-45af-abee-be285ebf40d3",
+              "name": "Trend alert message templates payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "templateId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ddfb467b-bdeb-42ee-990b-bb31a6c0495e",
+    "name": "Memesio API Contracts agent-infra product-marketing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

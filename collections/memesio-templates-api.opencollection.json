@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra templates API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/templates/suggest",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow"
+        },
+        {
+          "info": {
+            "name": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/templates/detect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan"
+        },
+        {
+          "info": {
+            "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/templates/ideas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

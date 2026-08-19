@@ -1,0 +1,2237 @@
+{
+  "item": [
+    {
+      "id": "28c9ffdd-7218-4608-a2d3-61bce5c344d5",
+      "name": "video",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "efa053ff-d410-419c-9897-65ec635295f7",
+          "name": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+          "request": {
+            "name": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "planTier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "inputFormat",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mimeType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "outputPresetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "durationSeconds",
+                  "value": "<number>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a44b9181-02b7-485e-8497-d994c21d7719",
+              "name": "Video format policy payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "planTier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inputFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mimeType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outputPresetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "durationSeconds",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "010352df-a33d-41be-b03a-fac6abd9fe33",
+          "name": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+          "request": {
+            "name": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planTier\": \"<string>\",\n  \"inputFormat\": \"<string>\",\n  \"mimeType\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"durationSeconds\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8dbac816-37db-4fa0-9f23-5b4beaffc286",
+              "name": "Video job estimate payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"inputFormat\": \"<string>\",\n  \"mimeType\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"durationSeconds\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebc55d35-e843-4d8f-8793-b28b3e5300b7",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"inputFormat\": \"<string>\",\n  \"mimeType\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"durationSeconds\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "209cd39e-d5e0-48f6-ab52-b99e657e20d1",
+          "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+          "request": {
+            "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "export-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "planTier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "presetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "container",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bitrateKbps",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "watermarkEnabled",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "watermarkText",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cd9dd4d8-ba98-4e59-b803-9bc09ea6263d",
+              "name": "Export policy payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "planTier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "presetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "container",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bitrateKbps",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "watermarkEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "watermarkText",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b43f02bf-c451-4905-979b-db538babe937",
+          "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+          "request": {
+            "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "export-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3997c64a-d9c0-4854-9f46-762beabd67c9",
+              "name": "Export settings decision payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf2c597f-3a45-416d-984a-ba8d7f1fe888",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "export-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"planTier\": \"<string>\",\n  \"presetId\": \"<string>\",\n  \"container\": \"<string>\",\n  \"bitrateKbps\": \"<number>\",\n  \"watermarkEnabled\": \"<boolean>\",\n  \"watermarkText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca50a1a3-9c4f-45a5-9464-778e48047522",
+          "name": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+          "request": {
+            "name": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "timeline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fa635ce8-1413-4b06-a2f3-cda19f1c8fde",
+              "name": "Timeline project payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6575b8b4-a238-4498-b28b-07798047e1a1",
+              "name": "Project not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "068e45d8-2348-4ab4-83f7-2e98f2e448ff",
+          "name": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+          "request": {
+            "name": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "timeline"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"durationMs\": \"<number>\",\n  \"frameRate\": \"<number>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceUrl\": \"<string>\",\n  \"trackId\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"offsetMs\": \"<number>\",\n  \"atMs\": \"<number>\",\n  \"property\": \"<string>\",\n  \"value\": \"<number>\",\n  \"easing\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "becaeda0-8b26-4134-ad76-aac44e0ca997",
+              "name": "Timeline updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"durationMs\": \"<number>\",\n  \"frameRate\": \"<number>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceUrl\": \"<string>\",\n  \"trackId\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"offsetMs\": \"<number>\",\n  \"atMs\": \"<number>\",\n  \"property\": \"<string>\",\n  \"value\": \"<number>\",\n  \"easing\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abcbf0f8-992f-46ce-acd9-2e7b17f6baa7",
+              "name": "Timeline created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"durationMs\": \"<number>\",\n  \"frameRate\": \"<number>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceUrl\": \"<string>\",\n  \"trackId\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"offsetMs\": \"<number>\",\n  \"atMs\": \"<number>\",\n  \"property\": \"<string>\",\n  \"value\": \"<number>\",\n  \"easing\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "edf23d62-80cc-4336-a49e-0fe4df11c3c5",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "timeline"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"durationMs\": \"<number>\",\n  \"frameRate\": \"<number>\",\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"sourceUrl\": \"<string>\",\n  \"trackId\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"offsetMs\": \"<number>\",\n  \"atMs\": \"<number>\",\n  \"property\": \"<string>\",\n  \"value\": \"<number>\",\n  \"easing\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cc4c4b9-31d3-4bbb-8d3b-ba32d362b46f",
+          "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+          "request": {
+            "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "audio-library"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetBpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toleranceBpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "62273517-c6df-4f8e-8b54-b3f5a253df92",
+              "name": "Audio library + beat sync suggestions payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "audio-library"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "targetBpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toleranceBpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a0a1a84-a93d-4cbf-a73f-9685870190b7",
+          "name": "List Text Animation Presets and Generate Preview Keyframes",
+          "request": {
+            "name": "List Text Animation Presets and Generate Preview Keyframes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "text-animations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "presetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startMs",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "durationMs",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "intensity",
+                  "value": "<number>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfbd290b-acc9-4d9b-a8e9-5f80da595f5d",
+              "name": "Text animation preset payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "presetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startMs",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "durationMs",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "intensity",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fafd7daf-2a71-4892-bb53-e6596f8efe3f",
+          "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+          "request": {
+            "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "text-animations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1253bed-93a2-4c71-a83c-537d71b982a3",
+              "name": "Preview keyframes payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f27cfa2f-6536-42f4-9e5f-214e8c9ec958",
+              "name": "Preset applied to timeline",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b22f016-444d-4d9b-88db-9d4a37033ef5",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5de10407-ffe3-45b8-b11a-548a5c9d1722",
+              "name": "Preset or timeline project not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "910a771b-90b7-457d-b37b-7c72b3266cc8",
+          "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+          "request": {
+            "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "subtitles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "transcript",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stylePresetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trendKeywords",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToBeatGrid",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "beatOffsetMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4997f7f7-3d41-488d-8f32-570cddec4c60",
+              "name": "Subtitle style preset + preview payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transcript",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stylePresetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trendKeywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "syncToBeatGrid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "bpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "beatOffsetMs",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39f0b74d-b914-4015-905d-eca765ded8e4",
+          "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+          "request": {
+            "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "subtitles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9bb4379a-b1ae-43ac-a231-d3ad2a2dc9e0",
+              "name": "Subtitle preview payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43cab836-a8e9-4e86-8767-946dfbc4030f",
+              "name": "Subtitles applied to timeline",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ea8db7c-6e5a-477e-ad0e-666ba61c99f7",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8becfed-2802-431c-b5fe-ec923ab246c9",
+              "name": "Preset or timeline project not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b0bbeda-02c2-4861-a22e-7106fca979a5",
+          "name": "Get Render Queue Snapshot or List Render Jobs",
+          "request": {
+            "name": "Get Render Queue Snapshot or List Render Jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "render-queue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "planTier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43553670-92f2-46c2-9d88-6ad61a3a009c",
+              "name": "Render queue payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "planTier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c554e03-f81f-46e4-bae3-819dc5a2ecd4",
+          "name": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+          "request": {
+            "name": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "render-queue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"planTier\": \"<string>\",\n  \"durationSeconds\": \"<number>\",\n  \"workerId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"progressPercent\": \"<number>\",\n  \"stage\": \"<string>\",\n  \"outputUrl\": \"<string>\",\n  \"error\": \"<string>\",\n  \"cancelled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f282f5b8-a767-4cc5-871a-2f8c07ef0567",
+              "name": "Queue mutation payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"planTier\": \"<string>\",\n  \"durationSeconds\": \"<number>\",\n  \"workerId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"progressPercent\": \"<number>\",\n  \"stage\": \"<string>\",\n  \"outputUrl\": \"<string>\",\n  \"error\": \"<string>\",\n  \"cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8eda8603-6224-40d4-b3c1-bc988354cf04",
+              "name": "Render job enqueued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"planTier\": \"<string>\",\n  \"durationSeconds\": \"<number>\",\n  \"workerId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"progressPercent\": \"<number>\",\n  \"stage\": \"<string>\",\n  \"outputUrl\": \"<string>\",\n  \"error\": \"<string>\",\n  \"cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0674b4ce-fdd8-41a0-bb1c-18475b3531f1",
+              "name": "No queued job available",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"planTier\": \"<string>\",\n  \"durationSeconds\": \"<number>\",\n  \"workerId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"progressPercent\": \"<number>\",\n  \"stage\": \"<string>\",\n  \"outputUrl\": \"<string>\",\n  \"error\": \"<string>\",\n  \"cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb7f14d4-c517-4d67-a559-900454ab66d2",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-queue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"outputPresetId\": \"<string>\",\n  \"planTier\": \"<string>\",\n  \"durationSeconds\": \"<number>\",\n  \"workerId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"progressPercent\": \"<number>\",\n  \"stage\": \"<string>\",\n  \"outputUrl\": \"<string>\",\n  \"error\": \"<string>\",\n  \"cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecd3b57e-d04a-4796-a5e5-9a3a8d4e7e7d",
+          "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+          "request": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "render-performance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c4ab222-9aa1-42e0-856a-6e7280fab77f",
+              "name": "Video render performance summary payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-performance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3629607b-18ce-4f3d-9ca0-ea44031110ea",
+              "name": "Policy validation or simulation failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-performance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7136735-5895-4613-a544-258408e4023a",
+          "name": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+          "request": {
+            "name": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "drafts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68076d1a-4f00-49fc-ac3e-2a67aa56177a",
+              "name": "Video draft payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1eda7028-bd69-4698-9cb3-e67f91b3b8ae",
+              "name": "Draft not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1df43e2a-5c17-4fec-bc79-68390ed9b06c",
+          "name": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+          "request": {
+            "name": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "drafts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"project\": {\n    \"key_0\": true\n  },\n  \"projectId\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sourceDeviceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69e0e8cd-0a0f-44be-b447-9a2bdc7c43c5",
+              "name": "Draft resume payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"project\": {\n    \"key_0\": 4169.406482264445\n  },\n  \"projectId\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sourceDeviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ceafc88d-4c11-4238-940d-a347521f391d",
+              "name": "Draft saved payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"project\": {\n    \"key_0\": 4169.406482264445\n  },\n  \"projectId\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sourceDeviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4f27550d-6fb0-4aeb-8c66-3a91f7c051ae",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"project\": {\n    \"key_0\": 4169.406482264445\n  },\n  \"projectId\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sourceDeviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "269939ec-a7a6-470d-af59-5d9674cee754",
+              "name": "Draft not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "drafts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"project\": {\n    \"key_0\": 4169.406482264445\n  },\n  \"projectId\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"sourceDeviceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "40ea0eed-033d-4e44-b2f9-f06905cf4fee",
+    "name": "Memesio API Contracts agent-infra video API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

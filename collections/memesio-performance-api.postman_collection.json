@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "660416f3-acbd-4aa1-8cb5-788d125c23f3",
+      "name": "performance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8f7f97e-3453-4e9f-9862-d8d529ef5f59",
+          "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+          "request": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "render-performance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35c4dece-e467-4f44-acec-0d3c9ca1c0c3",
+              "name": "Video render performance summary payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-performance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2269586-faf9-46b6-952d-26353ef3a282",
+              "name": "Policy validation or simulation failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "render-performance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "09fddcb1-cefc-41e1-a8d3-fe53c918dfd7",
+    "name": "Memesio API Contracts agent-infra performance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

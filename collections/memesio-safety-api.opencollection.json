@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra safety API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "safety",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Content and Face-Swap Usage Policy with Enforcement Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/compliance/content-policy"
+          },
+          "docs": "Get Content and Face-Swap Usage Policy with Enforcement Points"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

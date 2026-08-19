@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra platform API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "platform",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/formats",
+            "params": [
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outputPresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate"
+        },
+        {
+          "info": {
+            "name": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/formats",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Estimate Cost and Validate Planned Video Export Job Against Policy"
+        },
+        {
+          "info": {
+            "name": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/timeline",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)"
+        },
+        {
+          "info": {
+            "name": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/timeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments"
+        },
+        {
+          "info": {
+            "name": "Get Render Queue Snapshot or List Render Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-queue",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Render Queue Snapshot or List Render Jobs"
+        },
+        {
+          "info": {
+            "name": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/render-queue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)"
+        },
+        {
+          "info": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-performance",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Latest Video Render Load-Test Summary or Refresh Simulation"
+        },
+        {
+          "info": {
+            "name": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/drafts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume"
+        },
+        {
+          "info": {
+            "name": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/drafts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

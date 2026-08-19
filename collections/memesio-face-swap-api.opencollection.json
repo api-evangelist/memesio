@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra face-swap API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "face-swap",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds"
+        },
+        {
+          "info": {
+            "name": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-targets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra backend API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "backend",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/triggers"
+          },
+          "docs": "Evaluate Alert Trigger Thresholds and Cooldown Decisions"
+        },
+        {
+          "info": {
+            "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/triggers"
+          },
+          "docs": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

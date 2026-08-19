@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "8e3c0fd4-0b8c-4bf1-8541-58f13fee8bfb",
+      "name": "audio",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af3f355f-f08b-4b0d-aa7b-2963e4398720",
+          "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+          "request": {
+            "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "audio-library"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "kind",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tag",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "targetBpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toleranceBpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2dec6e0-5722-4959-97d6-120d0417769d",
+              "name": "Audio library + beat sync suggestions payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "audio-library"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "kind",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tag",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "targetBpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "toleranceBpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "db1ffcd6-384b-4752-9283-1c9948dd0d66",
+    "name": "Memesio API Contracts agent-infra audio API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

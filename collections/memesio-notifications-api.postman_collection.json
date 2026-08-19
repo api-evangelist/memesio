@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "e8d5561c-7e94-4000-9818-cd939f322a2d",
+      "name": "notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e3727745-b608-45f0-acc8-812ed5390770",
+          "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+          "request": {
+            "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "delivery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b150965-6b78-4b1a-b655-d94e226595f6",
+              "name": "Trend alert delivery report payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71d7db55-ad77-4a9f-b1a1-995aef7f86e3",
+          "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+          "request": {
+            "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "delivery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliverAllAlerts\": \"<boolean>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e895ddc-a1d7-4282-aab5-8ea9e887eb21",
+              "name": "Trend alert delivery execution payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliverAllAlerts\": \"<boolean>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "054ba340-2e0d-4a9a-a480-f7bff08c394c",
+    "name": "Memesio API Contracts agent-infra notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "dc68d686-a33e-4129-8abf-20c8e4d76d5e",
+      "name": "moderation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79fee442-4733-4353-8651-ea32cb5086ef",
+          "name": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs",
+          "request": {
+            "name": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "captions",
+                "moderate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a27c060-6d51-4780-ac3e-9715220d26d2",
+              "name": "Caption moderation payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "captions",
+                    "moderate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b54df67f-949f-430d-88d3-735a69e4494e",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "captions",
+                    "moderate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "afb8c47b-4706-4d8f-8c9e-53113fddde7c",
+    "name": "Memesio API Contracts agent-infra moderation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

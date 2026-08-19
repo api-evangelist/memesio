@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra product-marketing API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "product-marketing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Trend Alert Message Templates and Rendered Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/message-templates",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Trend Alert Message Templates and Rendered Preview"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

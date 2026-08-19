@@ -1,0 +1,1459 @@
+{
+  "item": [
+    {
+      "id": "dee7becb-448b-4b65-9861-2aaaebda166b",
+      "name": "trend-alerts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c2110f9-8870-4838-b5cd-a4f2ce74e4c9",
+          "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+          "request": {
+            "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "templates",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3d6ab552-7f64-4352-9c80-df64f023d61b",
+              "name": "Template suggestion ranking payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c32617c0-0039-4b0e-b36e-268430d55e00",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08181937-b961-4ed5-85d1-526636f47bda",
+          "name": "List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count",
+          "request": {
+            "name": "List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "niche",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "preferredNiche",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "preferredRegion",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "topics",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "followerCount",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggressiveness",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e80b9e09-1cb8-4821-b2f9-04a0691a8a5d",
+              "name": "Trend alerts list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "niche",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preferredNiche",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preferredRegion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "followerCount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "aggressiveness",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb821d52-4271-4e6d-80ce-c3a3b6a00f1a",
+          "name": "Get Trend Source Connectors and Data Contracts",
+          "request": {
+            "name": "Get Trend Source Connectors and Data Contracts",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "connectors"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "937f8960-169e-47d7-90bf-4c03eca414c2",
+              "name": "Trend source connector contract payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "connectors"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "495e7143-e2d0-47eb-9ffc-d8266c6c46d9",
+          "name": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring",
+          "request": {
+            "name": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "ingestion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "21cbf5e6-41d3-4173-9b86-254e6961057d",
+              "name": "Trend ingestion output payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "ingestion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "650381b5-e2b2-4c4f-976f-2c7a030e155e",
+          "name": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics",
+          "request": {
+            "name": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "ranking"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "preferredNiche",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "preferredRegion",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "topics",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "followerCount",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "aggressiveness",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24f636bd-bade-4421-b498-ef7e70c7be4d",
+              "name": "Ranked trend alerts payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "ranking"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preferredNiche",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preferredRegion",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "topics",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "followerCount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "aggressiveness",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "618391a5-374d-46da-860f-814646c846b4",
+          "name": "Get Trend Preference Vector for Actor",
+          "request": {
+            "name": "Get Trend Preference Vector for Actor",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a6cfa3b-6552-476f-98fd-762b757737ab",
+              "name": "Preference vector payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "07cbf7f0-82eb-4728-8fd5-219ec01c2ba4",
+              "name": "Missing actor id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2b2a396-6de4-4903-ab18-2be9283ee283",
+          "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+          "request": {
+            "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2a6d0d96-984c-440a-b584-7748e88d12db",
+              "name": "Updated preference vector payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab3fbbf3-7735-49e3-b8c5-6156e5dc37a1",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1da79d9f-f261-450d-b6e2-ee2477734f90",
+          "name": "List Stored Trend Feedback Actions",
+          "request": {
+            "name": "List Stored Trend Feedback Actions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b408d5c-6110-4be8-a4c6-813ba6f118e3",
+              "name": "Trend feedback events payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a220ec4-8ad4-4e88-a103-91fe8e89bbce",
+          "name": "Record Trend Feedback Action and Update Preference Vector",
+          "request": {
+            "name": "Record Trend Feedback Action and Update Preference Vector",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "15d0bd82-6d02-48fa-8060-2bc97d88a007",
+              "name": "Feedback stored and vector updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e062d321-d436-4213-8092-f3f97bb0ec01",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59a7104a-7239-4fdf-9aff-da53312af4a6",
+          "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+          "request": {
+            "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20d87fdd-b547-46fd-a68c-f683bcbafd54",
+              "name": "Trigger decision payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74c549e1-d3e0-46c7-9fe8-a1cea36a7cdc",
+          "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+          "request": {
+            "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f52c9e85-e00a-4117-b9e8-4e61060c1b06",
+              "name": "Trigger execution payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e914e42-62e5-4a1f-951c-148dc4cde5bd",
+          "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+          "request": {
+            "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "delivery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "253a84a4-dacb-4002-8ef6-5c86833f4495",
+              "name": "Trend alert delivery report payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82aeb45e-2d29-440c-ba93-474258375b00",
+          "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+          "request": {
+            "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "delivery"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deliverAllAlerts\": \"<boolean>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65a6c604-d073-413b-bcbf-30a7f0f76421",
+              "name": "Trend alert delivery execution payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "delivery"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliverAllAlerts\": \"<boolean>\",\n  \"channels\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab2f98fe-b624-480f-bbd6-225ea2043948",
+          "name": "Get Trend Alert Message Templates and Rendered Preview",
+          "request": {
+            "name": "Get Trend Alert Message Templates and Rendered Preview",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "message-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "templateId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2eebd063-9c29-454e-88fc-a1c03c06e6d8",
+              "name": "Trend alert message templates payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "message-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "templateId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d93047e-cfbf-424a-b731-20909dbb670e",
+          "name": "Generate or Retrieve Weekly Trend Alert Quality Report",
+          "request": {
+            "name": "Generate or Retrieve Weekly Trend Alert Quality Report",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "quality-report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "489f8c00-02a7-4ab8-a056-bf43163cfeb5",
+              "name": "Trend alert quality report payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "quality-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "51212a7e-a491-4264-bbb2-c3b7b0cf3efd",
+    "name": "Memesio API Contracts agent-infra trend-alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

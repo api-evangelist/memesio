@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra uploads API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "uploads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/caption-upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "captions",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "visibility",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "watermark",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

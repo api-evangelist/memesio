@@ -1,0 +1,328 @@
+{
+  "item": [
+    {
+      "id": "2cfbb670-fb8a-42cc-8e48-1b1907622c88",
+      "name": "motion",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f547fd1-4d43-4b5a-bc9b-396e3106bea8",
+          "name": "List Text Animation Presets and Generate Preview Keyframes",
+          "request": {
+            "name": "List Text Animation Presets and Generate Preview Keyframes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "text-animations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "presetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startMs",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "durationMs",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "intensity",
+                  "value": "<number>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e155102-15ca-4e38-aa39-c128e884162f",
+              "name": "Text animation preset payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "presetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startMs",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "durationMs",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "intensity",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fc8a836-4d10-47dc-b2b2-c23016d7bb84",
+          "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+          "request": {
+            "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "text-animations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d5467e0-c613-4d17-8cef-002e0d57dd65",
+              "name": "Preview keyframes payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d08631f-7f29-44dd-b8c2-bf25a8df1ee6",
+              "name": "Preset applied to timeline",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9dd741e-0370-46c5-882b-d0cf6b1e1f46",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2ffb688-6245-4514-a820-25ac6d50adfb",
+              "name": "Preset or timeline project not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "text-animations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"presetId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"startMs\": \"<number>\",\n  \"durationMs\": \"<number>\",\n  \"intensity\": \"<number>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3ba4f109-a2a5-4bf0-a8ad-9207918d7adb",
+    "name": "Memesio API Contracts agent-infra motion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

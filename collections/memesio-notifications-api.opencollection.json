@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra notifications API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/delivery",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest"
+        },
+        {
+          "info": {
+            "name": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/delivery",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

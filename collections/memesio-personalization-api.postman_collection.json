@@ -1,0 +1,460 @@
+{
+  "item": [
+    {
+      "id": "075179a0-2ab6-4a98-926e-009b2c7c88cf",
+      "name": "personalization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeebaba9-67f2-4264-af9e-ccac7bc85b7e",
+          "name": "Get Trend Preference Vector for Actor",
+          "request": {
+            "name": "Get Trend Preference Vector for Actor",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78531f0e-3139-4ec3-8974-4ca39730cc27",
+              "name": "Preference vector payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d987223-9ab0-4cbc-b396-94efae287b25",
+              "name": "Missing actor id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64fa451f-6d35-4715-89da-462ab38f5b76",
+          "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+          "request": {
+            "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "preferences"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0577a45a-e170-4a7d-8829-63d20b68d584",
+              "name": "Updated preference vector payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82d80831-4111-4c6d-8bd8-445aef46df79",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "preferences"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"followerCount\": \"<integer>\",\n  \"aggressiveness\": \"<number>\",\n  \"explicitNiches\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitTopics\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitRegions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"explicitSources\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"event\": {\n    \"action\": \"<string>\",\n    \"niche\": \"<string>\",\n    \"topic\": \"<string>\",\n    \"region\": \"<string>\",\n    \"source\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e144a088-f047-4690-8559-64b84adb0a38",
+          "name": "List Stored Trend Feedback Actions",
+          "request": {
+            "name": "List Stored Trend Feedback Actions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80f525a3-aba8-4501-94d4-c90098cdbdba",
+              "name": "Trend feedback events payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e856cdea-54e7-40b8-b3dd-da248422e7f9",
+          "name": "Record Trend Feedback Action and Update Preference Vector",
+          "request": {
+            "name": "Record Trend Feedback Action and Update Preference Vector",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "feedback"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9d7b0dc-4a7d-4c74-befb-d8eae8276806",
+              "name": "Feedback stored and vector updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a94039a1-9c5c-4166-bf1f-9e9e12bee5da",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "feedback"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actorId\": \"<string>\",\n  \"alertId\": \"<string>\",\n  \"action\": \"<string>\",\n  \"topic\": \"<string>\",\n  \"niche\": \"<string>\",\n  \"region\": \"<string>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "401d0059-9403-46a3-be66-a332c5bd4a6a",
+    "name": "Memesio API Contracts agent-infra personalization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

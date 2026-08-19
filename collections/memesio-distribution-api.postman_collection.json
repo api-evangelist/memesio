@@ -1,0 +1,390 @@
+{
+  "item": [
+    {
+      "id": "be154ce1-84ad-4e39-b485-2aacd5d47a28",
+      "name": "distribution",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e796415b-c950-4030-9749-cf93c35653d3",
+          "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+          "request": {
+            "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "social-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "actorId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "publishLimit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfa4ec66-0abc-4078-8c6a-74c6cb38d2c8",
+              "name": "Social publish state payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishLimit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "134f550c-ecb7-41e7-89ae-89b8bf291064",
+              "name": "Missing actor id",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "actorId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "publishLimit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95f3cc30-bacf-4c04-83be-c96909933e86",
+          "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+          "request": {
+            "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "social-publish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc105328-5e99-45e2-a215-895a6b3d8199",
+              "name": "Disconnect response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac5173e4-9dd3-4500-9742-dc2ff15130da",
+              "name": "Connect/publish response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5421b786-05ca-46f0-9503-c4c4051dfb72",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1898a08b-64f8-4d75-b2c8-7baafc4fc2b7",
+              "name": "Phase gate denied",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81c30dc3-a842-4cc5-888f-399ec569e6e5",
+              "name": "Account not found for disconnect",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "social-publish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"handle\": \"<string>\",\n  \"externalAccountId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"memeSlug\": \"<string>\",\n  \"caption\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf4a0da1-c235-4f67-baa8-e197fac6d82a",
+    "name": "Memesio API Contracts agent-infra distribution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

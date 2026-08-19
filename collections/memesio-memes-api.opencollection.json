@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra memes API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "memes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Hosted Memes with Canonical Share Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/memes",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "templateSlug",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "visibility",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ownerToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "officialOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludeTemplateClones",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeNsfw",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Hosted Memes with Canonical Share Metadata"
+        },
+        {
+          "info": {
+            "name": "Store a Rendered Meme and Return Canonical Share/Image URLS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/memes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Store a Rendered Meme and Return Canonical Share/Image URLS"
+        },
+        {
+          "info": {
+            "name": "Read One Meme by Opaque Slug, Public Slug, or Source Slug",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/memes/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ownerToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Read One Meme by Opaque Slug, Public Slug, or Source Slug"
+        },
+        {
+          "info": {
+            "name": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/memes/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths"
+        },
+        {
+          "info": {
+            "name": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/caption-template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input"
+        },
+        {
+          "info": {
+            "name": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/caption-upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "captions",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "title",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "visibility",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "watermark",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

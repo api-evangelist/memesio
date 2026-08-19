@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra data-eng API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data-eng",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Trend Source Connectors and Data Contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/connectors"
+          },
+          "docs": "Get Trend Source Connectors and Data Contracts"
+        },
+        {
+          "info": {
+            "name": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/ingestion",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

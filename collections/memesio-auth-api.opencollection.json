@@ -1,0 +1,206 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra auth API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/captions/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window"
+        },
+        {
+          "info": {
+            "name": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/memes/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action"
+        },
+        {
+          "info": {
+            "name": "Create Email/Password Account and Send Verification Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/auth/signup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Email/Password Account and Send Verification Email"
+        },
+        {
+          "info": {
+            "name": "Resend Email Verification Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/auth/resend-verification"
+          },
+          "docs": "Resend Email Verification Link"
+        },
+        {
+          "info": {
+            "name": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/bootstrap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "Create a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/create-agent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "List Agent API Keys for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Agent API Keys for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Create a New Scoped API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Scoped API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Revoke an Active API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/v1/agents/:agentId/keys/:keyId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revoke an Active API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/memes/:slug",
+            "params": [
+              {
+                "name": "slug",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete One Signed-in Account-Owned Meme and Purge Public Access Paths"
+        },
+        {
+          "info": {
+            "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/memes/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Keyed Actor's Daily AI Meme Quota Snapshot"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

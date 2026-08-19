@@ -1,0 +1,430 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra video API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "video",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/formats",
+            "params": [
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mimeType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outputPresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate"
+        },
+        {
+          "info": {
+            "name": "Estimate Cost and Validate Planned Video Export Job Against Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/formats",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Estimate Cost and Validate Planned Video Export Job Against Policy"
+        },
+        {
+          "info": {
+            "name": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/export-settings",
+            "params": [
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "presetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "container",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bitrateKbps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "watermarkEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "watermarkText",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview"
+        },
+        {
+          "info": {
+            "name": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/export-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets"
+        },
+        {
+          "info": {
+            "name": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/timeline",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)"
+        },
+        {
+          "info": {
+            "name": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/timeline",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments"
+        },
+        {
+          "info": {
+            "name": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/audio-library",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "kind",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "targetBpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toleranceBpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM"
+        },
+        {
+          "info": {
+            "name": "List Text Animation Presets and Generate Preview Keyframes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/text-animations",
+            "params": [
+              {
+                "name": "presetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "intensity",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Text Animation Presets and Generate Preview Keyframes"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/text-animations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track"
+        },
+        {
+          "info": {
+            "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/subtitles",
+            "params": [
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stylePresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trendKeywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "syncToBeatGrid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beatOffsetMs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/subtitles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text"
+        },
+        {
+          "info": {
+            "name": "Get Render Queue Snapshot or List Render Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-queue",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "planTier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Render Queue Snapshot or List Render Jobs"
+        },
+        {
+          "info": {
+            "name": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/render-queue",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)"
+        },
+        {
+          "info": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-performance",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Latest Video Render Load-Test Summary or Refresh Simulation"
+        },
+        {
+          "info": {
+            "name": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/drafts",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume"
+        },
+        {
+          "info": {
+            "name": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/drafts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

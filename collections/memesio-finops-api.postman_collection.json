@@ -1,0 +1,93 @@
+{
+  "item": [
+    {
+      "id": "737402ef-1828-489b-bdfd-fb407464bb33",
+      "name": "finops",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5290ae6-70e4-4ec7-8ae9-b9da14822126",
+          "name": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+          "request": {
+            "name": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "anomalies",
+                "ai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76b8f5c6-3eb2-4616-b0a0-63691321a712",
+              "name": "AI anomaly detection summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "anomalies",
+                    "ai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "072f8e16-685e-423e-b4d4-9638a371b369",
+    "name": "Memesio API Contracts agent-infra finops API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

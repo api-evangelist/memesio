@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra observability API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "observability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/dashboards/backend-reliability",
+            "params": [
+              {
+                "name": "windowHours",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot"
+        },
+        {
+          "info": {
+            "name": "Run Backend 5xx and Render Latency Alert Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/alerts/backend"
+          },
+          "docs": "Run Backend 5xx and Render Latency Alert Checks"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

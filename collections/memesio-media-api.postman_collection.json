@@ -1,0 +1,231 @@
+{
+  "item": [
+    {
+      "id": "bc610bff-9a80-4d7b-9cd5-92771a3085f6",
+      "name": "media",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df17a368-eb0f-484e-a9fc-83ceb7a78a9b",
+          "name": "Generate Signed Upload/Download Media URLS",
+          "request": {
+            "name": "Generate Signed Upload/Download Media URLS",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "media",
+                "signed-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"path\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"ownerToken\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"expiresInSeconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "863ef28c-d22e-414e-892d-1578b5eda19c",
+              "name": "Signed URL generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "signed-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"path\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"ownerToken\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"expiresInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32804037-dedc-4a13-8201-686ce56e28c4",
+              "name": "Signed upload URL generated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "signed-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"path\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"ownerToken\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"expiresInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66c46ef2-7e15-497e-b414-5e74bf922a9d",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "signed-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"path\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"ownerToken\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"expiresInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47e8ae1c-68fe-46dc-afd3-c8b0085f57f7",
+              "name": "Private download signing requires a valid ownerToken",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "media",
+                    "signed-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"path\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"ownerToken\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"expiresInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b8857163-d93b-4c7d-9838-c28faf2ee5e0",
+    "name": "Memesio API Contracts agent-infra media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

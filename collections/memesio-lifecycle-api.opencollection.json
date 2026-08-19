@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra lifecycle API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "lifecycle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/lifecycle-messaging"
+          },
+          "docs": "Get Lifecycle Messaging Flow Config and Recent Dispatch History"
+        },
+        {
+          "info": {
+            "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/lifecycle-messaging",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

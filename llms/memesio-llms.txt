@@ -1,0 +1,33 @@
+# Memesio
+
+> Design a meme fast with templates, editable captions, and share-ready links.
+
+Memesio is a meme creation and sharing service. Agents should use the documented
+HTTP API, API catalog, hosted MCP server, and agent skills index instead of
+scraping editor UI state.
+
+## Agent Resources
+
+- [API catalog](https://memesio.com/.well-known/api-catalog): RFC 9727 linkset for automated API discovery.
+- [OpenAPI description](https://memesio.com/api/openapi): Machine-readable HTTP API schema.
+- [API documentation](https://memesio.com/developers/api): Human-readable developer guide.
+- [MCP server card](https://memesio.com/.well-known/mcp/server-card.json): Hosted MCP endpoint, transport, and capabilities.
+- [MCP documentation](https://memesio.com/developers/mcp): MCP setup and tool usage.
+- [Agent skills index](https://memesio.com/.well-known/agent-skills/index.json): Discoverable Memesio agent skill documents.
+
+## API Use
+
+Public endpoints support template search and basic meme generation with rate
+limits. Higher-rate or premium actions use Memesio developer or agent API keys
+sent as x-developer-api-key, x-agent-api-key, or Authorization: Bearer <key>.
+Template search accepts `mediaType=image|gif|all`; GIF templates can be
+rendered intentionally through the GIF generation API or MCP `generate_gif`.
+
+## Browser Use
+
+On browsers that support WebMCP, the homepage registers tools for template
+search, API documentation discovery, and editor URL creation.
+
+## Content Preferences
+
+ai-train=no, search=yes, ai-input=yes

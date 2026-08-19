@@ -1,0 +1,91 @@
+{
+  "item": [
+    {
+      "id": "17583e4e-5d1a-4aff-a75a-811a39fd94a6",
+      "name": "safety",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aa5fc06b-e39d-456a-874a-c7148ec94b2d",
+          "name": "Get Content and Face-Swap Usage Policy with Enforcement Points",
+          "request": {
+            "name": "Get Content and Face-Swap Usage Policy with Enforcement Points",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "compliance",
+                "content-policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b524b561-dba7-48eb-a7bb-b4e79bf4d211",
+              "name": "Content usage policy payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "compliance",
+                    "content-policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d28d1d2b-6ef3-4c69-a3c7-3883c17ad7a6",
+    "name": "Memesio API Contracts agent-infra safety API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

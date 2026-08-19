@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "c22b2253-a6e6-4986-b934-9869441d8397",
+      "name": "observability",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7d39c7d7-c8d0-4e8f-b27a-fee40e8a75ad",
+          "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+          "request": {
+            "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "dashboards",
+                "backend-reliability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "windowHours",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87f1d342-8dfd-4c28-83f9-a4c1163fd812",
+              "name": "Backend reliability dashboard + metrics snapshot payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "dashboards",
+                    "backend-reliability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "windowHours",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fc6095f-b453-41e3-85cf-ecc5310ab041",
+          "name": "Run Backend 5xx and Render Latency Alert Checks",
+          "request": {
+            "name": "Run Backend 5xx and Render Latency Alert Checks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "alerts",
+                "backend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff56e382-a147-4731-b8d9-4f359174d928",
+              "name": "Backend alerting summary payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "alerts",
+                    "backend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f20f768d-70b5-46ae-8bd3-2228765fd5a1",
+    "name": "Memesio API Contracts agent-infra observability API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

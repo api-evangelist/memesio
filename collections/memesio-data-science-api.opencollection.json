@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra data-science API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data-science",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/ranking",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredNiche",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "preferredRegion",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "topics",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "followerCount",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "aggressiveness",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

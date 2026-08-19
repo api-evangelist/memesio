@@ -1,0 +1,1555 @@
+{
+  "item": [
+    {
+      "id": "85a45bf9-1cdb-452b-b4ae-b07b8d3f855d",
+      "name": "developer-api",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a62f3bb-5d9e-488f-8a89-73e600909898",
+          "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+          "request": {
+            "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "templates",
+                "ideas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "757f2bb8-11fb-4441-b5bb-7acf3573b752",
+              "name": "Template idea ranking payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a64b568b-954d-4f4e-97cd-6c0fdd6ff1e9",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "752ac044-7325-4c27-9d8c-b0feda83896b",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c6c1dee-4fba-4b66-86ab-cce32245ec5c",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50d765e8-ff28-4877-888a-b1490bef2741",
+          "name": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input",
+          "request": {
+            "name": "Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "caption-template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"templateSlug\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"watermark\": {\n    \"enabled\": \"<boolean>\",\n    \"text\": \"<string>\",\n    \"position\": \"<string>\",\n    \"scale\": \"<number>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a8d4954-6fd2-47ef-8506-c1d1f2bd8f34",
+              "name": "Captioned meme created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateSlug\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"watermark\": {\n    \"enabled\": true,\n    \"text\": \"string\",\n    \"position\": \"bottom_right\",\n    \"scale\": 1.4132045575348955\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"data\": {\n    \"slug\": \"string\",\n    \"shareSlug\": \"string\",\n    \"templateSlug\": \"string\",\n    \"title\": \"string\",\n    \"visibility\": \"private\",\n    \"imageUrl\": \"string\",\n    \"canonicalImageUrl\": \"string\",\n    \"altText\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apiUrl\": \"string\",\n    \"pageUrl\": \"string\",\n    \"ownerToken\": \"string\",\n    \"captions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"watermark\": {\n      \"enabled\": false,\n      \"text\": \"string\",\n      \"position\": \"bottom_left\",\n      \"scale\": 2.2581642715598207\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37961aeb-e46e-4b09-b663-f0792656e297",
+              "name": "Validation error or unsupported template",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateSlug\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"watermark\": {\n    \"enabled\": true,\n    \"text\": \"string\",\n    \"position\": \"bottom_right\",\n    \"scale\": 1.4132045575348955\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fc213ff1-03d0-4f7e-b372-f2d9bc39d942",
+              "name": "Invalid API key when one is provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateSlug\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"watermark\": {\n    \"enabled\": true,\n    \"text\": \"string\",\n    \"position\": \"bottom_right\",\n    \"scale\": 1.4132045575348955\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8b20afa1-ce76-448e-be85-e9151a6a8da1",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"templateSlug\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"watermark\": {\n    \"enabled\": true,\n    \"text\": \"string\",\n    \"position\": \"bottom_right\",\n    \"scale\": 1.4132045575348955\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ace9957d-2399-4221-98b2-e5fa0b28f601",
+          "name": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+          "request": {
+            "name": "Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "caption-upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                },
+                {
+                  "key": "captions",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields."
+                },
+                {
+                  "key": "title",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "visibility",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": " (This can only be one of private,public)"
+                },
+                {
+                  "key": "watermark",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1dc70c25-cbbf-46d3-8452-17cbd4088645",
+              "name": "Uploaded meme created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "captions",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of private,public)",
+                        "type": "text/plain"
+                      },
+                      "key": "visibility",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.",
+                        "type": "text/plain"
+                      },
+                      "key": "watermark",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false,\n  \"data\": {\n    \"slug\": \"string\",\n    \"shareSlug\": \"string\",\n    \"templateSlug\": \"string\",\n    \"title\": \"string\",\n    \"visibility\": \"public\",\n    \"sourceImageUrl\": \"string\",\n    \"imageUrl\": \"string\",\n    \"canonicalImageUrl\": \"string\",\n    \"altText\": \"string\",\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"apiUrl\": \"string\",\n    \"pageUrl\": \"string\",\n    \"ownerToken\": \"string\",\n    \"captions\": [\n      {\n        \"text\": \"string\",\n        \"id\": \"string\",\n        \"x\": 2533.791794391671,\n        \"y\": 1243.585897569367,\n        \"fontSize\": 928.4453092951561,\n        \"boxWidthPct\": 8997.70321657575,\n        \"boxHeightPct\": 3360.5444117895177,\n        \"maxLines\": 710,\n        \"textAlign\": \"right\",\n        \"fontFamily\": \"impact\"\n      },\n      {\n        \"text\": \"string\",\n        \"id\": \"string\",\n        \"x\": 7597.510957769838,\n        \"y\": 3533.617699535575,\n        \"fontSize\": 9377.31986576248,\n        \"boxWidthPct\": 4303.387988583044,\n        \"boxHeightPct\": 1915.4851401463457,\n        \"maxLines\": 8857,\n        \"textAlign\": \"center\",\n        \"fontFamily\": \"arial\"\n      }\n    ],\n    \"watermark\": {\n      \"enabled\": false,\n      \"text\": \"string\",\n      \"position\": \"bottom_right\",\n      \"scale\": 1.5859947599361452\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15571845-d2dc-43ee-a08e-879ab707155d",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "captions",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of private,public)",
+                        "type": "text/plain"
+                      },
+                      "key": "visibility",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.",
+                        "type": "text/plain"
+                      },
+                      "key": "watermark",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "961a4fac-eeb6-4c66-b374-72a06a884e0c",
+              "name": "Invalid API key when one is provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "captions",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of private,public)",
+                        "type": "text/plain"
+                      },
+                      "key": "visibility",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.",
+                        "type": "text/plain"
+                      },
+                      "key": "watermark",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b2724cc-4bb4-4d11-8a04-97ec6159c1ed",
+              "name": "Unsupported upload content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "captions",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of private,public)",
+                        "type": "text/plain"
+                      },
+                      "key": "visibility",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.",
+                        "type": "text/plain"
+                      },
+                      "key": "watermark",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unsupported Media Type",
+              "code": 415,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca3a9b33-6f90-40b8-8285-241fa62e9c7d",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "caption-upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) JSON array of caption slot objects with text, x, y, boxWidthPct, boxHeightPct, fontSize, and alignment fields.",
+                        "type": "text/plain"
+                      },
+                      "key": "captions",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "title",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": " (This can only be one of private,public)",
+                        "type": "text/plain"
+                      },
+                      "key": "visibility",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Optional JSON watermark object. Non-premium callers are forced to the default Memesio watermark; premium callers can customize enabled, text, position, and scale.",
+                        "type": "text/plain"
+                      },
+                      "key": "watermark",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11ed450b-c70b-4d7f-9614-7f5c70ae1111",
+          "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+          "request": {
+            "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ddafef3b-fbde-404f-9b75-58cb281355a9",
+              "name": "Current keyed actor AI quota snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f639bc1-d26e-4aea-a622-852c3a408894",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb2560ab-b3d8-469c-a93c-54d9ae28b458",
+          "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+          "request": {
+            "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9857d20-ce86-49d9-8a3b-0e4a8b29395b",
+              "name": "Meme variant generation payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4601.138292212176,\n      \"y\": 1208.5324307266344,\n      \"fontSize\": 9873.540481691658,\n      \"rotationDeg\": 5944.801340493891,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 1888.06985154248,\n      \"boxHeightPct\": 3060.006613949713,\n      \"paddingPct\": 4689.504903727078,\n      \"maxLines\": 4262,\n      \"lineHeight\": 7715.68377912431,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 8175.532553575111,\n      \"letterSpacingEm\": 8794.265816155352,\n      \"shadowStrength\": 1147.7115502692602,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"label\",\n      \"preferredCase\": \"preserve\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 9366,\n      \"recommendedWordsMax\": 3211,\n      \"recommendedCharsMin\": 3740,\n      \"recommendedCharsMax\": 8643\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4048.5082177193144,\n      \"y\": 5858.25739301839,\n      \"fontSize\": 387.8463108520436,\n      \"rotationDeg\": 2137.9224241769825,\n      \"hidden\": true,\n      \"locked\": true,\n      \"boxWidthPct\": 8086.192146013702,\n      \"boxHeightPct\": 6253.754573761769,\n      \"paddingPct\": 2159.94932947881,\n      \"maxLines\": 5690,\n      \"lineHeight\": 2285.284203648862,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 2681.8554197432554,\n      \"letterSpacingEm\": 1141.4656607890272,\n      \"shadowStrength\": 5348.704673534917,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1232,\n      \"recommendedWordsMax\": 5216,\n      \"recommendedCharsMin\": 4251,\n      \"recommendedCharsMax\": 9109\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"flow\": \"text_to_meme\",\n  \"mode\": \"template\",\n  \"status\": \"string\",\n  \"variantCount\": 5437,\n  \"variants\": [\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"template_captioned\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": true,\n      \"attempts\": [\n        {\n          \"key_0\": false,\n          \"key_1\": 6085,\n          \"key_2\": 5944\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": false,\n          \"key_2\": true\n        }\n      ],\n      \"estimatedCostUsd\": 9315.389371684247,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"provided_image\",\n      \"captionGenerationStrategy\": \"heuristic\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 816.7139603355988,\n          \"y\": 7184.31745774893,\n          \"fontSize\": 3748.5091427106654,\n          \"rotationDeg\": 5139.255490685128,\n          \"hidden\": false,\n          \"locked\": false,\n          \"boxWidthPct\": 9812.694983526631,\n          \"boxHeightPct\": 8126.440275210376,\n          \"paddingPct\": 8853.704897890993,\n          \"maxLines\": 8918,\n          \"lineHeight\": 711.839297485114,\n          \"backgroundEnabled\": false,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 732.5855947123605,\n          \"letterSpacingEm\": 8336.598129880274,\n          \"shadowStrength\": 3517.2453993788367,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"left\",\n          \"semanticRole\": \"label\",\n          \"preferredCase\": \"title\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 5810,\n          \"recommendedWordsMax\": 3206,\n          \"recommendedCharsMin\": 2079,\n          \"recommendedCharsMax\": 6450\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 2702.371271235551,\n          \"y\": 5612.642626877029,\n          \"fontSize\": 2090.61219494743,\n          \"rotationDeg\": 7691.063738091808,\n          \"hidden\": false,\n          \"locked\": true,\n          \"boxWidthPct\": 8847.311424029667,\n          \"boxHeightPct\": 1121.642591247719,\n          \"paddingPct\": 8215.934006663721,\n          \"maxLines\": 9090,\n          \"lineHeight\": 5238.545464326041,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 1678.634480243808,\n          \"letterSpacingEm\": 574.8441318657271,\n          \"shadowStrength\": 7593.368351793823,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"center\",\n          \"semanticRole\": \"reaction\",\n          \"preferredCase\": \"preserve\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 6712,\n          \"recommendedWordsMax\": 2693,\n          \"recommendedCharsMin\": 9541,\n          \"recommendedCharsMax\": 418\n        }\n      ],\n      \"editable\": false\n    },\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"template_captioned\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": false,\n      \"attempts\": [\n        {\n          \"key_0\": 6477\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": true\n        }\n      ],\n      \"estimatedCostUsd\": 9338.500658232906,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"recommendation\",\n      \"captionGenerationStrategy\": \"openai\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 7221.932739235181,\n          \"y\": 9643.079843914864,\n          \"fontSize\": 9080.729368314507,\n          \"rotationDeg\": 4938.046963315977,\n          \"hidden\": false,\n          \"locked\": true,\n          \"boxWidthPct\": 8262.574904601608,\n          \"boxHeightPct\": 6154.990077234297,\n          \"paddingPct\": 180.1773124017314,\n          \"maxLines\": 6409,\n          \"lineHeight\": 2905.9254555974003,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 1801.6833685383372,\n          \"letterSpacingEm\": 9675.390439870629,\n          \"shadowStrength\": 7635.020354662432,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"right\",\n          \"semanticRole\": \"label\",\n          \"preferredCase\": \"sentence\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 5787,\n          \"recommendedWordsMax\": 8202,\n          \"recommendedCharsMin\": 1509,\n          \"recommendedCharsMax\": 7631\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 8543.828278657675,\n          \"y\": 3183.0365342898594,\n          \"fontSize\": 5067.835481188292,\n          \"rotationDeg\": 742.5937213187506,\n          \"hidden\": false,\n          \"locked\": true,\n          \"boxWidthPct\": 9720.632485672046,\n          \"boxHeightPct\": 9086.54100321899,\n          \"paddingPct\": 6869.8872700287175,\n          \"maxLines\": 5503,\n          \"lineHeight\": 3548.940224781674,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 5025.451206545546,\n          \"letterSpacingEm\": 7929.959489097876,\n          \"shadowStrength\": 3891.2053219194163,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"center\",\n          \"semanticRole\": \"punchline\",\n          \"preferredCase\": \"preserve\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 4149,\n          \"recommendedWordsMax\": 8599,\n          \"recommendedCharsMin\": 3781,\n          \"recommendedCharsMax\": 3413\n        }\n      ],\n      \"editable\": true\n    }\n  ],\n  \"runId\": \"string\",\n  \"degradedFromAsync\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b66f0240-40b6-4b02-b9dd-3504fa29f4e0",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4601.138292212176,\n      \"y\": 1208.5324307266344,\n      \"fontSize\": 9873.540481691658,\n      \"rotationDeg\": 5944.801340493891,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 1888.06985154248,\n      \"boxHeightPct\": 3060.006613949713,\n      \"paddingPct\": 4689.504903727078,\n      \"maxLines\": 4262,\n      \"lineHeight\": 7715.68377912431,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 8175.532553575111,\n      \"letterSpacingEm\": 8794.265816155352,\n      \"shadowStrength\": 1147.7115502692602,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"label\",\n      \"preferredCase\": \"preserve\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 9366,\n      \"recommendedWordsMax\": 3211,\n      \"recommendedCharsMin\": 3740,\n      \"recommendedCharsMax\": 8643\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4048.5082177193144,\n      \"y\": 5858.25739301839,\n      \"fontSize\": 387.8463108520436,\n      \"rotationDeg\": 2137.9224241769825,\n      \"hidden\": true,\n      \"locked\": true,\n      \"boxWidthPct\": 8086.192146013702,\n      \"boxHeightPct\": 6253.754573761769,\n      \"paddingPct\": 2159.94932947881,\n      \"maxLines\": 5690,\n      \"lineHeight\": 2285.284203648862,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 2681.8554197432554,\n      \"letterSpacingEm\": 1141.4656607890272,\n      \"shadowStrength\": 5348.704673534917,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1232,\n      \"recommendedWordsMax\": 5216,\n      \"recommendedCharsMin\": 4251,\n      \"recommendedCharsMax\": 9109\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e210f64-4047-4f4a-a8fc-ace7d6701ed6",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4601.138292212176,\n      \"y\": 1208.5324307266344,\n      \"fontSize\": 9873.540481691658,\n      \"rotationDeg\": 5944.801340493891,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 1888.06985154248,\n      \"boxHeightPct\": 3060.006613949713,\n      \"paddingPct\": 4689.504903727078,\n      \"maxLines\": 4262,\n      \"lineHeight\": 7715.68377912431,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 8175.532553575111,\n      \"letterSpacingEm\": 8794.265816155352,\n      \"shadowStrength\": 1147.7115502692602,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"label\",\n      \"preferredCase\": \"preserve\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 9366,\n      \"recommendedWordsMax\": 3211,\n      \"recommendedCharsMin\": 3740,\n      \"recommendedCharsMax\": 8643\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4048.5082177193144,\n      \"y\": 5858.25739301839,\n      \"fontSize\": 387.8463108520436,\n      \"rotationDeg\": 2137.9224241769825,\n      \"hidden\": true,\n      \"locked\": true,\n      \"boxWidthPct\": 8086.192146013702,\n      \"boxHeightPct\": 6253.754573761769,\n      \"paddingPct\": 2159.94932947881,\n      \"maxLines\": 5690,\n      \"lineHeight\": 2285.284203648862,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 2681.8554197432554,\n      \"letterSpacingEm\": 1141.4656607890272,\n      \"shadowStrength\": 5348.704673534917,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1232,\n      \"recommendedWordsMax\": 5216,\n      \"recommendedCharsMin\": 4251,\n      \"recommendedCharsMax\": 9109\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "571712bd-7283-4cee-9740-a5707ae50542",
+              "name": "Daily AI quota exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4601.138292212176,\n      \"y\": 1208.5324307266344,\n      \"fontSize\": 9873.540481691658,\n      \"rotationDeg\": 5944.801340493891,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 1888.06985154248,\n      \"boxHeightPct\": 3060.006613949713,\n      \"paddingPct\": 4689.504903727078,\n      \"maxLines\": 4262,\n      \"lineHeight\": 7715.68377912431,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 8175.532553575111,\n      \"letterSpacingEm\": 8794.265816155352,\n      \"shadowStrength\": 1147.7115502692602,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"label\",\n      \"preferredCase\": \"preserve\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 9366,\n      \"recommendedWordsMax\": 3211,\n      \"recommendedCharsMin\": 3740,\n      \"recommendedCharsMax\": 8643\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4048.5082177193144,\n      \"y\": 5858.25739301839,\n      \"fontSize\": 387.8463108520436,\n      \"rotationDeg\": 2137.9224241769825,\n      \"hidden\": true,\n      \"locked\": true,\n      \"boxWidthPct\": 8086.192146013702,\n      \"boxHeightPct\": 6253.754573761769,\n      \"paddingPct\": 2159.94932947881,\n      \"maxLines\": 5690,\n      \"lineHeight\": 2285.284203648862,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 2681.8554197432554,\n      \"letterSpacingEm\": 1141.4656607890272,\n      \"shadowStrength\": 5348.704673534917,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1232,\n      \"recommendedWordsMax\": 5216,\n      \"recommendedCharsMin\": 4251,\n      \"recommendedCharsMax\": 9109\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8649ed9b-ef78-4e68-b275-d2490b381eb4",
+              "name": "Provider execution failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4601.138292212176,\n      \"y\": 1208.5324307266344,\n      \"fontSize\": 9873.540481691658,\n      \"rotationDeg\": 5944.801340493891,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 1888.06985154248,\n      \"boxHeightPct\": 3060.006613949713,\n      \"paddingPct\": 4689.504903727078,\n      \"maxLines\": 4262,\n      \"lineHeight\": 7715.68377912431,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 8175.532553575111,\n      \"letterSpacingEm\": 8794.265816155352,\n      \"shadowStrength\": 1147.7115502692602,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"label\",\n      \"preferredCase\": \"preserve\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 9366,\n      \"recommendedWordsMax\": 3211,\n      \"recommendedCharsMin\": 3740,\n      \"recommendedCharsMax\": 8643\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 4048.5082177193144,\n      \"y\": 5858.25739301839,\n      \"fontSize\": 387.8463108520436,\n      \"rotationDeg\": 2137.9224241769825,\n      \"hidden\": true,\n      \"locked\": true,\n      \"boxWidthPct\": 8086.192146013702,\n      \"boxHeightPct\": 6253.754573761769,\n      \"paddingPct\": 2159.94932947881,\n      \"maxLines\": 5690,\n      \"lineHeight\": 2285.284203648862,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 2681.8554197432554,\n      \"letterSpacingEm\": 1141.4656607890272,\n      \"shadowStrength\": 5348.704673534917,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"arial\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1232,\n      \"recommendedWordsMax\": 5216,\n      \"recommendedCharsMin\": 4251,\n      \"recommendedCharsMax\": 9109\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5d5f2f64-a6b0-419c-826d-d46f6bd3406d",
+    "name": "Memesio API Contracts agent-infra developer-api API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

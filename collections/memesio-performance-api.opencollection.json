@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra performance API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "performance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Latest Video Render Load-Test Summary or Refresh Simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/render-performance",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Latest Video Render Load-Test Summary or Refresh Simulation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

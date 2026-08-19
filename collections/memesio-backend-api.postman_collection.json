@@ -1,0 +1,150 @@
+{
+  "item": [
+    {
+      "id": "2e9fcc1e-6a0e-4697-b7db-d84d4fc84573",
+      "name": "backend",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a057ae18-7f5d-4a86-b275-6f8946b0d147",
+          "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+          "request": {
+            "name": "Evaluate Alert Trigger Thresholds and Cooldown Decisions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb22c1e6-06e4-4874-94c7-04ef41d9a1ac",
+              "name": "Trigger decision payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d5c1ac3-a625-4bc8-98e3-34ba8ed2593f",
+          "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+          "request": {
+            "name": "Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "alerts",
+                "triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a403ba3-8ab4-497c-be1c-8ffdd0898fb0",
+              "name": "Trigger execution payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "alerts",
+                    "triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "057e6fee-0a7a-4580-bd84-02f9d353a884",
+    "name": "Memesio API Contracts agent-infra backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

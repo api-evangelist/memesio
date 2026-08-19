@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "fc6ce5bb-b528-476b-bdbd-64924b3fcd70",
+      "name": "lifecycle",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b532452-48a7-42ec-b132-20258384522a",
+          "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+          "request": {
+            "name": "Get Lifecycle Messaging Flow Config and Recent Dispatch History",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "lifecycle-messaging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bbce1702-8761-43ff-b5f1-750d706182b4",
+              "name": "Lifecycle messaging config payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a1963cda-fa6d-4688-8573-ef21fc9de770",
+          "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+          "request": {
+            "name": "Preview/Run Lifecycle Messaging Flows (Activation, Resurrection, Upgrade)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "lifecycle-messaging"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "22af26a6-db3a-4c26-883b-7bcda317bfca",
+              "name": "Preview/history payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b091498a-b87a-4cdd-a291-7513cdccc558",
+              "name": "Run payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e4f47c9-b412-4dcc-9df4-16067d954ffc",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "lifecycle-messaging"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"now\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"profiles\": [\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    },\n    {\n      \"actorId\": \"<string>\",\n      \"planTier\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastActiveAt\": \"<dateTime>\",\n      \"publishes7d\": \"<integer>\",\n      \"aiJobs7d\": \"<integer>\",\n      \"monthlyCreditsUsed\": \"<number>\",\n      \"monthlyCreditsLimit\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d3b64cb4-290f-45d6-83cd-c64f57d0570b",
+    "name": "Memesio API Contracts agent-infra lifecycle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

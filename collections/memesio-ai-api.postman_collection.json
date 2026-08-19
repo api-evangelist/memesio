@@ -1,0 +1,364 @@
+{
+  "item": [
+    {
+      "id": "415ef42a-8c6d-4f0c-af3e-029baeab2d2e",
+      "name": "ai",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c10885f-9765-408c-854d-5e72629ad707",
+          "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+          "request": {
+            "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "subtitles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "transcript",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tone",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "stylePresetId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "trendKeywords",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "syncToBeatGrid",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bpm",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "beatOffsetMs",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "288874d5-6e66-4aef-9819-0b9da1e32f67",
+              "name": "Subtitle style preset + preview payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "transcript",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stylePresetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "trendKeywords",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "syncToBeatGrid",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "bpm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "beatOffsetMs",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46e2aa0c-9dcc-403d-9168-c15aaef5fb3e",
+          "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+          "request": {
+            "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "video",
+                "subtitles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f07a6e6-9a8c-48ba-b1fc-bfccd731e586",
+              "name": "Subtitle preview payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b5b437c-78b3-47fa-8135-b6b2e9492755",
+              "name": "Subtitles applied to timeline",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b4f7aef-6bd8-4b09-aaa8-663f91b212a5",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7ccb747-0ea8-417b-9602-e58e253ecbe1",
+              "name": "Preset or timeline project not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "video",
+                    "subtitles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"transcript\": \"<string>\",\n  \"audioAssetId\": \"<string>\",\n  \"tone\": \"<string>\",\n  \"locale\": \"<string>\",\n  \"stylePresetId\": \"<string>\",\n  \"trendKeywords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"syncToBeatGrid\": \"<boolean>\",\n  \"bpm\": \"<integer>\",\n  \"beatOffsetMs\": \"<integer>\",\n  \"projectId\": \"<string>\",\n  \"trackId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e1241f2-f724-4245-a878-cd5e0f212c01",
+    "name": "Memesio API Contracts agent-infra ai API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

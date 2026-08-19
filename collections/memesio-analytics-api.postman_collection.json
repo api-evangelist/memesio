@@ -1,0 +1,538 @@
+{
+  "item": [
+    {
+      "id": "f8704d2d-8ffc-4dc0-88b4-9ded9f0cd313",
+      "name": "analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc93c11d-4b9a-47a3-9f39-929bade5d96a",
+          "name": "Get Metric Dictionary and Ownership Mapping",
+          "request": {
+            "name": "Get Metric Dictionary and Ownership Mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "metric-dictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b49cfcf2-a859-45eb-8df7-bb82778c7b42",
+              "name": "Metric dictionary payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "metric-dictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dfa31499-4a3d-41eb-a51b-5812cadef9fd",
+          "name": "Get Activation and Retention Dashboard Spec (Looker)",
+          "request": {
+            "name": "Get Activation and Retention Dashboard Spec (Looker)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "dashboards",
+                "activation-retention"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9f94fb2-6c69-4982-9510-3d055c5ed9ce",
+              "name": "Dashboard spec payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "dashboards",
+                    "activation-retention"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71171ae4-1d08-4e0a-97a1-b69599a33085",
+          "name": "Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)",
+          "request": {
+            "name": "Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "dashboards",
+                "feature-adoption"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8195d294-421a-4822-ad65-3959f5705bc3",
+              "name": "Dashboard spec payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "dashboards",
+                    "feature-adoption"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a639c20-12f7-4df8-987d-ba4b2e2a254c",
+          "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+          "request": {
+            "name": "Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "dashboards",
+                "backend-reliability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "windowHours",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dc1dc39-d2af-42da-9f8b-3c21147229dd",
+              "name": "Backend reliability dashboard + metrics snapshot payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "dashboards",
+                    "backend-reliability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "windowHours",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f6059fb-2ef7-4513-9c28-37280158c0e4",
+          "name": "Get Pricing/Paywall Experiment Analysis Templates",
+          "request": {
+            "name": "Get Pricing/Paywall Experiment Analysis Templates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "experiments",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "templateId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e417989d-df45-4de6-b75d-21d8d2b75523",
+              "name": "Pricing experiment templates payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "experiments",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "templateId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50b73356-998c-4b66-b980-2c5fba7cb010",
+          "name": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+          "request": {
+            "name": "Run AI Cost/Failure Anomaly Detection and Return Alert State",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "anomalies",
+                "ai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8f55e82-f1a5-46b8-b748-85c87668adcd",
+              "name": "AI anomaly detection summary",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "anomalies",
+                    "ai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46a0dea4-d9ab-4251-8d36-67d26b723420",
+          "name": "Run Backend 5xx and Render Latency Alert Checks",
+          "request": {
+            "name": "Run Backend 5xx and Render Latency Alert Checks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "alerts",
+                "backend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a5a2c94-2956-47c7-963d-f63e3d7929ec",
+              "name": "Backend alerting summary payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "alerts",
+                    "backend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb0048ce-e42e-4fbb-9aaa-64b1107acd7e",
+          "name": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+          "request": {
+            "name": "Get Viral Loop Trigger Definitions and Instrumentation Mapping",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "growth",
+                "viral-triggers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2bf79a1b-6f62-4dfe-8181-8cbc5291dc72",
+              "name": "Viral loop trigger payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "growth",
+                    "viral-triggers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bf81f0f0-43e3-421c-abaa-9ca3f635d70d",
+    "name": "Memesio API Contracts agent-infra analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

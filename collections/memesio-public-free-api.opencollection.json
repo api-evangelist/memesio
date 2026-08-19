@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra public-free API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public-free",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Public Meme Templates for Agent-Friendly Discovery",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/free/templates",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tag",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Search Public Meme Templates for Agent-Friendly Discovery"
+        },
+        {
+          "info": {
+            "name": "Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/free/memes/caption",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

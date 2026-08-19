@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra personalization API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "personalization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Trend Preference Vector for Actor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/preferences",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Trend Preference Vector for Actor"
+        },
+        {
+          "info": {
+            "name": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/preferences",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upsert Trend Preference Vector from Explicit Interests and Behavior Events"
+        },
+        {
+          "info": {
+            "name": "List Stored Trend Feedback Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/feedback",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Stored Trend Feedback Actions"
+        },
+        {
+          "info": {
+            "name": "Record Trend Feedback Action and Update Preference Vector",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/alerts/feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record Trend Feedback Action and Update Preference Vector"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

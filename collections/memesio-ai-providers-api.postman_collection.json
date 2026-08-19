@@ -1,0 +1,1562 @@
+{
+  "item": [
+    {
+      "id": "958f0194-2739-428d-8bae-b26b6e83b455",
+      "name": "ai-providers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b0292730-1c1e-43a0-b641-6b9bddcf04b5",
+          "name": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action",
+          "request": {
+            "name": "Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0ab1a09-41a5-4ef3-bd34-09d8dce2c4c0",
+              "name": "Current actor AI quota snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "caf94ebb-77dc-4404-b7cb-203b0350369d",
+          "name": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants",
+          "request": {
+            "name": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4bc93aff-f7c9-46e8-920c-01bbc3e2b1b8",
+              "name": "Meme variant generation payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false,\n  \"flow\": \"text_to_meme\",\n  \"mode\": \"template\",\n  \"status\": \"string\",\n  \"variantCount\": 3044,\n  \"variants\": [\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"rendered_image\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": false,\n      \"attempts\": [\n        {\n          \"key_0\": 8043.96491442524,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": 8144,\n          \"key_1\": \"string\"\n        }\n      ],\n      \"estimatedCostUsd\": 3896.70928398433,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"provided_template\",\n      \"captionGenerationStrategy\": \"null\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 6892.56854554519,\n          \"y\": 9721.330327747653,\n          \"fontSize\": 3218.632229428886,\n          \"rotationDeg\": 9381.832914238981,\n          \"hidden\": true,\n          \"locked\": false,\n          \"boxWidthPct\": 1027.1568853181834,\n          \"boxHeightPct\": 8469.011625932477,\n          \"paddingPct\": 7311.768782702579,\n          \"maxLines\": 7,\n          \"lineHeight\": 6978.71674088781,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 580.1307270400979,\n          \"letterSpacingEm\": 3342.124450743551,\n          \"shadowStrength\": 2352.945087223941,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"right\",\n          \"semanticRole\": \"contrast\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 9678,\n          \"recommendedWordsMax\": 9240,\n          \"recommendedCharsMin\": 7726,\n          \"recommendedCharsMax\": 3317\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 6424.478037641905,\n          \"y\": 7865.984063406632,\n          \"fontSize\": 3663.4168928968293,\n          \"rotationDeg\": 7999.985938790794,\n          \"hidden\": false,\n          \"locked\": false,\n          \"boxWidthPct\": 5613.678425495387,\n          \"boxHeightPct\": 7757.589111155302,\n          \"paddingPct\": 867.309357405227,\n          \"maxLines\": 4744,\n          \"lineHeight\": 3034.296539598288,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 2308.689155184278,\n          \"letterSpacingEm\": 6765.801759296719,\n          \"shadowStrength\": 6541.667330358714,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"right\",\n          \"semanticRole\": \"contrast\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 785,\n          \"recommendedWordsMax\": 9439,\n          \"recommendedCharsMin\": 8754,\n          \"recommendedCharsMax\": 5584\n        }\n      ],\n      \"editable\": false\n    },\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"template_captioned\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": false,\n      \"attempts\": [\n        {\n          \"key_0\": 6404,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": false\n        }\n      ],\n      \"estimatedCostUsd\": 8832.482037049838,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"null\",\n      \"captionGenerationStrategy\": \"openai\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 857.2073719023732,\n          \"y\": 4678.693329160631,\n          \"fontSize\": 9000.355587297014,\n          \"rotationDeg\": 5536.909533725155,\n          \"hidden\": false,\n          \"locked\": true,\n          \"boxWidthPct\": 6880.14208971602,\n          \"boxHeightPct\": 9221.26690677539,\n          \"paddingPct\": 4321.786460622453,\n          \"maxLines\": 5340,\n          \"lineHeight\": 7716.740887660411,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 8862.981624500966,\n          \"letterSpacingEm\": 8963.818209984187,\n          \"shadowStrength\": 9435.809893691323,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"center\",\n          \"semanticRole\": \"punchline\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 1485,\n          \"recommendedWordsMax\": 1714,\n          \"recommendedCharsMin\": 6195,\n          \"recommendedCharsMax\": 7754\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 1217.6625022480591,\n          \"y\": 8004.66792947437,\n          \"fontSize\": 8338.616709475138,\n          \"rotationDeg\": 2521.275782362867,\n          \"hidden\": false,\n          \"locked\": false,\n          \"boxWidthPct\": 446.0251351648792,\n          \"boxHeightPct\": 7762.044921072818,\n          \"paddingPct\": 256.45682426664206,\n          \"maxLines\": 2089,\n          \"lineHeight\": 8126.179849947074,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 8304.69793703838,\n          \"letterSpacingEm\": 9709.044396392574,\n          \"shadowStrength\": 3575.596649690874,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"left\",\n          \"semanticRole\": \"punchline\",\n          \"preferredCase\": \"preserve\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 1374,\n          \"recommendedWordsMax\": 6916,\n          \"recommendedCharsMin\": 5045,\n          \"recommendedCharsMax\": 6069\n        }\n      ],\n      \"editable\": true\n    }\n  ],\n  \"runId\": \"string\",\n  \"degradedFromAsync\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c380d968-028b-4fa6-9284-3992e8f16ce0",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2069ddc6-585b-4905-92f2-961936003d4a",
+              "name": "Daily AI quota exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b82efaee-4cda-44b4-84e7-cf96bc18a3c2",
+              "name": "Provider execution failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c331519f-cb8f-4996-bd16-ce727ab3c91c",
+          "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+          "request": {
+            "name": "Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "templates",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f146d779-6fe9-4615-a2ff-71d0e2005f6d",
+              "name": "Template suggestion ranking payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d24c10a7-2268-4481-80ee-745c5394c1fe",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce9ddfb4-00a8-4250-9d9b-c817a07ee654",
+          "name": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan",
+          "request": {
+            "name": "Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "templates",
+                "detect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"texts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxSlots\": \"<integer>\",\n  \"mappingMode\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d736e05e-164b-4360-b0dc-a46262319cb6",
+              "name": "Template detection payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"texts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxSlots\": \"<integer>\",\n  \"mappingMode\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "004a2391-cc5d-48e3-bc77-e8907e185b3b",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"texts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxSlots\": \"<integer>\",\n  \"mappingMode\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0da77693-5411-461b-8c48-1f3e46e742ae",
+              "name": "Detection failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "templates",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"texts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"maxSlots\": \"<integer>\",\n  \"mappingMode\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53c0c928-a3b0-4cc0-acee-3bcdec856e27",
+          "name": "Run or Retrieve Face-Swap Provider Benchmark and Recommendation",
+          "request": {
+            "name": "Run or Retrieve Face-Swap Provider Benchmark and Recommendation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "providers",
+                "face-swap-benchmark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9476d37f-d499-49b7-9b12-5dda946d5714",
+              "name": "Face-swap provider benchmark report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "providers",
+                    "face-swap-benchmark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e3e9792-dd45-4d80-a1a8-3098feffcd61",
+          "name": "Run or Retrieve Background-Remove Provider Benchmark and Recommendation",
+          "request": {
+            "name": "Run or Retrieve Background-Remove Provider Benchmark and Recommendation",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "providers",
+                "background-remove-benchmark"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refresh",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5ea043c-ceb8-4cf4-bf7d-712f791a5de1",
+              "name": "Background-remove provider benchmark report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "providers",
+                    "background-remove-benchmark"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refresh",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b43e0969-01eb-49ac-b4f5-0264178e74d7",
+          "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+          "request": {
+            "name": "Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "templates",
+                "ideas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5db3daa-a638-4bae-9b00-e8af7178c1b8",
+              "name": "Template idea ranking payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9384429-8e5a-4e4b-b57e-ce78ba763434",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "215e0c3f-c727-4439-b04c-b1265f643598",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe4d0eb4-893b-48a1-9ce0-dc6c8a066d5d",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "templates",
+                    "ideas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"trendSignals\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0d7a5c9-8c4d-4c54-8fc9-bb3eaa059d2e",
+          "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+          "request": {
+            "name": "Read the Keyed Actor's Daily AI Meme Quota Snapshot",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "672db9cb-bee7-485e-830b-5787adc95f8c",
+              "name": "Current keyed actor AI quota snapshot",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ab128e3-1052-4ec3-85e2-d8e5671004f6",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d218971-f0a6-4f7d-864f-58b1167bc46b",
+          "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+          "request": {
+            "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "memes",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "x-developer-api-key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"text\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"fontSize\": \"<number>\",\n      \"rotationDeg\": \"<number>\",\n      \"hidden\": \"<boolean>\",\n      \"locked\": \"<boolean>\",\n      \"boxWidthPct\": \"<number>\",\n      \"boxHeightPct\": \"<number>\",\n      \"paddingPct\": \"<number>\",\n      \"maxLines\": \"<integer>\",\n      \"lineHeight\": \"<number>\",\n      \"backgroundEnabled\": \"<boolean>\",\n      \"backgroundColor\": \"<string>\",\n      \"backgroundOpacity\": \"<number>\",\n      \"letterSpacingEm\": \"<number>\",\n      \"shadowStrength\": \"<number>\",\n      \"color\": \"<string>\",\n      \"stroke\": \"<string>\",\n      \"fontFamily\": \"<string>\",\n      \"textAlign\": \"<string>\",\n      \"semanticRole\": \"<string>\",\n      \"preferredCase\": \"<string>\",\n      \"exampleText\": \"<string>\",\n      \"recommendedWordsMin\": \"<integer>\",\n      \"recommendedWordsMax\": \"<integer>\",\n      \"recommendedCharsMin\": \"<integer>\",\n      \"recommendedCharsMax\": \"<integer>\"\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd0ca9d6-d605-4db3-a7e5-7d60a890f36a",
+              "name": "Meme variant generation payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": false,\n  \"flow\": \"text_to_meme\",\n  \"mode\": \"template\",\n  \"status\": \"string\",\n  \"variantCount\": 3044,\n  \"variants\": [\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"rendered_image\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": false,\n      \"attempts\": [\n        {\n          \"key_0\": 8043.96491442524,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": 8144,\n          \"key_1\": \"string\"\n        }\n      ],\n      \"estimatedCostUsd\": 3896.70928398433,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"provided_template\",\n      \"captionGenerationStrategy\": \"null\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 6892.56854554519,\n          \"y\": 9721.330327747653,\n          \"fontSize\": 3218.632229428886,\n          \"rotationDeg\": 9381.832914238981,\n          \"hidden\": true,\n          \"locked\": false,\n          \"boxWidthPct\": 1027.1568853181834,\n          \"boxHeightPct\": 8469.011625932477,\n          \"paddingPct\": 7311.768782702579,\n          \"maxLines\": 7,\n          \"lineHeight\": 6978.71674088781,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 580.1307270400979,\n          \"letterSpacingEm\": 3342.124450743551,\n          \"shadowStrength\": 2352.945087223941,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"right\",\n          \"semanticRole\": \"contrast\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 9678,\n          \"recommendedWordsMax\": 9240,\n          \"recommendedCharsMin\": 7726,\n          \"recommendedCharsMax\": 3317\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 6424.478037641905,\n          \"y\": 7865.984063406632,\n          \"fontSize\": 3663.4168928968293,\n          \"rotationDeg\": 7999.985938790794,\n          \"hidden\": false,\n          \"locked\": false,\n          \"boxWidthPct\": 5613.678425495387,\n          \"boxHeightPct\": 7757.589111155302,\n          \"paddingPct\": 867.309357405227,\n          \"maxLines\": 4744,\n          \"lineHeight\": 3034.296539598288,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 2308.689155184278,\n          \"letterSpacingEm\": 6765.801759296719,\n          \"shadowStrength\": 6541.667330358714,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"right\",\n          \"semanticRole\": \"contrast\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 785,\n          \"recommendedWordsMax\": 9439,\n          \"recommendedCharsMin\": 8754,\n          \"recommendedCharsMax\": 5584\n        }\n      ],\n      \"editable\": false\n    },\n    {\n      \"id\": \"string\",\n      \"mode\": \"template\",\n      \"providerId\": \"string\",\n      \"variantKind\": \"template_captioned\",\n      \"memeUrl\": \"string\",\n      \"pageUrl\": \"string\",\n      \"templateName\": \"string\",\n      \"fallbackUsed\": false,\n      \"attempts\": [\n        {\n          \"key_0\": 6404,\n          \"key_1\": \"string\"\n        },\n        {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": false\n        }\n      ],\n      \"estimatedCostUsd\": 8832.482037049838,\n      \"templateSlug\": \"string\",\n      \"sourceImageUrl\": \"string\",\n      \"templateSelectionStrategy\": \"null\",\n      \"captionGenerationStrategy\": \"openai\",\n      \"captions\": [\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 857.2073719023732,\n          \"y\": 4678.693329160631,\n          \"fontSize\": 9000.355587297014,\n          \"rotationDeg\": 5536.909533725155,\n          \"hidden\": false,\n          \"locked\": true,\n          \"boxWidthPct\": 6880.14208971602,\n          \"boxHeightPct\": 9221.26690677539,\n          \"paddingPct\": 4321.786460622453,\n          \"maxLines\": 5340,\n          \"lineHeight\": 7716.740887660411,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 8862.981624500966,\n          \"letterSpacingEm\": 8963.818209984187,\n          \"shadowStrength\": 9435.809893691323,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"impact\",\n          \"textAlign\": \"center\",\n          \"semanticRole\": \"punchline\",\n          \"preferredCase\": \"uppercase\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 1485,\n          \"recommendedWordsMax\": 1714,\n          \"recommendedCharsMin\": 6195,\n          \"recommendedCharsMax\": 7754\n        },\n        {\n          \"id\": \"string\",\n          \"text\": \"string\",\n          \"x\": 1217.6625022480591,\n          \"y\": 8004.66792947437,\n          \"fontSize\": 8338.616709475138,\n          \"rotationDeg\": 2521.275782362867,\n          \"hidden\": false,\n          \"locked\": false,\n          \"boxWidthPct\": 446.0251351648792,\n          \"boxHeightPct\": 7762.044921072818,\n          \"paddingPct\": 256.45682426664206,\n          \"maxLines\": 2089,\n          \"lineHeight\": 8126.179849947074,\n          \"backgroundEnabled\": true,\n          \"backgroundColor\": \"string\",\n          \"backgroundOpacity\": 8304.69793703838,\n          \"letterSpacingEm\": 9709.044396392574,\n          \"shadowStrength\": 3575.596649690874,\n          \"color\": \"string\",\n          \"stroke\": \"string\",\n          \"fontFamily\": \"arial\",\n          \"textAlign\": \"left\",\n          \"semanticRole\": \"punchline\",\n          \"preferredCase\": \"preserve\",\n          \"exampleText\": \"string\",\n          \"recommendedWordsMin\": 1374,\n          \"recommendedWordsMax\": 6916,\n          \"recommendedCharsMin\": 5045,\n          \"recommendedCharsMax\": 6069\n        }\n      ],\n      \"editable\": true\n    }\n  ],\n  \"runId\": \"string\",\n  \"degradedFromAsync\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6fa83352-f1b0-4180-ba19-120d8cdd6b57",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a890a7f-9305-4f98-b266-8f6640e7b401",
+              "name": "Developer or agent API key required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81e9a3f0-2714-414d-bb72-a146d9791e81",
+              "name": "Daily AI quota exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0cb59e10-af8b-42f8-a15f-63053b1aa21f",
+              "name": "Provider execution failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "memes",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-developer-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"mode\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"captionSource\": \"<string>\",\n  \"imageUrl\": \"<string>\",\n  \"templateId\": \"<string>\",\n  \"captions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"editableCaptions\": [\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5129.70105589066,\n      \"y\": 319.3393700499703,\n      \"fontSize\": 8013.823915944646,\n      \"rotationDeg\": 2714.3983284991214,\n      \"hidden\": false,\n      \"locked\": false,\n      \"boxWidthPct\": 2261.6488883948127,\n      \"boxHeightPct\": 732.9176245175462,\n      \"paddingPct\": 7485.924421555602,\n      \"maxLines\": 292,\n      \"lineHeight\": 9771.370114780406,\n      \"backgroundEnabled\": false,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5667.495819545188,\n      \"letterSpacingEm\": 8974.470973988502,\n      \"shadowStrength\": 3461.3717285909775,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"right\",\n      \"semanticRole\": \"punchline\",\n      \"preferredCase\": \"uppercase\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 1267,\n      \"recommendedWordsMax\": 7290,\n      \"recommendedCharsMin\": 2564,\n      \"recommendedCharsMax\": 6659\n    },\n    {\n      \"id\": \"string\",\n      \"text\": \"string\",\n      \"x\": 5167.588430585097,\n      \"y\": 6162.843715451168,\n      \"fontSize\": 9664.719337269682,\n      \"rotationDeg\": 5862.336220645567,\n      \"hidden\": true,\n      \"locked\": false,\n      \"boxWidthPct\": 5167.700973737836,\n      \"boxHeightPct\": 6420.2874201242,\n      \"paddingPct\": 4005.4192290326587,\n      \"maxLines\": 6040,\n      \"lineHeight\": 5941.080301744003,\n      \"backgroundEnabled\": true,\n      \"backgroundColor\": \"string\",\n      \"backgroundOpacity\": 5471.15583311435,\n      \"letterSpacingEm\": 1124.6260117071693,\n      \"shadowStrength\": 630.7754115483422,\n      \"color\": \"string\",\n      \"stroke\": \"string\",\n      \"fontFamily\": \"impact\",\n      \"textAlign\": \"left\",\n      \"semanticRole\": \"contrast\",\n      \"preferredCase\": \"sentence\",\n      \"exampleText\": \"string\",\n      \"recommendedWordsMin\": 8165,\n      \"recommendedWordsMax\": 6698,\n      \"recommendedCharsMin\": 5883,\n      \"recommendedCharsMax\": 3733\n    }\n  ],\n  \"tone\": \"<string>\",\n  \"toneCues\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"rewriteNote\": \"<string>\",\n  \"allowHeuristicFallback\": \"<boolean>\",\n  \"variantCount\": \"<number>\",\n  \"preferredProviderId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"correlationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "306a2cd3-ca39-45dd-bc20-e254bcafbd03",
+    "name": "Memesio API Contracts agent-infra ai-providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

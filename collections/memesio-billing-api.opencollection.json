@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra billing API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "billing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Complete AI Job and Log Metered AI Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs/:jobId/complete",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Complete AI Job and Log Metered AI Cost"
+        },
+        {
+          "info": {
+            "name": "Get Billing Usage Snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/billing/usage",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "windowDays",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Billing Usage Snapshot"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

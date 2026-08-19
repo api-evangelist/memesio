@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra experimentation API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "experimentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Pricing/Paywall Experiment Analysis Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/analytics/experiments/templates",
+            "params": [
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Pricing/Paywall Experiment Analysis Templates"
+        },
+        {
+          "info": {
+            "name": "Decision Service for Growth Experiments with Optional Exposure Logging",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/experiments/decision",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "surface",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "logExposure",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Decision Service for Growth Experiments with Optional Exposure Logging"
+        },
+        {
+          "info": {
+            "name": "Request Decisions or Query Exposure History for Growth Experiments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/experiments/decision",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request Decisions or Query Exposure History for Growth Experiments"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

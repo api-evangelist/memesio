@@ -1,0 +1,226 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra ai-jobs API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ai-jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List AI Jobs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/jobs",
+            "params": [
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List AI Jobs"
+        },
+        {
+          "info": {
+            "name": "Submit AI Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit AI Job"
+        },
+        {
+          "info": {
+            "name": "Get AI Job Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/jobs/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get AI Job Status"
+        },
+        {
+          "info": {
+            "name": "Cancel AI Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs/:jobId/cancel",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel AI Job"
+        },
+        {
+          "info": {
+            "name": "Complete AI Job and Log Metered AI Cost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/jobs/:jobId/complete",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Complete AI Job and Log Metered AI Cost"
+        },
+        {
+          "info": {
+            "name": "List or Compare Versioned AI Edit History for a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/edit-history",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromVersionId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toVersionId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List or Compare Versioned AI Edit History for a Layer"
+        },
+        {
+          "info": {
+            "name": "Record or Rollback Versioned AI Edit State for a Layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/edit-history",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Record or Rollback Versioned AI Edit State for a Layer"
+        },
+        {
+          "info": {
+            "name": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-swap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds"
+        },
+        {
+          "info": {
+            "name": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/face-targets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI"
+        },
+        {
+          "info": {
+            "name": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/background-remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

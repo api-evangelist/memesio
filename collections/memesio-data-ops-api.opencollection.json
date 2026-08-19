@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra data-ops API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "data-ops",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate or Retrieve Weekly Trend Alert Quality Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/alerts/quality-report",
+            "params": [
+              {
+                "name": "refresh",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Generate or Retrieve Weekly Trend Alert Quality Report"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,404 @@
+{
+  "item": [
+    {
+      "id": "efa811e0-106d-43d0-b29b-675937d6c05a",
+      "name": "history",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c097554f-db6c-46ae-a688-4ea2c8169fe2",
+          "name": "List or Compare Versioned AI Edit History for a Layer",
+          "request": {
+            "name": "List or Compare Versioned AI Edit History for a Layer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "edit-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "layerId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromVersionId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toVersionId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8326639d-9eca-4f0b-8c0a-3f0ab833f5ca",
+              "name": "Layer history payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "layerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromVersionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toVersionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c33111e-e865-41f0-93b1-b44ef9286e1f",
+              "name": "Versions not found for comparison",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "layerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromVersionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toVersionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a16f439a-6f66-4de8-9b61-1c31f048f63c",
+          "name": "Record or Rollback Versioned AI Edit State for a Layer",
+          "request": {
+            "name": "Record or Rollback Versioned AI Edit State for a Layer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "edit-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": true\n  },\n  \"afterState\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 356,\n    \"key_1\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0881eac7-3077-4438-8be5-64a440bb7b11",
+              "name": "Rollback payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": 3555.6623554354305\n  },\n  \"afterState\": {\n    \"key_0\": 5733.549903437672,\n    \"key_1\": false\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1195\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57b501fc-eb1d-4eda-91d4-3d781f27abea",
+              "name": "Version recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": 3555.6623554354305\n  },\n  \"afterState\": {\n    \"key_0\": 5733.549903437672,\n    \"key_1\": false\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1195\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7ad81d1-e34a-40c2-ba7a-976fe6f1e5cc",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": 3555.6623554354305\n  },\n  \"afterState\": {\n    \"key_0\": 5733.549903437672,\n    \"key_1\": false\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1195\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3a142ea-5cbe-4b46-b3ba-a5223dcf1eb2",
+              "name": "Version not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": 3555.6623554354305\n  },\n  \"afterState\": {\n    \"key_0\": 5733.549903437672,\n    \"key_1\": false\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": 1195\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aa3c2b0e-295c-438f-8ddd-ec9867be6a3c",
+    "name": "Memesio API Contracts agent-infra history API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

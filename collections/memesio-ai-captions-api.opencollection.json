@@ -1,0 +1,196 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra ai-captions API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ai-captions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/scene",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run Scene-Understanding Pipeline to Extract Entities, Tone Cues, and Trend References from Canvas + Template Metadata"
+        },
+        {
+          "info": {
+            "name": "List Default + Custom Brand Tone Presets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/captions/tone-presets",
+            "params": [
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Default + Custom Brand Tone Presets"
+        },
+        {
+          "info": {
+            "name": "Create or Update Custom Brand Tone Preset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/tone-presets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or Update Custom Brand Tone Preset"
+        },
+        {
+          "info": {
+            "name": "Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/prompt"
+          },
+          "docs": "Build Caption Prompt with Optional Inferred Scene Context and Locale Auto-Detect (En, Es, Pt-Br, Hi)"
+        },
+        {
+          "info": {
+            "name": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/ai/captions/generate",
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Read the Current Actor's Daily Caption Reroll Quota and Reset Window"
+        },
+        {
+          "info": {
+            "name": "Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate Caption Reroll Options with Locale-Aware Output, Ranking, Inline Safety Highlights, and Full Caption-Set Alternatives"
+        },
+        {
+          "info": {
+            "name": "Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/rewrite",
+            "auth": {
+              "type": "apikey",
+              "key": "x-agent-api-key",
+              "value": "{{x-agent-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Rewrite Caption Text with Shorten/Punchier/Less-Offensive/Brand-Safe Tools and Return Diff Preview"
+        },
+        {
+          "info": {
+            "name": "Rank Caption Variants and Return Top Safe Selections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/rank"
+          },
+          "docs": "Rank Caption Variants and Return Top Safe Selections"
+        },
+        {
+          "info": {
+            "name": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/captions/moderate"
+          },
+          "docs": "Moderate Caption Candidates with Inline Highlights/Rationale and Enqueue Blocked Outputs"
+        },
+        {
+          "info": {
+            "name": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/memes/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants"
+        },
+        {
+          "info": {
+            "name": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/memes/generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "x-developer-api-key",
+              "value": "{{x-developer-api-key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

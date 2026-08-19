@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra distribution API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "distribution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/growth/social-publish",
+            "params": [
+              {
+                "name": "actorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publishLimit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Social Publish Gate State, Connected Accounts, and Recent Publishes"
+        },
+        {
+          "info": {
+            "name": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/growth/social-publish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Connect/Disconnect Social Accounts and One-Click Publish (Phase-Gated)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

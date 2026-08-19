@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra collaboration API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "collaboration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Collaboration Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/collab/comments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Collaboration Comments"
+        },
+        {
+          "info": {
+            "name": "Create Collaboration Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/collab/comments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Collaboration Comment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

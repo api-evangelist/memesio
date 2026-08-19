@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra background-remove API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "background-remove",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/ai/background-remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

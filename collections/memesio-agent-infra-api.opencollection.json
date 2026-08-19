@@ -1,0 +1,366 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "agent-infra",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List User-Owned Agent Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents"
+          },
+          "docs": "List User-Owned Agent Profiles"
+        },
+        {
+          "info": {
+            "name": "Create a User-Owned Agent Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a User-Owned Agent Profile"
+        },
+        {
+          "info": {
+            "name": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/bootstrap",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "Create a Standalone Agent Account with an Immediately Usable Approved Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/create-agent",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a Standalone Agent Account with an Immediately Usable Approved Key"
+        },
+        {
+          "info": {
+            "name": "Get a Single User-Owned Agent Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Single User-Owned Agent Profile"
+        },
+        {
+          "info": {
+            "name": "Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "/api/v1/agents/:agentId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)"
+        },
+        {
+          "info": {
+            "name": "List Agent API Keys for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Agent API Keys for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Create a New Scoped API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/keys",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a New Scoped API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Revoke an Active API Key for an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "/api/v1/agents/:agentId/keys/:keyId",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "keyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Revoke an Active API Key for an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Generate 5 Candidate Agent Names with Slug Availability Checks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/names:generate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate 5 Candidate Agent Names with Slug Availability Checks"
+        },
+        {
+          "info": {
+            "name": "Bind Telegram Chat to an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/channels/telegram/bind",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind Telegram Chat to an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Bind WhatsApp Chat/Phone to an Owned Agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/channels/whatsapp/bind",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bind WhatsApp Chat/Phone to an Owned Agent"
+        },
+        {
+          "info": {
+            "name": "Telegram Inbound Webhook Receiver with Dedupe and Agent Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/webhooks/telegram"
+          },
+          "docs": "Telegram Inbound Webhook Receiver with Dedupe and Agent Routing"
+        },
+        {
+          "info": {
+            "name": "WhatsApp Verification Handshake Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/webhooks/whatsapp"
+          },
+          "docs": "WhatsApp Verification Handshake Endpoint"
+        },
+        {
+          "info": {
+            "name": "WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/webhooks/whatsapp"
+          },
+          "docs": "WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing"
+        },
+        {
+          "info": {
+            "name": "Submit Social Action Proof (X_follow) for Quota Boost Review",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/:agentId/unlocks/social-action",
+            "params": [
+              {
+                "name": "agentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit Social Action Proof (X_follow) for Quota Boost Review"
+        },
+        {
+          "info": {
+            "name": "Admin Approval for Social Unlock and Quota Boost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/unlocks/:unlockId/approve",
+            "params": [
+              {
+                "name": "unlockId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Admin Approval for Social Unlock and Quota Boost"
+        },
+        {
+          "info": {
+            "name": "Cast Weekly Meme Vote (Deduped by Voter Hash)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/rewards/votes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cast Weekly Meme Vote (Deduped by Voter Hash)"
+        },
+        {
+          "info": {
+            "name": "Get Weekly Meme Leaderboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/v1/agents/rewards/leaderboard",
+            "params": [
+              {
+                "name": "weekStart",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Weekly Meme Leaderboard"
+        },
+        {
+          "info": {
+            "name": "Close Weekly Winner Record for Manual Payout Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/v1/agents/rewards/winner:close",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Close Weekly Winner Record for Manual Payout Workflow"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

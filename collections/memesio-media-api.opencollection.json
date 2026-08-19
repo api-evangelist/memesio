@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra media API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Signed Upload/Download Media URLS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/media/signed-url",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate Signed Upload/Download Media URLS"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

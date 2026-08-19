@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra ai API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ai",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/subtitles",
+            "params": [
+              {
+                "name": "transcript",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "locale",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "stylePresetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "trendKeywords",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "syncToBeatGrid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bpm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "beatOffsetMs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/subtitles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1407 @@
+{
+  "item": [
+    {
+      "id": "3148e9a9-94e4-44ab-ad47-a6c841b12d5b",
+      "name": "ai-jobs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "759b9f4e-70a2-4375-b0dc-33e8d53bb2a7",
+          "name": "List AI Jobs",
+          "request": {
+            "name": "List AI Jobs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66365f9c-c735-4cb4-a64f-0e2a04a89362",
+              "name": "AI job list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84b8481f-c8cf-4b78-a22d-6b548b352582",
+          "name": "Submit AI Job",
+          "request": {
+            "name": "Submit AI Job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "jobs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"capability\": \"<string>\",\n  \"input\": {\n    \"key_0\": 5592.807415513843\n  },\n  \"maxAttempts\": \"<integer>\",\n  \"timeoutMs\": \"<integer>\",\n  \"runAfterMs\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d054705-3714-4e0b-a116-efe53842e6cb",
+              "name": "AI job created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"capability\": \"<string>\",\n  \"input\": {\n    \"key_0\": \"string\",\n    \"key_1\": 5051.146522563667,\n    \"key_2\": 9480.105314412356\n  },\n  \"maxAttempts\": \"<integer>\",\n  \"timeoutMs\": \"<integer>\",\n  \"runAfterMs\": \"<integer>\",\n  \"traceId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f29a6231-4000-4a40-8dd6-2b4a5bbe1365",
+          "name": "Get AI Job Status",
+          "request": {
+            "name": "Get AI Job Status",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "jobs",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42dcb03d-e2e0-4593-bc1b-6d7d9a5e0482",
+              "name": "AI job details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"status\": \"string\",\n  \"capability\": \"string\",\n  \"traceId\": \"339dcd7ee06ea92a207cc8c86073e293\",\n  \"attempts\": 5445,\n  \"maxAttempts\": 2289,\n  \"timeoutMs\": 1473,\n  \"createdAt\": \"1999-12-01T14:10:30.427Z\",\n  \"updatedAt\": \"2020-08-07T03:06:00.256Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31922f1e-3097-4894-98d6-d8ce1ed160a3",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94cd5d7f-4352-4340-a194-e18e553f2621",
+          "name": "Cancel AI Job",
+          "request": {
+            "name": "Cancel AI Job",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "jobs",
+                ":jobId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8fe9e824-147e-4f06-a667-c8f31bd20935",
+              "name": "Canceled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "721e8611-c926-451b-8d7e-c3a7e11e29f8",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2b47c06-1912-417d-83ba-0a2daf394f3a",
+          "name": "Complete AI Job and Log Metered AI Cost",
+          "request": {
+            "name": "Complete AI Job and Log Metered AI Cost",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "jobs",
+                ":jobId",
+                "complete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workerId\": \"<string>\",\n  \"output\": {\n    \"key_0\": 4831.65990869622\n  },\n  \"estimatedCostUsd\": \"<number>\",\n  \"providerId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "92c276dd-c647-4c6a-96ef-818a96eefc45",
+              "name": "Completed job",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workerId\": \"<string>\",\n  \"output\": {\n    \"key_0\": 9561,\n    \"key_1\": 631.6629851637745\n  },\n  \"estimatedCostUsd\": \"<number>\",\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10b12b81-4082-4c91-ba22-33ad0f3b8148",
+              "name": "Not found or not running",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "jobs",
+                    ":jobId",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workerId\": \"<string>\",\n  \"output\": {\n    \"key_0\": 9561,\n    \"key_1\": 631.6629851637745\n  },\n  \"estimatedCostUsd\": \"<number>\",\n  \"providerId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e9939807-5355-474f-80b0-a8e01c6424a8",
+          "name": "List or Compare Versioned AI Edit History for a Layer",
+          "request": {
+            "name": "List or Compare Versioned AI Edit History for a Layer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "edit-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "layerId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "mode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromVersionId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toVersionId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eff634c3-8d95-454a-be8b-dc7eb65db155",
+              "name": "Layer history payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "layerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromVersionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toVersionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cdeab6b9-9277-43fb-8a85-9f1becde0172",
+              "name": "Versions not found for comparison",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "layerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromVersionId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "toVersionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd5c6bdd-8379-4707-aca2-bfdcce721843",
+          "name": "Record or Rollback Versioned AI Edit State for a Layer",
+          "request": {
+            "name": "Record or Rollback Versioned AI Edit State for a Layer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "edit-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": \"string\",\n    \"key_1\": 5203,\n    \"key_2\": \"string\",\n    \"key_3\": false\n  },\n  \"afterState\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1312,\n    \"key_2\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "145d96e5-03db-4bde-8596-024d7b4a9893",
+              "name": "Rollback payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": 2066,\n    \"key_1\": \"string\",\n    \"key_2\": 2621\n  },\n  \"afterState\": {\n    \"key_0\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c66d4c1-a89c-4d1e-a1bf-d7ceb1020c32",
+              "name": "Version recorded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": 2066,\n    \"key_1\": \"string\",\n    \"key_2\": 2621\n  },\n  \"afterState\": {\n    \"key_0\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7181b18-f8ca-4d0f-bb92-0318a6421e4c",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": 2066,\n    \"key_1\": \"string\",\n    \"key_2\": 2621\n  },\n  \"afterState\": {\n    \"key_0\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ba5612b-ac6e-4f88-a986-5105f6ee66d2",
+              "name": "Version not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "edit-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"projectId\": \"<string>\",\n  \"layerId\": \"<string>\",\n  \"layerType\": \"<string>\",\n  \"beforeState\": {\n    \"key_0\": 2066,\n    \"key_1\": \"string\",\n    \"key_2\": 2621\n  },\n  \"afterState\": {\n    \"key_0\": \"string\"\n  },\n  \"versionId\": \"<string>\",\n  \"actorId\": \"<string>\",\n  \"metadata\": {\n    \"key_0\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9b0d552-0c03-4110-8276-abea9c6e5606",
+          "name": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+          "request": {
+            "name": "Execute Real-Time Face Swap for Image/Video Frame, with Preview Fallback When GPU Estimate Exceeds 2 Seconds",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "face-swap"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"targetAssetUrl\": \"<string>\",\n  \"mediaType\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"detectedFaceCount\": \"<number>\",\n  \"sourceFaceIndex\": \"<number>\",\n  \"targetFaceIndex\": \"<number>\",\n  \"frameTimeMs\": \"<number>\",\n  \"consentAttested\": \"<boolean>\",\n  \"celebrityConfidence\": \"<number>\",\n  \"nsfwScore\": \"<number>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11705829-7e71-4d84-b59c-2d3429f28573",
+              "name": "Real-time face swap completed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "face-swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"targetAssetUrl\": \"<string>\",\n  \"mediaType\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"detectedFaceCount\": \"<number>\",\n  \"sourceFaceIndex\": \"<number>\",\n  \"targetFaceIndex\": \"<number>\",\n  \"frameTimeMs\": \"<number>\",\n  \"consentAttested\": \"<boolean>\",\n  \"celebrityConfidence\": \"<number>\",\n  \"nsfwScore\": \"<number>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cdc68830-09a6-42da-8587-56b58182de89",
+              "name": "Preview fallback served and async job queued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "face-swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"targetAssetUrl\": \"<string>\",\n  \"mediaType\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"detectedFaceCount\": \"<number>\",\n  \"sourceFaceIndex\": \"<number>\",\n  \"targetFaceIndex\": \"<number>\",\n  \"frameTimeMs\": \"<number>\",\n  \"consentAttested\": \"<boolean>\",\n  \"celebrityConfidence\": \"<number>\",\n  \"nsfwScore\": \"<number>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "42ec49e5-b5ec-475f-bcf8-8fea2a066048",
+              "name": "Blocked by content policy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "face-swap"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"targetAssetUrl\": \"<string>\",\n  \"mediaType\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"detectedFaceCount\": \"<number>\",\n  \"sourceFaceIndex\": \"<number>\",\n  \"targetFaceIndex\": \"<number>\",\n  \"frameTimeMs\": \"<number>\",\n  \"consentAttested\": \"<boolean>\",\n  \"celebrityConfidence\": \"<number>\",\n  \"nsfwScore\": \"<number>\",\n  \"actorId\": \"<string>\",\n  \"workspaceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2129c8ce-7c03-45c4-aeee-8bfbf110e3d1",
+          "name": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+          "request": {
+            "name": "Detect Multiple Face Targets and Return Selector Payload for Target Selection UI",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "face-targets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"maxFaces\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2852858-df3e-4cf9-a352-92768ef58181",
+              "name": "Face target detection payload",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "face-targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"maxFaces\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e344635d-d2fc-4dbd-a2b8-37d0d2ba1921",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "face-targets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceImageUrl\": \"<string>\",\n  \"maxFaces\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "974abc35-0258-4e3f-a942-5fbe03c94500",
+          "name": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+          "request": {
+            "name": "Run One-Click Background Removal for Image or Video Frame with Edge Refinement Slider and Optional Mask Brush Edits",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "ai",
+                "background-remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"mediaType\": \"<string>\",\n  \"frameTimeMs\": \"<number>\",\n  \"edgeRefinement\": \"<number>\",\n  \"brushEdits\": [\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    },\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fbfc0701-e10a-49f6-98d1-27ebf800ba6b",
+              "name": "Background removal result and mask stats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "background-remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"mediaType\": \"<string>\",\n  \"frameTimeMs\": \"<number>\",\n  \"edgeRefinement\": \"<number>\",\n  \"brushEdits\": [\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    },\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9654169-6e5b-4fc6-b86f-0a1e69dce3b8",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "ai",
+                    "background-remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sourceAssetUrl\": \"<string>\",\n  \"width\": \"<number>\",\n  \"height\": \"<number>\",\n  \"mediaType\": \"<string>\",\n  \"frameTimeMs\": \"<number>\",\n  \"edgeRefinement\": \"<number>\",\n  \"brushEdits\": [\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    },\n    {\n      \"mode\": \"<string>\",\n      \"x\": \"<number>\",\n      \"y\": \"<number>\",\n      \"radius\": \"<number>\",\n      \"intensity\": \"<number>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "666078b5-da5f-43de-baa8-450f6aa2e534",
+    "name": "Memesio API Contracts agent-infra ai-jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.",
+      "type": "text/plain"
+    }
+  }
+}

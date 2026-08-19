@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Memesio API Contracts agent-infra motion API",
+    "version": "0.1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "motion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Text Animation Presets and Generate Preview Keyframes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/api/video/text-animations",
+            "params": [
+              {
+                "name": "presetId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "durationMs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "intensity",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List Text Animation Presets and Generate Preview Keyframes"
+        },
+        {
+          "info": {
+            "name": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/api/video/text-animations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview or Apply Text Animation Preset Keyframes to a Timeline Track"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
