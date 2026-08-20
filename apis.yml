@@ -27,6 +27,12 @@ specificationVersion: '0.23'
 tags:
   - Memes
   - Media
+  - Image-Generation
+  - Content
+  - Developer Tools
+tags_raw:
+  - Memes
+  - Media
   - Image Generation
   - Content
   - Developer Tools
@@ -107,6 +113,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Artificial Intelligence
+  tags_raw:
   - ai
   properties:
   - type: OpenAPI
@@ -245,6 +253,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - AI Providers
+  tags_raw:
   - ai-providers
   properties:
   - type: OpenAPI
@@ -291,6 +301,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Analytics
+  tags_raw:
   - analytics
   properties:
   - type: OpenAPI
@@ -337,6 +349,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Audio
+  tags_raw:
   - audio
   properties:
   - type: OpenAPI
@@ -383,6 +397,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -429,6 +445,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Backend
+  tags_raw:
   - backend
   properties:
   - type: OpenAPI
@@ -521,6 +539,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Billing
+  tags_raw:
   - billing
   properties:
   - type: OpenAPI
@@ -567,6 +587,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Channels
+  tags_raw:
   - channels
   properties:
   - type: OpenAPI
@@ -613,6 +635,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Collaboration
+  tags_raw:
   - collaboration
   properties:
   - type: OpenAPI
@@ -659,6 +683,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Compliance
+  tags_raw:
   - compliance
   properties:
   - type: OpenAPI
@@ -751,6 +777,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - DataOps
+  tags_raw:
   - data-ops
   properties:
   - type: OpenAPI
@@ -797,6 +825,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Data Science
+  tags_raw:
   - data-science
   properties:
   - type: OpenAPI
@@ -843,6 +873,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Developer API
+  tags_raw:
   - developer-api
   properties:
   - type: OpenAPI
@@ -889,6 +921,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Distribution
+  tags_raw:
   - distribution
   properties:
   - type: OpenAPI
@@ -935,6 +969,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Experimentation
+  tags_raw:
   - experimentation
   properties:
   - type: OpenAPI
@@ -981,6 +1017,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Face Swap
+  tags_raw:
   - face-swap
   properties:
   - type: OpenAPI
@@ -1027,6 +1065,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - FinOps
+  tags_raw:
   - finops
   properties:
   - type: OpenAPI
@@ -1073,6 +1113,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Growth
+  tags_raw:
   - growth
   properties:
   - type: OpenAPI
@@ -1119,6 +1161,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - History
+  tags_raw:
   - history
   properties:
   - type: OpenAPI
@@ -1165,6 +1209,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Lifecycle
+  tags_raw:
   - lifecycle
   properties:
   - type: OpenAPI
@@ -1257,6 +1303,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Media
+  tags_raw:
   - media
   properties:
   - type: OpenAPI
@@ -1303,6 +1351,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Memes
+  tags_raw:
   - memes
   properties:
   - type: OpenAPI
@@ -1349,6 +1399,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Moderation
+  tags_raw:
   - moderation
   properties:
   - type: OpenAPI
@@ -1395,6 +1447,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Motion
+  tags_raw:
   - motion
   properties:
   - type: OpenAPI
@@ -1441,6 +1495,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Notification
+  tags_raw:
   - notifications
   properties:
   - type: OpenAPI
@@ -1487,6 +1543,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Observability
+  tags_raw:
   - observability
   properties:
   - type: OpenAPI
@@ -1533,6 +1591,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Performance
+  tags_raw:
   - performance
   properties:
   - type: OpenAPI
@@ -1579,6 +1639,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Personalization
+  tags_raw:
   - personalization
   properties:
   - type: OpenAPI
@@ -1625,6 +1687,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Platform
+  tags_raw:
   - platform
   properties:
   - type: OpenAPI
@@ -1671,6 +1735,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Product Marketing
+  tags_raw:
   - product-marketing
   properties:
   - type: OpenAPI
@@ -1763,6 +1829,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Safety
+  tags_raw:
   - safety
   properties:
   - type: OpenAPI
@@ -1809,6 +1877,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Templates
+  tags_raw:
   - templates
   properties:
   - type: OpenAPI
@@ -1901,6 +1971,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Uploads
+  tags_raw:
   - uploads
   properties:
   - type: OpenAPI
@@ -1947,6 +2019,8 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
+  - Video
+  tags_raw:
   - video
   properties:
   - type: OpenAPI
