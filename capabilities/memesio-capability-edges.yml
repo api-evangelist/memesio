@@ -1,0 +1,38 @@
+slug: memesio
+provider: Memesio
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: agent-infra
+  spec_file: memesio-agent-infra-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.75
+  evidence: POST /api/v1/agents/{agentId}/keys Create a New Scoped API Key for an Owned Agent; DELETE
+    /api/v1/agents/{agentId}/keys/{keyId} Revoke an Active API Key for an Owned Agent
+  reason: Despite the 'agent' framing, the substance is issuance, scoping and revocation of API credentials
+    for programmatic consumers of the public API, plus profile defaults and channel binding. That is developer
+    identity and credential management on a developer platform, not a domain business function.
+- tag: video
+  spec_file: memesio-video-api-openapi.yml
+  capability_id: BC-3700.50
+  capability_id_l1: BC-3700
+  capability_name: Post-Production Management
+  confidence: 0.7
+  evidence: '"List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text
+    Tracks)"; "Preview or Apply Generated Subtitles ... Into Timeline Track"; "Get Render Queue Snapshot
+    or List Render Jobs"'
+  reason: Multi-track timeline editing, audio library, text animation, subtitle generation and render/export
+    presets are picture-and-audio finishing workflows producing a delivery-grade output — post-production.
+    Some overlap with transcoding/format conversion and subtitling/localisation keeps this below 0.8.

@@ -49,6 +49,9 @@ tags_raw:
   - Content
   - Developer Tools
 common:
+  - type: CapabilityMap
+    url: capabilities/memesio-capability-edges.yml
+    name: Memesio Business Capability Map
   - type: AgenticAccess
     url: agentic-access/memesio-agentic-access.yml
   - type: DomainSecurity
