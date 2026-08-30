@@ -220,7 +220,7 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
-  - AI Providers
+  - ai-providers
   tags_raw:
   - ai-providers
   properties:
@@ -508,7 +508,7 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
-  - Developer API
+  - developer-api
   tags_raw:
   - developer-api
   properties:
@@ -556,7 +556,7 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
-  - Growth
+  - growth
   tags_raw:
   - growth
   properties:
@@ -652,7 +652,7 @@ apis:
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
   tags:
-  - Memes
+  - memes
   tags_raw:
   - memes
   properties:
