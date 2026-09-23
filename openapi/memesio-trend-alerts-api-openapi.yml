@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra trend-alerts API
+  title: Memesio API Contracts Trend Alerts API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
@@ -8,44 +8,9 @@ servers:
 tags:
 - name: trend-alerts
 paths:
-  /api/ai/templates/suggest:
-    post:
-      summary: Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow
-      tags:
-      - trend-alerts
-      security:
-      - DeveloperApiKeyAuth: []
-      - AgentApiKeyAuth: []
-      - {}
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - prompt
-              properties:
-                prompt:
-                  type: string
-                  minLength: 1
-                trendSignals:
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 20
-                limit:
-                  type: number
-                  minimum: 1
-                  maximum: 60
-      responses:
-        '200':
-          description: Template suggestion ranking payload
-        '400':
-          description: Validation error
   /api/alerts:
     get:
-      summary: List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region, Topics, and Follower Count
+      summary: List Trend Alerts with Optional Personalized Feed Ranking by Niche, Region…
       tags:
       - trend-alerts
       parameters:
@@ -120,6 +85,8 @@ paths:
       responses:
         '200':
           description: Trend alerts list
+      operationId: getApiAlerts
+      x-operation-id-source: derived
   /api/alerts/connectors:
     get:
       summary: Get Trend Source Connectors and Data Contracts
@@ -128,9 +95,11 @@ paths:
       responses:
         '200':
           description: Trend source connector contract payload
+      operationId: getApiAlertsConnectors
+      x-operation-id-source: derived
   /api/alerts/ingestion:
     get:
-      summary: Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with Dedupe + Freshness Scoring
+      summary: Run/Retrieve Real-Time Trend Ingestion from X, Reddit, TikTok, and YouTube with…
       tags:
       - trend-alerts
       parameters:
@@ -141,9 +110,11 @@ paths:
       responses:
         '200':
           description: Trend ingestion output payload
+      operationId: getApiAlertsIngestion
+      x-operation-id-source: derived
   /api/alerts/ranking:
     get:
-      summary: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and Creator-Selected Topics
+      summary: Rank Trend Alerts with Personalization by Niche, Geography, Follower Count, and…
       tags:
       - trend-alerts
       parameters:
@@ -183,6 +154,8 @@ paths:
       responses:
         '200':
           description: Ranked trend alerts payload
+      operationId: getApiAlertsRanking
+      x-operation-id-source: derived
   /api/alerts/preferences:
     get:
       summary: Get Trend Preference Vector for Actor
@@ -199,6 +172,8 @@ paths:
           description: Preference vector payload
         '400':
           description: Missing actor id
+      operationId: getApiAlertsPreferences
+      x-operation-id-source: derived
     post:
       summary: Upsert Trend Preference Vector from Explicit Interests and Behavior Events
       tags:
@@ -263,6 +238,8 @@ paths:
           description: Updated preference vector payload
         '400':
           description: Validation error
+      operationId: postApiAlertsPreferences
+      x-operation-id-source: derived
   /api/alerts/feedback:
     get:
       summary: List Stored Trend Feedback Actions
@@ -282,6 +259,8 @@ paths:
       responses:
         '200':
           description: Trend feedback events payload
+      operationId: getApiAlertsFeedback
+      x-operation-id-source: derived
     post:
       summary: Record Trend Feedback Action and Update Preference Vector
       tags:
@@ -322,6 +301,8 @@ paths:
           description: Feedback stored and vector updated
         '400':
           description: Validation error
+      operationId: postApiAlertsFeedback
+      x-operation-id-source: derived
   /api/alerts/triggers:
     get:
       summary: Evaluate Alert Trigger Thresholds and Cooldown Decisions
@@ -330,16 +311,20 @@ paths:
       responses:
         '200':
           description: Trigger decision payload
+      operationId: getApiAlertsTriggers
+      x-operation-id-source: derived
     post:
-      summary: Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across Inbox/Push/Email Channels with SLA Telemetry
+      summary: Run Trigger Execution, Persist Cooldown State, and Fan Out Delivery Across…
       tags:
       - trend-alerts
       responses:
         '201':
           description: Trigger execution payload
+      operationId: postApiAlertsTriggers
+      x-operation-id-source: derived
   /api/alerts/delivery:
     get:
-      summary: Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for in-App Inbox, Push (PWA), and Email Digest
+      summary: Retrieve Latest Delivery Report or Refresh Trigger-to-Delivery Fanout for…
       tags:
       - trend-alerts
       parameters:
@@ -350,8 +335,10 @@ paths:
       responses:
         '200':
           description: Trend alert delivery report payload
+      operationId: getApiAlertsDelivery
+      x-operation-id-source: derived
     post:
-      summary: Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the 5-Minute SLA Target
+      summary: Execute Trend Alert Delivery Fanout and Return P95 Delivery Latency Against the…
       tags:
       - trend-alerts
       requestBody:
@@ -374,6 +361,8 @@ paths:
       responses:
         '201':
           description: Trend alert delivery execution payload
+      operationId: postApiAlertsDelivery
+      x-operation-id-source: derived
   /api/alerts/message-templates:
     get:
       summary: Get Trend Alert Message Templates and Rendered Preview
@@ -387,6 +376,8 @@ paths:
       responses:
         '200':
           description: Trend alert message templates payload
+      operationId: getApiAlertsMessageTemplates
+      x-operation-id-source: derived
   /api/alerts/quality-report:
     get:
       summary: Generate or Retrieve Weekly Trend Alert Quality Report
@@ -400,6 +391,8 @@ paths:
       responses:
         '200':
           description: Trend alert quality report payload
+      operationId: getApiAlertsQualityReport
+      x-operation-id-source: derived
 components:
   securitySchemes:
     DeveloperApiKeyAuth:

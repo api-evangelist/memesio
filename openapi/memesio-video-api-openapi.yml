@@ -1,18 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra video API
+  title: Memesio API Contracts Video API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
 - url: /
 tags:
-- name: video
+- name: Video
 paths:
   /api/video/formats:
     get:
-      summary: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost Estimate
+      summary: Get Supported Video Input/Output Formats, Duration Caps, and Optional Cost…
       tags:
-      - video
+      - Video
       parameters:
       - name: planTier
         in: query
@@ -42,10 +42,12 @@ paths:
       responses:
         '200':
           description: Video format policy payload
+      operationId: getApiVideoFormats
+      x-operation-id-source: derived
     post:
       summary: Estimate Cost and Validate Planned Video Export Job Against Policy
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -79,11 +81,13 @@ paths:
           description: Video job estimate payload
         '400':
           description: Validation error
+      operationId: postApiVideoFormats
+      x-operation-id-source: derived
   /api/video/export-settings:
     get:
-      summary: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional Watermark Decision Preview
+      summary: Get Export Preset Catalog (TikTok, Reels, Shorts, MP4 Square) and Optional…
       tags:
-      - video
+      - Video
       parameters:
       - name: planTier
         in: query
@@ -117,10 +121,12 @@ paths:
       responses:
         '200':
           description: Export policy payload
+      operationId: getApiVideoExportSettings
+      x-operation-id-source: derived
     post:
-      summary: Evaluate Export Settings with Plan-Tier Watermark Rules for TikTok/Reels/Shorts/MP4 Square Presets
+      summary: Evaluate Export Settings with Plan-Tier Watermark Rules for…
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -153,11 +159,13 @@ paths:
           description: Export settings decision payload
         '400':
           description: Validation error
+      operationId: postApiVideoExportSettings
+      x-operation-id-source: derived
   /api/video/timeline:
     get:
-      summary: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers for Video/Audio/Sticker/Text Tracks)
+      summary: List Timeline Projects or Load One Timeline Project (Supports Up to 8 Layers…
       tags:
-      - video
+      - Video
       parameters:
       - name: projectId
         in: query
@@ -174,10 +182,12 @@ paths:
           description: Timeline project payload
         '404':
           description: Project not found
+      operationId: getApiVideoTimeline
+      x-operation-id-source: derived
     post:
-      summary: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach Asset/Keyframe) with Keyframe-Level Adjustments
+      summary: Mutate Timeline Project via Action-Based API (Create/Add Track/Add Asset/Attach…
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -247,11 +257,13 @@ paths:
           description: Timeline created
         '400':
           description: Validation error
+      operationId: postApiVideoTimeline
+      x-operation-id-source: derived
   /api/video/audio-library:
     get:
-      summary: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target BPM
+      summary: List Licensed Meme/Punchline Audio Clips with Beat-Sync Suggestions for Target…
       tags:
-      - video
+      - Video
       parameters:
       - name: query
         in: query
@@ -289,11 +301,13 @@ paths:
       responses:
         '200':
           description: Audio library + beat sync suggestions payload
+      operationId: getApiVideoAudioLibrary
+      x-operation-id-source: derived
   /api/video/text-animations:
     get:
       summary: List Text Animation Presets and Generate Preview Keyframes
       tags:
-      - video
+      - Video
       parameters:
       - name: presetId
         in: query
@@ -318,10 +332,12 @@ paths:
       responses:
         '200':
           description: Text animation preset payload
+      operationId: getApiVideoTextAnimations
+      x-operation-id-source: derived
     post:
       summary: Preview or Apply Text Animation Preset Keyframes to a Timeline Track
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -361,11 +377,13 @@ paths:
           description: Validation error
         '404':
           description: Preset or timeline project not found
+      operationId: postApiVideoTextAnimations
+      x-operation-id-source: derived
   /api/video/subtitles:
     get:
-      summary: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync for Kinetic Text
+      summary: Load Subtitle Style Presets and Optional Subtitle Preview with Beat-Grid Sync…
       tags:
-      - video
+      - Video
       parameters:
       - name: transcript
         in: query
@@ -406,10 +424,12 @@ paths:
       responses:
         '200':
           description: Subtitle style preset + preview payload
+      operationId: getApiVideoSubtitles
+      x-operation-id-source: derived
     post:
-      summary: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into Timeline Track with Beat-Synced Kinetic Text
+      summary: Preview or Apply Generated Subtitles from Script or Audio-Asset Transcript Into…
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -459,11 +479,13 @@ paths:
           description: Validation error
         '404':
           description: Preset or timeline project not found
+      operationId: postApiVideoSubtitles
+      x-operation-id-source: derived
   /api/video/render-queue:
     get:
       summary: Get Render Queue Snapshot or List Render Jobs
       tags:
-      - video
+      - Video
       parameters:
       - name: mode
         in: query
@@ -499,10 +521,12 @@ paths:
       responses:
         '200':
           description: Render queue payload
+      operationId: getApiVideoRenderQueue
+      x-operation-id-source: derived
     post:
       summary: Mutate Render Queue (Enqueue/Claim/Progress/Complete/Fail)
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -558,11 +582,13 @@ paths:
           description: No queued job available
         '400':
           description: Validation error
+      operationId: postApiVideoRenderQueue
+      x-operation-id-source: derived
   /api/video/render-performance:
     get:
       summary: Get Latest Video Render Load-Test Summary or Refresh Simulation
       tags:
-      - video
+      - Video
       parameters:
       - name: refresh
         in: query
@@ -573,11 +599,13 @@ paths:
           description: Video render performance summary payload
         '500':
           description: Policy validation or simulation failure
+      operationId: getApiVideoRenderPerformance
+      x-operation-id-source: derived
   /api/video/drafts:
     get:
       summary: Load Cloud Video Drafts Used by 15-Second Autosave and Cross-Device Resume
       tags:
-      - video
+      - Video
       parameters:
       - name: projectId
         in: query
@@ -594,10 +622,12 @@ paths:
           description: Video draft payload
         '404':
           description: Draft not found
+      operationId: getApiVideoDrafts
+      x-operation-id-source: derived
     post:
       summary: Save/Resume Crash-Safe Cloud Video Draft Snapshots for Cross-Device Recovery
       tags:
-      - video
+      - Video
       requestBody:
         required: true
         content:
@@ -629,6 +659,8 @@ paths:
           description: Validation error
         '404':
           description: Draft not found
+      operationId: postApiVideoDrafts
+      x-operation-id-source: derived
 components:
   securitySchemes:
     DeveloperApiKeyAuth:

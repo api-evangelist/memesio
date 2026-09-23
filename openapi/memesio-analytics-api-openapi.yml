@@ -1,42 +1,48 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra analytics API
+  title: Memesio API Contracts Analytics API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
 - url: /
 tags:
-- name: analytics
+- name: Analytics
 paths:
   /api/analytics/metric-dictionary:
     get:
       summary: Get Metric Dictionary and Ownership Mapping
       tags:
-      - analytics
+      - Analytics
       responses:
         '200':
           description: Metric dictionary payload
+      operationId: getApiAnalyticsMetricDictionary
+      x-operation-id-source: derived
   /api/analytics/dashboards/activation-retention:
     get:
       summary: Get Activation and Retention Dashboard Spec (Looker)
       tags:
-      - analytics
+      - Analytics
       responses:
         '200':
           description: Dashboard spec payload
+      operationId: getApiAnalyticsDashboardsActivationRetention
+      x-operation-id-source: derived
   /api/analytics/dashboards/feature-adoption:
     get:
       summary: Get Feature Adoption Dashboard Spec by Plan and Segment (Looker)
       tags:
-      - analytics
+      - Analytics
       responses:
         '200':
           description: Dashboard spec payload
+      operationId: getApiAnalyticsDashboardsFeatureAdoption
+      x-operation-id-source: derived
   /api/analytics/dashboards/backend-reliability:
     get:
-      summary: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth Snapshot
+      summary: Get Backend Reliability Dashboard Spec and Live Latency/Error-Rate/Queue-Depth…
       tags:
-      - analytics
+      - Analytics
       parameters:
       - name: windowHours
         in: query
@@ -47,11 +53,13 @@ paths:
       responses:
         '200':
           description: Backend reliability dashboard + metrics snapshot payload
+      operationId: getApiAnalyticsDashboardsBackendReliability
+      x-operation-id-source: derived
   /api/analytics/experiments/templates:
     get:
       summary: Get Pricing/Paywall Experiment Analysis Templates
       tags:
-      - analytics
+      - Analytics
       parameters:
       - name: templateId
         in: query
@@ -60,30 +68,28 @@ paths:
       responses:
         '200':
           description: Pricing experiment templates payload
+      operationId: getApiAnalyticsExperimentsTemplates
+      x-operation-id-source: derived
   /api/analytics/anomalies/ai:
     get:
       summary: Run AI Cost/Failure Anomaly Detection and Return Alert State
       tags:
-      - analytics
+      - Analytics
       responses:
         '200':
           description: AI anomaly detection summary
+      operationId: getApiAnalyticsAnomaliesAi
+      x-operation-id-source: derived
   /api/analytics/alerts/backend:
     get:
       summary: Run Backend 5xx and Render Latency Alert Checks
       tags:
-      - analytics
+      - Analytics
       responses:
         '200':
           description: Backend alerting summary payload
-  /api/growth/viral-triggers:
-    get:
-      summary: Get Viral Loop Trigger Definitions and Instrumentation Mapping
-      tags:
-      - analytics
-      responses:
-        '200':
-          description: Viral loop trigger payload
+      operationId: getApiAnalyticsAlertsBackend
+      x-operation-id-source: derived
 components:
   securitySchemes:
     DeveloperApiKeyAuth:

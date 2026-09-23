@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra developer-api API
+  title: Memesio API Contracts Developer API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
@@ -46,9 +46,11 @@ paths:
           description: Developer or agent API key required
         '429':
           description: Rate limit exceeded
+      operationId: postApiV1TemplatesIdeas
+      x-operation-id-source: derived
   /api/v1/memes/caption-template:
     post:
-      summary: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption Input
+      summary: Render a Hosted Meme from a Stored Template Using Anonymous or Keyed Caption…
       tags:
       - developer-api
       security:
@@ -73,6 +75,8 @@ paths:
           description: Invalid API key when one is provided
         '429':
           description: Rate limit exceeded
+      operationId: postApiV1MemesCaptionTemplate
+      x-operation-id-source: derived
   /api/v1/memes/caption-upload:
     post:
       summary: Upload an Image, Place Top or Bottom Caption Boxes, and Store the Hosted Meme
@@ -123,6 +127,8 @@ paths:
           description: Unsupported upload content
         '429':
           description: Rate limit exceeded
+      operationId: postApiV1MemesCaptionUpload
+      x-operation-id-source: derived
   /api/v1/memes/generate:
     get:
       summary: Read the Keyed Actor's Daily AI Meme Quota Snapshot
@@ -136,6 +142,8 @@ paths:
           description: Current keyed actor AI quota snapshot
         '401':
           description: Developer or agent API key required
+      operationId: getApiV1MemesGenerate
+      x-operation-id-source: derived
     post:
       summary: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
       tags:
@@ -232,8 +240,112 @@ paths:
           description: Daily AI quota exceeded
         '500':
           description: Provider execution failure
+      operationId: postApiV1MemesGenerate
+      x-operation-id-source: derived
 components:
   schemas:
+    MemeGenerationVariant:
+      type: object
+      required:
+      - id
+      - mode
+      - providerId
+      - variantKind
+      - memeUrl
+      - pageUrl
+      - templateName
+      - fallbackUsed
+      - attempts
+      - estimatedCostUsd
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+          enum:
+          - template
+        providerId:
+          type: string
+        variantKind:
+          type: string
+          enum:
+          - template_captioned
+          - rendered_image
+        memeUrl:
+          type:
+          - string
+          - 'null'
+        pageUrl:
+          type:
+          - string
+          - 'null'
+        templateName:
+          type:
+          - string
+          - 'null'
+        templateSlug:
+          type:
+          - string
+          - 'null'
+        sourceImageUrl:
+          type:
+          - string
+          - 'null'
+        templateSelectionStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - provided_template
+          - provided_image
+          - library_search
+          - recommendation
+          - null
+        captionGenerationStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - openai
+          - heuristic
+          - provided
+          - null
+        captions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeCaption'
+        editable:
+          type: boolean
+        fallbackUsed:
+          type: boolean
+        attempts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        estimatedCostUsd:
+          type: number
+          minimum: 0
+    FreeMemeWatermark:
+      type: object
+      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+          maxLength: 64
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+          minimum: 0.6
+          maximum: 3
     FreeCaptionMemeSuccessResponse:
       type: object
       required:
@@ -296,6 +408,31 @@ components:
                 type: string
             watermark:
               $ref: '#/components/schemas/FreeMemeWatermark'
+    FreeCaptionMemeRequest:
+      type: object
+      required:
+      - templateSlug
+      - captions
+      properties:
+        templateSlug:
+          type: string
+        captions:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              maxLength: 300
+            - $ref: '#/components/schemas/CaptionInput'
+        title:
+          type: string
+          maxLength: 140
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        watermark:
+          $ref: '#/components/schemas/FreeMemeWatermark'
     CaptionInput:
       type: object
       required:
@@ -331,26 +468,6 @@ components:
           enum:
           - impact
           - arial
-    FreeMemeWatermark:
-      type: object
-      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
-      properties:
-        enabled:
-          type: boolean
-        text:
-          type: string
-          maxLength: 64
-        position:
-          type: string
-          enum:
-          - top_left
-          - top_right
-          - bottom_left
-          - bottom_right
-        scale:
-          type: number
-          minimum: 0.6
-          maximum: 3
     AiMemeGenerationSucceededResponse:
       type: object
       required:
@@ -540,113 +657,6 @@ components:
                 $ref: '#/components/schemas/CaptionInput'
             watermark:
               $ref: '#/components/schemas/FreeMemeWatermark'
-    FreeCaptionMemeRequest:
-      type: object
-      required:
-      - templateSlug
-      - captions
-      properties:
-        templateSlug:
-          type: string
-        captions:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              maxLength: 300
-            - $ref: '#/components/schemas/CaptionInput'
-        title:
-          type: string
-          maxLength: 140
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-        watermark:
-          $ref: '#/components/schemas/FreeMemeWatermark'
-    MemeGenerationVariant:
-      type: object
-      required:
-      - id
-      - mode
-      - providerId
-      - variantKind
-      - memeUrl
-      - pageUrl
-      - templateName
-      - fallbackUsed
-      - attempts
-      - estimatedCostUsd
-      properties:
-        id:
-          type: string
-        mode:
-          type: string
-          enum:
-          - template
-        providerId:
-          type: string
-        variantKind:
-          type: string
-          enum:
-          - template_captioned
-          - rendered_image
-        memeUrl:
-          type:
-          - string
-          - 'null'
-        pageUrl:
-          type:
-          - string
-          - 'null'
-        templateName:
-          type:
-          - string
-          - 'null'
-        templateSlug:
-          type:
-          - string
-          - 'null'
-        sourceImageUrl:
-          type:
-          - string
-          - 'null'
-        templateSelectionStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - provided_template
-          - provided_image
-          - library_search
-          - recommendation
-          - null
-        captionGenerationStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - openai
-          - heuristic
-          - provided
-          - null
-        captions:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemeCaption'
-        editable:
-          type: boolean
-        fallbackUsed:
-          type: boolean
-        attempts:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        estimatedCostUsd:
-          type: number
-          minimum: 0
   securitySchemes:
     DeveloperApiKeyAuth:
       type: apiKey

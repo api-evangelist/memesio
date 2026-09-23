@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra API
+  title: Memesio API Contracts Agent Infra API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
@@ -18,6 +18,8 @@ paths:
           description: Agent profile list payload
         '401':
           description: Authentication required
+      operationId: getApiV1Agents
+      x-operation-id-source: derived
     post:
       summary: Create a User-Owned Agent Profile
       tags:
@@ -64,6 +66,8 @@ paths:
           description: Authentication required
         '409':
           description: Slug conflict
+      operationId: postApiV1Agents
+      x-operation-id-source: derived
   /api/v1/agents/bootstrap:
     post:
       summary: Bootstrap a Standalone Agent Account with an Immediately Usable Approved Key
@@ -120,6 +124,8 @@ paths:
           description: Rate limit exceeded
         '503':
           description: Agent infra schema unavailable
+      operationId: postApiV1AgentsBootstrap
+      x-operation-id-source: derived
   /api/v1/agents/create-agent:
     post:
       summary: Create a Standalone Agent Account with an Immediately Usable Approved Key
@@ -176,6 +182,8 @@ paths:
           description: Rate limit exceeded
         '503':
           description: Agent infra schema unavailable
+      operationId: postApiV1AgentsCreateAgent
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}:
     get:
       summary: Get a Single User-Owned Agent Profile
@@ -194,6 +202,8 @@ paths:
           description: Authentication required
         '404':
           description: Agent not found
+      operationId: getApiV1AgentsByAgentId
+      x-operation-id-source: derived
     patch:
       summary: Update Agent Profile Defaults (Prompt, Watermark, Style, Locale, Status)
       tags:
@@ -244,6 +254,8 @@ paths:
           description: Authentication required
         '404':
           description: Agent not found
+      operationId: patchApiV1AgentsByAgentId
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}/keys:
     get:
       summary: List Agent API Keys for an Owned Agent
@@ -262,6 +274,8 @@ paths:
           description: Authentication required
         '404':
           description: Agent not found
+      operationId: getApiV1AgentsByAgentIdKeys
+      x-operation-id-source: derived
     post:
       summary: Create a New Scoped API Key for an Owned Agent
       tags:
@@ -295,6 +309,8 @@ paths:
           description: Authentication required
         '404':
           description: Agent not found
+      operationId: postApiV1AgentsByAgentIdKeys
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}/keys/{keyId}:
     delete:
       summary: Revoke an Active API Key for an Owned Agent
@@ -318,6 +334,8 @@ paths:
           description: Authentication required
         '404':
           description: Key not found
+      operationId: deleteApiV1AgentsByAgentIdKeysByKeyId
+      x-operation-id-source: derived
   /api/v1/agents/names:generate:
     post:
       summary: Generate 5 Candidate Agent Names with Slug Availability Checks
@@ -343,6 +361,8 @@ paths:
           description: Agent API key required
         '429':
           description: Per-key name generation limit exceeded
+      operationId: postApiV1AgentsNames:generate
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}/channels/telegram/bind:
     post:
       summary: Bind Telegram Chat to an Owned Agent
@@ -375,6 +395,8 @@ paths:
           description: Telegram binding created/updated
         '401':
           description: Authentication required
+      operationId: postApiV1AgentsByAgentIdChannelsTelegramBind
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}/channels/whatsapp/bind:
     post:
       summary: Bind WhatsApp Chat/Phone to an Owned Agent
@@ -407,6 +429,8 @@ paths:
           description: WhatsApp binding created/updated
         '401':
           description: Authentication required
+      operationId: postApiV1AgentsByAgentIdChannelsWhatsappBind
+      x-operation-id-source: derived
   /api/v1/agents/webhooks/telegram:
     post:
       summary: Telegram Inbound Webhook Receiver with Dedupe and Agent Routing
@@ -419,6 +443,8 @@ paths:
           description: Ignored non-message Telegram update
         '403':
           description: Invalid webhook secret when configured
+      operationId: postApiV1AgentsWebhooksTelegram
+      x-operation-id-source: derived
   /api/v1/agents/webhooks/whatsapp:
     get:
       summary: WhatsApp Verification Handshake Endpoint
@@ -429,6 +455,8 @@ paths:
           description: Verification challenge accepted
         '403':
           description: Invalid verify token
+      operationId: getApiV1AgentsWebhooksWhatsapp
+      x-operation-id-source: derived
     post:
       summary: WhatsApp Inbound Webhook Receiver with Dedupe and Agent Routing
       tags:
@@ -438,6 +466,8 @@ paths:
           description: Webhook processed
         '202':
           description: Ignored non-message event
+      operationId: postApiV1AgentsWebhooksWhatsapp
+      x-operation-id-source: derived
   /api/v1/agents/{agentId}/unlocks/social-action:
     post:
       summary: Submit Social Action Proof (X_follow) for Quota Boost Review
@@ -472,6 +502,8 @@ paths:
           description: Agent API key required
         '403':
           description: Insufficient key scope
+      operationId: postApiV1AgentsByAgentIdUnlocksSocialAction
+      x-operation-id-source: derived
   /api/v1/agents/unlocks/{unlockId}/approve:
     post:
       summary: Admin Approval for Social Unlock and Quota Boost
@@ -501,6 +533,8 @@ paths:
           description: Admin authorization required
         '404':
           description: Unlock not found
+      operationId: postApiV1AgentsUnlocksByUnlockIdApprove
+      x-operation-id-source: derived
   /api/v1/agents/rewards/votes:
     post:
       summary: Cast Weekly Meme Vote (Deduped by Voter Hash)
@@ -527,6 +561,8 @@ paths:
           description: Vote accepted
         '400':
           description: Validation error
+      operationId: postApiV1AgentsRewardsVotes
+      x-operation-id-source: derived
   /api/v1/agents/rewards/leaderboard:
     get:
       summary: Get Weekly Meme Leaderboard
@@ -547,6 +583,8 @@ paths:
       responses:
         '200':
           description: Leaderboard payload
+      operationId: getApiV1AgentsRewardsLeaderboard
+      x-operation-id-source: derived
   /api/v1/agents/rewards/winner:close:
     post:
       summary: Close Weekly Winner Record for Manual Payout Workflow
@@ -576,6 +614,8 @@ paths:
           description: Admin authorization required
         '404':
           description: No votes for week
+      operationId: postApiV1AgentsRewardsWinner:close
+      x-operation-id-source: derived
 components:
   schemas:
     StandaloneAgentBootstrapResponse:

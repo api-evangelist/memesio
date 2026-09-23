@@ -1,18 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra ai-providers API
+  title: Memesio API Contracts AI Providers API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
 - url: /
 tags:
-- name: ai-providers
+- name: AI Providers
 paths:
   /api/ai/memes/generate:
     get:
-      summary: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next Action
+      summary: Read the Current Actor's Daily AI Meme Quota, Remaining Generations, and Next…
       tags:
-      - ai-providers
+      - AI Providers
       security:
       - DeveloperApiKeyAuth: []
       - AgentApiKeyAuth: []
@@ -20,10 +20,12 @@ paths:
       responses:
         '200':
           description: Current actor AI quota snapshot
+      operationId: getApiAiMemesGenerate
+      x-operation-id-source: derived
     post:
-      summary: Select an Existing Meme Template, Generate Captions, and Return Editor-Ready Meme Variants
+      summary: Select an Existing Meme Template, Generate Captions, and Return Editor-Ready…
       tags:
-      - ai-providers
+      - AI Providers
       security:
       - DeveloperApiKeyAuth: []
       - AgentApiKeyAuth: []
@@ -115,11 +117,13 @@ paths:
           description: Daily AI quota exceeded
         '500':
           description: Provider execution failure
+      operationId: postApiAiMemesGenerate
+      x-operation-id-source: derived
   /api/ai/templates/suggest:
     post:
       summary: Rank Template Suggestions from Prompt + Trend Signals for Creative Ideation Flow
       tags:
-      - ai-providers
+      - AI Providers
       security:
       - DeveloperApiKeyAuth: []
       - AgentApiKeyAuth: []
@@ -150,11 +154,13 @@ paths:
           description: Template suggestion ranking payload
         '400':
           description: Validation error
+      operationId: postApiAiTemplatesSuggest
+      x-operation-id-source: derived
   /api/ai/templates/detect:
     post:
-      summary: Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement with Single/Split Assignment Plan
+      summary: Detect Meme Template from Source Image and Return 1-2 Caption Slot Placement…
       tags:
-      - ai-providers
+      - AI Providers
       requestBody:
         required: true
         content:
@@ -192,11 +198,13 @@ paths:
           description: Validation error
         '500':
           description: Detection failure
+      operationId: postApiAiTemplatesDetect
+      x-operation-id-source: derived
   /api/ai/providers/face-swap-benchmark:
     get:
       summary: Run or Retrieve Face-Swap Provider Benchmark and Recommendation
       tags:
-      - ai-providers
+      - AI Providers
       parameters:
       - name: refresh
         in: query
@@ -205,11 +213,13 @@ paths:
       responses:
         '200':
           description: Face-swap provider benchmark report
+      operationId: getApiAiProvidersFaceSwapBenchmark
+      x-operation-id-source: derived
   /api/ai/providers/background-remove-benchmark:
     get:
       summary: Run or Retrieve Background-Remove Provider Benchmark and Recommendation
       tags:
-      - ai-providers
+      - AI Providers
       parameters:
       - name: refresh
         in: query
@@ -218,153 +228,8 @@ paths:
       responses:
         '200':
           description: Background-remove provider benchmark report
-  /api/v1/templates/ideas:
-    post:
-      summary: Return Ranked Meme Template Ideas for a Prompt Using a Developer or Agent Key
-      tags:
-      - ai-providers
-      security:
-      - DeveloperApiKeyAuth: []
-      - AgentApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - prompt
-              properties:
-                prompt:
-                  type: string
-                  minLength: 1
-                trendSignals:
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 20
-                limit:
-                  type: number
-                  minimum: 1
-                  maximum: 60
-      responses:
-        '200':
-          description: Template idea ranking payload
-        '400':
-          description: Validation error
-        '401':
-          description: Developer or agent API key required
-        '429':
-          description: Rate limit exceeded
-  /api/v1/memes/generate:
-    get:
-      summary: Read the Keyed Actor's Daily AI Meme Quota Snapshot
-      tags:
-      - ai-providers
-      security:
-      - DeveloperApiKeyAuth: []
-      - AgentApiKeyAuth: []
-      responses:
-        '200':
-          description: Current keyed actor AI quota snapshot
-        '401':
-          description: Developer or agent API key required
-    post:
-      summary: Generate AI Meme Variants Synchronously for a Developer or Standalone Agent Key
-      tags:
-      - ai-providers
-      security:
-      - DeveloperApiKeyAuth: []
-      - AgentApiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-              - prompt
-              properties:
-                mode:
-                  type: string
-                  enum:
-                  - template
-                prompt:
-                  type: string
-                  minLength: 1
-                  maxLength: 500
-                flow:
-                  type: string
-                  enum:
-                  - text_to_meme
-                captionSource:
-                  type: string
-                  enum:
-                  - input
-                  - prompt
-                imageUrl:
-                  type: string
-                templateId:
-                  type: string
-                captions:
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 6
-                editableCaptions:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/MemeCaption'
-                  maxItems: 8
-                tone:
-                  type: string
-                  enum:
-                  - sarcastic
-                  - deadpan
-                  - wholesome
-                  - absurd
-                  - corporate
-                  - dark-lite
-                  - brand
-                toneCues:
-                  type: array
-                  items:
-                    type: string
-                  maxItems: 6
-                rewriteNote:
-                  type: string
-                  maxLength: 160
-                allowHeuristicFallback:
-                  type: boolean
-                variantCount:
-                  type: number
-                  minimum: 1
-                  maximum: 5
-                preferredProviderId:
-                  type: string
-                  enum:
-                  - hyperswitch_vision
-                  - onnx_local
-                  - openai_vision
-                workspaceId:
-                  type: string
-                correlationId:
-                  type: string
-      responses:
-        '200':
-          description: Meme variant generation payload
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AiMemeGenerationSucceededResponse'
-        '400':
-          description: Validation error
-        '401':
-          description: Developer or agent API key required
-        '429':
-          description: Daily AI quota exceeded
-        '500':
-          description: Provider execution failure
+      operationId: getApiAiProvidersBackgroundRemoveBenchmark
+      x-operation-id-source: derived
 components:
   schemas:
     AiMemeGenerationSucceededResponse:

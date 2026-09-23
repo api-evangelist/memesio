@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Memesio API Contracts agent-infra public-free API
+  title: Memesio API Contracts Public Free API
   version: 0.1.0
   description: Contract baseline for AI jobs, trend alerts, collaboration, and billing surfaces.
 servers:
@@ -66,9 +66,11 @@ paths:
           description: Invalid developer or agent API key
         '429':
           description: Rate limit exceeded
+      operationId: getApiFreeTemplates
+      x-operation-id-source: derived
   /api/free/memes/caption:
     post:
-      summary: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio Watermark
+      summary: Caption a Stored Template Without AI and Return Hosted Meme URLS with a Memesio…
       tags:
       - public-free
       security:
@@ -93,8 +95,113 @@ paths:
           description: Invalid developer or agent API key
         '429':
           description: Rate limit exceeded
+      operationId: postApiFreeMemesCaption
+      x-operation-id-source: derived
 components:
   schemas:
+    FreeMemeWatermark:
+      type: object
+      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+          maxLength: 64
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+          minimum: 0.6
+          maximum: 3
+    FreeTemplateSearchResponse:
+      type: object
+      required:
+      - items
+      - total
+      - nextPage
+      - page
+      - pageSize
+      properties:
+        searchMode:
+          type: string
+          enum:
+          - lexical
+          - hybrid
+        fallbackApplied:
+          type: boolean
+        items:
+          type: array
+          items:
+            type: object
+            required:
+            - id
+            - sourceTemplateId
+            - slug
+            - name
+            - description
+            - imageUrl
+            - width
+            - height
+            - captionCount
+            - boxCount
+            - captions
+            properties:
+              id:
+                type: string
+              sourceTemplateId:
+                type:
+                - string
+                - 'null'
+              slug:
+                type: string
+              name:
+                type: string
+              description:
+                type: string
+              imageUrl:
+                type: string
+              width:
+                type:
+                - number
+                - 'null'
+              height:
+                type:
+                - number
+                - 'null'
+              captionCount:
+                type: integer
+                minimum: 0
+              boxCount:
+                type: integer
+                minimum: 0
+              captions:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MemeCaption'
+              tags:
+                type: array
+                items:
+                  type: string
+        total:
+          type: integer
+          minimum: 0
+        nextPage:
+          type:
+          - integer
+          - 'null'
+          minimum: 1
+        page:
+          type: integer
+          minimum: 1
+        pageSize:
+          type: integer
+          minimum: 1
     FreeCaptionMemeSuccessResponse:
       type: object
       required:
@@ -157,26 +264,31 @@ components:
                 type: string
             watermark:
               $ref: '#/components/schemas/FreeMemeWatermark'
-    FreeMemeWatermark:
+    FreeCaptionMemeRequest:
       type: object
-      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      required:
+      - templateSlug
+      - captions
       properties:
-        enabled:
-          type: boolean
-        text:
+        templateSlug:
           type: string
-          maxLength: 64
-        position:
+        captions:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              maxLength: 300
+            - $ref: '#/components/schemas/CaptionInput'
+        title:
+          type: string
+          maxLength: 140
+        visibility:
           type: string
           enum:
-          - top_left
-          - top_right
-          - bottom_left
-          - bottom_right
-        scale:
-          type: number
-          minimum: 0.6
-          maximum: 3
+          - private
+          - public
+        watermark:
+          $ref: '#/components/schemas/FreeMemeWatermark'
     CaptionInput:
       type: object
       required:
@@ -299,114 +411,6 @@ components:
           type: integer
           minimum: 1
         recommendedCharsMax:
-          type: integer
-          minimum: 1
-    FreeCaptionMemeRequest:
-      type: object
-      required:
-      - templateSlug
-      - captions
-      properties:
-        templateSlug:
-          type: string
-        captions:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              maxLength: 300
-            - $ref: '#/components/schemas/CaptionInput'
-        title:
-          type: string
-          maxLength: 140
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-        watermark:
-          $ref: '#/components/schemas/FreeMemeWatermark'
-    FreeTemplateSearchResponse:
-      type: object
-      required:
-      - items
-      - total
-      - nextPage
-      - page
-      - pageSize
-      properties:
-        searchMode:
-          type: string
-          enum:
-          - lexical
-          - hybrid
-        fallbackApplied:
-          type: boolean
-        items:
-          type: array
-          items:
-            type: object
-            required:
-            - id
-            - sourceTemplateId
-            - slug
-            - name
-            - description
-            - imageUrl
-            - width
-            - height
-            - captionCount
-            - boxCount
-            - captions
-            properties:
-              id:
-                type: string
-              sourceTemplateId:
-                type:
-                - string
-                - 'null'
-              slug:
-                type: string
-              name:
-                type: string
-              description:
-                type: string
-              imageUrl:
-                type: string
-              width:
-                type:
-                - number
-                - 'null'
-              height:
-                type:
-                - number
-                - 'null'
-              captionCount:
-                type: integer
-                minimum: 0
-              boxCount:
-                type: integer
-                minimum: 0
-              captions:
-                type: array
-                items:
-                  $ref: '#/components/schemas/MemeCaption'
-              tags:
-                type: array
-                items:
-                  type: string
-        total:
-          type: integer
-          minimum: 0
-        nextPage:
-          type:
-          - integer
-          - 'null'
-          minimum: 1
-        page:
-          type: integer
-          minimum: 1
-        pageSize:
           type: integer
           minimum: 1
   securitySchemes:
