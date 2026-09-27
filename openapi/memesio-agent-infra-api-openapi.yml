@@ -618,6 +618,68 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    AgentProfile:
+      type: object
+      required:
+      - id
+      - slug
+      - name
+      - description
+      - websiteUrl
+      - systemPrompt
+      - watermarkText
+      - stylePreset
+      - locale
+      - premiumStatus
+      - status
+      - createdAt
+      - updatedAt
+      properties:
+        id:
+          type: string
+        slug:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        websiteUrl:
+          type:
+          - string
+          - 'null'
+        systemPrompt:
+          type:
+          - string
+          - 'null'
+        watermarkText:
+          type:
+          - string
+          - 'null'
+        stylePreset:
+          type:
+          - string
+          - 'null'
+        locale:
+          type:
+          - string
+          - 'null'
+        premiumStatus:
+          type: string
+          enum:
+          - pending
+          - approved
+          - denied
+        status:
+          type: string
+          enum:
+          - active
+          - disabled
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     StandaloneAgentBootstrapResponse:
       type: object
       required:
@@ -685,68 +747,6 @@ components:
                 enum:
                 - agent
                 - developer
-    AgentProfile:
-      type: object
-      required:
-      - id
-      - slug
-      - name
-      - description
-      - websiteUrl
-      - systemPrompt
-      - watermarkText
-      - stylePreset
-      - locale
-      - premiumStatus
-      - status
-      - createdAt
-      - updatedAt
-      properties:
-        id:
-          type: string
-        slug:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        websiteUrl:
-          type:
-          - string
-          - 'null'
-        systemPrompt:
-          type:
-          - string
-          - 'null'
-        watermarkText:
-          type:
-          - string
-          - 'null'
-        stylePreset:
-          type:
-          - string
-          - 'null'
-        locale:
-          type:
-          - string
-          - 'null'
-        premiumStatus:
-          type: string
-          enum:
-          - pending
-          - approved
-          - denied
-        status:
-          type: string
-          enum:
-          - active
-          - disabled
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
   securitySchemes:
     DeveloperApiKeyAuth:
       type: apiKey

@@ -205,84 +205,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    MemeWatermarkConfig:
-      type: object
-      required:
-      - enabled
-      - text
-      - position
-      - scale
-      properties:
-        enabled:
-          type: boolean
-        text:
-          type: string
-        position:
-          type: string
-          enum:
-          - top_left
-          - top_right
-          - bottom_left
-          - bottom_right
-        scale:
-          type: number
-    CreateMemeResponse:
-      type: object
-      required:
-      - slug
-      - shareSlug
-      - shareUrl
-      - imageUrl
-      - canonicalImageUrl
-      - altText
-      - tags
-      - ownerToken
-      - visibility
-      - guestSessionId
-      properties:
-        slug:
-          type: string
-        shareSlug:
-          type: string
-        shareUrl:
-          type: string
-        imageUrl:
-          type: string
-        canonicalImageUrl:
-          type: string
-        altText:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        ownerToken:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-        guestSessionId:
-          type:
-          - string
-          - 'null'
-    DeleteMemeResponse:
-      type: object
-      required:
-      - ok
-      - deleted
-      - slug
-      - shareSlug
-      properties:
-        ok:
-          type: boolean
-        deleted:
-          type: boolean
-        slug:
-          type: string
-        shareSlug:
-          type: string
     MemeOverlayImage:
       type: object
       required:
@@ -321,111 +243,6 @@ components:
           type: boolean
         backgroundRemoved:
           type: boolean
-    MemeSummary:
-      type: object
-      required:
-      - slug
-      - shareSlug
-      - shareUrl
-      - title
-      - altText
-      - tags
-      - templateSlug
-      - visibility
-      - createdAt
-      - imageUrl
-      - canonicalImageUrl
-      - nsfwStatus
-      - shareViews
-      properties:
-        slug:
-          type: string
-        shareSlug:
-          type: string
-        shareUrl:
-          type: string
-        title:
-          type: string
-        altText:
-          type: string
-        tags:
-          type: array
-          items:
-            type: string
-        templateSlug:
-          type: string
-        visibility:
-          type: string
-          enum:
-          - public
-          - private
-        createdAt:
-          type: string
-          format: date-time
-        imageUrl:
-          type: string
-        canonicalImageUrl:
-          type: string
-        nsfwStatus:
-          type: string
-          enum:
-          - clear
-          - flagged
-        shareViews:
-          type: integer
-          minimum: 0
-    ListMemesResponse:
-      type: object
-      required:
-      - items
-      - total
-      - nextPage
-      - page
-      - pageSize
-      properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemeSummary'
-        total:
-          type: integer
-          minimum: 0
-        nextPage:
-          type:
-          - integer
-          - 'null'
-        page:
-          type: integer
-          minimum: 1
-        pageSize:
-          type: integer
-          minimum: 1
-          maximum: 50
-    MemeDetailResponse:
-      allOf:
-      - $ref: '#/components/schemas/MemeSummary'
-      - type: object
-        required:
-        - sourceImageUrl
-        - captions
-        - overlays
-        - canvas
-        - watermark
-        properties:
-          sourceImageUrl:
-            type: string
-          captions:
-            type: array
-            items:
-              $ref: '#/components/schemas/MemeCaption'
-          overlays:
-            type: array
-            items:
-              $ref: '#/components/schemas/MemeOverlayImage'
-          canvas:
-            $ref: '#/components/schemas/MemeCanvasConfig'
-          watermark:
-            $ref: '#/components/schemas/MemeWatermarkConfig'
     MemeCaption:
       type: object
       required:
@@ -515,6 +332,146 @@ components:
         recommendedCharsMax:
           type: integer
           minimum: 1
+    MemeSummary:
+      type: object
+      required:
+      - slug
+      - shareSlug
+      - shareUrl
+      - title
+      - altText
+      - tags
+      - templateSlug
+      - visibility
+      - createdAt
+      - imageUrl
+      - canonicalImageUrl
+      - nsfwStatus
+      - shareViews
+      properties:
+        slug:
+          type: string
+        shareSlug:
+          type: string
+        shareUrl:
+          type: string
+        title:
+          type: string
+        altText:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        templateSlug:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+        createdAt:
+          type: string
+          format: date-time
+        imageUrl:
+          type: string
+        canonicalImageUrl:
+          type: string
+        nsfwStatus:
+          type: string
+          enum:
+          - clear
+          - flagged
+        shareViews:
+          type: integer
+          minimum: 0
+    CreateMemeResponse:
+      type: object
+      required:
+      - slug
+      - shareSlug
+      - shareUrl
+      - imageUrl
+      - canonicalImageUrl
+      - altText
+      - tags
+      - ownerToken
+      - visibility
+      - guestSessionId
+      properties:
+        slug:
+          type: string
+        shareSlug:
+          type: string
+        shareUrl:
+          type: string
+        imageUrl:
+          type: string
+        canonicalImageUrl:
+          type: string
+        altText:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        ownerToken:
+          type: string
+        visibility:
+          type: string
+          enum:
+          - public
+          - private
+        guestSessionId:
+          type:
+          - string
+          - 'null'
+    MemeDetailResponse:
+      allOf:
+      - $ref: '#/components/schemas/MemeSummary'
+      - type: object
+        required:
+        - sourceImageUrl
+        - captions
+        - overlays
+        - canvas
+        - watermark
+        properties:
+          sourceImageUrl:
+            type: string
+          captions:
+            type: array
+            items:
+              $ref: '#/components/schemas/MemeCaption'
+          overlays:
+            type: array
+            items:
+              $ref: '#/components/schemas/MemeOverlayImage'
+          canvas:
+            $ref: '#/components/schemas/MemeCanvasConfig'
+          watermark:
+            $ref: '#/components/schemas/MemeWatermarkConfig'
+    MemeWatermarkConfig:
+      type: object
+      required:
+      - enabled
+      - text
+      - position
+      - scale
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
     MemeCanvasConfig:
       type: object
       required:
@@ -574,6 +531,49 @@ components:
         transform:
           type: object
           additionalProperties: true
+    ListMemesResponse:
+      type: object
+      required:
+      - items
+      - total
+      - nextPage
+      - page
+      - pageSize
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeSummary'
+        total:
+          type: integer
+          minimum: 0
+        nextPage:
+          type:
+          - integer
+          - 'null'
+        page:
+          type: integer
+          minimum: 1
+        pageSize:
+          type: integer
+          minimum: 1
+          maximum: 50
+    DeleteMemeResponse:
+      type: object
+      required:
+      - ok
+      - deleted
+      - slug
+      - shareSlug
+      properties:
+        ok:
+          type: boolean
+        deleted:
+          type: boolean
+        slug:
+          type: string
+        shareSlug:
+          type: string
   securitySchemes:
     DeveloperApiKeyAuth:
       type: apiKey

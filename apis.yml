@@ -39,7 +39,7 @@ specificationVersion: '0.23'
 tags:
 - Memes
 - Media
-- Image-Generation
+- Image Generation
 - Content
 - Developer Tools
 tags_raw:
@@ -48,6 +48,7 @@ tags_raw:
 - Image Generation
 - Content
 - Developer Tools
+- Image-Generation
 common:
 - type: CapabilityMap
   url: capabilities/memesio-capability-edges.yml
@@ -77,7 +78,7 @@ common:
 url-source: https://memesio.com/
 apis:
 - aid: memesio:memesio-agent-infra-api
-  name: Memesio agent-infra API
+  name: Memesio Agent Infra API
   description: The agent-infra API from Memesio — 16 operation(s) for agent-infra.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -117,7 +118,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-ai-captions-api
-  name: Memesio ai-captions API
+  name: Memesio AI Captions API
   description: The ai-captions API from Memesio — 9 operation(s) for ai-captions.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -157,7 +158,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-ai-jobs-api
-  name: Memesio ai-jobs API
+  name: Memesio AI Jobs API
   description: The ai-jobs API from Memesio — 8 operation(s) for ai-jobs.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -197,7 +198,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-ai-providers-api
-  name: Memesio ai-providers API
+  name: Memesio AI Providers API
   description: The ai-providers API from Memesio — 7 operation(s) for ai-providers.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -239,7 +240,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-analytics-api
-  name: Memesio analytics API
+  name: Memesio Analytics API
   description: The analytics API from Memesio — 8 operation(s) for analytics.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -281,7 +282,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-auth-api
-  name: Memesio auth API
+  name: Memesio Auth API
   description: The auth API from Memesio — 10 operation(s) for auth.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -323,7 +324,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-billing-api
-  name: Memesio billing API
+  name: Memesio Billing API
   description: The billing API from Memesio — 2 operation(s) for billing.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -365,7 +366,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-collaboration-api
-  name: Memesio collaboration API
+  name: Memesio Collaboration API
   description: The collaboration API from Memesio — 1 operation(s) for collaboration.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -407,7 +408,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-compliance-api
-  name: Memesio compliance API
+  name: Memesio Compliance API
   description: The compliance API from Memesio — 1 operation(s) for compliance.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -449,7 +450,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-developer-api-api
-  name: Memesio developer-api
+  name: Memesio Developer API
   description: The developer-api API from Memesio — 4 operation(s) for developer-api.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -491,7 +492,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-growth-api
-  name: Memesio growth API
+  name: Memesio Growth API
   description: The growth API from Memesio — 12 operation(s) for growth.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -533,7 +534,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-media-api
-  name: Memesio media API
+  name: Memesio Media API
   description: The media API from Memesio — 1 operation(s) for media.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -575,7 +576,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-memes-api
-  name: Memesio memes API
+  name: Memesio Memes API
   description: The memes API from Memesio — 4 operation(s) for memes.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -617,7 +618,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-public-free-api
-  name: Memesio public-free API
+  name: Memesio Public Free API
   description: The public-free API from Memesio — 2 operation(s) for public-free.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -657,7 +658,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-trend-alerts-api
-  name: Memesio trend-alerts API
+  name: Memesio Trend Alerts API
   description: The trend-alerts API from Memesio — 11 operation(s) for trend-alerts.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
@@ -697,7 +698,7 @@ apis:
   - type: JSONLDContext
     url: https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld
 - aid: memesio:memesio-video-api
-  name: Memesio video API
+  name: Memesio Video API
   description: The video API from Memesio — 9 operation(s) for video.
   humanURL: https://memesio.com/developers/api
   baseURL: https://memesio.com/api
