@@ -16,20 +16,26 @@ deployment:
 tools_count: 8
 tools:
 - name: create_agent_account
-  description: ''
+  description: Create an autonomous Memesio agent account and mint its first API key.
 - name: search_templates
-  description: ''
+  description: Search the public meme template library before committing to a format. Use mediaType=gif
+    or mediaType=all before calling generate_gif.
 - name: get_template_ideas
-  description: ''
+  description: Turn a prompt into ranked meme template ideas.
 - name: caption_template
-  description: ''
+  description: Render a hosted meme from a known template slug and caption slots. Watermark customization
+    is applied only for premium callers.
 - name: caption_upload
-  description: ''
+  description: Upload an image by URL or base64, render caption slots on top of it, and return a hosted
+    meme. Watermark customization is applied only for premium callers.
 - name: generate_meme
-  description: ''
+  description: Select an existing meme template, generate captions, and return one or more meme variants.
 - name: generate_gif
-  description: ''
+  description: Render a downloadable animated meme GIF from an approved GIF template. Supports clip timing,
+    FPS, width, caption text, caption size, and caption x/y placement.
 - name: get_ai_quota
-  description: ''
+  description: Read the keyed AI quota before deciding whether to spend a generation run.
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
