@@ -244,6 +244,86 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    FreeMemeWatermark:
+      type: object
+      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
+      properties:
+        enabled:
+          type: boolean
+        text:
+          type: string
+          maxLength: 64
+        position:
+          type: string
+          enum:
+          - top_left
+          - top_right
+          - bottom_left
+          - bottom_right
+        scale:
+          type: number
+          minimum: 0.6
+          maximum: 3
+    FreeCaptionMemeRequest:
+      type: object
+      required:
+      - templateSlug
+      - captions
+      properties:
+        templateSlug:
+          type: string
+        captions:
+          type: array
+          items:
+            oneOf:
+            - type: string
+              maxLength: 300
+            - $ref: '#/components/schemas/CaptionInput'
+        title:
+          type: string
+          maxLength: 140
+        visibility:
+          type: string
+          enum:
+          - private
+          - public
+        watermark:
+          $ref: '#/components/schemas/FreeMemeWatermark'
+    AiMemeGenerationSucceededResponse:
+      type: object
+      required:
+      - ok
+      - flow
+      - mode
+      - status
+      - variantCount
+      - variants
+      properties:
+        ok:
+          type: boolean
+          const: true
+        runId:
+          type: string
+        flow:
+          type: string
+          enum:
+          - text_to_meme
+        mode:
+          type: string
+          enum:
+          - template
+        status:
+          type: string
+          const: succeeded
+        variantCount:
+          type: integer
+          minimum: 0
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeGenerationVariant'
+        degradedFromAsync:
+          type: boolean
     FreeCaptionMemeSuccessResponse:
       type: object
       required:
@@ -306,41 +386,6 @@ components:
                 type: string
             watermark:
               $ref: '#/components/schemas/FreeMemeWatermark'
-    AiMemeGenerationSucceededResponse:
-      type: object
-      required:
-      - ok
-      - flow
-      - mode
-      - status
-      - variantCount
-      - variants
-      properties:
-        ok:
-          type: boolean
-          const: true
-        runId:
-          type: string
-        flow:
-          type: string
-          enum:
-          - text_to_meme
-        mode:
-          type: string
-          enum:
-          - template
-        status:
-          type: string
-          const: succeeded
-        variantCount:
-          type: integer
-          minimum: 0
-        variants:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemeGenerationVariant'
-        degradedFromAsync:
-          type: boolean
     CaptionInput:
       type: object
       required:
@@ -376,6 +421,88 @@ components:
           enum:
           - impact
           - arial
+    MemeGenerationVariant:
+      type: object
+      required:
+      - id
+      - mode
+      - providerId
+      - variantKind
+      - memeUrl
+      - pageUrl
+      - templateName
+      - fallbackUsed
+      - attempts
+      - estimatedCostUsd
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+          enum:
+          - template
+        providerId:
+          type: string
+        variantKind:
+          type: string
+          enum:
+          - template_captioned
+          - rendered_image
+        memeUrl:
+          type:
+          - string
+          - 'null'
+        pageUrl:
+          type:
+          - string
+          - 'null'
+        templateName:
+          type:
+          - string
+          - 'null'
+        templateSlug:
+          type:
+          - string
+          - 'null'
+        sourceImageUrl:
+          type:
+          - string
+          - 'null'
+        templateSelectionStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - provided_template
+          - provided_image
+          - library_search
+          - recommendation
+          - null
+        captionGenerationStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - openai
+          - heuristic
+          - provided
+          - null
+        captions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeCaption'
+        editable:
+          type: boolean
+        fallbackUsed:
+          type: boolean
+        attempts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        estimatedCostUsd:
+          type: number
+          minimum: 0
     MemeCaption:
       type: object
       required:
@@ -465,133 +592,6 @@ components:
         recommendedCharsMax:
           type: integer
           minimum: 1
-    FreeMemeWatermark:
-      type: object
-      description: Caption API requests accept watermark input, but non-premium callers are forced to the default Memesio watermark. Premium callers can customize enabled, text, position, and scale.
-      properties:
-        enabled:
-          type: boolean
-        text:
-          type: string
-          maxLength: 64
-        position:
-          type: string
-          enum:
-          - top_left
-          - top_right
-          - bottom_left
-          - bottom_right
-        scale:
-          type: number
-          minimum: 0.6
-          maximum: 3
-    MemeGenerationVariant:
-      type: object
-      required:
-      - id
-      - mode
-      - providerId
-      - variantKind
-      - memeUrl
-      - pageUrl
-      - templateName
-      - fallbackUsed
-      - attempts
-      - estimatedCostUsd
-      properties:
-        id:
-          type: string
-        mode:
-          type: string
-          enum:
-          - template
-        providerId:
-          type: string
-        variantKind:
-          type: string
-          enum:
-          - template_captioned
-          - rendered_image
-        memeUrl:
-          type:
-          - string
-          - 'null'
-        pageUrl:
-          type:
-          - string
-          - 'null'
-        templateName:
-          type:
-          - string
-          - 'null'
-        templateSlug:
-          type:
-          - string
-          - 'null'
-        sourceImageUrl:
-          type:
-          - string
-          - 'null'
-        templateSelectionStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - provided_template
-          - provided_image
-          - library_search
-          - recommendation
-          - null
-        captionGenerationStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - openai
-          - heuristic
-          - provided
-          - null
-        captions:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemeCaption'
-        editable:
-          type: boolean
-        fallbackUsed:
-          type: boolean
-        attempts:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        estimatedCostUsd:
-          type: number
-          minimum: 0
-    FreeCaptionMemeRequest:
-      type: object
-      required:
-      - templateSlug
-      - captions
-      properties:
-        templateSlug:
-          type: string
-        captions:
-          type: array
-          items:
-            oneOf:
-            - type: string
-              maxLength: 300
-            - $ref: '#/components/schemas/CaptionInput'
-        title:
-          type: string
-          maxLength: 140
-        visibility:
-          type: string
-          enum:
-          - private
-          - public
-        watermark:
-          $ref: '#/components/schemas/FreeMemeWatermark'
     UploadCaptionMemeSuccessResponse:
       type: object
       required:

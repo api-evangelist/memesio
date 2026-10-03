@@ -267,88 +267,6 @@ components:
             $ref: '#/components/schemas/MemeGenerationVariant'
         degradedFromAsync:
           type: boolean
-    MemeGenerationVariant:
-      type: object
-      required:
-      - id
-      - mode
-      - providerId
-      - variantKind
-      - memeUrl
-      - pageUrl
-      - templateName
-      - fallbackUsed
-      - attempts
-      - estimatedCostUsd
-      properties:
-        id:
-          type: string
-        mode:
-          type: string
-          enum:
-          - template
-        providerId:
-          type: string
-        variantKind:
-          type: string
-          enum:
-          - template_captioned
-          - rendered_image
-        memeUrl:
-          type:
-          - string
-          - 'null'
-        pageUrl:
-          type:
-          - string
-          - 'null'
-        templateName:
-          type:
-          - string
-          - 'null'
-        templateSlug:
-          type:
-          - string
-          - 'null'
-        sourceImageUrl:
-          type:
-          - string
-          - 'null'
-        templateSelectionStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - provided_template
-          - provided_image
-          - library_search
-          - recommendation
-          - null
-        captionGenerationStrategy:
-          type:
-          - string
-          - 'null'
-          enum:
-          - openai
-          - heuristic
-          - provided
-          - null
-        captions:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemeCaption'
-        editable:
-          type: boolean
-        fallbackUsed:
-          type: boolean
-        attempts:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        estimatedCostUsd:
-          type: number
-          minimum: 0
     MemeCaption:
       type: object
       required:
@@ -438,6 +356,88 @@ components:
         recommendedCharsMax:
           type: integer
           minimum: 1
+    MemeGenerationVariant:
+      type: object
+      required:
+      - id
+      - mode
+      - providerId
+      - variantKind
+      - memeUrl
+      - pageUrl
+      - templateName
+      - fallbackUsed
+      - attempts
+      - estimatedCostUsd
+      properties:
+        id:
+          type: string
+        mode:
+          type: string
+          enum:
+          - template
+        providerId:
+          type: string
+        variantKind:
+          type: string
+          enum:
+          - template_captioned
+          - rendered_image
+        memeUrl:
+          type:
+          - string
+          - 'null'
+        pageUrl:
+          type:
+          - string
+          - 'null'
+        templateName:
+          type:
+          - string
+          - 'null'
+        templateSlug:
+          type:
+          - string
+          - 'null'
+        sourceImageUrl:
+          type:
+          - string
+          - 'null'
+        templateSelectionStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - provided_template
+          - provided_image
+          - library_search
+          - recommendation
+          - null
+        captionGenerationStrategy:
+          type:
+          - string
+          - 'null'
+          enum:
+          - openai
+          - heuristic
+          - provided
+          - null
+        captions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemeCaption'
+        editable:
+          type: boolean
+        fallbackUsed:
+          type: boolean
+        attempts:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        estimatedCostUsd:
+          type: number
+          minimum: 0
   securitySchemes:
     DeveloperApiKeyAuth:
       type: apiKey
