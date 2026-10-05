@@ -1,0 +1,12 @@
+{
+ "url": "https://memesio.com/api/openapi",
+ "requested_url": "https://memesio.com/api/openapi",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 99733,
+ "sha256": "0cc7bc8bc8ff39a4f4ee64abe980175e301fe00de95cc3a6e5d78b806b99bd99",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.941), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
