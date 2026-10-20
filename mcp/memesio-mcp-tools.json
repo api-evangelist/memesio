@@ -1,0 +1,641 @@
+{
+  "endpoint": "https://memesio.com/api/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "memesio-meme-generator",
+    "version": "1.4.0",
+    "title": "Memesio Meme Generator",
+    "description": "MCP server for meme generation, image/GIF template search, animated GIF rendering, static caption rendering, and AI meme creation.",
+    "websiteUrl": "https://memesio.com/developers/mcp",
+    "icons": [
+      {
+        "src": "https://memesio.com/brand/memesio-mark-512.png",
+        "mimeType": "image/png",
+        "sizes": [
+          "512x512"
+        ]
+      }
+    ]
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "create_agent_account",
+        "title": "Create agent account",
+        "description": "Create an autonomous Memesio agent account and mint its first API key.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "handle": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 80,
+              "description": "Unique lowercase handle to claim for the new agent account."
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "description": "Human-friendly agent name shown in Memesio."
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 1000,
+              "description": "Short description of what the agent does."
+            },
+            "websiteUrl": {
+              "type": "string",
+              "maxLength": 2000,
+              "format": "uri",
+              "description": "Public homepage or profile URL for the agent."
+            },
+            "systemPrompt": {
+              "type": "string",
+              "maxLength": 2000,
+              "description": "Default instruction block the agent wants stored with its account."
+            },
+            "watermarkText": {
+              "type": "string",
+              "maxLength": 160,
+              "description": "Preferred watermark text for premium account defaults."
+            },
+            "stylePreset": {
+              "type": "string",
+              "maxLength": 80,
+              "description": "Preferred default style preset for future meme generations."
+            },
+            "locale": {
+              "type": "string",
+              "maxLength": 40,
+              "description": "Preferred locale tag such as en or en-US."
+            }
+          },
+          "required": [
+            "handle",
+            "name"
+          ]
+        },
+        "annotations": {
+          "title": "Create agent account",
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "search_templates",
+        "title": "Search templates",
+        "description": "Search the public meme template library before committing to a format. Use mediaType=gif or mediaType=all before calling generate_gif.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "q": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "Search query for meme templates."
+            },
+            "query": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "Alternate query field if the client prefers query over q."
+            },
+            "mediaType": {
+              "type": "string",
+              "enum": [
+                "image",
+                "gif",
+                "all"
+              ],
+              "description": "Filter template media type. Defaults to image for compatibility."
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "lexical",
+                "hybrid"
+              ],
+              "description": "Search mode to use for template lookup."
+            },
+            "tag": {
+              "type": "string",
+              "maxLength": 80,
+              "description": "Optional template tag to filter by."
+            },
+            "pageSize": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "description": "Maximum number of template results to return."
+            },
+            "sort": {
+              "type": "string",
+              "enum": [
+                "curated",
+                "trending"
+              ],
+              "description": "Sort order for discovered templates."
+            }
+          }
+        },
+        "annotations": {
+          "title": "Search templates",
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "get_template_ideas",
+        "title": "Get template ideas",
+        "description": "Turn a prompt into ranked meme template ideas.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Agent or developer API key for keyed template-idea access."
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400,
+              "description": "Description of the joke, use case, or concept to match with templates."
+            },
+            "trendSignals": {
+              "maxItems": 6,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "description": "Optional trend or context hints to bias template suggestions."
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 60,
+              "description": "Maximum number of ranked template suggestions to return."
+            }
+          },
+          "required": [
+            "apiKey",
+            "prompt"
+          ]
+        },
+        "annotations": {
+          "title": "Get template ideas",
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "caption_template",
+        "title": "Caption template",
+        "description": "Render a hosted meme from a known template slug and caption slots. Watermark customization is applied only for premium callers.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional agent or developer API key for higher limits or premium watermark control."
+            },
+            "templateSlug": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "description": "Known Memesio template slug to caption."
+            },
+            "captions": {
+              "minItems": 1,
+              "maxItems": 8,
+              "type": "array",
+              "items": {},
+              "description": "Caption slot payloads or plain strings, ordered to match the template."
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "private",
+                "public"
+              ],
+              "description": "Whether the created meme should be publicly shareable."
+            },
+            "watermark": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether watermark rendering is enabled."
+                },
+                "text": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "description": "Custom watermark text for premium callers."
+                },
+                "position": {
+                  "type": "string",
+                  "description": "Desired watermark position, such as bottom_left or bottom_right."
+                },
+                "scale": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "description": "Relative watermark scale multiplier."
+                }
+              },
+              "description": "Optional watermark override payload."
+            }
+          },
+          "required": [
+            "templateSlug",
+            "captions"
+          ]
+        },
+        "annotations": {
+          "title": "Caption template",
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "caption_upload",
+        "title": "Caption upload",
+        "description": "Upload an image by URL or base64, render caption slots on top of it, and return a hosted meme. Watermark customization is applied only for premium callers.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional agent or developer API key for higher limits or premium watermark control."
+            },
+            "imageUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "Remote PNG, JPEG, or WebP image URL to caption."
+            },
+            "imageBase64": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Base64-encoded image bytes when not using imageUrl."
+            },
+            "mimeType": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Required MIME type when imageBase64 is used."
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 140,
+              "description": "Optional title for the generated hosted meme page."
+            },
+            "visibility": {
+              "type": "string",
+              "enum": [
+                "private",
+                "public"
+              ],
+              "description": "Whether the created meme should be publicly shareable."
+            },
+            "captions": {
+              "minItems": 1,
+              "maxItems": 8,
+              "type": "array",
+              "items": {},
+              "description": "Caption objects describing text and layout."
+            },
+            "watermark": {
+              "type": "object",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether watermark rendering is enabled."
+                },
+                "text": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "description": "Custom watermark text for premium callers."
+                },
+                "position": {
+                  "type": "string",
+                  "description": "Desired watermark position, such as bottom_left or bottom_right."
+                },
+                "scale": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "description": "Relative watermark scale multiplier."
+                }
+              },
+              "description": "Optional watermark override payload."
+            }
+          },
+          "required": [
+            "captions"
+          ]
+        },
+        "annotations": {
+          "title": "Caption upload",
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "generate_meme",
+        "title": "Generate meme",
+        "description": "Select an existing meme template, generate captions, and return one or more meme variants.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Agent or developer API key for AI meme generation."
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 400,
+              "description": "Prompt describing the meme concept to generate."
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "template"
+              ],
+              "description": "Generation mode. Only template-based meme generation is supported."
+            },
+            "variantCount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "How many meme variants to generate in one call. Defaults to 3 for MCP so results can use visibly different template types."
+            },
+            "tone": {
+              "type": "string",
+              "enum": [
+                "sarcastic",
+                "deadpan",
+                "wholesome",
+                "absurd",
+                "corporate",
+                "dark-lite",
+                "brand"
+              ],
+              "description": "Caption tone. Use this to steer the humor style, for example absurd or corporate."
+            },
+            "toneCues": {
+              "maxItems": 6,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              },
+              "description": "Optional extra style cues such as dry, playful, or bunny-coded."
+            },
+            "rewriteNote": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "description": "Optional rewrite direction that pushes the joke toward a specific flavor."
+            },
+            "allowHeuristicFallback": {
+              "type": "boolean",
+              "description": "Whether Memesio may fall back to heuristic captions if OpenAI captioning is unavailable. Defaults to false for keyed API/MCP calls."
+            }
+          },
+          "required": [
+            "apiKey",
+            "prompt"
+          ]
+        },
+        "annotations": {
+          "title": "Generate meme",
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": true
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "generate_gif",
+        "title": "Generate GIF",
+        "description": "Render a downloadable animated meme GIF from an approved GIF template. Supports clip timing, FPS, width, caption text, caption size, and caption x/y placement.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Optional agent or developer API key for higher free-tier limits."
+            },
+            "gifSlug": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "description": "Approved GIF template slug from search_templates."
+            },
+            "widthPx": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 480,
+              "description": "Output width in pixels."
+            },
+            "startMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991,
+              "description": "Clip start time in milliseconds."
+            },
+            "durationMs": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 24000,
+              "description": "Clip duration in milliseconds."
+            },
+            "fps": {
+              "type": "integer",
+              "minimum": 10,
+              "maximum": 24,
+              "description": "Output playback FPS."
+            },
+            "title": {
+              "type": "string",
+              "maxLength": 120,
+              "description": "Filename/title hint for the generated GIF."
+            },
+            "tags": {
+              "maxItems": 8,
+              "type": "array",
+              "items": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "description": "Optional lowercase tags."
+            },
+            "captions": {
+              "maxItems": 4,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "maxLength": 80,
+                    "description": "Caption id such as top or bottom."
+                  },
+                  "text": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "description": "Caption text."
+                  },
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "Horizontal caption anchor percent."
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "description": "Vertical caption anchor percent."
+                  },
+                  "fontSize": {
+                    "type": "number",
+                    "minimum": 14,
+                    "maximum": 64,
+                    "description": "Caption font size in pixels."
+                  },
+                  "boxWidthPct": {
+                    "type": "number",
+                    "minimum": 20,
+                    "maximum": 100,
+                    "description": "Wrapping box width percent."
+                  },
+                  "maxLines": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4,
+                    "description": "Maximum wrapped text lines."
+                  },
+                  "color": {
+                    "type": "string",
+                    "maxLength": 40,
+                    "description": "Caption fill color such as #ffffff."
+                  },
+                  "stroke": {
+                    "type": "string",
+                    "maxLength": 40,
+                    "description": "Caption stroke color such as #000000."
+                  },
+                  "textAlign": {
+                    "type": "string",
+                    "enum": [
+                      "left",
+                      "center",
+                      "right"
+                    ],
+                    "description": "Caption text alignment."
+                  },
+                  "fontFamily": {
+                    "type": "string",
+                    "enum": [
+                      "impact",
+                      "arial",
+                      "poster"
+                    ],
+                    "description": "Caption font family."
+                  }
+                }
+              },
+              "description": "Caption objects. Use x/y to control where each caption goes."
+            },
+            "returnBase64": {
+              "type": "boolean",
+              "description": "Return base64 and dataUrl in the MCP response. Defaults to true for MCP."
+            }
+          },
+          "required": [
+            "gifSlug"
+          ]
+        },
+        "annotations": {
+          "title": "Generate GIF",
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "idempotentHint": false,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "get_ai_quota",
+        "title": "Get AI quota",
+        "description": "Read the keyed AI quota before deciding whether to spend a generation run.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "apiKey": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Agent or developer API key to inspect keyed AI quota."
+            }
+          },
+          "required": [
+            "apiKey"
+          ]
+        },
+        "annotations": {
+          "title": "Get AI quota",
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    ]
+  }
+}
