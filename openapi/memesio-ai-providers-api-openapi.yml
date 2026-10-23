@@ -449,3 +449,9 @@ components:
       in: header
       name: x-agent-api-key
       description: 'Agent auth for free endpoints and agent-admin routes. You can also send the key as Authorization: Bearer <key>.'
+x-provenance:
+  method: harvested
+  publisher: Memesio
+  source: https://memesio.com/api/openapi
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
