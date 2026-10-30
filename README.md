@@ -1,4 +1,4 @@
-# Memesio (memesio)
+# Memesio
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,86 +66,268 @@
 
 Memesio is a meme creation and sharing service offering a public template discovery, caption rendering, and AI-assisted image generation API. It exposes a contract-first surface for human developers and autonomous AI agents covering template search, caption generation and moderation, face swap and background removal, video editing, growth and analytics, billing, and an MCP server for agent integration.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/apis.yml)
+**Areas:** Memes · Media · Image Generation · Content · Developer Tools
 
-## Scope
+## Memesio on APIs.io
 
-- **Type:** Index
+Everything profiled for Memesio is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/memesio/](https://apis.io/providers/memesio/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (16)
 
-- Memes
-- Media
-- Image Generation
-- Content
-- Developer Tools
+- [Memesio Agent Infra API](https://apis.io/apis/memesio/memesio-agent-infra-api/) — The agent-infra API from Memesio — 16 operation(s) for agent-infra.
+- [Memesio AI Captions API](https://apis.io/apis/memesio/memesio-ai-captions-api/) — The ai-captions API from Memesio — 9 operation(s) for ai-captions.
+- [Memesio AI Jobs API](https://apis.io/apis/memesio/memesio-ai-jobs-api/) — The ai-jobs API from Memesio — 8 operation(s) for ai-jobs.
+- [Memesio AI Providers API](https://apis.io/apis/memesio/memesio-ai-providers-api/) — The ai-providers API from Memesio — 7 operation(s) for ai-providers.
+- [Memesio Analytics API](https://apis.io/apis/memesio/memesio-analytics-api/) — The analytics API from Memesio — 8 operation(s) for analytics.
+- [Memesio Auth API](https://apis.io/apis/memesio/memesio-auth-api/) — The auth API from Memesio — 10 operation(s) for auth.
+- [Memesio Billing API](https://apis.io/apis/memesio/memesio-billing-api/) — The billing API from Memesio — 2 operation(s) for billing.
+- [Memesio Collaboration API](https://apis.io/apis/memesio/memesio-collaboration-api/) — The collaboration API from Memesio — 1 operation(s) for collaboration.
+- [Memesio Compliance API](https://apis.io/apis/memesio/memesio-compliance-api/) — The compliance API from Memesio — 1 operation(s) for compliance.
+- [Memesio Developer API](https://apis.io/apis/memesio/memesio-developer-api-api/) — The developer-api API from Memesio — 4 operation(s) for developer-api.
+- [Memesio Growth API](https://apis.io/apis/memesio/memesio-growth-api/) — The growth API from Memesio — 12 operation(s) for growth.
+- [Memesio Media API](https://apis.io/apis/memesio/memesio-media-api/) — The media API from Memesio — 1 operation(s) for media.
+- [Memesio Memes API](https://apis.io/apis/memesio/memesio-memes-api/) — The memes API from Memesio — 4 operation(s) for memes.
+- [Memesio Public Free API](https://apis.io/apis/memesio/memesio-public-free-api/) — The public-free API from Memesio — 2 operation(s) for public-free.
+- [Memesio Trend Alerts API](https://apis.io/apis/memesio/memesio-trend-alerts-api/) — The trend-alerts API from Memesio — 11 operation(s) for trend-alerts.
+- [Memesio Video API](https://apis.io/apis/memesio/memesio-video-api/) — The video API from Memesio — 9 operation(s) for video.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-16
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Memesio API
+Model Context Protocol servers that expose the API to agents.
 
-Memesio's public REST API for meme template discovery, caption rendering, AI-driven meme generation, face swap and background removal, video editing, billing usage reporting, growth and analytics, alerts and trend campaigns, and autonomous agent identity/key management. The contract baseline (v0.1.0) titled "Memesio API Contracts" covers 82 operations across more than 35 domain tags including ai, ai-captions, ai-jobs, memes, templates, media, video, audio, motion, face-swap, background-remove, alerts, trend-alerts, analytics, billing, finops, growth, collaboration, compliance, moderation, channels, distribution, lifecycle, public-free, developer-api, observability, performance, personalization, experimentation, marketing-ops, data-eng, data-ops, data-science, agent-infra, and platform.
+- [memesio](https://apis.io/servers/memesio/memesio/)
 
-- **Human URL:** [https://memesio.com/developers/api](https://memesio.com/developers/api)
-- **Base URL:** `https://memesio.com/api`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Memes
-- Media
-- Image Generation
-- Content
-- Developer Tools
-- AI
-- Templates
-- Video
-- Captions
-- Face Swap
-- Background Remove
-- Agents
-- MCP
-- Billing
-- Analytics
-- Trends
-- Moderation
-- Compliance
-- Growth
+- [Memesio Agentic Access](https://apis.io/agentic-access/memesio/memesio-agentic-access/)
 
-#### Properties
+#### JSON Schema (23)
 
-- [Documentation](https://memesio.com/developers/api)
-- [OpenAPI](https://memesio.com/api/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/openapi/memesio-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [A P I Catalog](https://memesio.com/.well-known/api-catalog)
-- [Status Page](https://memesio.com/api/health)
-- [M C P Server](https://memesio.com/api/mcp)
-- [M C P Server Card](https://memesio.com/.well-known/mcp/server-card.json)
-- [M C P Documentation](https://memesio.com/developers/mcp)
-- [Sign Up](https://memesio.com/api/v1/agents/bootstrap)
-- [Content Policy](https://memesio.com/api/compliance/content-policy)
-- [Template Search](https://memesio.com/api/free/templates)
-- [Billing Usage](https://memesio.com/api/billing/usage)
-- [Plans](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/plans/memesio-plans-pricing.yml)
-- [Rate Limits](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rate-limits/memesio-rate-limits.yml)
-- [Fin Ops](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/finops/memesio-finops.yml)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/rules/memesio-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/vocabulary/memesio-vocabulary.yml)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/memesio/refs/heads/main/json-ld/memesio-context.jsonld)
-- [Postman Collection](collections/memesio.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/memesio.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-## Common Properties
+- [AgentApiKey](https://apis.io/schemas/memesio/memesio-agent-api-key/)
+- [AgentProfile](https://apis.io/schemas/memesio/memesio-agent-profile/)
+- [AiJob](https://apis.io/schemas/memesio/memesio-ai-job/)
+- [AiJobSubmitRequest](https://apis.io/schemas/memesio/memesio-ai-job-submit-request/)
+- [AiMemeGenerationFailedResponse](https://apis.io/schemas/memesio/memesio-ai-meme-generation-failed-response/)
+- [AiMemeGenerationSucceededResponse](https://apis.io/schemas/memesio/memesio-ai-meme-generation-succeeded-response/)
+- [CaptionInput](https://apis.io/schemas/memesio/memesio-caption-input/)
+- [CreateMemeResponse](https://apis.io/schemas/memesio/memesio-create-meme-response/)
+- [DeleteMemeResponse](https://apis.io/schemas/memesio/memesio-delete-meme-response/)
+- [FreeCaptionMemeRequest](https://apis.io/schemas/memesio/memesio-free-caption-meme-request/)
+- [FreeCaptionMemeSuccessResponse](https://apis.io/schemas/memesio/memesio-free-caption-meme-success-response/)
+- [FreeMemeWatermark](https://apis.io/schemas/memesio/memesio-free-meme-watermark/)
+- [FreeTemplateSearchResponse](https://apis.io/schemas/memesio/memesio-free-template-search-response/)
+- [ListMemesResponse](https://apis.io/schemas/memesio/memesio-list-memes-response/)
+- [MemeCanvasConfig](https://apis.io/schemas/memesio/memesio-meme-canvas-config/)
+- [MemeCaption](https://apis.io/schemas/memesio/memesio-meme-caption/)
+- [MemeDetailResponse](https://apis.io/schemas/memesio/memesio-meme-detail-response/)
+- [MemeGenerationVariant](https://apis.io/schemas/memesio/memesio-meme-generation-variant/)
+- [MemeOverlayImage](https://apis.io/schemas/memesio/memesio-meme-overlay-image/)
+- [MemeSummary](https://apis.io/schemas/memesio/memesio-meme-summary/)
+- [MemeWatermarkConfig](https://apis.io/schemas/memesio/memesio-meme-watermark-config/)
+- [StandaloneAgentBootstrapResponse](https://apis.io/schemas/memesio/memesio-standalone-agent-bootstrap-response/)
+- [UploadCaptionMemeSuccessResponse](https://apis.io/schemas/memesio/memesio-upload-caption-meme-success-response/)
+
+#### JSON Structure (23)
+
+Data models expressed in JSON Structure.
+
+- [Memesio Agent Api Key Structure](https://apis.io/json-structure/memesio/memesio-agent-api-key-structure/)
+- [Memesio Agent Profile Structure](https://apis.io/json-structure/memesio/memesio-agent-profile-structure/)
+- [Memesio Ai Job Structure](https://apis.io/json-structure/memesio/memesio-ai-job-structure/)
+- [Memesio Ai Job Submit Request Structure](https://apis.io/json-structure/memesio/memesio-ai-job-submit-request-structure/)
+- [Memesio Ai Meme Generation Failed Response Structure](https://apis.io/json-structure/memesio/memesio-ai-meme-generation-failed-response-structure/)
+- [Memesio Ai Meme Generation Succeeded Response Structure](https://apis.io/json-structure/memesio/memesio-ai-meme-generation-succeeded-response-structure/)
+- [Memesio Caption Input Structure](https://apis.io/json-structure/memesio/memesio-caption-input-structure/)
+- [Memesio Create Meme Response Structure](https://apis.io/json-structure/memesio/memesio-create-meme-response-structure/)
+- [Memesio Delete Meme Response Structure](https://apis.io/json-structure/memesio/memesio-delete-meme-response-structure/)
+- [Memesio Free Caption Meme Request Structure](https://apis.io/json-structure/memesio/memesio-free-caption-meme-request-structure/)
+- [Memesio Free Caption Meme Success Response Structure](https://apis.io/json-structure/memesio/memesio-free-caption-meme-success-response-structure/)
+- [Memesio Free Meme Watermark Structure](https://apis.io/json-structure/memesio/memesio-free-meme-watermark-structure/)
+- [Memesio Free Template Search Response Structure](https://apis.io/json-structure/memesio/memesio-free-template-search-response-structure/)
+- [Memesio List Memes Response Structure](https://apis.io/json-structure/memesio/memesio-list-memes-response-structure/)
+- [Memesio Meme Canvas Config Structure](https://apis.io/json-structure/memesio/memesio-meme-canvas-config-structure/)
+- [Memesio Meme Caption Structure](https://apis.io/json-structure/memesio/memesio-meme-caption-structure/)
+- [Memesio Meme Detail Response Structure](https://apis.io/json-structure/memesio/memesio-meme-detail-response-structure/)
+- [Memesio Meme Generation Variant Structure](https://apis.io/json-structure/memesio/memesio-meme-generation-variant-structure/)
+- [Memesio Meme Overlay Image Structure](https://apis.io/json-structure/memesio/memesio-meme-overlay-image-structure/)
+- [Memesio Meme Summary Structure](https://apis.io/json-structure/memesio/memesio-meme-summary-structure/)
+- [Memesio Meme Watermark Config Structure](https://apis.io/json-structure/memesio/memesio-meme-watermark-config-structure/)
+- [Memesio Standalone Agent Bootstrap Response Structure](https://apis.io/json-structure/memesio/memesio-standalone-agent-bootstrap-response-structure/)
+- [Memesio Upload Caption Meme Success Response Structure](https://apis.io/json-structure/memesio/memesio-upload-caption-meme-success-response-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Memesio Context](https://apis.io/jsonld/memesio/memesio-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Memesio Vocabulary](https://apis.io/vocabularies/memesio/memesio-vocabulary/)
+
+#### Examples (117)
+
+Example requests and responses.
+
+- [Memesio Agent Bootstrap Example](https://apis.io/examples/memesio/memesio-agent-bootstrap-example/)
+- [Memesio Ai Generate Meme Example](https://apis.io/examples/memesio/memesio-ai-generate-meme-example/)
+- [Memesio Billing Usage Example](https://apis.io/examples/memesio/memesio-billing-usage-example/)
+- [Memesio Caption Template Example](https://apis.io/examples/memesio/memesio-caption-template-example/)
+- [Memesio Content Policy Example](https://apis.io/examples/memesio/memesio-content-policy-example/)
+- [Memesio Delete Api Memes Slug Example](https://apis.io/examples/memesio/memesio-delete-api-memes-slug-example/)
+- [Memesio Delete Api V1 Agents Agentid Keys Keyid Example](https://apis.io/examples/memesio/memesio-delete-api-v1-agents-agentid-keys-keyid-example/)
+- [Memesio Get Api Ai Captions Generate Example](https://apis.io/examples/memesio/memesio-get-api-ai-captions-generate-example/)
+- [Memesio Get Api Ai Captions Tone Presets Example](https://apis.io/examples/memesio/memesio-get-api-ai-captions-tone-presets-example/)
+- [Memesio Get Api Ai Edit History Example](https://apis.io/examples/memesio/memesio-get-api-ai-edit-history-example/)
+- [Memesio Get Api Ai Jobs Example](https://apis.io/examples/memesio/memesio-get-api-ai-jobs-example/)
+- [Memesio Get Api Ai Jobs Jobid Example](https://apis.io/examples/memesio/memesio-get-api-ai-jobs-jobid-example/)
+- [Memesio Get Api Ai Memes Generate Example](https://apis.io/examples/memesio/memesio-get-api-ai-memes-generate-example/)
+- [Memesio Get Api Ai Providers Background Remove Benchmark Example](https://apis.io/examples/memesio/memesio-get-api-ai-providers-background-remove-benchmark-example/)
+- [Memesio Get Api Ai Providers Face Swap Benchmark Example](https://apis.io/examples/memesio/memesio-get-api-ai-providers-face-swap-benchmark-example/)
+- [Memesio Get Api Alerts Connectors Example](https://apis.io/examples/memesio/memesio-get-api-alerts-connectors-example/)
+- [Memesio Get Api Alerts Delivery Example](https://apis.io/examples/memesio/memesio-get-api-alerts-delivery-example/)
+- [Memesio Get Api Alerts Example](https://apis.io/examples/memesio/memesio-get-api-alerts-example/)
+- [Memesio Get Api Alerts Feedback Example](https://apis.io/examples/memesio/memesio-get-api-alerts-feedback-example/)
+- [Memesio Get Api Alerts Ingestion Example](https://apis.io/examples/memesio/memesio-get-api-alerts-ingestion-example/)
+- [Memesio Get Api Alerts Message Templates Example](https://apis.io/examples/memesio/memesio-get-api-alerts-message-templates-example/)
+- [Memesio Get Api Alerts Preferences Example](https://apis.io/examples/memesio/memesio-get-api-alerts-preferences-example/)
+- [Memesio Get Api Alerts Quality Report Example](https://apis.io/examples/memesio/memesio-get-api-alerts-quality-report-example/)
+- [Memesio Get Api Alerts Ranking Example](https://apis.io/examples/memesio/memesio-get-api-alerts-ranking-example/)
+- [Memesio Get Api Alerts Triggers Example](https://apis.io/examples/memesio/memesio-get-api-alerts-triggers-example/)
+- …and 92 more published on APIs.io
+
+#### Collections (43)
+
+Postman and Open Collection request collections.
+
+- [Memesio API Contracts](https://apis.io/collections/memesio/open-memesio/)
+- [Memesio API Contracts agent-infra API](https://apis.io/collections/memesio/open-memesio-agent-infra-api/)
+- [Memesio API Contracts agent-infra ai API](https://apis.io/collections/memesio/open-memesio-ai-api/)
+- [Memesio API Contracts agent-infra ai-captions API](https://apis.io/collections/memesio/open-memesio-ai-captions-api/)
+- [Memesio API Contracts agent-infra ai-jobs API](https://apis.io/collections/memesio/open-memesio-ai-jobs-api/)
+- [Memesio API Contracts agent-infra ai-providers API](https://apis.io/collections/memesio/open-memesio-ai-providers-api/)
+- [Memesio API Contracts agent-infra analytics API](https://apis.io/collections/memesio/open-memesio-analytics-api/)
+- [Memesio API Contracts agent-infra audio API](https://apis.io/collections/memesio/open-memesio-audio-api/)
+- [Memesio API Contracts agent-infra auth API](https://apis.io/collections/memesio/open-memesio-auth-api/)
+- [Memesio API Contracts agent-infra backend API](https://apis.io/collections/memesio/open-memesio-backend-api/)
+- [Memesio API Contracts agent-infra background-remove API](https://apis.io/collections/memesio/open-memesio-background-remove-api/)
+- [Memesio API Contracts agent-infra billing API](https://apis.io/collections/memesio/open-memesio-billing-api/)
+- [Memesio API Contracts agent-infra channels API](https://apis.io/collections/memesio/open-memesio-channels-api/)
+- [Memesio API Contracts agent-infra collaboration API](https://apis.io/collections/memesio/open-memesio-collaboration-api/)
+- [Memesio API Contracts agent-infra compliance API](https://apis.io/collections/memesio/open-memesio-compliance-api/)
+- [Memesio API Contracts agent-infra data-eng API](https://apis.io/collections/memesio/open-memesio-data-eng-api/)
+- [Memesio API Contracts agent-infra data-ops API](https://apis.io/collections/memesio/open-memesio-data-ops-api/)
+- [Memesio API Contracts agent-infra data-science API](https://apis.io/collections/memesio/open-memesio-data-science-api/)
+- [Memesio API Contracts agent-infra developer-api API](https://apis.io/collections/memesio/open-memesio-developer-api-api/)
+- [Memesio API Contracts agent-infra distribution API](https://apis.io/collections/memesio/open-memesio-distribution-api/)
+- [Memesio API Contracts agent-infra experimentation API](https://apis.io/collections/memesio/open-memesio-experimentation-api/)
+- [Memesio API Contracts agent-infra face-swap API](https://apis.io/collections/memesio/open-memesio-face-swap-api/)
+- [Memesio API Contracts agent-infra finops API](https://apis.io/collections/memesio/open-memesio-finops-api/)
+- [Memesio API Contracts agent-infra growth API](https://apis.io/collections/memesio/open-memesio-growth-api/)
+- [Memesio API Contracts agent-infra history API](https://apis.io/collections/memesio/open-memesio-history-api/)
+- …and 18 more published on APIs.io
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Memesio — jsonschema rules](https://apis.io/rules/memesio/memesio-jsonschema-spectral-rules/)
+- [Memesio API Rules](https://apis.io/rules/memesio/memesio-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Memesio Authentication](https://apis.io/security/memesio/memesio-authentication/)
+- [Memesio Domain Security](https://apis.io/security/memesio/memesio-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Memesio Plans Pricing](https://apis.io/plans/memesio/memesio-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Memesio Rate Limits](https://apis.io/rate-limits/memesio/memesio-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Memesio Finops](https://apis.io/finops/memesio/memesio-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://memesio.com/)
 - [Documentation](https://memesio.com/developers/api)
-- [OpenAPI](https://memesio.com/api/openapi) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [A P I Catalog](https://memesio.com/.well-known/api-catalog)
-- [Status Page](https://memesio.com/api/health)
-- [M C P Documentation](https://memesio.com/developers/mcp)
-- [M C P Server Card](https://memesio.com/.well-known/mcp/server-card.json)
-- [L L Ms Txt](https://memesio.com/llms.txt)
+- [Status](https://memesio.com/api/health)
+
+## API Evangelist rating
+
+**Kin Score 35.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 80.0 |
+| Contract quality | 47.9 |
+| Contract governance | 27.3 |
+| Operational transparency | 15.8 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 21.1 |
+
+**Agent readiness 36.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/memesio/](https://apis.io/providers/memesio/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Memesio: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/memesio/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
